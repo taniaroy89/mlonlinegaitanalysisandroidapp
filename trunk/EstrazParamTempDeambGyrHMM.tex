@@ -1,0 +1,317 @@
+	%--------------------------------------------------------------
+% thesis.tex 
+%--------------------------------------------------------------
+% Corso di Laurea in Informatica 
+% http://if.dsi.unifi.it/
+% @Facoltà di Scienze Matematiche, Fisiche e Naturali
+% @Università degli Studi di Firenze
+%--------------------------------------------------------------
+% - template for the main file of Informatica@Unifi Thesis 
+% - based on Classic Thesis Style Copyright (C) 2008 
+%   Andr\'e Miede http://www.miede.de   
+%--------------------------------------------------------------
+\documentclass[twoside,openright,titlepage,fleqn,headinclude,11pt,a4paper,BCOR5mm,footinclude]{scrbook}
+\usepackage[pdftex,hyperfootnotes=false,pdfpagelabels,pagebackref]{hyperref}	%creates hyperlinks within the document.
+\usepackage[pdftex]{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{microtype}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}	%typographic rules, hyphenations and special characters directly from keyboard
+\usepackage[latin1]{inputenc}	%keyboard input encoding
+\usepackage[square,numbers]{natbib}	%standard and non-standard bibliographic style files (BibTeX).  
+\usepackage[fleqn]{amsmath}	%american mathematica society math symbols
+\usepackage{amsfonts}	%collection is a set of miscellaneous TeX fonts 
+\usepackage{amssymb}	%symbols
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{bm}
+\usepackage{url}%http URLs
+\usepackage{breakurl}%http URLs that can be broken on multiple lines
+\usepackage{soul}
+\usepackage[framed]{ntheorem}
+\usepackage{framed}
+\usepackage{booktabs}
+\usepackage{textcase}
+\usepackage[automark]{scrpage2} 
+\usepackage{titlesec}
+%\usepackage{pstricks}
+\usepackage[titles]{tocloft}
+\usepackage{scrtime}
+\usepackage{ifthen}
+\usepackage{textcomp}
+\usepackage{mparhack}
+\usepackage{tabularx}
+\usepackage{fixltx2e}
+\usepackage{relsize}
+\usepackage[smaller]{acronym}
+\usepackage{caption}
+\usepackage{remreset}
+\usepackage{subfig}
+\usepackage{listings}
+\usepackage{ifpdf}
+\usepackage{hyperref}
+\usepackage[hyperpageref]{backref}
+\usepackage[osf,sc]{mathpazo}
+\usepackage{listings}
+\usepackage{lstcustom}
+\usepackage{bookmark}
+%\usepackage{index}
+\usepackage[toc,page]{appendix}
+\usepackage[titles]{tocloft}
+
+\definecolor{lightBlue}{rgb}{0.95,0.95,0.95}
+%\lstset{language=Java, backgroundcolor=\color{SpringGreen}, basicstyle=\small, commentstyle=\color{green}}
+\definecolor{javared}{rgb}{0.6,0,0} % for strings
+\definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments\definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
+\definecolor{javadocblue}{rgb}{0.25,0.35,0.75} % javadoc
+
+%\definecolor{javabackground}{rgb}{0.25,0.35,0.55}
+%\lstset{language=Java, backgroundcolor=\color{superLightBlue}, basicstyle=\small, commentstyle=\color{green}}
+%\usepackage[acronym]{glossaries} % make a separate list of acronyms
+%\makeglossaries
+%--------------------------------------------------------------
+
+\newcommand{\myTitle}{Metodi di Apprendimento Automatico per l'analisi in linea
+della Deambulazione: Sviluppo e Valutazione di un applicativo per Smartphone\xspace}
+\newcommand{\myEngTitle}{Machine Learning Methods for online Gait Analysis: Developement and Validation of a Smartphone Application}
+%fr Machine Learning Méthodes d'analyse temps réel la marche: Développement et validation sur un Smartphone
+%de Methoden des maschinellen Lernens für Real-Time-Ganganalyse: Entwicklung und Validierung auf einem Smartphone
+%es Machine Learning métodos de análisis de la marcha real de tiempo: Desarrollo y validación en un Smartphone
+
+% use the right myDegree option
+%\newcommand{\myDegree}{Corso di Laurea in Informatica\xspace}
+\newcommand{\myDegree}{	
+	Corso di Laurea Specialistica in Scienze e Tecnologie 
+	dell'Informazione\xspace}
+\newcommand{\myName}{Ahadu Tsegaye\xspace}
+\newcommand{\myProf}{Prof. Angelo Maria Sabatini\xspace}
+\newcommand{\myOtherProf}{Prof. Maria Cecilia Verri\xspace}
+%\newcommand{\mySupervisor}{Dott. Andrea Mannini\xspace}
+
+%\newcommand{\myOtherProf}{Prof. Frasconi}
+\newcommand{\myFaculty}{
+	Facoltà di Scienze Matematiche, Fisiche e Naturali\xspace}
+\newcommand{\myDepartment}{	Dipartimento di Sistemi e Informatica\xspace}
+\newcommand{\myUni}{\protect{	Università degli Studi di Firenze}\xspace}
+\newcommand{\myLocation}{Firenze\xspace}
+\newcommand{\myTime}{Anno Accademico 2010-2011\xspace}
+\newcommand{\myVersion}{\small \textcolor{red}{Revisione 3.40} \xspace} %last committed svn version.build
+\newcommand{\myShortVersion}{\small \textcolor{red}{v3.40} \xspace}
+%-----------------------------------------------------------\hypersetup{pdfstartview=FitW}
+\hypersetup{pdfstartview=FitW}
+%% Define a new 'leo' style for the package that will use a smaller font.
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
+\makeatother
+%% Now actually use the newly defined style.
+\urlstyle{leo}
+%--------------------------------------------------------------
+\usepackage{dia-classicthesis-ldpkg} 
+%--------------------------------------------------------------
+% Options for classicthesis.sty:
+% tocaligned eulerchapternumbers drafting linedheaders 
+% listsseparated subfig nochapters beramono eulermath parts 
+% minionpro pdfspacing
+\usepackage[eulerchapternumbers,subfig,beramono,eulermath,parts]{classicthesis}
+%--------------------------------------------------------------
+\newlength{\abcd} % for ab..z string length calculation
+% how all the floats will be aligned
+\newcommand{\myfloatalign}{\centering} 
+\setlength{\extrarowheight}{3pt} % increase table row height
+\captionsetup{format=hang,font=small}
+%--------------------------------------------------------------
+% Layout setting
+%--------------------------------------------------------------
+
+%\usepackage{geometry}
+%\geometry{
+%	a4paper,
+%	ignoremp,
+%	bindingoffset = 1cm, 
+%	textwidth     = 13.5cm,
+%	textheight    = 21.5cm,
+%	lmargin       = 3.5cm, % left margin
+%	tmargin       = 3cm    % top margin 
+%}
+%--------------------------------------------------------------
+%- Theorem Environments
+%\theoremstyle{plain}% already by default
+%---------------------------------------Begin Examples
+\theoremstyle{change}
+\theorembodyfont{\upshape}
+\theoremsymbol{\ensuremath{\ast}}
+\theoremseparator{}
+\newtheorem{example}{Example}
+%---------------------------------------End Examples
+\newtheorem{exercise}{Exercise}
+%\newtheorem{lemma}{Lemma}
+\newtheorem{notation}{Notation}
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{solution}{Solution}
+\newtheorem{summary}{Summary}
+%\newtheorem{theorem}{Theorem}
+
+%\newtheorem{definizione}{Definizione}
+%---------------------------------------Begin Definitions
+\theoremstyle{plain}
+\theoremsymbol{\ensuremath{\clubsuit}}
+\theoremseparator{.}
+\theoremprework{\bigskip\hrule}
+\theorempostwork{\hrule\bigskip}
+\newtheorem{definition}{Definizione}
+%\newframedtheorem{definizione}{Definizione}
+%\newshadedtheorem{definizione}{Definizione}
+%-----------------------------------------End Definitions
+
+
+\theoremstyle{marginbreak}
+\theoremheaderfont{\normalfont\bfseries}\theorembodyfont{\slshape}
+\theoremsymbol{\ensuremath{\diamondsuit}}
+\theoremseparator{:}
+\newtheorem{theorem}{Teorema} 
+%--------------------------------------.For Lemmas:
+\theoremstyle{changebreak}
+\theoremsymbol{\ensuremath{\heartsuit}}
+\theoremindent0.5cm
+\theoremnumbering{greek}
+\newtheorem{lemma}{Lemma} 
+
+%--------------------------------------.For Examples:
+
+%.For Proofs (note that theoremprework and theorempostwork are reset –
+%proofs do not have lines above and below):
+\theoremheaderfont{\sc}\theorembodyfont{\upshape}
+\theoremstyle{marginbreak}
+\theoremindent0.5cm
+\theoremsymbol{\rule{1ex}{1ex}}
+\newtheorem{dimostrazione}{Dimostrazione}
+
+\newcommand{\TODO}[1]{[ {\em\marginpar{} \textcolor{blue}{TODO: #1} } ] }
+\newcommand{\ERR}[1]{[ {\em\marginpar{} \textcolor{red}{ERR: #1} } ] }
+\def\tm{\leavevmode\hbox{$\rm {}^{TM}$}}
+
+\renewcommand\lstlistingname{Codice}
+\renewcommand\lstlistlistingname{Codice}
+\def\lstlistingautorefname{Cod.}
+
+
+\renewcommand{\appendixtocname}{Appendici}
+\renewcommand{\appendixpagename}{Appendici}
+
+%\newglossaryentry{sample}{name={sample},description={a sample entry}}
+%\newacronym[\glsshortpluralkey=cas,\glslongpluralkey=contrived acronyms]{aca}{aca}{a contrived acronym}
+
+%--------------------------------------------------------------
+%--------------------------------------------------------------
+\makeatletter
+\renewcommand{\@pnumwidth}{3em}
+%\renewcommand{\linewidth}{3em}
+\renewcommand{\@dotsep}{4.5}
+\def\l@chapter{\@dottedtocline{0}{2em}{1em}}
+\def\l@section{\@dottedtocline{1}{4em}{1.8em}}
+\def\l@subsection{\@dottedtocline{2}{6em}{2.4em}}
+\def\l@subsubsection{\@dottedtocline{3}{8em}{3.6em}}
+\makeatother
+%%% Aesthetic spacing redefines that look nicer to me than the defaults.
+%
+%\setlength{\cftbeforechapskip}{2ex}
+%\setlength{\cftbeforesecskip}{0.5ex}
+%
+%
+\renewcommand{\cftpartpresnum}{PARTE  }
+\renewcommand{\cftpartfont}{\hfill\Large\bfseries\hfill}
+
+%\renewcommand{\cftchapfont}{\bfseries}
+%\renewcommand{\cftchapleader}{\bfseries\cftdotfill{\cftchapdotsep}}
+%\renewcommand{\cftchappagefont}{\bfseries}
+%\renewcommand{\cftchappresnum}{CAP}
+%\renewcommand{\cftchapaftersnum}{:}
+%\renewcommand{\cftchapaftersnumb}{\\}
+
+%}
+%\makeindex
+\begin{document}
+\include{eng_to_ita}
+\frenchspacing
+\raggedbottom
+\pagenumbering{roman}
+\pagestyle{plain}
+%--------------------------------------------------------------
+% Frontmatter
+%--------------------------------------------------------------
+\frontmatter
+\include{titlePage}
+\renewcommand\contentsname{Indice}
+\addtocontents{toc}{~\hfill\textbf{Pagina}\par}
+\tableofcontents
+
+%\makeatletter \renewcommand{\@dotsep}{10000} \makeatother
+%\listoftables
+%\makeatletter \renewcommand{\@dotsep}{4.5} \makeatother
+%\listoffigures
+
+
+\pagestyle{scrheadings}
+%--------------------------------------------------------------
+% Mainmatter
+%--------------------------------------------------------------
+\mainmatter
+\cleardoublepage 
+\pagenumbering{arabic}
+
+\input{SOMMARIO}
+
+\addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
+\addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
+\addtocontents{toc}{\cftpagenumbersoff{part}}
+\part{Stato dell'arte}
+
+\include{CAP_intro} % use \myChapter command instead of \chapter
+\include{CAP_chinesiologia}
+\include{CAP_statoDellArte}
+
+
+
+\addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
+\addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
+\part{Lavoro svolto}
+
+\include{CAP_materiali}
+\include{CAP_AndroidApp}
+\include{CAP_validazione}
+\include{CAP_risultati}
+%--------------------------------------------------------------
+% Backmatter
+%--------------------------------------------------------------
+
+\addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
+\addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
+\part{Appendice}
+%\addtocontents{toc}{\cftpartpresnumoff{part}}
+%\bookmarksetup{startatroot}
+%\addtocontents{toc}{\bigskip}
+%\let\cleardoublepage\clearpage
+\appendix
+%\appendixpage
+\addtocontents{toc}{\cftpagenumbersoff{chapter}}
+\include{APPENDICE_hmm}
+\include{APPENDICE_meccanica}
+\include{APPENDICE_sensori}
+\include{APPENDICE_android}
+
+%\include{RINGRAZIAMENTI}
+%--------------------------------------------------------------
+%	Extras
+%--------------------------------------------------------------
+\include{Todo_list}
+%--------------------------------------------------------------
+\bibliographystyle{IEEEtran}
+\bibliography{biblio}
+%\printglossaries
+%\addcontentsline{toc}{chapter}{Glossary}
+\end{document}
+%------------------------------------	--------------------------
+	

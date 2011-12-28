@@ -1,0 +1,514 @@
+\chapter{Sulle HMM}
+%\myChapter{Sulle HMM} 
+%\HMM=Modelli di Markov a Stati Nascosti
+\label{cap:hmm}
+I HMM sono strumenti di modellazione di sequenze temporali. Un comune esempio di applicazione è il riconoscimento della comunicazione verbale (Speech Recognition)\cite{tutorial_hmm_application_speech_recognition}. 
+Una sequenza temporale non è altro che un segnale.
+
+\begin{definition}[Segnale]
+	Un segnale è l'\OUTPUT osservabile di un processo,
+	che in base al numero di sorgenti di provenienza viene detto
+		\begin{itemize}
+			\item \textbf{Puro}, se a sorgente unica
+			\item \textbf{Corrotto} altrimenti
+		\end{itemize}
+\end{definition}
+
+
+Un segnale può essere di natura discreta, o continua rispetto al tempo. Ad esempio un segnale che consista in una sequenza di caratteri viene raggruppato fra i segnali discreti, mentre la comunicazione verbale fra i segnali continui.\\
+
+La sorgente di un segnale (il processo), a sua volta, può essere stazionaria, se le sue proprietà statistiche non variano nel tempo, o non stazionaria altrimenti.
+
+\section{Problema: Modellare segnali}
+Il problema della modellazione dei segnali è di fondamentale importanza, in molti settori.
+Le motivazioni principali sono la riproduzione dei segnali e la scoperta delle loro sorgenti.
+Esistono varie tipologie di modelli dai quali scegliere per modellare al meglio un dato segnale. La suddivisione maggiore è quella fra modelli deterministici e stocastici. 
+\begin{itemize}
+	\item {Modelli deterministici}: descrivono il segnale mediante le sue proprietà note. Ad esempio la luce ha una velocità pari a $300.000 km/s$.
+	\item {Modelli stocastici}: descrivono le proprietà statistiche del segnale. Un esempio di modello statistico sono i processi gaussiani, i processi marcoviani e le HMM.  In questi modelli si assume che il segnale possa essere caratterizzato come un Processo Parametrico Stocastico, con parametri stimabili in modo algoritmico. 
+\end{itemize}
+
+I modelli deterministici descrivono i comportamenti di tutti i parametri di un segnale, in tutte le condizioni possibili. In molti casi però, i segnali di interesse sono abbastanza complessi, o oscurati, da non poterne conoscerne tutti i parametri, quindi i modelli deterministici risultano inefficaci.
+L'alternativa sono i modelli stocastici che descrivono solo un sottoinsieme dei parametri che caratterizzano un segnale, oppure una risultante di questi, e dato che il segnale si comporta solo in parte come i parametri descritti, il modello può fornire solo una descrizione probabilistica del segnale. 
+
+\section{Processi di Markov Discreti}
+La tipologia più semplice di modello di Markov sono quelli discreti.
+
+\begin{definition}[Processi di Markov Discreti]$<N,M,A,\pi>$\\
+Dato un insieme di stati $S = \{s_1,\ldots, s_N\}$ sono detti Processi di Markov Discreti dei 
+sistemi che ad ogni istante di tempo $t$ assumono uno stato, ovvero lo stato corrente $q_t = s_k \in S$. \\
+\begin{itemize}
+	\item $q_0 = \displaystyle \max_{0 \leq i \leq N} \pi_i$ 
+	\item $q_t = \displaystyle \max_{0 \leq j \leq N} A_{q_{t-1},j}\quad  1 \leq t \leq T$
+\end{itemize}
+\end{definition}
+
+\TODO{fare rappresentazione ad automi a stati finiti}
+\begin{figure}
+	\centering
+		\includegraphics[width=1.00\textwidth]{imgs/descreteMarkovProcesses.jpg}
+	\caption{Rappresentazione a lattice di Processo Discreto di Markov}
+	\label{fig:descreteMarkovProcesses}
+\end{figure}
+
+ Si può dare una descrizione probabilistica completa dei processi di Markov Discreti con la seguente equazione:
+
+\begin{equation}
+\wp [q_t = s_j | q_{t-1} = s_i, \ldots, q_0 = S_k]
+\label{eq:fullProbDescription}
+\end{equation}
+
+Un caso speciale di \eqref{eq:fullProbDescription} in cui la probabilità che il sistema si trovi in un determinato stato nel presente dipende solo dall'istante di tempo precedente e non da tutta la storia a partire dal primo istante di tempo.
+\begin{definition}[Modelli di Markov del Primo Ordine]
+	\begin{equation}
+		\wp[q_t = S_j | q_{t-1} = S_i]
+		\label{eq:first_Order_MM}
+	\end{equation}
+\end{definition}
+
+ Le Catene di Markov ad ogni istante temporale compiono una transizione di stato con una probabilità nota. Tale probabilità è descritta nella Matrice delle Probabilità di Transizione.
+\begin{definition}[Matrice delle Probabilità di transizione]
+	\begin{equation}
+		A = a_{i,j} = \wp[q_t = S_j | q_{t-1} = S_i]\quad \text{con} 1 \leq i,j \leq N
+		\label{eq:trans_prob}
+	\end{equation}
+\end{definition}
+
+Proprietà delle $a_{ij}$ derivanti dal fatto che sono dei valori di probabilità:
+\begin{enumerate}
+	\item $a_{ij}\geq 0$
+	\item $\displaystyle\sum_{j=1}^{N}{a_{ij}}=1$
+\end{enumerate}
+All'istante di tempo iniziale $t = 0$, lo stato della Catena marcoviana è determinato da una distribuzione di probabilità. Un vettore $\pi: 1\times N$ che a ciascuno stato fa corrispondere la probabilità che sia lo stato iniziale, questa è nota come probabilità a Priori o probabilità dello stato iniziale.
+
+\begin{definition}[Distribuzione di probabilità dello stato iniziale]
+\begin{equation}
+	\pi_i = \wp(q_1 = S_i) \quad \text{con} 1 \leq i \leq N
+\label{eq:prior}
+\end{equation}
+  
+\end{definition}
+
+
+\section{HMM}
+\label{sec:HMM}
+Avvolte le osservazioni sono funzioni probabilistiche di qualche stato nascosto (cioè esiste un processo stocastico  nascosto che produce una sequenza di osservazioni).  
+
+%Il problema è come costruire un modello di marcoviano che le spieghi? 
+%\TODO questo algoritmo fa veramente pena, valutare se mantenerlo
+%\begin{algorithm}    
+%\caption{Creare HMM}
+%\label{alg:HMM_create}                                                  
+%\begin{algorithmic}[1]                    
+%WHILE{\COMMENT{modello = miglior spiegazione delle osservazioni}}
+%	\STATE \COMMENT{Stabilire il numero di stati}
+%	\STATE \COMMENT{Stabilire a cosa corrisponde ogni stato nella realtà }
+%\ENDWHILE
+%\RETURN \COMMENT{modello}
+%\end{algorithmic}
+%\end{algorithm}
+
+\begin{definition}[Matrice di probabilità delle Osservazioni]
+\begin{equation}
+\begin{split}
+B &= \{b_j(k)\} \\
+&\text{dove } b_j(k) = \wp[v_k \quad \text{all'istante } t | q_t = s_j] \quad \text{con } 1\leq j \leq N \quad , 1\leq k \leq M
+\end{split}	 
+\label{eq:emissionMtx}
+\end{equation}
+\end{definition}
+
+\begin{definition}[HMM a Osservazioni discrete]
+ \begin{equation}
+	HMM = <N, M, A, B, \pi>
+\label{eq:hmm}
+\end{equation}
+dove:
+ \begin{enumerate}
+	\item $N = |S|$ è l'insieme degli stati $S = \{s_1,\ldots, s_N\}$,
+	\item $M = |V|$ è un insieme finito di Simboli di Osservazione $V = \{v_1, \ldots, v_M\}$ ,
+	\item $A$ è la matrice di transizione definita in \eqref{eq:trans_prob},
+	\item $B$ è la matrice di probabilità dei Simboli di Osservazione definita in \eqref{eq:emissionMtx},
+	\item $\pi$ è il vettore di probabilità a priori definto in \eqref{eq:prior}.
+\end{enumerate}
+\end{definition}
+
+Un HMM può essere usato per generare una sequenza di osservazioni $O=\{O_1,O_2,\ldots,O_T\}$ nel seguente modo:
+\begin{algorithm}    
+\caption{genera sequenze con HMM}
+\label{alg:HMM_seq_gen}                                                  
+\begin{algorithmic}[1]                    
+	\STATE $q_1 = \displaystyle\arg\max_{1\leq i \leq N}{\pi_i}$
+	\FOR{ $t = 1, \ldots, T ; t++$}
+		\STATE $o_t = \displaystyle\max_{1 \leq s \leq N}[b_{{q_t},s}]$
+		\STATE $q_t = \displaystyle\arg\max_{1\leq j \leq N}{a_{i,j}}$
+	\ENDFOR	
+\RETURN \COMMENT{modello}
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{HMM ad emissioni continue}
+Nel caso in cui le osservazioni siano continue è necessario avere un modello che associ ad ogni stato una distribuzione di emissione, invece che un singolo valore. Un esempio di distribuzione è la gaussiana mono variata. In questo caso la definizione della matrice di emissione descritta in \eqref{eq:emissionMtx} diventa
+\begin{equation}
+B = b_j(x) = \mathcal{N}(x,\mu_j,\sigma_j) = \frac{1}{\sigma_j\sqrt{2\pi}}\textbf{e} ^{-\frac{(x-\mu_j)^2}{2 \sigma_j^2}}\quad
+\text{per} 1 \leq j \leq N
+\label{eq:continuousEmissionMtx}
+\end{equation}
+
+La formula può essere generalizzata a più gaussiane multivariate dette misture gaussiane
+
+\begin{equation}
+B = b_j(x) = \displaystyle \sum_{m = 1}^{M} c_{j,m}\mathcal{N}(x,\bm\mu_j,\bm\Sigma_j)\quad \text{ per } 1 \leq j \leq N
+\label{eq:continuousEmissionMtxGauusianMixtures}
+\end{equation}
+
+Ovviamente è possibile applicare qualunque tipo di distribuzione al posto della gaussiana.\\
+Dalla definizione \eqref{eq:continuousEmissionMtxGauusianMixtures} segue 
+\begin{equation}
+\int_{-\infty}^{\infty}{b_j(x)}dx = 1 \quad \text{ per } 1 \leq j \leq N
+\label{eq:contEmissGaussMixProperty}
+\end{equation}
+
+
+\subsection{Tipi di HMM}
+\label{sec:tipi_hmm}
+Vi sono casi particolari di HMM che sono considerati importanti per la loro ricorrenza nella descrizione di sistemi naturali. 
+Il più generico tipo di HMM è noto come Ergodico, in cui ogni stato è connesso ad ogni altro stato, quindi la matrice di transizione è una matrice senza zeri. \\
+Un modello più significativo è il modello Bakis o Sinistra-Destra. In questo modello l'aumentare del tempo, causa una variazione monotona crescente modulo $N$ sull'indice degli stati. Questo modello è conforme ai segnali le cui proprietà variano con il tempo. Le matrici di transizione dei modelli Sinistra-Destra, godono della proprietà
+\begin{equation}
+\begin{split}
+ a_{i,j} = 0 \quad \forall j < i\\
+ a_{i,j} = 0 \quad j>i+\Delta
+\end{split} 
+\label{eq:bakisTransitionMtx}
+\end{equation}
+La seconda condizione serve ad evitare che vi siano grossi balzi in avanti sugli stati, di solito $\Delta = 2$.
+Inoltre le probabilità iniziali hanno il vincolo
+\begin{equation}
+\pi_i = 1 \Leftrightarrow i = 1
+\label{eq:}
+\end{equation} 
+supponendo di avere gli stati ordinati da $1$ ad $N$
+
+\section[Tre problemi per le HMM]{Tipi di problemi che si affrontano con le HMM}
+
+Generalmente con le HMM si affrontano 3 tipologie di problemi. 
+
+\begin{enumerate}
+	\item \textbf{Valutazione}: dati $O$ e $\lambda$, calcolare $\wp(O|\lambda)$ in modo ottimale.
+	\item \textbf{Decodifica}: dati $O$ e $\lambda$, trovare la sequenza di stati $Q=q_1,q_2,\ldots, q_T$ ``migliore'', secondo un criterio di ottimalità, che possa aver generato $O$.
+	\item \textbf{Apprendimento}: dato $\lambda$, regolarne i parametri per massimizzare $\wp(O|\lambda)$?
+\end{enumerate}
+
+
+\subsubsection{Valutazione} 
+Il problema della valutazione consiste nel calcolare la probabilità che una certa sequenza di osservazioni sia stata prodotta da un dato modello.
+La soluzione del problema permette, dati diversi modelli candidati $\lambda_1, \ldots, \lambda_n$ ed una sequenza di osservazioni $O$, di scegliere $\lambda_k$ con $\displaystyle \max_{1\leq i \leq n}\{\wp(O|\lambda_i)\}$.\\
+
+Una soluzione naïve della Valutazione è quello di enumerare tutte le possibili sequenze di stati (detti anche percorsi)  $Q = q_1, \ldots, q_T$ dove $q_i \in S={s_1,s_2,\ldots, s_N}$ e calcolare per ciascuna la probabilità che l'osservazione sia stata prodotta da essa e moltiplicare il risultato per la probabilità che quel particolare percorso venga scelto.
+\begin{equation}
+\begin{split}
+	\wp(O|\lambda) & = \displaystyle \sum_{1\leq t \leq T, i \in \{\text{tutti Q}\}}\wp(O_t|Q_i, \lambda)\wp(Q_i|\lambda) \quad \text{dove}\\
+	& \wp(O|Q_i, \lambda)  =  \displaystyle \prod_{1\leq t \leq T} \wp(O_t|q_{i,t}, \lambda) \\ 	 
+	& = b_{q_i,1}(O_1)*\ldots*b_{q_i,T}(O_T)\quad \text{e}\\
+  & \wp(Q_i|\lambda)  =  \pi_{q_1}*a_{q_1,q_2}*\ldots *a_{q_T-1,q_T} 
+\end{split}
+\label{eq:naiveEvaluation}
+\end{equation}
+
+l'algoritmo ha complessità esponenziale, $O(N^T)$.\\
+
+La soluzione ottima a questo problema è data dall'algoritmo di programmazione lineare noto come Forward. L'idea su cui si basa è di considerare dei percorsi parziali per rappresentare osservazioni parziali. Vengono definite le variabili $\alpha_{i,t}$ come la probabilità di aver osservato la sequenza parziale $O_1, \ldots, O_t$ e di essere nello stato $S_i$ all' istante temporale $t$ 
+\begin{equation}
+\alpha_{i,t} = \wp(o_1, \ldots, o_t, q_T=S_i|\lambda)
+\label{eq:alpha}
+\end{equation}
+
+Dalla definizione \eqref{eq:alpha} ricaviamo la matrice $\alpha (N \times T)$ nella quale vengono inserite le probabilità parziali per ogni combinazione stato-tempo, di modo che al passo temporale successivo il calcolo possa essere basato su tali valori e non ricalcolando tutto dal primo istante di tempo. 
+\begin{algorithm}    
+\caption{Forward}
+\label{alg:fwd}                                                  
+\begin{algorithmic}[1]
+\STATE {}\COMMENT{1. Inizializzazione}                    
+\FOR{$j = 1$ to N=|S|} 
+\STATE {$\alpha_{j,1}=\pi_j b_j(o_1)$\hspace{1.5cm}}\COMMENT{ \emph{La probabilità congiunta di partire dal $j$-esimo stato} } 
+\ENDFOR \hspace{4cm}\COMMENT{ \emph{ed emettere il primo segnale dallo stesso}} 
+\STATE {}\COMMENT {2. Induzione}
+\FOR{$t = 1$ to $T-1$} 
+	\FOR{$j = 1$ to $N$ }
+		\STATE {$\alpha_{j, t+1}=[\displaystyle\sum_{i=1}^N\alpha_{i,t}a_{i,j}]b_j(o_{t+1})$\hspace{.5cm}}
+		 \COMMENT{ \emph{La probabilità congiunta di arrivare al} } 	
+		 \ENDFOR	\hspace{4cm}\COMMENT{ \emph{$j$-esimo stato ed emettere il $t+1$-esimo segnale}}
+\ENDFOR
+\STATE{}\COMMENT{3. Terminazione}
+\FOR{$j = 1$ to $N$} 
+	\STATE {$\wp(O|\lambda)=\displaystyle\sum_{j=1}^N \alpha_{j,T} $}
+\ENDFOR
+\end{algorithmic}
+\end{algorithm}
+
+La complessità dell'algoritmo Forward è $O(NT)$. Il netto miglioramento è dovuto al fatto che i risultati parziali vengono riutilizzati, limitando il numero di calcoli da svolgere ad ogni istante temporale a $N$. La struttura grafica su cui si basa l'algoritmo Forward è detta struttura a traliccio. \\
+  
+
+
+\subsubsection{Decodifica} 
+Nella decodifica, si cerca la sequenza di stati $Q = q_1,\ldots,q_T$ che ha generato una data sequenza di osservazioni $O = o_1,\ldots, o_T$. Dato che, al contrario della Valutazione, non esiste un'unica soluzione al problema delle Decodifica, quello che si fa è di stabilire un criterio di ottimalità in funzione del quale fare la ricerca. \\
+Un possibile criterio di ottimalità della sequenza è quello di scegliere gli stati $q_t$ che all'istante di tempo $t$ sono i più probabili. Tale criterio massimizza il numero atteso di stati corretti individualmente. \\
+Per risolvere il problema necessitiamo di due variabili $\beta$ e $\gamma$. La prima è definita come risultato dell' algoritmo Backward, che computa il processo inverso dell'algoritmo Forward.
+
+\begin{equation}
+\beta_{i,t}=\wp(o_{t+1}\ldots o_T|q_t = S_i,\lambda)
+\label{eq:beta}
+\end{equation}
+
+
+\begin{algorithm}    
+\caption{Backward}
+\label{alg:bckwd}                                                  
+\begin{algorithmic}[1]                    
+\STATE {}\COMMENT{1. Inizializzazione}                    
+\FOR{$j = 1$ to N=|S|} 
+	\STATE {$\beta_{j,T} = 1$}
+\ENDFOR
+\STATE {}\COMMENT {2. Induzione}
+\FOR{$t = T-1$ to $1$} 
+	\FOR{$i = 1$ to $N$ }
+		\STATE $\beta_{i,t}=\displaystyle\sum_{j=1}^N a_{i,j}b_j(o_{t+1})\beta_{j,t+1}$
+	\ENDFOR
+\ENDFOR
+\end{algorithmic}
+\end{algorithm}
+
+La seconda variabile, $\gamma$ è definita come la probabilità di essere in uno stato $S_i$ al tempo $t$, data un'osservazione $O$ ed un modello $\lambda$.
+\begin{equation}
+\gamma_{i,t} = \wp(q_t = S_i| O, \lambda)
+\label{eq:gamma}
+\end{equation}
+$\gamma$ può essere calcolata in funzione delle variabili di Forward e Backward:
+
+\begin{equation}
+\gamma_{i,t} = \dfrac{\alpha_{i,t}\beta_{i,t}}{\wp(O|\lambda)} = 
+							 \dfrac{\alpha_{i,t}\beta_{i,t}}{\displaystyle\sum_{j = 1}^N \alpha_{j,t}\beta_{j,t}}
+\label{eq:gammaFnAlphaBeta}
+\end{equation}
+
+$\alpha_{i,t}$, fornisce le probabilità delle osservazioni parziali fino a $t$, mentre $\beta_{i,t}$, da $t+1$ in poi, essendo correntemente nello stato $S_i$. Il denominatore dell'equazione \eqref{eq:gammaFnAlphaBeta} è un fattore di normalizzazione che rende $\gamma$ un valore di probabilità, quindi sarà valida la proprietà
+\begin{equation}
+\displaystyle\sum_{i = 1}^N \gamma_{i,t} = 1
+\label{eq:proprietàGamma}
+\end{equation}
+ Usando $\gamma$ è possibile trovare lo stato $q$ che individualmente è il più probabile al tempo $t$:
+\begin{equation}
+q_t = \arg\max_{0 \leq i \leq N} \gamma_{i,t}
+\label{eq:statoPiùProbabile}
+\end{equation}
+
+Anche se \eqref{eq:statoPiùProbabile} massimizza il numero di stati più probabili scegliendo quelli che individualemente sono i più probabili, potrebbe creare problemi nel momento in cui si considera una sequenza di stati. Se la HMM ha anche transizioni nulle, la sequenza generata da \eqref{eq:gammaFnAlphaBeta} potrebbe essere non valida, perché non vi è nessun controllo sulla probabilità di co-occorrenza di stati. \\
+Il criterio di ottimlalità può essere cambiato ad individuare la miglior sequenza di lunghezza $T$ che massimizzi la probabilità di tutti gli stati nella sequenza. Per trovare il cammino migliore, viene usato un metodo di programmazione dinamica detto algoritmo di Viterbi.
+	L'algoritmo di Viterbi individua la migliore sequenza di stati che rispondano a una data sequenza di osservazioni: \begin{equation}
+\delta_{i,t} = \max_{q_1,\ldots q_{t-1}}\wp(q_1 \ldots q_t = S_i,o_1 \ldots o_t|\lambda)\\
+\label{eq:delta}
+\end{equation}
+
+Nella matrice $\delta$ vengono inserite le probabilità, mentre per tenere traccia del percorso migliore si usa una variabile $\psi$:
+\begin{equation}
+\psi_{i,t} = \arg\max_{q_1,\ldots q_{t-1}}\wp(q_1 \ldots q_t=i,o_1 \ldots o_t|\lambda)
+\label{eq:psi}
+\end{equation}
+
+La procedura completa per trovare il percorso di stati più probabile è la seguente:
+\begin{algorithm} 
+\caption{Viterbi}
+\label{alg:viterbi}                                                  
+\begin{algorithmic}[1]                    
+\STATE{}\COMMENT{Inizializzazione}
+\FOR {$i = 0$ to $N$}
+	\STATE {$\delta_{i,1} = \pi_i b_i(o_1)$}
+	\STATE {$\psi_{i,1} = 0$}
+\ENDFOR
+\STATE{}\COMMENT{Iterazione}
+\FOR{$t = 2$ to $T$}
+	\FOR{$i = 1$ to $N$} 
+		\STATE $ \delta_{i,t}=\displaystyle\max_{1\leq j \leq N} [\delta_{j,t-1}a_{j,i}]* b_i(o_i)$
+		\STATE $ \psi_{i,t}=\displaystyle\arg \max_{1\leq j \leq N} [\delta_{j, t-1}a_{j,i}]$
+	\ENDFOR
+\ENDFOR
+\STATE{}\COMMENT{Terminazione}
+\STATE $P* = \displaystyle \max_{1\leq i \leq N} [\delta_{i,T}]$
+\STATE $q_T* = \displaystyle \arg \max_{1\leq i \leq N} [\delta_{i,T}]$
+\STATE{}\COMMENT{Backtracking}
+\FOR{$t=T-1$ to $1$}
+	\STATE{$q*_t=\psi_{q*_{t+1},t+1}$}
+\ENDFOR
+\end{algorithmic}[1]
+\end{algorithm}
+	
+	
+\subsection{Algoritmo di Viterbi in Tempo Reale}	
+Il problema dell'algoritmo di Viterbi in molte applicazioni reali, è la latenza. I sistemi che utilizzano l'algoritmo hanno spesso necessità di avere risultati immediati, in tempo reale. Trovare la sequenza di stati più verosimile che ha generato una sequenza di osservazioni è (come mostrato dall'algoritmo \ref{alg:viterbi}) fattibile con l'algoritmo di Viterbi, tracciando percorsi nella sequenza temporale di stati ed una volta arrivato a termine (tempo finale $T$), ricostruendo a ritroso il cammino migliore. Un problema significativo dell'algoritmo è che assume che la sequenza temporale sia finita. Vi sono molti casi pratici in cui l'applicazione dell'algoritmo sarebbe utile, per i quali i dati sono un flusso continuo ed incessante di dati. Una possibile soluzione è l'applicazione del'algoritmo di Viterbi a finestre successive di dati, dopo la quale restituire solo una parte iniziale degli decodificati  \cite{synface_low_latency_viterbi}, \cite{automatic_bass_line_transcript}(perché hanno una probabilità maggiore di essere corretti). Questa soluzione, conduce a una decodifica sub-ottimale.\\
+Un'altra soluzione consiste nel confrontare più percorsi su una finestra temporale in espansione, finché le soluzioni non convergono. Nel lavoro \cite{real_time_viterbi_optimization_multi_target_tracking} per la localizzazione automatica di un soggetto via video, la finestra temporale viene dinamicamente ridimensionata in base a un'euristica che bilanci latenza e accuratezza. Questo tipo di approccio non garantisce la convergenza dei percorsi considerati. L'approccio che noi abbiamo usato nel lavoro è quello proposto da Bloit et al \cite{short_time_viterbi_online_hmm_deconding}. 
+
+\begin{definition}[Cammino locale]
+Viene detta cammino locale, la sequenza di stati $s(a,b,i)$ ottenuta applicando l'algoritmo di Viterbi alla finestra temporale dall'istante temporale $a$ all'istante $b$ (con $a < b$) e compiendo il backtracking da uno stato arbitrario $i$ al tempo $b$. 
+\end{definition}
+
+\begin{definition}[Punto di Fusione]
+Si definisce punto di fusione,l'istante temporale $\tau < T$  t.c per $a \leq t \leq \tau$, tutti i cammini locali appartenente all'insieme dei cammini locali $CL =\{ s(a,b,i), \forall i \in S\}$ (dove $S$ è l'insieme degli stati dell'HMM), sono uguali.
+\end{definition}
+	
+Un punto di fusione gode della seguente proprietà:
+i cammini locai fino al punto di fusione (che per definizione sono tutti uguali) sono sempre uguali al cammino globale (quello ottenibile con l'algortimo di Viterbi originale \ref{alg:viterbi})\footnote{per la dimostrazione consultare \cite{short_time_viterbi_online_hmm_deconding}}.
+
+%\begin{algorithm} 
+%\caption{ShortTimeViterbi}                                                  
+%\label{alg:short_time_viterbi_decoding}   
+
+
+\begin{algorithmic}
+\STATE{$a = 0$, $b = 0$ }
+%\FOR {ogni finestra temporale al tempo $b$}
+%	\STATE calcola  $s_t(a,b,i) \forall I \in (a,b,\lambda)$
+%	\IF{se viene trovato punto di fusione $\tau > a $}
+%	\STATE risultato = $s*_{a,\tau}$
+%	\STATE $a = \tau$
+%\ENDFOR
+\end{algorithmic}
+%\label{alg:short_time_viterbi_decoding}   
+
+
+	
+\subsubsection {Apprendimento}
+Il problema consiste nel configurare i parametri di $\lambda$ per massimizzare la probabilità di una sequenza di dati osservati. Non è noto un metodo analitico per risolvere il problema, infatti, data una sequenza finita di osservazioni, non esiste un modo ottimo di stimare i parametri di $\lambda$. Possiamo però scegliere $\lambda$ in modo da massimizzare localmente $\wp(O|\lambda)$, con un procedimenti iterativi come 
+\begin{itemize}
+	\item Baum-Welch
+	\item Expectation-Modification
+	\item Tecniche basate sul gradiente
+\end{itemize}
+La procedura iterativa è detta riestimazione, e consiste in un miglioramento graduale (in base ad un criterio) ed un aggiornamento dei parametri. Per descivere le riestimazione, è necessario definire la variabile $\xi$ come la probabilità di essere in un certo stato in un istante di tempo ed essere in un altro nel successivo istante di tempo:
+\begin{equation}
+\begin{split}
+\xi_t(i,j) &= \wp(q_t = S_i, q_{t + 1} = S_j|O,\lambda)\\
+					 &= \displaystyle \dfrac{\alpha_{i,t} a_{i,j}b_i(o_t)\beta_{j, t+1}}{\wp(O|\lambda)}=
+\displaystyle \dfrac{\alpha_{i,t} a_{i,j}b_i(o_t)\beta_{j, t+1}}{\displaystyle\sum_{i=1}^{N}\sum_{j=1}^{N}\alpha_{i,t} a_{i,j}b_i(o_t)\beta_{j, t+1}}
+\label{eq:xi}
+\end{split}
+\end{equation}
+
+Possiamo correlare $\gamma$ e $\xi$ nel seguente modo
+\begin{equation}
+\gamma_{i,t} = \displaystyle\sum_{j=1}^N \xi_t(i,j)
+\label{eq:gammaxi}
+\end{equation}
+
+\begin{definition}{Numero di transizioni attese}\\
+\begin{itemize}
+	\item Numero di transizioni attese da $S_i$
+		\begin{equation}
+			\displaystyle \sum_{t=1}^{T-1} \gamma_{i,t}
+			\label{eq:numTransizAtteseDa}
+		\end{equation}
+	\item Numero di transizioni attese da $S_i$ a $S_j$
+		\begin{equation}
+			\displaystyle \sum_{t=1}^{T-1} \xi_t(i,j)
+			\label{eq:numTransizAtteseDaA}
+		\end{equation}
+	\item $\overline{\pi}_i$ = numero di volte nello stato $S_i$ a tempo $t = 1$ atteso 
+			\begin{equation}
+					= \gamma_{i,1}
+			\label{eq:piGamma}
+			\end{equation}
+	\item	$\overline{a}_{i,j} =\displaystyle \dfrac{\text{numero di transizioni attese dallo stato} S_i \text{allo stato} S_j}
+																								 {\text{numero di transizioni attese dallo stato} S_i}$
+			\begin{equation}
+					= \displaystyle\dfrac{\displaystyle\sum_{t=1}^{T-1}\xi_t(i,j)}
+														  {\displaystyle\sum_{t=1}^{T-1}\gamma_{i,t}}
+			\label{eq:transitionMtxXi}
+			\end{equation}																								 
+																							
+	\item $\overline{b}_j(k) =\displaystyle \dfrac{\text{numero di volte nello stato} S_j \text{osservando} v_k}
+																								 {\text{numero di volte atteso nello stato} S_i}$
+			\begin{equation}
+					= \displaystyle\dfrac{\displaystyle\sum_{t=1	}^{T}\gamma_{j,t}\quad \text{t.c. $o_t = v_k$}}
+														  {\displaystyle\sum_{t=1}^{T}\gamma_{j,t}}  
+			\label{eq:emissionMtxGamma}
+			\end{equation}				 
+\end{itemize}
+\end{definition}
+
+Dato il modello $\lambda = (A,B,\pi)$ indico il modello riestimato con $\overline{\lambda} = (\overline{A},\overline{B},\overline{\pi})$. L.Baum et al\cite{maximization_technique_stat_analysis_fun_markov_ch} hanno dimostrato che nel processo di riestimazione è vera una delle seguenti alternative:
+\begin{enumerate}
+	\item $\lambda = \overline{\lambda}$
+	\item $ \wp(O|\overline{\lambda}) > \wp(O|\lambda)$
+\end{enumerate}
+
+Nel secondo caso è possibile sostituire $\overline{\lambda}$ a $\lambda$, ripetendo l'iterazione, finché non si verifica una condizione d'arresto, ed il risultato della procedura è detto stima di massiva verosimiglianza (maximum likelihood estimate) dell'HMM
+\begin{algorithm}    
+\caption{Baum-Welsh o Maximum Likelihood Expectation.  }
+\label{alg:baum_welsh}                                                  
+\begin{algorithmic}[1]                   
+\REQUIRE{maxlikelihood($\lambda = A,B,\pi$)}
+\REPEAT 
+	\STATE{\fbox{$\pi_i=\gamma_1(i)$}
+		\fbox{{$a_{ij}=\dfrac{\displaystyle\sum_{t=1}^{T-1}\xi_t(i,j)}{\displaystyle\sum_{t=1}^{T-1}\gamma_t(i)}$}}
+		\fbox{$b_j(k)=\dfrac{\displaystyle\sum_{t=1, O_t=V_k}^{T}\gamma_t(j)}{\displaystyle\sum_{t=1}^{T}\gamma_t(j)}$}}
+	\IF{$\lambda=\tilde{\lambda}$}
+		\RETURN{$\lambda$}
+	\ELSIF{$\wp(O|\tilde{\lambda})>\wp(O|\lambda)$}
+		\STATE maxlikelihood$(\tilde{\lambda})$
+	\ENDIF
+\UNTIL{\COMMENT{una condizione limite}}
+\end{algorithmic}
+\end{algorithm}
+
+
+
+\section{Problemi di implementazione di HMM}
+Vi sono diversi problemi che si devono affrontare per implementare le HMM ed i vari algoritmi sinora descritti. Alcuni di questi sono 
+\begin{itemize}
+	\item Ridimensionamento (scaling): la procedura di riestimazione, comporta una lunga sequenza di prodotti di valori di probabilità. Ciò fa in modo che i valori tendano esponenzialmente a zero, quindi vi è un inevitabile problema di underflow. L'unico modo di ovviare al problema è quello di ridimensionare i valori, moltiplicandoli per un coefficiente che non dipenda dallo stato, ma solo dal tempo. Alla fine del processo, i coefficienti di ridimensionamento vengono eliminati.  \\
+	Ad esempio nella procedura di riestimazione si calcola la matrice di transizione con l'equazione \eqref{eq:transitionMtxXi}
+		\begin{equation}
+				\overline{a_{i,j}}= \dfrac{\displaystyle\sum_{t=1}^{T-1}\alpha_{i,t}a_{i,j}b_j(o_{t+1})\beta_{j,t+1}}													{\displaystyle\sum_{t=1}^{T-1}\displaystyle\sum_{j=1}^{N}\alpha_{i,t}a_{i,j}b_j(o_{t+1})\beta_{j,t+1}}
+		\label{eq:transitionMtxAlphaBeta}
+		\end{equation}
+		
+	Usando un coefficiente di ridimensionamento è $c_t = $
+	\begin{equation}
+			\frac{1}{\displaystyle\sum_{j=1}^{N}\alpha_{i,t}}
+	\label{eq:scaleFactorOForAlpha}
+	\end{equation}
+	si ottiene un $\alpha_{j,t}$ scalato 
+	\begin{equation}
+		\hat{\alpha}_{j,t} = \dfrac{\displaystyle\sum_{j=1}^N \hat{\alpha}_{j,t-1}a_{i,j}b_j(o_t)}
+		{\displaystyle\sum_{i=1}^{N}\displaystyle\sum_{j=1}^{N}\hat{\alpha}_{i,t-1}a_{i,j}b_j(o_{t})}
+	\label{eq:scaledAlpha}
+	\end{equation}
+	Nel momento in cui vengono calcolati i $\beta_{j,t}$, vengono eliminati i fattori di ridimensionamento:
+	\begin{equation}
+			\hat{\beta}_{j,t} = c_t\beta_{j,t}
+	\label{eq:scaledBeta}
+	\end{equation}
+	
+	La modifica più importante deve essere applicata all'algoritmo Forward, perché si è interessati al valore di probabilità. In questo caso non è possibile semplicemente sommare $\hat{\alpha_{j,t}}$, perché sono valori scalati e privi di significato se presi singolarmente. In questo caso viene usata la seguente proprietà:
+	\begin{equation}
+		\begin{split}
+			\prod_{t=1}^T c_t \displaystyle \sum_{i=1}^N \alpha_{i,T}& = 1\\
+			\prod_{t=1}^T c_t \wp(O|\lambda) &= 1 \Leftrightarrow \wp (O|\lambda) = \frac{1}{\prod_{t=1}^T c_t}
+		\end{split}
+	\label{eq:proprietàCAlpha}
+	\end{equation}
+	Qui introduciamo il logaritmo della probabilità, in modo che il valore sia calcolabile su un computer
+	\begin{equation}
+		\log (\wp(O|\lambda)) = -\displaystyle\sum_{t=1}^T \log c_t
+	\label{eq:logLikelihood}
+	\end{equation}
+	\item Molteplici sequenze di osservazione. Nelle HMM Sinistra-Destra, non si possono usare singole sequenze di osservazioni per addestrare il modello, perché questo tipo di modello tende a uscire molto facilmente da uno stato, quindi ad ogni stato corrispondono pochissime osservazioni. Ciò implica che per una quantità di dati sufficiente a fare una stima affidabile dei parametri del modello si devono usare più sequenze di osservazioni.  
+	\item Stime dei parametri iniziali. Un problema tutt'ora irrisolto è come scegliere i valori dei parametri iniziali in modo tale che i massimi locali corrispondano al massimo globale della funzione di verosimiglianza (likelihood). Normalmente quello che si fa è scegliere valori casuali oppure uniformi per poi iniziare la procedura di riestimazione. Invece per quanto riguarda i parametri $B$ è necessaria una buona stima iniziale, che solitamente viene fatta con un processo di segmentazione e media delle osservazioni in stati. 
+	\item Insufficienza di dati. Un problema frequente è che il numero di osservazioni è troppo basso per consentire di avere una stima abbastanza buona dei parametri del modello. Una possibile soluzione è quella di aumentare il numero di dati, ma ciò è spesso impraticabile. L'approccio inverso è quello di ridurre il numero di parametri, come ad esempio il numero di stati. Ciò è in teoria sempre praticabile, ma spesso poco sensato, in quanto vi sono delle motivazioni valide per avere quei parametri. Una terza alternativa è quella di interpolare tra un insieme di stime di parametri con un'altro da un modello per il quale si ha un numero sufficiente di dati di addestramento. L'idea è quella di progettare insieme al modello, anche una versione ridotta dello stesso, per il quale il numero di dati in possesso sia sufficiente. Date le stime per i parametri del modello $\lambda = (A,B,\pi)$ come per la versione ridotta $\lambda' = (A',B',\pi')$ il modello interpolata è ottenuto come
+	\begin{equation}
+		\tilde{\lambda} = \epsilon \lambda + (1- \epsilon)\lambda'
+	\label{eq:modelInterpolation}
+	\end{equation}
+	dove $\epsilon$ rappresenta un peso che viene associato ai parametri del modello, ed $(1- \epsilon)$ il peso associato a quelli del modello ridotto. Il valore di $\epsilon$ viene determinato in funzione dei dati di addestramento. Mercer et al \cite{interpolation_markov_params_sparse_data} hanno dimostrato che è possibile stimare l'$\epsilon$ ottimo mediante l'algoritmo Forward-Backward, espandendo la HMM a partire da \eqref{eq:modelInterpolation}.
+	\item Scelta della dimensione e tipo del modello. Si tratta della scelta dei parametri che si deve fare all'inizio per rappresentare al meglio il problema con le HMM. Il tipo di HMM, Ergodico o Sinistra-Destra, la dimensione del modello  cioè numero di stati, l'alfabeto di osservazione, discreti o continui, a distribuzione singola o a misture di distribuzioni. Non vi è un metodo standard, o migliore di prendere queste decisioni, ma devono essere fatte in base al tipo di segnale che si sta modellando.
+\end{itemize}

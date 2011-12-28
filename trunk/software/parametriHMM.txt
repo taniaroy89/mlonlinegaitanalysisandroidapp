@@ -1,0 +1,33 @@
+ ((ArrayList<Double>) A2.get(0)).add(0.900511494060);  
+ ((ArrayList<Double>) A2.get(0)).add(0.099488505940);
+ ((ArrayList<Double>) A2.get(0)).add(0.000000000000);
+ ((ArrayList<Double>) A2.get(0)).add(0.000000000000);
+
+ A2.add(new ArrayList<Double>());
+ ((ArrayList<Double>) A2.get(1)).add(0.000000000000);  
+ ((ArrayList<Double>) A2.get(1)).add(0.975188660736);
+ ((ArrayList<Double>) A2.get(1)).add(0.024811339264);
+ ((ArrayList<Double>) A2.get(1)).add(0.000000000000);
+
+ A2.add(new ArrayList<Double>());
+ ((ArrayList<Double>) A2.get(2)).add(0.000000000000);
+ ((ArrayList<Double>) A2.get(2)).add(0.000000000000);
+ ((ArrayList<Double>) A2.get(2)).add(0.966040030546);
+ ((ArrayList<Double>) A2.get(2)).add(0.033959969454);
+ 
+ A2.add(new ArrayList<Double>());
+ ((ArrayList<Double>) A2.get(3)).add(0.038563064399);
+ ((ArrayList<Double>) A2.get(3)).add(0.000000000000);
+ ((ArrayList<Double>) A2.get(3)).add(0.000000000000);
+ ((ArrayList<Double>) A2.get(3)).add(0.961436935601);
+
+ PI2 = new ArrayList<Object>();
+ PI2.add(0.093680000000);
+ PI2.add(0.387040000000);
+ PI2.add(0.276360000000);
+ PI2.add(0.242920000000);
+ 
+
+
+ double mu[] = {-41.536671188502, -22.825996403411,-179.301603863911, 271.216883868647};
+ double sigma[] = { 26645.804952691447, 1216.771217433809, 44305.599928037460, 12050.476722021422 };

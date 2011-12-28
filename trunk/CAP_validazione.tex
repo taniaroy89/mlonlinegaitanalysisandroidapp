@@ -1,0 +1,26 @@
+\chapter{Validazione}
+%\myChapter{Validazione}
+%%%%%%%%%%%%%%%%%%%%%%%%%%% INTRODUZIONE
+La terza fase del lavoro è la validazione. Abbiamo utilizzato un semplice meccanismo di triangolazione per fare una rapida verifica di funzionamento del lavoro totale. In dettaglio, data la  cadenza (passi/minuto) e la velocità di deambulazione (m/sec), si può stimare la distanza percorsa.  Allo stesso momento, si può usare un dispositivo GPS\footnote{Global Positioning System} per stimare la distanza percorsa e confrontare i due risultati. Ci si aspetta di avere degli errori considerevoli sull'approssimazione della distanza del GPS, in quanto ha un'accuratezza di ($\pm$ 15m).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% DESCRIZIONE A GRANDI LINEE DELLA VALIDAZIONE
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% ACQUISIZIONE DATI (ESPERIMENTO)
+%%%%%%%%%%%%% LAB
+La IMU è stata posizionata sul collo del piede di un soggetto, 
+il quale è stato sottoposto a 6 sessioni di cammino su threadmill. 
+Ciascuna sessione era della durata di 1:30 minuti. 
+La velocità del threadmill è stata regolata a 2Km/h per la prima sessione ed aumentata di 1 km/h ad ogni sessione fino a 8Km/h.\\
+La segmentazione di ciascuna sessione di cammino è stata salvata su un file, dal quale è stata calcolata la cadenza.
+Per calcolare la cadenza è sufficiente conoscere contare il numero di cicli di deambulazione al minuto. Quello che abbiamo fatto è calcolare la cadenza usando ognuno dei 4 eventi, determinati dalla segmentazione, per calcolare la cadenza. Facendo la media dei 4 risultati abbiamo ottenuto una buona stima della cadenza. Questa operazione è stata ripetuta per ciascuna velocità. \\
+Abbiamo ottenuto una distribuzione di valori di cadenza per ciascuna velocità. A questo punto applicando una regressione lineare abbiamo trovato una relazione tra cadenza e velocità.\\
+
+
+%%%%%%%%%%%%% FUORI
+Dopo aver caricato bene le batterie dello Smartphone, siamo usciti dal laboratorio ed abbiamo fattola la prova per le strade di Pontedera. Il soggetto degli esperimenti, ha indossato anche in questo caso la IMU sul collo del piede. La velocità di cammino, qui è stata scelta del soggetto. Sullo Smartphone è stato attivato il segmentatore e su un altro il GPS. La distanza ed il percorso fatto tra i due punti è stata stimata dal GPS.
+
+I dati del GPS, sono riferiti a coordinate geografiche\footnote{longitudine, latitudine} che sono state convertite per poter calcolare distanze in metri.
+ 
+ 
