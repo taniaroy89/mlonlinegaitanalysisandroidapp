@@ -1,0 +1,220 @@
+\abstract
+\chapter{Estrazione di parametri temporali della deambulazione umana, dai segnali di un giroscopio posizionato sul collo del piede}
+
+In questo lavoro si affronta il problema dell'analisi della deambulazione umana. 
+Tale studio ha applicazioni importanti in almeno tre settori molto variegati: in campo medico, nella diagnosi e/o riabilitazione di pazienti affetti da problemi motori; in campo sportivo per il perfezionamento di tecniche e monitoraggio di allenamenti specifici e nel campo della robotica e per simulazione del movimento umano. 
+
+I metodi con cui è stato affrontato tale problema possono essere suddivisi sia per gli strumenti di misurazione che usano: tradizionalmente l'occhio di un fisiologo esperto, con sistemi di telecamere, o uso di sensori inerziali (giroscopi, sensori di forza, sensori di campi elettromagnetici ecc); per la contesto: fisico in cui vengono usati metodi di meccanica, contesto di intelligenza artificiale in cui vengono usati metodi di apprendimento automatico. Noi rileviamo dati usando un giroscopio posizionato sul collo del piede e metodi di Machine Learning per l'analisi dei dati. 
+
+Più precisamente utilizziamo un Modello di Markov Nascosto come classificatore, addestrato con un training set fatto da dati del giroscopio etichettati grazie a metodi di tipo classico \cite{walking_features_from_inertials}.
+
+
+...............................................................................................................
+
+ viene suddivisa in in varie fasi, che hanno inizio in seguito ad un evento ben preciso. Tali eventi sono chiamati anche parametri temporali del passo.
+Viene solitamente applicato per due tipi di scopi: nella cura di persone con problemi di tipo locomotorio oppure nella comprensione del funzionamento del movimento.+
+
+Il passo viene suddiviso in varie fasi, e parametrizzato rispetto al tempo ed allo spazio. 
+Parametri spazio-temporali del passo: sono la cadenza (passo al minuto) e la velocità (m/s).
+Parametri spaziali: lunghezza della falcata (m) e la pendenza del terreno (%).
+Parametri Temporali: eventi chiave che indicano il passaggio da una fase del passo ad un'altra dove
+le 4 fasi più importanti sono: 
+1. Loading response
+2. Mid-stance 
+3. Terminal stance 
+4. Swing phase 
+I 4 parametri temporali corrispondenti sono: 
+1. Impatto del tallone (Heel Strike, HS) 
+2. Appoggio planare (Flat Foot, FF)
+3. Distacco del tallone (Heel Off, HO)
+4. Distacco dell’alluce (Toe Off, TO)
+
+
+
+
+
+ 
+
+OBBIETTIVO 
+Segmentazione automatica del passo nelle sue 4 fasi principali, a partire da dati provenienti da un giroscopio sul collo del piede, mediante l'uso di Hidden Markov Models.  Questo corrisponde ad estrarre (collocare) dai dati del giroscopio dei parametri temporali che identificano l'inizio di ciascuna fase
+
+AQUISIZIONE DATI
+Sono stati scelti 3 individui con un passo normale, e gli sono stati applicati un giroscopio sul collo del piede ed un accelerometro bidirezionale sotto il tallone. Ai candidati è stato chiesto di camminare su un tapis roulant per 3 minuti per ciascuna pendenza nell'intervallo [0, 15]% (con incremento di 5%) e velocità dai [3.0,  6.0]km/h (con incremento di 0.5 km/h). In totale sono state raccolte 84   (= 7 velocità * 4 inclinazioni * 3 persone ) sequenze di dati dai giroscopi (campionati a 200Hz), rappresentative della variazione della velocità angolare sul collo del piede di ciascun individuo ad una delle tre velocità ed ad uno dei 20 gradi di pendenza del tapis roulant. Inoltre sono stati raccolti altrettanti dati dagli accelerometri che per ora non usiamo. 
+
+
+
+
+
+
+
+APPROCCIO CLASSICO
+Molti modelli definiscono gli eventi a partire dal posizionamento relativo dei lembi (metodi video con uso di marker). Ma dato che gli eventi chiave occorrono in momenti precisi, ed i sensori forniscono sequenze temporali, possiamo rilevare tali eventi direttamente dai dati dei sensori.
+Nell' articolo di Sabatini et al “Assessment of walking features from foot inertial sensing.”  vengono derivate equazioni per determinare i 4 eventi a partire dai dati di un giroscopio. Con un  accelerometro vengono inoltre determinati la lunghezza del passo, l'inclinazione della superficie. Altri metodi sono basati su semplici modelli fisici della coscia e dello stinco, che permettono di derivare equazioni per trovare eventi.  
+Questa tipologia di metodi è chiamata “Threshold-based” e riescono ad estrarre parametri spazio-temporali in modo preciso. Il problema è che sono tutti basati su uno specifico modello fisico del passo, quindi se si cambiamo le posizioni dei sensori usati o si usano sensori diversi, devono essere sviluppati un nuovo modello fisico e nuovi metodi, perché questi non sono universali. 
+
+Ciò che intendiamo fare in questo lavoro creare un metodo che sia generalizzabile e robusto a tali variazioni.
+Un approccio più generico al problema è quello di estrarre i parametri senza calcolare angoli e posizione dei lembi. 
+
+
+APPROCCIO HMM
+Voglio usare una HMM per segmentare I dati del giroscopio, ovvero trovare la migliore sequenza di  stati (HS, FF, HO, FO) per una data sequenza di valori del giroscopio (che in questo caso sono circa 24600). Avere la sequenza di stati significa aver individuato gli eventi (valori) chiave (nella sequenza di valori del giroscopio) che indicano le transizioni da una fase del passo all'altra.
+Definizione dell'HMM usato:
+L'HMM ha 4 stati corrispondenti agli eventi. 
+HMM: ?=<A, B, p>
+Il  numero di stati: Q=4
+La distribuzione delle emissioni: B ={bi(Ot)} = N (Ot; µi, Si), gaussiana multivariata
+L'HMM è di tipo Left-to-right, perché modella una sequenza temporalmente ordinata di eventi, quindi la matrice di transizione è bidiagonale.
+A=[[a11 a12 0 0][0 a22 a23 0][0 0 a33 a34][a11 0 0 a44]]
+
+p=[p1 p2 p3 p4]
+Inizializzazione (Addestramento) dell'HMM:
+Il problema di addestramento è quello dell'apprendimento supervisionato 
+di classificazione.
+T<X,Y> 
+X= segnali gyr
+Y= stati HMM
+
+L'addestramento viene fatto offline con toolbox di Matlab ed codice sviluppato da Andrea.
+I parametri  dell'HMM vengono inizializzati a partire dall'informazione pregressa a disposizione. 
+Abbiamo a disposizione un training set Z etichettato col vettore di etichette Y con Il metodo classico.
+Facciamo le seguenti stime:
+la probabilità a priori di j-esimo stato è:
+pj=Nj/Nwt 		dove Nj è il numero di elementi associati alla j-esima etichetta nel 			vettore Y (che è N dimensionale)
+aji = C/Nj		dove i=mod(j+1,Q), C è il num di gait cycle nel training set      
+bi(Ot)=    
+µi=1/Nj S_{t=1->T}Z(t) |_s,t,Y(t)=j
+si=sqrt(1/Nj -1 S_{t=1->T}(Z(t) - µj)^2|_s,t,Y(t)=j)
+
+
+
+
+
+
+
+
+
+
+
+Classificazione e Validazione
+La classificazione viene fatta con il Viterbi Decoding della sequenza degli stati nascosti più probabili. 
+
+
+La cross validazione è fatta con la tecnica leave-1-out, su tutte le combinazioni(2,3)=3 di soggetti.
+A valle dell'algoritmo di Viterbi, viene usata un euristica per eliminare le spurie. L'algoritmo restituisce una sequenza di segmentazioni, e con l'euristica accetto solo passi che durino più di tot millisecondi. Gli altri li elimino, e raccordo i due passi contigui.  Quella rappresentata in figura è solo una delle possibili “tipologie” di spurie. Queste infatti possono manifestarsi all’interno di una qualsiasi delle 4 fasi e non necessariamente nella prima.
+
+
+
+Infine i risultati vengono aggregati.
+
+
+Da fare
+Vogliamo che il testing venga fatto in-linea con l'algoritmo di Viterbi. Man mano che il segnale arriva l'algoritmo crea la “scaletta” dei diversi segmenti del passo.
+
+Non è vantaggioso fare la classificazione con le HMM, perché si dovrebbe avere una HMM addestrata per ciascuna velocità ed inclinazione. Sembra più un problema di regressione che di classificazione. Mentre è auspicabile discriminare tra diverse attività attraverso una classificazione HMM (da dati di accelerometri e gyros), per quanto riguarda la stima della walking speed o del dispendio energetico è opportuno utilizzare strategie differenti di regressioni. Tali strategie possono sfruttare i dati dei sensori segementati secondo l’uscita di un sistema di segmentazione basato sugli HMM.
+Per fare quest'ultima avremo bisogno di parametri spaziali (lunghezza del passo ed inclinazione del terreno). La costruzione di un HMM che estragga parametri temporali dovrebbe passare da un HMM che funzioni da contapassi. In una seconda fase del progetto, si possono usare i dati, che per ora sono stati esclusi, di un accelerometro 2D per l'estrazione dei parametri spaziali, quindi per la classificazione.
+
+
+Io devo sviluppare il codice in C per il testing. Un'implementazione del'algoritmo di Viterbi, che produca la segmentazione in-linea dei dati che attualmente abbiamo.
+
+In particolare il lavoro di sviluppo sarà di 3 moduli,
+1. creazione delle feature, che per ora non viene fatto
+2. Segmentazione in-linea con Viterbi  (facendo riferimento all'implementazione di Numerical Recepies)
+3.euristica per la deletion delle spurie
+
+Il sistema, una volta testato confrontandone i risultati con quelli prodotti da Matlab, va istallato su un hw (mi servirebbe la documentazione a riguardo, perché non ne so nulla) sviluppato a Sant'Anna.
+
+La seconda parte del progetto consiste nel salire di livello nell'utilizzo della gerarchia degli HMM, per poter fare la classificazione (o regressione) di diversi stili di cammino o di ascesa o discesa di scale.
+
+
+
+
+
+
+
+
+
+
+
+
+Considerazioni
+
+L'estrazione dei parametri temporali è scontata da fare con i dati del giroscopio. L'identificazione dell'evento HS viene fatta con un metodo threshold-based, nel quale si individua il primo minimo e con una procedura di back-search sui dati non filtrati (nei quali in corrispondenza del HS vi sono dei picchi) per trovare il punto in cui accade l'evento. L'HMM viene addestrato a riconoscere questo punto, anche se nei dati puliti, questo viene perso.
+
+L'evento HO, non può essere identificato col suddetto metodo. Per ora possiamo accontentarci di prendere lo zero successivo al punto di minimo globale, ma in futuro useremo il sistema delle telecamere per rilevare tutti gli eventi ed addestrarci gli l'HMM.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+APPENDICE
+
+
+
+Spatio-temporal parameters of gait measured by an ambulatory system using miniature gyroscopes.
+Aminian K, Najafi B, Büla C, Leyvraz PF, Robert P.
+Source
+Metrology Laboratory, Swiss Federal Institute of Technology (EPFL), CH-1015 Lausanne, Switzerland. kamiar.aminian@epfl.ch
+Abstract
+In this study we describe an ambulatory system for estimation of spatio-temporal parameters during long periods of walking. This original method based on wavelet analysis is proposed to compute the values of temporal gait parameters from the angular velocity of lower limbs. Based on a mechanical model, the medio-lateral rotation of the lower limbs during stance and swing, the stride length and velocity are estimated by integration of the angular velocity. Measurement's accuracy was assessed using as a criterion standard the information provided by foot pressure sensors. To assess the accuracy of the method on a broad range of performance for each gait parameter, we gathered data from young and elderly subjects. No significant error was observed for toe-off detection, while a slight systematic delay (10 ms on average) existed between heelstrike obtained from gyroscopes and footswitch. There was no significant difference between actual spatial parameters (stride length and velocity) and their estimated values. Errors for velocity and stride length estimations were 0.06 m/s and 0.07 m, respectively. This system is light, portable, inexpensive and does not provoke any discomfort to subjects. It can be carried for long periods of time, thus providing new longitudinal information such as stride-to-stride variability of gait. Several clinical applications can be proposed such as outcome evaluation after total knee or hip replacement, external prosthesis adjustment for amputees, monitoring of rehabilitation progress, gait analysis in neurological diseases, and fall risk estimation in elderly.
+
+
+
+
+
+
+
+
+
+
+
+
+An Introduction to Gait Analysis
+By Michael W. Whittle
+Gait analysis is the systematic study of human walking. It is used for diagnosis and the planning of treatment in people with medical conditions that affect the way they walk. Over the last few years, increasing numbers of patients have benefited from the use of gait analysis by their doctors and physical therapists. Most of the literature in this field is highly specialized and very technical. This book, however, aims to brings gait analysis out of the 'ivory tower' of the research laboratory, and to put it where it belongs, in the 'real world' of the clinic. The author has maintained the clear and approachable style that established the first three editions of "Gait Analysis: an Introduction" as the premier introductory textbook on the subject. The book aims to demystify the subject of gait analysis, and it will continue to be essential reading for students and practitioners of physical therapy, orthopaedics, neurology, rheumatology, rehabilitation, bioengineering, and indeed all those involved in the study of human movement. Dr. Michael Whittle holds the Walter M. Cline Chair of Excellence in Rehabilitation Technology in the University of Tennessee at Chattanooga, and has honorary appointments as Professor of Orthopaedic Surgery and Professor of Physical Medicine and Rehabilitation in the University of Tennessee College of Medicine. He is a qualified doctor, and has degrees in physiology and biomedical engineering. He has spent over 25 years running gait analysis laboratories in the University of Oxford, England, and the University of Tennessee. He previously worked as principle coordinating scientist for the musculoskeletal experiments on NASA's Skylab space station.
+
+The Complexity of Hidden Markov Models
+by Lorenzo Finesso
+
+Hidden Markov Models (HMM’s) are mathematical models of uncertain phenomena, well suited to describe complex dynamical behaviours. For quite some time HMM’s have been mainly applied to speech recognition, but they are currently spreading to a variety of applications in the areas of digital signal processing, control, and pattern recognition. Popular as they have become, HMM’s are not yet mature and still offer a wealth of challenging theoretical problems. HMM’s are an ongoing research theme of the System Theory group at LADSEB-CNR.
+The simplest probabilistic models of uncertain phenomena are independent processes. The salient feature of these models is their lack of memory: the present value of the process is not influenced by its past or future values. Independent processes are adequate to represent the randomness of games of chance and of equivalently simple physical phenomena, but are of limited use in describing true dynamic behaviours. One step above independent processes, in the hierarchy of probabilistic models, one finds Markov chain (MC) models. The present value of a MC depends on a finite (bounded) number of its most recent past values. If their memory size is correctly adjusted, MC’s can be used to describe approximately phenomena with complex dynamical behaviour. Hidden Markov Models are at the top of this hierarchy. Roughly speaking, HMM’s are processes that can be represented as functions of MC’s with a finite number of states: if X(t) is a (finitely valued) MC and h(.) a given function, then Y(t) = h(X(t)) is an HMM. 
+
+The simplicity of the definition and the popularity of HMM’s in applied research should not give the (wrong) impression that these are simple generalizations of MC’s. In general, the transformation h of the MC X(t) destroys the Markov property and, as a result, the HMM process Y(t) can exhibit infinite memory. Only a few of the fundamental questions concerning HMM’s have been solved satisfactorily. In the following, we briefly mention the problems to which researchers working at LADSEB have directly contributed.
+
+The most basic probabilistic question is the characterization of HMM’s. Is it possible to decide whether a process Y(t) is an HMM, knowing all of its finite dimensional distributions? The positive answer to this question was provided, independently, by Heller and by Furstenberg in the early sixties and later rederived, within the framework of System Theory, at LADSEB, by Picci in 1976. Another probabilistic problem is the realization of HMM’s (on Realization theory, see also the articles by Gombani and van Schuppen in this number). In the context of HMM’s, realization theory provides the tools to construct, for a given HMM Y(t), the parameters X(t) and h(.), such that Y(t)=h(X(t)). The minimal number of states required for the construction of X(t) is called the order of the HMM and is a measure of its complexity. Picci and van Schuppen (CWI) have shown that the realization problem for HMM’s is equivalent to a problem of positive factorization of positive matrices.
+
+Statistical inference problems for HMM’s have been intensively studied since the early sixties, when Baum and his coworkers presented two related algorithms (the Forward-Backward and a form of what is today known as the EM algorithm) that helped solve the Maximum Likelihood parameter estimation problem in the case of finitely valued HMM’s. At LADSEB, we are currently working on some aspects of the parameters and order estimation problem for finite and continuous HMM’s. The work in this area is in collaboration with Le Gland and Mevel (IRISA-Rennes). Order estimation problems can also be approached with the tools of Information Theory (as pioneered by Rissanen with his MDL, in the context of time series) and are of direct relevance in areas of communi-cations theory such as data compression and source coding. Work on this problem is done jointly with Narayan (University of Maryland). 
+
+There are two less standard topics which we have found interesting and on which we are planning future work. In collaboration with Gerencsér (SZTAKI) we are studying estimation problems for quantized ARMA processes, which call for a generalization of HMM’s to continuous MC’s X(t). In collaboration with Spreij (University of Amsterdam) we study special classes of HMM’s hoping to find good approximants of general HMM’s in the sense of complexity reduction. For more information on the research of the System Theory group at LADSEB 
+
+

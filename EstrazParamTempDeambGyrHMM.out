@@ -1,0 +1,77 @@
+\BOOKMARK [0][-]{chapter*.2}{Sommario}{}% 1
+\BOOKMARK [-1][-]{part.1}{i Stato dell'arte}{}% 2
+\BOOKMARK [0][-]{chapter.1}{Introduzione}{part.1}% 3
+\BOOKMARK [0][-]{chapter.2}{Cenni alla Chinesiologia}{part.1}% 4
+\BOOKMARK [1][-]{section.2.1}{Analisi dei movimenti del corpo umano}{chapter.2}% 5
+\BOOKMARK [1][-]{section.2.2}{L'andatura durante la deambulazione}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.3}{Breve storia dello studio della deambulazione umana}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.4}{Ciclo di deambulazione \(Gait Cycle\)}{chapter.2}% 8
+\BOOKMARK [2][-]{subsection.2.4.1}{Confronto fra Falcata \(Stride\) e Passo \(Step\)}{section.2.4}% 9
+\BOOKMARK [1][-]{section.2.5}{Parametri che descrivono il pattern \(schema\) della deambulazione}{chapter.2}% 10
+\BOOKMARK [0][-]{chapter.3}{Lo stato dell'arte}{part.1}% 11
+\BOOKMARK [1][-]{section.3.1}{Materiali}{chapter.3}% 12
+\BOOKMARK [2][-]{subsection.3.1.1}{Osservazione diretta del paziente}{section.3.1}% 13
+\BOOKMARK [2][-]{subsection.3.1.2}{Stereofotogrammetria}{section.3.1}% 14
+\BOOKMARK [2][-]{subsection.3.1.3}{Sensori Inerziali}{section.3.1}% 15
+\BOOKMARK [1][-]{section.3.2}{Metodi}{chapter.3}% 16
+\BOOKMARK [2][-]{subsection.3.2.1}{Analisi}{section.3.2}% 17
+\BOOKMARK [-1][-]{part.2}{ii Lavoro svolto}{}% 18
+\BOOKMARK [0][-]{chapter.4}{Materiali e Metodi}{part.2}% 19
+\BOOKMARK [1][-]{section.4.1}{introduzione}{chapter.4}% 20
+\BOOKMARK [1][-]{section.4.2}{Creazione ed addestramento del modello}{chapter.4}% 21
+\BOOKMARK [0][-]{chapter.5}{Applicativo Android}{part.2}% 22
+\BOOKMARK [1][-]{section.5.1}{Introduzione}{chapter.5}% 23
+\BOOKMARK [1][-]{section.5.2}{Metodologia di programmazione usata: Agile}{chapter.5}% 24
+\BOOKMARK [1][-]{section.5.3}{Organizzazione del programma}{chapter.5}% 25
+\BOOKMARK [2][-]{subsection.5.3.1}{Android Manifest}{section.5.3}% 26
+\BOOKMARK [2][-]{subsection.5.3.2}{Codice sorgente}{section.5.3}% 27
+\BOOKMARK [2][-]{subsection.5.3.3}{Risorse}{section.5.3}% 28
+\BOOKMARK [2][-]{subsection.5.3.4}{Librerie}{section.5.3}% 29
+\BOOKMARK [1][-]{section.5.4}{Funzionamento}{chapter.5}% 30
+\BOOKMARK [2][-]{subsection.5.4.1}{Interfaccia}{section.5.4}% 31
+\BOOKMARK [2][-]{subsection.5.4.2}{Comunicazione Bluetooth}{section.5.4}% 32
+\BOOKMARK [2][-]{subsection.5.4.3}{Gestione della connessione}{section.5.4}% 33
+\BOOKMARK [2][-]{subsection.5.4.4}{Gestione Thread}{section.5.4}% 34
+\BOOKMARK [0][-]{chapter.6}{Validazione}{part.2}% 35
+\BOOKMARK [0][-]{chapter.7}{Risultati e Conclusioni}{part.2}% 36
+\BOOKMARK [0][-]{appendix.A}{Sulle HMM}{part.2}% 37
+\BOOKMARK [1][-]{section.A.1}{Problema: Modellare segnali}{appendix.A}% 38
+\BOOKMARK [1][-]{section.A.2}{Processi di Markov Discreti}{appendix.A}% 39
+\BOOKMARK [1][-]{section.A.3}{HMM}{appendix.A}% 40
+\BOOKMARK [2][-]{subsection.A.3.1}{HMM ad emissioni continue}{section.A.3}% 41
+\BOOKMARK [2][-]{subsection.A.3.2}{Tipi di HMM}{section.A.3}% 42
+\BOOKMARK [1][-]{section.A.4}{Tre problemi per le HMM}{appendix.A}% 43
+\BOOKMARK [2][-]{subsection.A.4.1}{Algoritmo di Viterbi in Tempo Reale}{section.A.4}% 44
+\BOOKMARK [1][-]{section.A.5}{Problemi di implementazione di HMM}{appendix.A}% 45
+\BOOKMARK [0][-]{appendix.B}{Cenni di Meccanica classica}{part.2}% 46
+\BOOKMARK [1][-]{section.B.1}{Cinematica}{appendix.B}% 47
+\BOOKMARK [2][-]{subsection.B.1.1}{Moto rettilineo di una particella}{section.B.1}% 48
+\BOOKMARK [1][-]{section.B.2}{Moto Angolare di una particella}{appendix.B}% 49
+\BOOKMARK [1][-]{section.B.3}{Dinamica \(Cinetica\)}{appendix.B}% 50
+\BOOKMARK [0][-]{appendix.C}{Sensori}{part.2}% 51
+\BOOKMARK [1][-]{section.C.1}{Accelerometro}{appendix.C}% 52
+\BOOKMARK [1][-]{section.C.2}{Giroscopio}{appendix.C}% 53
+\BOOKMARK [1][-]{section.C.3}{Magnetometro}{appendix.C}% 54
+\BOOKMARK [1][-]{section.C.4}{IMU}{appendix.C}% 55
+\BOOKMARK [0][-]{appendix.D}{Su Android}{part.2}% 56
+\BOOKMARK [1][-]{section.D.1}{Android OS}{appendix.D}% 57
+\BOOKMARK [2][-]{subsection.D.1.1}{Linux Kernel}{section.D.1}% 58
+\BOOKMARK [2][-]{subsection.D.1.2}{Librerie Native Android}{section.D.1}% 59
+\BOOKMARK [2][-]{subsection.D.1.3}{Tempo di esecuzione di Android: Dalvik}{section.D.1}% 60
+\BOOKMARK [2][-]{subsection.D.1.4}{Application Framework}{section.D.1}% 61
+\BOOKMARK [2][-]{subsection.D.1.5}{Applications}{section.D.1}% 62
+\BOOKMARK [2][-]{subsection.D.1.6}{Struttura di un Android App}{section.D.1}% 63
+\BOOKMARK [1][-]{section.D.2}{Le componenti principali di un Applicativo Andorid}{appendix.D}% 64
+\BOOKMARK [2][-]{subsection.D.2.1}{Activity}{section.D.2}% 65
+\BOOKMARK [2][-]{subsection.D.2.2}{Intent}{section.D.2}% 66
+\BOOKMARK [2][-]{subsection.D.2.3}{Servizi}{section.D.2}% 67
+\BOOKMARK [2][-]{subsection.D.2.4}{Content Provider}{section.D.2}% 68
+\BOOKMARK [1][-]{section.D.3}{Broadcast Receiver}{appendix.D}% 69
+\BOOKMARK [1][-]{section.D.4}{Application Context}{appendix.D}% 70
+\BOOKMARK [1][-]{section.D.5}{Intefaccia Utenti \(UI\)}{appendix.D}% 71
+\BOOKMARK [2][-]{subsection.D.5.1}{Layout XML}{section.D.5}% 72
+\BOOKMARK [2][-]{subsection.D.5.2}{Eventi di Input}{section.D.5}% 73
+\BOOKMARK [2][-]{subsection.D.5.3}{Menu}{section.D.5}% 74
+\BOOKMARK [2][-]{subsection.D.5.4}{Barra delle Azioni}{section.D.5}% 75
+\BOOKMARK [2][-]{subsection.D.5.5}{Dialoghi}{section.D.5}% 76
+\BOOKMARK [0][-]{appendix.E}{@Todo List}{part.2}% 77

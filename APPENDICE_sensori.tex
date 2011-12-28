@@ -1,0 +1,74 @@
+\chapter{Sensori}
+%\myChapter{Sensori}
+\label{sec:sensori}
+Principalmente in questo lavoro usiamo un giroscopio monoassiale. In letteratura, l'analisi della deambulazione viene 
+affrontata mediante accelerometri, giroscopi e magnetometri. 
+\section{Accelerometro}
+\label{sec:accelerometer}
+Un accelerometro (vedi figura \ref{fig:acc}) è un dispositivo elettromeccanico che misura le forze di accelerazione. Tali forze possono essere sia statiche, come la forza di gravità, che dinamiche, causate muovendo l'accelerometro.\\
+Gli usi immediati di un accelerometro sono 
+\begin{itemize}
+	\item misurando l'accelerazione statica delle forza di gravità, si può calcolare l'angolo a cui è inclinato lo strumento.
+	\item misurando l'accelerazione dinamica si può analizzare il modo in cui si sta muovendo il dispositivo  
+\end{itemize}
+Un applicazione industriale importante è l'airbag nelle macchine, la cui apertura scatta se l'accelerometro percepisce una brusca frenata.
+Un'altra applicazione è quella implementata dalla Apple, nei suoi portatili per la protezione del disco rigido: se il portatile dovesse cadere mentre acceso, l'accelerometro capta la caduta libera ed il sistema operativo si auto termina immediatamente in modo che la testina non sia sul disco. 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{imgs/acc_technical.jpg}
+	\caption{ Accelerometro triassiale, cortesia di \url{http://www.dimensionengineering.com}}
+	\label{fig:acc}
+\end{figure}
+
+\section{Giroscopio}
+\label{sec:gyroscope}
+Il giroscopio è uno strumento per misurare l'accelerazione di rotazione (momento angolare) di un corpo. Vi sono diversi tipi di giroscopi, meccanici, a vibrazione, a fibre ottiche ecc..
+Un disco rotante in assenza di torsione esterna, mantiene la direzione della sua rotazione 
+ Quando viene applicata una torsione viene applicata al disco, ad angolo con il suo asse di rotazione, il disco ruota sul piano determinato dalle due assi (rotazione iniziale e torsione) nella direzione che va dall'asse di rotazione iniziale a quello della torsione.\\
+Il tipo di giroscopio che usiamo in questo lavoro è il cosiddetto giroscopio piezoelettrico, o MEMS (Micro Electro Mechanical System) o a vibrazione. Si basa sul principio di Coriolis: un oggetto che vibra, continua a vibrare sullo stesso piano se la struttura che lo sostiene è in rotazione. 
+La misurazione della velocità angolare avviene nel seguente modo: un elemento piezoelettrico (oggetto di forma tubolare) oscilla a causa di una rotazione, quindi viene misurata la forza di Coriolis sulla sezione longitudinale dell'elemento, dopo essere stata convertita in un voltaggio elettrico dallo stesso elemento piezoelettrico. 
+ 
+\section{Magnetometro}
+\label{sec:magnetomerter}
+Il Magnetometro è uno strumento che misura il campo magnetico. Questo può essere fatto in diversi modi. Il metodo pre elettronico, è quello inventato da Coulomb ed usa un ago magnetico sospeso.\\
+Il metodo elettronico chiamato elettromagnetometro o Magnetometro Fluxgate è basato sulla saturazione di materiali magnetici. Questi ha un centro in ferro, ed intorno ad esso due fili conduttori. Attraverso il primo filo fluisce corrente elettrica. Il ferro è un elemento magnetico, ma in condizioni normali gli assi magnetici sono orientati in direzioni casuali e la forza magnetica totale è prossima a zero. Nel momento in cui comincia a fluire corrente nel filo, gli assi si allineano e creano un campo magnetico percepibile come aumento del campo magnetico creato dalla corrente nel filo. La quantità di forza magnetica che può produrre il ferro è limitata, il ferro giunge ad un livello di saturazione, dopo di che cambia bruscamente polarità, al che giunge alla saturazione e cambia polarità e così via. Questo processo induce corrente nel secondo filo che avvolge il ferro. Se la procedura avvenisse in un ambiente magneticamente neutrale il voltaggio nei due file dovrebbe combaciare, altrimenti vi sarà un dislivello proporzionale al campo magnetico di disturbo. L'intensità del campo magnetico terrestre superficiale è circa 50,000 nanoTesla.  
+\section{IMU}
+Inertial Measurement Unit, (Unità di Misura Inerziale), è l'integrazione di più sensori. Questo fornisce le misure fatte dai sensori interni con eventuali correzioni fatte in base alla temperatura interna dello strumento stesso Le IMU sono usate come sistemi di navigazione inerziali di aerei, missili. \\
+La IMU che abbiamo usato per ha la seguente scheda di definizione: 
+
+\begin{table}[htbp]
+	\centering
+\begin{tabular}{|l|l|l|} 
+\hline
+\multicolumn{3}{|c|}{IMU} \\ 
+\hline
+\textbf{Sensore}& \textbf{Intervallo di misurazione} & \textbf{Risoluzione} \\
+Accelerometro triassiale& x[$\pm$1g-3g],y[1.5g-2g/8g], z[2g-16g], & [12-14 bit]\\
+\hline
+Giroscopio triassiale& [$\pm$2000-1600°/sec], & [12-16 bit]\\
+\hline
+Magnetometro triassiale& [$\pm$4 gauss], & 12 bit\\
+\hline
+Termometro & [-55-155°/C]& 12bit\\
+\hline
+\hline
+\multicolumn{3}{|l|}{\textbf{Connettività}}\\
+\multicolumn{3}{|r|}{Bluetooth per le brevi distanze}\\
+\hline
+\hline
+\multicolumn{3}{|l|}{\textbf{Frequenza di campionamento}}\\
+\multicolumn{3}{|r|}{$\geq$ 300 Hz}\\
+\hline
+\hline
+\multicolumn{3}{|l|}{\textbf{Dimensioni strumento}}\\		
+\multicolumn{3}{|r|}{60 $\times$ 30 $\times$ 40 mm} 	
+\end{tabular}
+\hrule
+	\caption{Scheda tecnica IMU}
+	\label{tab:SchedaTecnicaIMU}
+\end{table}
+
+
+
+	
