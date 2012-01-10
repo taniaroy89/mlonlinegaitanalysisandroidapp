@@ -68,45 +68,48 @@
 \contentsline {subsubsection}{Apprendimento}{58}{ALC@unique.50}
 \contentsline {section}{\numberline {A.5}Problemi di implementazione di HMM}{60}{section.A.5}
 \cftpagenumbersoff {chapter}
-\contentsline {chapter}{\numberline {B}Cenni di Meccanica classica}{63}{appendix.B}
-\contentsline {section}{\numberline {B.1}Cinematica}{63}{section.B.1}
-\contentsline {subsection}{\numberline {B.1.1}Moto rettilineo di una particella}{63}{subsection.B.1.1}
-\contentsline {subsubsection}{Posizione}{63}{subsection.B.1.1}
-\contentsline {subsubsection}{Spostamento}{63}{subsection.B.1.1}
-\contentsline {subsubsection}{Distanza}{63}{subsection.B.1.1}
-\contentsline {subsubsection}{Velocit\`a}{63}{subsection.B.1.1}
-\contentsline {subsubsection}{Accelerazione}{63}{figure.caption.25}
-\contentsline {section}{\numberline {B.2}Moto Angolare di una particella}{64}{section.B.2}
-\contentsline {subsubsection}{Posizione}{64}{section.B.2}
-\contentsline {subsubsection}{Velocit\`a}{64}{section.B.2}
-\contentsline {subsubsection}{Accelerazione}{64}{figure.caption.26}
-\contentsline {section}{\numberline {B.3}Dinamica (Cinetica)}{65}{section.B.3}
-\contentsline {chapter}{\numberline {C}Sensori}{67}{appendix.C}
-\contentsline {section}{\numberline {C.1}Accelerometro}{67}{section.C.1}
-\contentsline {section}{\numberline {C.2}Giroscopio}{67}{section.C.2}
-\contentsline {section}{\numberline {C.3}Magnetometro}{67}{section.C.3}
-\contentsline {section}{\numberline {C.4}IMU}{68}{section.C.4}
-\contentsline {chapter}{\numberline {D}Su Android}{71}{appendix.D}
-\contentsline {section}{\numberline {D.1}Android OS}{71}{section.D.1}
-\contentsline {subsection}{\numberline {D.1.1}Linux Kernel}{71}{subsection.D.1.1}
-\contentsline {subsection}{\numberline {D.1.2}Librerie Native Android}{73}{subsection.D.1.2}
-\contentsline {subsection}{\numberline {D.1.3}Tempo di esecuzione di Android: Dalvik}{73}{subsection.D.1.3}
-\contentsline {subsubsection}{Java e Android}{74}{subsection.D.1.3}
-\contentsline {subsection}{\numberline {D.1.4}Application Framework}{75}{subsection.D.1.4}
-\contentsline {subsection}{\numberline {D.1.5}Applications}{75}{subsection.D.1.5}
-\contentsline {subsubsection}{APK}{75}{subsection.D.1.5}
-\contentsline {subsection}{\numberline {D.1.6}Struttura di un Android App}{75}{subsection.D.1.6}
-\contentsline {section}{\numberline {D.2}Le componenti principali di un Applicativo Andorid}{75}{section.D.2}
-\contentsline {subsection}{\numberline {D.2.1}Activity}{76}{subsection.D.2.1}
-\contentsline {subsection}{\numberline {D.2.2}Intent}{77}{subsection.D.2.2}
-\contentsline {subsection}{\numberline {D.2.3}Servizi}{77}{subsection.D.2.3}
-\contentsline {subsection}{\numberline {D.2.4}Content Provider}{77}{subsection.D.2.4}
-\contentsline {section}{\numberline {D.3}Broadcast Receiver}{78}{section.D.3}
-\contentsline {section}{\numberline {D.4}Application Context}{78}{section.D.4}
-\contentsline {section}{\numberline {D.5}Intefaccia Utenti (UI)}{78}{section.D.5}
-\contentsline {subsection}{\numberline {D.5.1}Layout XML}{79}{subsection.D.5.1}
-\contentsline {subsection}{\numberline {D.5.2}Eventi di Input}{79}{subsection.D.5.2}
-\contentsline {subsection}{\numberline {D.5.3}Menu}{79}{subsection.D.5.3}
-\contentsline {subsection}{\numberline {D.5.4}Barra delle Azioni}{79}{subsection.D.5.4}
-\contentsline {subsection}{\numberline {D.5.5}Dialoghi}{79}{subsection.D.5.5}
-\contentsline {chapter}{\numberline {E}@Todo List}{81}{appendix.E}
+\contentsline {chapter}{\numberline {B}Tempo Reale, In Linea, Latenza}{63}{appendix.B}
+\contentsline {section}{\numberline {B.1}Tempo Reale}{63}{section.B.1}
+\contentsline {section}{\numberline {B.2}Algoritmi in linea}{63}{section.B.2}
+\contentsline {section}{\numberline {B.3}Latenza}{64}{section.B.3}
+\contentsline {chapter}{\numberline {C}Cenni di Meccanica classica}{65}{appendix.C}
+\contentsline {section}{\numberline {C.1}Cinematica}{65}{section.C.1}
+\contentsline {subsection}{\numberline {C.1.1}Moto rettilineo di una particella}{65}{subsection.C.1.1}
+\contentsline {subsubsection}{Posizione}{65}{subsection.C.1.1}
+\contentsline {subsubsection}{Spostamento}{65}{subsection.C.1.1}
+\contentsline {subsubsection}{Distanza}{65}{subsection.C.1.1}
+\contentsline {subsubsection}{Velocit\`a}{65}{subsection.C.1.1}
+\contentsline {subsubsection}{Accelerazione}{65}{figure.caption.25}
+\contentsline {section}{\numberline {C.2}Moto Angolare di una particella}{66}{section.C.2}
+\contentsline {subsubsection}{Posizione}{66}{section.C.2}
+\contentsline {subsubsection}{Velocit\`a}{66}{section.C.2}
+\contentsline {subsubsection}{Accelerazione}{66}{figure.caption.26}
+\contentsline {section}{\numberline {C.3}Dinamica (Cinetica)}{67}{section.C.3}
+\contentsline {chapter}{\numberline {D}Sensori}{69}{appendix.D}
+\contentsline {section}{\numberline {D.1}Accelerometro}{69}{section.D.1}
+\contentsline {section}{\numberline {D.2}Giroscopio}{69}{section.D.2}
+\contentsline {section}{\numberline {D.3}Magnetometro}{69}{section.D.3}
+\contentsline {section}{\numberline {D.4}IMU}{70}{section.D.4}
+\contentsline {chapter}{\numberline {E}Su Android}{73}{appendix.E}
+\contentsline {section}{\numberline {E.1}Android OS}{73}{section.E.1}
+\contentsline {subsection}{\numberline {E.1.1}Linux Kernel}{73}{subsection.E.1.1}
+\contentsline {subsection}{\numberline {E.1.2}Librerie Native Android}{75}{subsection.E.1.2}
+\contentsline {subsection}{\numberline {E.1.3}Tempo di esecuzione di Android: Dalvik}{75}{subsection.E.1.3}
+\contentsline {subsubsection}{Java e Android}{76}{subsection.E.1.3}
+\contentsline {subsection}{\numberline {E.1.4}Application Framework}{77}{subsection.E.1.4}
+\contentsline {subsection}{\numberline {E.1.5}Applications}{77}{subsection.E.1.5}
+\contentsline {subsubsection}{APK}{77}{subsection.E.1.5}
+\contentsline {subsection}{\numberline {E.1.6}Struttura di un Android App}{77}{subsection.E.1.6}
+\contentsline {section}{\numberline {E.2}Le componenti principali di un Applicativo Andorid}{77}{section.E.2}
+\contentsline {subsection}{\numberline {E.2.1}Activity}{78}{subsection.E.2.1}
+\contentsline {subsection}{\numberline {E.2.2}Intent}{79}{subsection.E.2.2}
+\contentsline {subsection}{\numberline {E.2.3}Servizi}{79}{subsection.E.2.3}
+\contentsline {subsection}{\numberline {E.2.4}Content Provider}{79}{subsection.E.2.4}
+\contentsline {section}{\numberline {E.3}Broadcast Receiver}{80}{section.E.3}
+\contentsline {section}{\numberline {E.4}Application Context}{80}{section.E.4}
+\contentsline {section}{\numberline {E.5}Intefaccia Utenti (UI)}{80}{section.E.5}
+\contentsline {subsection}{\numberline {E.5.1}Layout XML}{81}{subsection.E.5.1}
+\contentsline {subsection}{\numberline {E.5.2}Eventi di Input}{81}{subsection.E.5.2}
+\contentsline {subsection}{\numberline {E.5.3}Menu}{81}{subsection.E.5.3}
+\contentsline {subsection}{\numberline {E.5.4}Barra delle Azioni}{81}{subsection.E.5.4}
+\contentsline {subsection}{\numberline {E.5.5}Dialoghi}{81}{subsection.E.5.5}
