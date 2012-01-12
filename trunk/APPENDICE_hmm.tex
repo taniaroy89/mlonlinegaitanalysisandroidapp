@@ -2,11 +2,11 @@
 %\myChapter{Sulle HMM} 
 %\HMM=Modelli di Markov a Stati Nascosti
 \label{cap:hmm}
-I HMM sono strumenti di modellazione di sequenze temporali. Un comune esempio di applicazione è il riconoscimento della comunicazione verbale (Speech Recognition)\cite{tutorial_hmm_application_speech_recognition}. 
+I HMM sono strumenti di modellazione di sequenze temporali. Un comune esempio di applicazione è il riconoscimento della comunicazione verbale (Speech Recognition) \cite{tutorial_hmm_application_speech_recognition}. 
 Una sequenza temporale non è altro che un segnale.
 
 \begin{definition}[Segnale]
-	Un segnale è l'\OUTPUT osservabile di un processo,
+	Un segnale è il risultato osservabile di un processo,
 	che in base al numero di sorgenti di provenienza viene detto
 		\begin{itemize}
 			\item \textbf{Puro}, se a sorgente unica
@@ -15,7 +15,7 @@ Una sequenza temporale non è altro che un segnale.
 \end{definition}
 
 
-Un segnale può essere di natura discreta, o continua rispetto al tempo. Ad esempio un segnale che consista in una sequenza di caratteri viene raggruppato fra i segnali discreti, mentre la comunicazione verbale fra i segnali continui.\\
+Un segnale può essere di natura discreta o continua rispetto al tempo. Ad esempio un segnale che consista in una sequenza di caratteri viene incluso fra i segnali discreti, mentre la comunicazione verbale fra i segnali continui.\\
 
 La sorgente di un segnale (il processo), a sua volta, può essere stazionaria, se le sue proprietà statistiche non variano nel tempo, o non stazionaria altrimenti.
 
@@ -25,25 +25,80 @@ Le motivazioni principali sono la riproduzione dei segnali e la scoperta delle l
 Esistono varie tipologie di modelli dai quali scegliere per modellare al meglio un dato segnale. La suddivisione maggiore è quella fra modelli deterministici e stocastici. 
 \begin{itemize}
 	\item {Modelli deterministici}: descrivono il segnale mediante le sue proprietà note. Ad esempio la luce ha una velocità pari a $300.000 km/s$.
-	\item {Modelli stocastici}: descrivono le proprietà statistiche del segnale. Un esempio di modello statistico sono i processi gaussiani, i processi marcoviani e le HMM.  In questi modelli si assume che il segnale possa essere caratterizzato come un Processo Parametrico Stocastico, con parametri stimabili in modo algoritmico. 
+	\item {Modelli stocastici}: descrivono le proprietà statistiche del segnale. Un esempio di modello statistico sono i processi gaussiani, i processi marcoviani ed i le HMM (Hidden Markov Models).  In questi modelli si assume che il segnale possa essere caratterizzato come un Processo Parametrico Stocastico, con parametri stimabili in modo algoritmico. 
 \end{itemize}
 
 I modelli deterministici descrivono i comportamenti di tutti i parametri di un segnale, in tutte le condizioni possibili. In molti casi però, i segnali di interesse sono abbastanza complessi, o oscurati, da non poterne conoscerne tutti i parametri, quindi i modelli deterministici risultano inefficaci.
 L'alternativa sono i modelli stocastici che descrivono solo un sottoinsieme dei parametri che caratterizzano un segnale, oppure una risultante di questi, e dato che il segnale si comporta solo in parte come i parametri descritti, il modello può fornire solo una descrizione probabilistica del segnale. 
 
-\section{Processi di Markov Discreti}
-La tipologia più semplice di modello di Markov sono quelli discreti.
+\begin{definition}[Spazio campionario $\Omega$]
+\begin{equation}
+\Omega = \{\omega: \omega \quad \text{è il risultato di un esperimento}\}
+\label{eq:sample_space}
+\end{equation}
 
-\begin{definition}[Processi di Markov Discreti]$<N,M,A,\pi>$\\
-Dato un insieme di stati $S = \{s_1,\ldots, s_N\}$ sono detti Processi di Markov Discreti dei 
-sistemi che ad ogni istante di tempo $t$ assumono uno stato, ovvero lo stato corrente $q_t = s_k \in S$. \\
-\begin{itemize}
-	\item $q_0 = \displaystyle \max_{0 \leq i \leq N} \pi_i$ 
-	\item $q_t = \displaystyle \max_{0 \leq j \leq N} A_{q_{t-1},j}\quad  1 \leq t \leq T$
-\end{itemize}
+\begin{definition}[Evento $E$]
+\begin{equation}
+E \subseteq \Omega 
+\label{eq:event}
+\end{equation}
+
+\begin{definition}[Spazio di probabilità $<\Omega, F, \wp>$].\\
+
+$F = \{E: E \quad \text{gode di qualche proprietà}\} \quad |F|\geq 0$\\
+
+$\wp:F \rightarrow \Re \quad \text{t.c.}$
+\begin{enumerate}
+	\item $\wp(E) \geq 0$
+	\item $\wp(\Omega)=1$
+	\item $E_i \cap E_j = \emptyset \Leftrightarrow \wp (E_i \cup E_j) = \wp (E_i)+ \wp(E_j)$
+\end{enumerate}
 \end{definition}
 
-\TODO{fare rappresentazione ad automi a stati finiti}
+\begin{definition}[Variabile Stocastica $X$]
+Una variabile stocastica quantifica gli elementi dello stato campionario 
+\begin{equation}
+X : \Omega \rightarrow \Re
+\label{eq:ramdom_variable}
+\end{equation}
+Queste possono essere discrete:
+\begin{equation}
+\wp(X=k)\overset{\underset{\mathrm{def}}{}}{=}\wp(\{w:X(w)=k\}) 
+\label{eq:discrete_rand_vars}
+\end{equation}
+oppure possono essere continue:
+\begin{equation}
+\wp(a\leq X \leq b)\overset{\underset{\mathrm{def}}{}}{=} \wp(\{w:a \leq X(w) \leq b\}) 
+\label{eq:cont_rand_vars}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Processo Stocastico $St$]
+Dato uno spazio di probabilità $<\Omega, F, \wp>$ 
+\begin{equation} 
+St=\{F_t: t \in T\}\quad \text{dove } t \; \text{è il tempo}
+\label{eq:processo_stocastico}
+\end{equation} 
+\end{definition}
+
+
+\section{Processi di Markov}
+Un processo di Markov è un processo stocastico che gode della proprietà di Markov o assenza di memoria. 
+I processi di Markov si possono essere raggruppati in base al tempo che può essere discreto o continuo, ed allo spazio degli stati che può essere anche esso discreto e finito o continuo. 
+
+\subsection{Tempo e spazio discreti}
+Ad ogni unità temporale il processo transita casualmente da uno stato ad un altro. Dunque è impossibile prevedere in modo deterministico in che stato si troverà il sistema in un istante di tempo futuro. 
+
+\begin{definition}[Processi di Markov (spazio-tempo) Discreti]$<N,A,\pi>$\\
+Processo stocastico con:
+\begin{itemize}
+	\item un numero finito di stati $S = \{s_1,\ldots, s_N\}$,
+	\item un vettore di probabilità a priori $\pi$ che determina $\forall i=1,...,N$ la probabilità che il processo sia nello stato $S_i$ a tempo $t_1=0$, ovvero $\wp(q_0 = \pi_i)$, dove $q_k$ è lo stato del processo markoviano a tempo $k$.
+	\item una matrice di transizione ($N\times N$) che indica la probabilità di transire da ogni stato ad ogni altro. 
+\end{itemize} 
+
+\end{definition}
+
 \begin{figure}
 	\centering
 		\includegraphics[width=1.00\textwidth]{imgs/descreteMarkovProcesses.jpg}
@@ -54,11 +109,12 @@ sistemi che ad ogni istante di tempo $t$ assumono uno stato, ovvero lo stato cor
  Si può dare una descrizione probabilistica completa dei processi di Markov Discreti con la seguente equazione:
 
 \begin{equation}
-\wp [q_t = s_j | q_{t-1} = s_i, \ldots, q_0 = S_k]
+\wp [q_t = s_j | q_{t-1} = s_i, \ldots, q_0 = s_p]
 \label{eq:fullProbDescription}
 \end{equation}
-
+Ovvero la probabilità che il processo di Markov si trovi nello stato $s_j$ a tempo $t$ dato che a tempo $t-1$ si trovava nello stato $s_i$, e ..., e nello stato iniziale $q_0$ era nello stato $s_p$.
 Un caso speciale di \eqref{eq:fullProbDescription} in cui la probabilità che il sistema si trovi in un determinato stato nel presente dipende solo dall'istante di tempo precedente e non da tutta la storia a partire dal primo istante di tempo.
+
 \begin{definition}[Modelli di Markov del Primo Ordine]
 	\begin{equation}
 		\wp[q_t = S_j | q_{t-1} = S_i]
@@ -202,10 +258,10 @@ Generalmente con le HMM si affrontano 3 tipologie di problemi.
 
 
 \subsubsection{Valutazione} 
-Il problema della valutazione consiste nel calcolare la probabilità che una certa sequenza di osservazioni sia stata prodotta da un dato modello.
+Il problema della valutazione (Evaluation) consiste nel calcolare la probabilità che una certa sequenza di osservazioni sia stata prodotta da un dato modello.\\
 La soluzione del problema permette, dati diversi modelli candidati $\lambda_1, \ldots, \lambda_n$ ed una sequenza di osservazioni $O$, di scegliere $\lambda_k$ con $\displaystyle \max_{1\leq i \leq n}\{\wp(O|\lambda_i)\}$.\\
 
-Una soluzione naïve della Valutazione è quello di enumerare tutte le possibili sequenze di stati (detti anche percorsi)  $Q = q_1, \ldots, q_T$ dove $q_i \in S={s_1,s_2,\ldots, s_N}$ e calcolare per ciascuna la probabilità che l'osservazione sia stata prodotta da essa e moltiplicare il risultato per la probabilità che quel particolare percorso venga scelto.
+Una soluzione naïve del problema della valutazione è quello di enumerare tutte le possibili sequenze di stati (detti anche percorsi)  $Q = q_1, \ldots, q_T$ dove $q_i \in S={s_1,s_2,\ldots, s_N}$ e calcolare per ciascuna la probabilità che l'osservazione sia stata prodotta da essa e moltiplicare il risultato per la probabilità che quel particolare percorso venga scelto.
 \begin{equation}
 \begin{split}
 	\wp(O|\lambda) & = \displaystyle \sum_{1\leq t \leq T, i \in \{\text{tutti Q}\}}\wp(O_t|Q_i, \lambda)\wp(Q_i|\lambda) \quad \text{dove}\\
@@ -218,7 +274,7 @@ Una soluzione naïve della Valutazione è quello di enumerare tutte le possibili s
 
 l'algoritmo ha complessità esponenziale, $O(N^T)$.\\
 
-La soluzione ottima a questo problema è data dall'algoritmo di programmazione lineare noto come Forward. L'idea su cui si basa è di considerare dei percorsi parziali per rappresentare osservazioni parziali. Vengono definite le variabili $\alpha_{i,t}$ come la probabilità di aver osservato la sequenza parziale $O_1, \ldots, O_t$ e di essere nello stato $S_i$ all' istante temporale $t$ 
+La soluzione ottima a questo problema è data dall'algoritmo di programmazione lineare noto come algoritmo Forward. L'idea su cui si basa è di considerare dei percorsi parziali per rappresentare osservazioni parziali. Vengono definite le variabili $\alpha_{i,t}$ come la probabilità di aver osservato la sequenza parziale $O_1, \ldots, O_t$ e di essere nello stato $S_i$ all' istante temporale $t$ 
 \begin{equation}
 \alpha_{i,t} = \wp(o_1, \ldots, o_t, q_T=S_i|\lambda)
 \label{eq:alpha}
@@ -252,7 +308,7 @@ La complessità dell'algoritmo Forward è $O(NT)$. Il netto miglioramento è dovuto
 
 
 \subsubsection{Decodifica} 
-Nella decodifica, si cerca la sequenza di stati $Q = q_1,\ldots,q_T$ che ha generato una data sequenza di osservazioni $O = o_1,\ldots, o_T$. Dato che, al contrario della Valutazione, non esiste un'unica soluzione al problema delle Decodifica, quello che si fa è di stabilire un criterio di ottimalità in funzione del quale fare la ricerca. \\
+Il secondo problema è noto come problema di Decodifica in cui si cerca la sequenza di stati $Q = q_1,\ldots,q_T$ che ha generato una data sequenza di osservazioni $O = o_1,\ldots, o_T$. Dato che, al contrario del problema della Valutazione, non esiste un'unica soluzione al problema di Decodifica, quello che si fa è di stabilire un criterio di ottimalità in funzione del quale fare la ricerca. \\
 Un possibile criterio di ottimalità della sequenza è quello di scegliere gli stati $q_t$ che all'istante di tempo $t$ sono i più probabili. Tale criterio massimizza il numero atteso di stati corretti individualmente. \\
 Per risolvere il problema necessitiamo di due variabili $\beta$ e $\gamma$. La prima è definita come risultato dell' algoritmo Backward, che computa il processo inverso dell'algoritmo Forward.
 
@@ -378,7 +434,7 @@ i cammini locai fino al punto di fusione (che per definizione sono tutti uguali)
 
 	
 \subsubsection {Apprendimento}
-Il problema consiste nel configurare i parametri di $\lambda$ per massimizzare la probabilità di una sequenza di dati osservati. Non è noto un metodo analitico per risolvere il problema, infatti, data una sequenza finita di osservazioni, non esiste un modo ottimo di stimare i parametri di $\lambda$. Possiamo però scegliere $\lambda$ in modo da massimizzare localmente $\wp(O|\lambda)$, con un procedimenti iterativi come 
+L'ultimo problema è quello dell'Apprendimento che consiste nel configurare i parametri di $\lambda$ per massimizzare la probabilità di una sequenza di dati osservati. Non è noto un metodo analitico per risolvere il problema, infatti, data una sequenza finita di osservazioni, non esiste un modo ottimo di stimare i parametri di $\lambda$. Possiamo però scegliere $\lambda$ in modo da massimizzare localmente $\wp(O|\lambda)$, con un procedimenti iterativi come 
 \begin{itemize}
 	\item Baum-Welch
 	\item Expectation-Modification

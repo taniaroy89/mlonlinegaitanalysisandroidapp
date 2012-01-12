@@ -13,103 +13,104 @@
 \contentsline {section}{\numberline {3.3}Breve storia dello studio della deambulazione umana}{9}{section.3.3}
 \contentsline {section}{\numberline {3.4}Ciclo di deambulazione (Gait Cycle)}{10}{section.3.4}
 \contentsline {subsection}{\numberline {3.4.1}Confronto fra Falcata (Stride) e Passo (Step)}{11}{subsection.3.4.1}
-\contentsline {section}{\numberline {3.5}Parametri che descrivono il pattern (schema) della deambulazione}{11}{section.3.5}
-\contentsline {chapter}{\numberline {4}Lo stato dell'arte}{13}{chapter.4}
-\contentsline {section}{\numberline {4.1}Materiali}{13}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Osservazione diretta del paziente}{13}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Stereofotogrammetria}{13}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}Sensori Inerziali}{13}{subsection.4.1.3}
-\contentsline {section}{\numberline {4.2}Metodi}{18}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Analisi}{18}{subsection.4.2.1}
+\contentsline {section}{\numberline {3.5}Parametri che descrivono il pattern (schema) della deambulazione}{12}{section.3.5}
+\contentsline {chapter}{\numberline {4}Lo stato dell'arte}{15}{chapter.4}
+\contentsline {section}{\numberline {4.1}Materiali}{15}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Osservazione diretta del paziente}{15}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Stereofotogrammetria}{15}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}Sensori Inerziali}{15}{subsection.4.1.3}
+\contentsline {section}{\numberline {4.2}Metodi}{21}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Analisi}{21}{subsection.4.2.1}
 \mbox {}\hrulefill \par 
 \mbox {}\hrulefill \par 
-\contentsline {part}{ii\hspace {1em}Lavoro svolto}{21}{part.2}
-\contentsline {chapter}{\numberline {5}Materiali e Metodi}{23}{chapter.5}
-\contentsline {section}{\numberline {5.1}Introduzione}{23}{section.5.1}
-\contentsline {section}{\numberline {5.2}Creazione ed addestramento del modello}{23}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Dati}{23}{subsection.5.2.1}
-\contentsline {chapter}{\numberline {6}Applicativo Android}{29}{chapter.6}
-\contentsline {section}{\numberline {6.1}Introduzione}{29}{section.6.1}
-\contentsline {section}{\numberline {6.2}Metodologia di programmazione usata: Agile}{29}{section.6.2}
-\contentsline {section}{\numberline {6.3}Organizzazione del programma}{31}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Android Manifest}{31}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Codice sorgente}{33}{subsection.6.3.2}
-\contentsline {subsection}{\numberline {6.3.3}Risorse}{33}{subsection.6.3.3}
-\contentsline {subsubsection}{Layout}{33}{subsection.6.3.3}
-\contentsline {subsubsection}{File grafici}{34}{figure.caption.22}
-\contentsline {subsubsection}{Valori}{36}{figure.caption.22}
-\contentsline {subsubsection}{Altri File}{36}{figure.caption.22}
-\contentsline {subsection}{\numberline {6.3.4}Librerie}{36}{subsection.6.3.4}
-\contentsline {section}{\numberline {6.4}Funzionamento}{36}{section.6.4}
-\contentsline {subsection}{\numberline {6.4.1}Interfaccia}{36}{subsection.6.4.1}
-\contentsline {subsection}{\numberline {6.4.2}Comunicazione Bluetooth}{36}{subsection.6.4.2}
-\contentsline {subsection}{\numberline {6.4.3}Gestione della connessione}{36}{subsection.6.4.3}
-\contentsline {subsection}{\numberline {6.4.4}Gestione Thread}{38}{subsection.6.4.4}
-\contentsline {subsubsection}{MailBox}{38}{subsection.6.4.4}
-\contentsline {subsubsection}{Test per il protocollo di comunicazione MailBox}{40}{Item.28}
-\contentsline {subsubsection}{HMM ad emissioni discrete}{42}{lstnumber.6.15.11}
-\contentsline {subsubsection}{HMM ad emissioni continue}{43}{lstnumber.6.17.25}
-\contentsline {subsubsection}{Operazioni sulle HMM}{43}{lstnumber.6.18.1}
-\contentsline {chapter}{\numberline {7}Validazione}{45}{chapter.7}
-\contentsline {chapter}{\numberline {8}Risultati e Conclusioni}{47}{chapter.8}
+\contentsline {part}{ii\hspace {1em}Lavoro svolto}{23}{part.2}
+\contentsline {chapter}{\numberline {5}Materiali e Metodi}{25}{chapter.5}
+\contentsline {section}{\numberline {5.1}Introduzione}{25}{section.5.1}
+\contentsline {section}{\numberline {5.2}Creazione ed addestramento del modello}{25}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Dati}{25}{subsection.5.2.1}
+\contentsline {chapter}{\numberline {6}Applicativo Android}{31}{chapter.6}
+\contentsline {section}{\numberline {6.1}Introduzione}{31}{section.6.1}
+\contentsline {section}{\numberline {6.2}Metodologia di programmazione usata: Agile}{31}{section.6.2}
+\contentsline {section}{\numberline {6.3}Organizzazione del programma}{33}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Android Manifest}{33}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Codice sorgente}{35}{subsection.6.3.2}
+\contentsline {subsection}{\numberline {6.3.3}Risorse}{35}{subsection.6.3.3}
+\contentsline {subsubsection}{Layout}{35}{subsection.6.3.3}
+\contentsline {subsubsection}{File grafici}{36}{figure.caption.23}
+\contentsline {subsubsection}{Valori}{38}{figure.caption.23}
+\contentsline {subsubsection}{Altri File}{38}{figure.caption.23}
+\contentsline {subsection}{\numberline {6.3.4}Librerie}{38}{subsection.6.3.4}
+\contentsline {section}{\numberline {6.4}Funzionamento}{38}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Interfaccia}{38}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}Comunicazione Bluetooth}{38}{subsection.6.4.2}
+\contentsline {subsection}{\numberline {6.4.3}Gestione della connessione}{38}{subsection.6.4.3}
+\contentsline {subsection}{\numberline {6.4.4}Gestione Thread}{40}{subsection.6.4.4}
+\contentsline {subsubsection}{MailBox}{40}{subsection.6.4.4}
+\contentsline {subsubsection}{Test per il protocollo di comunicazione MailBox}{42}{Item.22}
+\contentsline {subsubsection}{HMM ad emissioni discrete}{44}{lstnumber.6.15.11}
+\contentsline {subsubsection}{HMM ad emissioni continue}{45}{lstnumber.6.17.25}
+\contentsline {subsubsection}{Operazioni sulle HMM}{45}{lstnumber.6.18.1}
+\contentsline {chapter}{\numberline {7}Validazione}{47}{chapter.7}
+\contentsline {chapter}{\numberline {8}Risultati e Conclusioni}{49}{chapter.8}
 \mbox {}\hrulefill \par 
 \mbox {}\hrulefill \par 
-\contentsline {part}{iii\hspace {1em}Appendice}{49}{part.3}
-\contentsline {chapter}{\numberline {A}Sulle HMM}{51}{appendix.A}
-\contentsline {section}{\numberline {A.1}Problema: Modellare segnali}{51}{section.A.1}
-\contentsline {section}{\numberline {A.2}Processi di Markov Discreti}{51}{section.A.2}
-\contentsline {section}{\numberline {A.3}HMM}{53}{section.A.3}
-\contentsline {subsection}{\numberline {A.3.1}HMM ad emissioni continue}{53}{subsection.A.3.1}
-\contentsline {subsection}{\numberline {A.3.2}Tipi di HMM}{54}{subsection.A.3.2}
-\contentsline {section}{\numberline {A.4}Tre problemi per le HMM}{54}{section.A.4}
-\contentsline {subsubsection}{Valutazione}{55}{Item.38}
-\contentsline {subsubsection}{Decodifica}{55}{ALC@unique.20}
-\contentsline {subsection}{\numberline {A.4.1}Algoritmo di Viterbi in Tempo Reale}{57}{subsection.A.4.1}
-\contentsline {subsubsection}{Apprendimento}{58}{ALC@unique.50}
-\contentsline {section}{\numberline {A.5}Problemi di implementazione di HMM}{60}{section.A.5}
+\contentsline {part}{iii\hspace {1em}Appendice}{51}{part.3}
+\contentsline {chapter}{\numberline {A}Sulle HMM}{53}{appendix.A}
+\contentsline {section}{\numberline {A.1}Problema: Modellare segnali}{53}{section.A.1}
+\contentsline {section}{\numberline {A.2}Processi di Markov}{54}{section.A.2}
+\contentsline {subsection}{\numberline {A.2.1}Tempo e spazio discreti}{55}{subsection.A.2.1}
+\contentsline {section}{\numberline {A.3}HMM}{56}{section.A.3}
+\contentsline {subsection}{\numberline {A.3.1}HMM ad emissioni continue}{57}{subsection.A.3.1}
+\contentsline {subsection}{\numberline {A.3.2}Tipi di HMM}{57}{subsection.A.3.2}
+\contentsline {section}{\numberline {A.4}Tre problemi per le HMM}{58}{section.A.4}
+\contentsline {subsubsection}{Valutazione}{58}{Item.35}
+\contentsline {subsubsection}{Decodifica}{58}{ALC@unique.20}
+\contentsline {subsection}{\numberline {A.4.1}Algoritmo di Viterbi in Tempo Reale}{60}{subsection.A.4.1}
+\contentsline {subsubsection}{Apprendimento}{62}{ALC@unique.50}
+\contentsline {section}{\numberline {A.5}Problemi di implementazione di HMM}{63}{section.A.5}
 \cftpagenumbersoff {chapter}
-\contentsline {chapter}{\numberline {B}Tempo Reale, In Linea, Latenza}{63}{appendix.B}
-\contentsline {section}{\numberline {B.1}Tempo Reale}{63}{section.B.1}
-\contentsline {section}{\numberline {B.2}Algoritmi in linea}{63}{section.B.2}
-\contentsline {section}{\numberline {B.3}Latenza}{64}{section.B.3}
-\contentsline {chapter}{\numberline {C}Cenni di Meccanica classica}{65}{appendix.C}
-\contentsline {section}{\numberline {C.1}Cinematica}{65}{section.C.1}
-\contentsline {subsection}{\numberline {C.1.1}Moto rettilineo di una particella}{65}{subsection.C.1.1}
-\contentsline {subsubsection}{Posizione}{65}{subsection.C.1.1}
-\contentsline {subsubsection}{Spostamento}{65}{subsection.C.1.1}
-\contentsline {subsubsection}{Distanza}{65}{subsection.C.1.1}
-\contentsline {subsubsection}{Velocit\`a}{65}{subsection.C.1.1}
-\contentsline {subsubsection}{Accelerazione}{65}{figure.caption.25}
-\contentsline {section}{\numberline {C.2}Moto Angolare di una particella}{66}{section.C.2}
-\contentsline {subsubsection}{Posizione}{66}{section.C.2}
-\contentsline {subsubsection}{Velocit\`a}{66}{section.C.2}
-\contentsline {subsubsection}{Accelerazione}{66}{figure.caption.26}
-\contentsline {section}{\numberline {C.3}Dinamica (Cinetica)}{67}{section.C.3}
-\contentsline {chapter}{\numberline {D}Sensori}{69}{appendix.D}
-\contentsline {section}{\numberline {D.1}Accelerometro}{69}{section.D.1}
-\contentsline {section}{\numberline {D.2}Giroscopio}{69}{section.D.2}
-\contentsline {section}{\numberline {D.3}Magnetometro}{69}{section.D.3}
-\contentsline {section}{\numberline {D.4}IMU}{70}{section.D.4}
-\contentsline {chapter}{\numberline {E}Su Android}{73}{appendix.E}
-\contentsline {section}{\numberline {E.1}Android OS}{73}{section.E.1}
-\contentsline {subsection}{\numberline {E.1.1}Linux Kernel}{73}{subsection.E.1.1}
-\contentsline {subsection}{\numberline {E.1.2}Librerie Native Android}{75}{subsection.E.1.2}
-\contentsline {subsection}{\numberline {E.1.3}Tempo di esecuzione di Android: Dalvik}{75}{subsection.E.1.3}
-\contentsline {subsubsection}{Java e Android}{76}{subsection.E.1.3}
-\contentsline {subsection}{\numberline {E.1.4}Application Framework}{77}{subsection.E.1.4}
-\contentsline {subsection}{\numberline {E.1.5}Applications}{77}{subsection.E.1.5}
-\contentsline {subsubsection}{APK}{77}{subsection.E.1.5}
-\contentsline {subsection}{\numberline {E.1.6}Struttura di un Android App}{77}{subsection.E.1.6}
-\contentsline {section}{\numberline {E.2}Le componenti principali di un Applicativo Andorid}{77}{section.E.2}
-\contentsline {subsection}{\numberline {E.2.1}Activity}{78}{subsection.E.2.1}
-\contentsline {subsection}{\numberline {E.2.2}Intent}{79}{subsection.E.2.2}
-\contentsline {subsection}{\numberline {E.2.3}Servizi}{79}{subsection.E.2.3}
-\contentsline {subsection}{\numberline {E.2.4}Content Provider}{79}{subsection.E.2.4}
-\contentsline {section}{\numberline {E.3}Broadcast Receiver}{80}{section.E.3}
-\contentsline {section}{\numberline {E.4}Application Context}{80}{section.E.4}
-\contentsline {section}{\numberline {E.5}Intefaccia Utenti (UI)}{80}{section.E.5}
-\contentsline {subsection}{\numberline {E.5.1}Layout XML}{81}{subsection.E.5.1}
-\contentsline {subsection}{\numberline {E.5.2}Eventi di Input}{81}{subsection.E.5.2}
-\contentsline {subsection}{\numberline {E.5.3}Menu}{81}{subsection.E.5.3}
-\contentsline {subsection}{\numberline {E.5.4}Barra delle Azioni}{81}{subsection.E.5.4}
-\contentsline {subsection}{\numberline {E.5.5}Dialoghi}{81}{subsection.E.5.5}
+\contentsline {chapter}{\numberline {B}Tempo Reale, In Linea, Latenza}{67}{appendix.B}
+\contentsline {section}{\numberline {B.1}Tempo Reale}{67}{section.B.1}
+\contentsline {section}{\numberline {B.2}Algoritmi in linea}{67}{section.B.2}
+\contentsline {section}{\numberline {B.3}Latenza}{68}{section.B.3}
+\contentsline {chapter}{\numberline {C}Cenni di Meccanica classica}{69}{appendix.C}
+\contentsline {section}{\numberline {C.1}Cinematica}{69}{section.C.1}
+\contentsline {subsection}{\numberline {C.1.1}Moto rettilineo di una particella}{69}{subsection.C.1.1}
+\contentsline {subsubsection}{Posizione}{69}{subsection.C.1.1}
+\contentsline {subsubsection}{Spostamento}{69}{subsection.C.1.1}
+\contentsline {subsubsection}{Distanza}{69}{subsection.C.1.1}
+\contentsline {subsubsection}{Velocit\`a}{69}{subsection.C.1.1}
+\contentsline {subsubsection}{Accelerazione}{69}{figure.caption.26}
+\contentsline {section}{\numberline {C.2}Moto Angolare di una particella}{70}{section.C.2}
+\contentsline {subsubsection}{Posizione}{70}{section.C.2}
+\contentsline {subsubsection}{Velocit\`a}{70}{section.C.2}
+\contentsline {subsubsection}{Accelerazione}{70}{figure.caption.27}
+\contentsline {section}{\numberline {C.3}Dinamica (Cinetica)}{71}{section.C.3}
+\contentsline {chapter}{\numberline {D}Sensori}{73}{appendix.D}
+\contentsline {section}{\numberline {D.1}Accelerometro}{73}{section.D.1}
+\contentsline {section}{\numberline {D.2}Giroscopio}{73}{section.D.2}
+\contentsline {section}{\numberline {D.3}Magnetometro}{73}{section.D.3}
+\contentsline {section}{\numberline {D.4}IMU}{74}{section.D.4}
+\contentsline {chapter}{\numberline {E}Su Android}{77}{appendix.E}
+\contentsline {section}{\numberline {E.1}Android OS}{77}{section.E.1}
+\contentsline {subsection}{\numberline {E.1.1}Linux Kernel}{77}{subsection.E.1.1}
+\contentsline {subsection}{\numberline {E.1.2}Librerie Native Android}{79}{subsection.E.1.2}
+\contentsline {subsection}{\numberline {E.1.3}Tempo di esecuzione di Android: Dalvik}{79}{subsection.E.1.3}
+\contentsline {subsubsection}{Java e Android}{80}{subsection.E.1.3}
+\contentsline {subsection}{\numberline {E.1.4}Application Framework}{81}{subsection.E.1.4}
+\contentsline {subsection}{\numberline {E.1.5}Applications}{81}{subsection.E.1.5}
+\contentsline {subsubsection}{APK}{81}{subsection.E.1.5}
+\contentsline {subsection}{\numberline {E.1.6}Struttura di un Android App}{81}{subsection.E.1.6}
+\contentsline {section}{\numberline {E.2}Le componenti principali di un Applicativo Andorid}{81}{section.E.2}
+\contentsline {subsection}{\numberline {E.2.1}Activity}{82}{subsection.E.2.1}
+\contentsline {subsection}{\numberline {E.2.2}Intent}{83}{subsection.E.2.2}
+\contentsline {subsection}{\numberline {E.2.3}Servizi}{83}{subsection.E.2.3}
+\contentsline {subsection}{\numberline {E.2.4}Content Provider}{83}{subsection.E.2.4}
+\contentsline {section}{\numberline {E.3}Broadcast Receiver}{84}{section.E.3}
+\contentsline {section}{\numberline {E.4}Application Context}{84}{section.E.4}
+\contentsline {section}{\numberline {E.5}Intefaccia Utenti (UI)}{84}{section.E.5}
+\contentsline {subsection}{\numberline {E.5.1}Layout XML}{85}{subsection.E.5.1}
+\contentsline {subsection}{\numberline {E.5.2}Eventi di Input}{85}{subsection.E.5.2}
+\contentsline {subsection}{\numberline {E.5.3}Menu}{85}{subsection.E.5.3}
+\contentsline {subsection}{\numberline {E.5.4}Barra delle Azioni}{85}{subsection.E.5.4}
+\contentsline {subsection}{\numberline {E.5.5}Dialoghi}{85}{subsection.E.5.5}
