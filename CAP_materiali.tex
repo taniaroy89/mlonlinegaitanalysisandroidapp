@@ -3,9 +3,9 @@
 \section{Introduzione}
 Il lavoro complessivo, può essere suddiviso in tre fasi principali: 
 \begin{enumerate}
-	\item \textbf{creazione ed addestramento di un modello}: scelta di un modello consono al problema e ottimizzazione dei relativi parametri,
-	\item \textbf{implementazione}: stesura applicativo per Android che implementi il modello,
-	\item \textbf{applicazione e test}: abbiamo correlato un parametro spaziale del cammino (la distanza percorsa) a partire da quelli temporali ottenuti con la segmentazione (cadenza e velocità) e successivamente verificandone la correttezza con misurazioni dirette dei parametri spaziali (misurazione della distanza fatta con il GPS).
+	\item \textbf{Creazione ed addestramento di un modello}: scelta di un modello consono al problema e ottimizzazione dei relativi parametri,
+	\item \textbf{Implementazione}: stesura applicativo per Android che implementi il modello,
+	\item \textbf{Validazione}: i risultati ottenuti sono stati validati correlando un parametro spaziale del cammino (la distanza percorsa) a partire da quelli temporali ottenuti con la segmentazione (cadenza e velocità) e successivamente verificandone la correttezza con misurazioni dirette dei parametri spaziali (misurazione della distanza fatta con il GPS).
 \end{enumerate}
   
 \section{Creazione ed addestramento del modello}
@@ -14,22 +14,28 @@ Il sistema adattivo scelto sono le HMM. La scelta di queste ultime è giustificat
 Inoltre gli interessi futuri di ricerca scientifica del gruppo saranno orientati sia verso la stima dei parametri di un'attività nota sia verso la classificazione di diverse attività (se si considerano modelli di HMM gerarchici \cite{physical_activity_recognition}). Entrambi i compiti possono essere portati a termine dalle HMM.\\
 
 \subsection{Dati}
-Sono stati scelti 6 soggetti sani (con deambulazione normale)\footnote{non patologico} e sono stati sottoposti a 5 sessioni di cammino e 5 sessioni di corsa.
-Le prove sono state compiute su threadmill su un intervallo di velocità [3-7]Km/h per il cammino e [8-12]Km/h per la corsa. Ciascuna sessione è stata della durata di 2 minuti. La prima sessione alla velocità di 3Km/h e con un incremento di 1Km/h in ciascuna sessione successiva.
+Sono stati scelti 6 soggetti sani (con deambulazione normale) e sono stati sottoposti a 5 sessioni di cammino e 5 sessioni di corsa.
+Le prove sono state compiute su un tapis roulant su un intervallo di velocità [3-7]Km/h per il cammino e [8-12]Km/h per la corsa. Ciascuna sessione è stata della durata di 2 minuti. La prima sessione alla velocità di 3Km/h e con un incremento di 1Km/h in ciascuna sessione successiva.
 
 \begin{table}[htbp]
 	\centering
-		\begin{tabular}{|l|l|}
-		\hline
-			\textbf{Attività 1}& cammino \{3,4,5,6,7\}Km/h\\
-			\textbf{Soggetti}& 6\\
+	\begin{tabular}{|l|c|c|}
+		\hline		
+			\textbf{Attività}& cammino & corsa \\
 			\hline
-			\textbf{Attività 2}& corsa \{8,9,10,11,12\}Km/h\\
-			\textbf{Soggetti}& 5\\
+			\textbf{Soggetti}& 6 & 5\\
 			\hline
-			\textbf{Durata}& 2 minuti per attività\\
-			\textbf{Strumenti 1} & IMU, Vicon, Treadmill\\
-			\textbf{Luogo}& Laboratorio\\
+			\textbf{Velocità}& \{3,4,5,6,7\}Km/h & \{8,9,10,11,12\}Km/h\\
+			\hline
+			\textbf{Durata}& \multicolumn{2}{c|}{2 minuti per attività}\\
+			\hline
+			\textbf{Strumenti} & \multicolumn{2}{c|}{IMU, Vicon, tapis roulant}\\
+			\hline
+			\textbf{Luogo}& \multicolumn{2}{c|}{Laboratorio}\\
+			\hline
+			\textbf{Dati raccolti} & \multicolumn{2}{c|}{valori giroscopio monoassiale}\\
+			\hline
+			\textbf{Frequenza campionamento} & \multicolumn{2}{c|}{100 Hz}\\
 			\hline
 		\end{tabular}
 	\caption{Tabella riassuntiva della raccolti dati}
@@ -38,7 +44,7 @@ Le prove sono state compiute su threadmill su un intervallo di velocità [3-7]Km/
 
 Le sessioni sono state tutte eseguite posizionando una IMU \ref{sec:sensori} sul collo del piede dei soggetti. Il tipo di sensore usato è un giroscopio monoassiale con asse di sensibilità orientato sul piano mediale-laterale (vedi figura \ref{fig:HumanBodySPL}).\\
 I segnali sono stati raccolti dal sensore ad una frequenza di 100 Hz e filtrati passa-basso\footnote{Un filtro passa-banda, è uno strumento elettronico che lascia passare frequenze in un intervallo e blocca il passaggio o di frequenze (o le attenua) fuori dall'intervallo. Un passa-basso lascia passare le frequenze basse, e smorza quelle a frequenze alte.} a 15Hz mediante un filtro forward-backward\footnote{Il filtro viene passato in entrambe le direzioni per avere un segnale simmetrico} di Butterworth\footnote{Detto anche filtro a magnitudine massimamente piatta nella banda che passa, in modo da avere meno disturbo possibile.}. Dai dati raccolti, quelli considerati per lo studio sono quelli compresi nell'intervallo dai 50 ai 110 secondi. \\
-I dati acquisiti con la IMU sono stati sincronizzati con i dati acquisiti mediante stereofotogrammetria. A tale scopo è stato impiegato un sistema ottico di analisi del moto commerciale, Vicon \cite{vicon.com}, composto di 4 telecamere posizionate intorno al treadmill, in modo da poter tracciare il movimento di 5 marker retroriflettenti\footnote{Dispositivo o superficie che riflette la luce alla sua sorgente minimizzando la dispersione di luce}. I marker sono dei bulbi sferici in plastica di circa 14mm di diametro, attaccati ad una superficie quadrata della stessa dimensione, alle quali viene applicato del nastro biadesivo, mediante il quale vengono incollate sulla parte del corpo che vuole studiare. I marker sono stati posizionati sull'arto inferiore sinistro: sul tallone, sulla lato esterno della caviglia, sulla giuntura metatarso-falange dell'alluce, sulla coscia e sulla schiena, tra la zona lombare e sacrale. Il sistema Vicon, con il software \TODO{Vicon Tracker 1.2} ha tracciato la traiettoria in 3D, con un campionamento a 50Hz ed un accuratezza di $\pm$10 mm. e ricostruito tutta la sequenza di movimenti in 3D degli esperimenti, visualizzandoli a video. Dai dati ottenuti con il sistema Vicon sono stati generati dei segnali di riferimento per le fasi del cammino mediante la procedura descritta in \cite{reliable_gait_phase_anslysis}.\\
+I dati acquisiti con la IMU sono stati sincronizzati con i dati acquisiti mediante stereofotogrammetria. A tale scopo è stato impiegato un sistema ottico commerciale di analisi del moto, il sistema Vicon \cite{vicon.com}, composto di 4 telecamere ed il software Workstation\tm. Le telecamere sono state disposte intorno al tapis roulant, in modo da poter tracciare il movimento di 5 marker retroriflettenti\footnote{Dispositivo o superficie che riflette la luce alla sua sorgente minimizzando la dispersione di luce}. I marker sono dei bulbi sferici in plastica di circa 14mm di diametro, attaccati ad una superficie quadrata della stessa dimensione, alle quali viene applicato del nastro biadesivo, mediante il quale vengono incollate sulla parte del corpo che vuole studiare. I marker sono stati posizionati sull'arto inferiore sinistro: sul tallone, sulla lato esterno della caviglia, sulla giuntura metatarso-falange dell'alluce, sulla coscia e sulla schiena, tra la zona lombare e sacrale. Con il sistema Vicon è stata tracciata la traiettoria in 3D, con un campionamento a 50Hz ed un accuratezza di $\pm$10 mm. e ricostruito tutta la sequenza di movimenti in 3D degli esperimenti, visualizzandoli a video. Dai dati ottenuti con il sistema Vicon sono stati generati dei segnali di riferimento per le fasi del cammino mediante la procedura descritta in \cite{reliable_gait_phase_anslysis}.\\
 
 \begin{figure}
 	\centering
@@ -47,8 +53,8 @@ I dati acquisiti con la IMU sono stati sincronizzati con i dati acquisiti median
 	\label{fig:gyroPattern}
 \end{figure}
 
-Il grafico del segnale del giroscopio posizionato sul piede ha una struttura abbastanza definita e ripetitiva (vedi grafico \ref{fig:gyroPattern}). Assumendo di cominciare dal piede in aria, qualche istante prima che stia per atterrare con il tallone, si ha il grafico nel punto di coordinata $(0,0)$. Da qui questo in circa 30 secondi raggiunge un picco negativo di circa -200°/secondi($min_1$). Da questo vertice risale a "V" (con la stessa pendenza ma di segno positivo) a 0°/sec. Successivamente per circa 50 secondi il piede rimane a velocità angolare 0°/secondi, dopo di che la curva precipita verso il suo minimo, tracciando una curva concava. Dopo 50 secondi circa di precipizio questa giunge a -450°/sec ($min$). Appena raggiunto il minimo, risale quasi verticalmente (in meno di 50 secondi) al valore massimo, circa 450 ($max$). Dal massimo riscende allo 0°/sec in due tratti, di cui il secondo è più lungo e di pendenza maggiore, simile a quello con cui la curva è risalita al picco massimo, ma decrescente. Da questo punto lo stesso scenario si ripete ad ogni passo, se non si modificano le condizioni di esecuzione del movimento.\\
-In un ciclo di cammino possono essere identificate fino a 8 fasi (vedi capitolo \ref{cap:chinesiologia}). Per tenere basso il numero di parametri è stato deciso di accorpare le fasi riducendole a 4 (vedi tabella \ref{tab:4_fasi_deambulazione}). La prima fase $S_1$ è quella nell'intervallo fra gli eventi $t_{HS}$ a $T_{FF}$, la seconda $S_2$ è quella compresa fra gli eventi $t_{FF}$ a $t_{HO}$, la terza $S_3$ fra $t_{HO}$ a $t_{FO}$ e l'ultima $S_1$ è quella che chiude il ciclo $t_{FO}$ a $t_{HS}$.
+Il grafico del segnale del giroscopio posizionato sul piede ha una struttura abbastanza definita e ripetitiva (vedi grafico \ref{fig:gyroPattern}). Nel grafico, l'ascissa rappresenta i campioni e l'ordinata la velocità angolare in gradi al secondo ($°/s$). La forma del grafico può essere descritta a grandi linee come un picco negativo seguito da un tratto quasi orizzontale ed un secondo picco negativo ed uno positivo. Tale sequenza rappresenta un passo completo e si ripete quasi identica a se stessa durante la camminata.
+
 
 \begin{table}%
 \centering
@@ -133,7 +139,7 @@ a_{ij}& = C/N_i \quad \text{dove}\quad j = (i+1)\%Q \\
 \label{eq:emissionMtx}
 \end{equation}
 dove $N_i$ è il numero di valori etichettati con l'etichetta $i$-esima nel vettore di etichette $Y$ e $C$ è il numero di cicli di deambulazione nel training set.\\ 
-\ERR{VERRI: POCJO CHIARO - 
+\ERR{VERRI: POCO CHIARO - 
 I parametri di emissione ( $\mu$ e $\sigma$) per ciascuno stato $i$ sono stimati calcolando delle medie e deviazioni standard empiriche dagli output osservabili dei quali si conosce lo stato che li ha emessi.\\
 }
 La validazione è stata fatta con l'approccio leave-one-subject-out cross-validation (LOOCV). 
