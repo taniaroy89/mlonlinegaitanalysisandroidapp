@@ -2,8 +2,17 @@
 %\myChapter{Applicativo Android}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduzione}%descrivere cosa fa a grandi linee %%%%%%%%%%%%%%%%%%%%%%%%%                           INTRODUZIONE
+La seconda parte del lavoro è relativa allo sviluppo di un'applicazione per uno Smartphone Android che segmenta in linea il cammino, a partire da dati giroscopici (vedi fig \ref{fig:schema_app}).
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=1\textwidth]{imgs/ArchitetturaProgramma.jpg}
+	\caption{Architettura dell'applicazione per Smartphone}
+	\label{fig:schema_app}
+\end{figure} 
+Una volta posizionata la IMU (vedi appendice \ref{sec:imu}) sul collo del piede, lo Smartphone vi interagisce tramite una connessione Bluetooth.\\ 
+L'utente controlla la IMU mediante l'applicativo, quindi può impostarne i parametri: ad esempio la frequenza di campionamento e gli intervalli di campionamento per ciascun sensore su ciascun asse. Impostati i parametri l'utente può acquisire dati dalla IMU mediante un servizio di data logging (nel file system dello Smartphone), oppure li può visualizzare come un grafico dinamico. Inoltre è possibile abilitare la segmentazione in linea del segnale di deambulazione. Nell'ultimo caso il grafico dinamico rappresentante il segnale del giroscopio viene tracciato in linea\footnote{La segmentazione ha una latenza massima di \TODO{10ms?}} con un colore a seconda della fase della deambulazione: HS-blu, FF-giallo, HO-rosso, TO-verde. \\
 
-La seconda parte del lavoro, è relativa all'implementazione di algoritmi di segmentazione online su uno Smartphone Android. L'applicativo in oggetto,  sulla base di un modello HMM addestrato offline (vedi sezione \ref{sec:creazione_addestramento_modello}), impiega una versione dell'algoritmo di Viterbi \cite{short_time_viterbi_online_hmm_deconding} per elaborare a run-time i dati giroscopici acquisiti dalla IMU (e trasferiti via Bluetooth), effettuando la segmentazione e consentendo output di tipo grafico (colorando in modo differente la traccia del segnale giroscopico in funzione della fase del cammino), e di data logging. 
+%Sulla base di un modello HMM addestrato in differita (vedi sezione \ref{sec:creazione_addestramento_modello}), impiega una versione dell'algoritmo di Viterbi \cite{short_time_viterbi_online_hmm_deconding} per elaborare a run-time i dati giroscopici acquisiti dalla IMU (e trasferiti via Bluetooth), effettuando la segmentazione e consentendo output di tipo grafico (colorando in modo differente la traccia del segnale giroscopico in funzione della fase del cammino), e di data logging. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Metodologia di programmazione usata: Agile}%agile %%%%%%%%%%%%%%%%%         METODOLOGIA DI PROGRAMMAZIONE
