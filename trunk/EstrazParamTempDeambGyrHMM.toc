@@ -31,22 +31,22 @@
 \contentsline {chapter}{\numberline {6}Applicativo Android}{31}{chapter.6}
 \contentsline {section}{\numberline {6.1}Introduzione}{31}{section.6.1}
 \contentsline {section}{\numberline {6.2}Metodologia di programmazione usata: Agile}{31}{section.6.2}
-\contentsline {section}{\numberline {6.3}Organizzazione del programma}{33}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Android Manifest}{33}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Codice sorgente}{35}{subsection.6.3.2}
-\contentsline {subsection}{\numberline {6.3.3}Risorse}{35}{subsection.6.3.3}
-\contentsline {subsubsection}{Layout}{35}{subsection.6.3.3}
-\contentsline {subsubsection}{File grafici}{36}{figure.caption.23}
-\contentsline {subsubsection}{Valori}{38}{figure.caption.23}
-\contentsline {subsubsection}{Altri File}{38}{figure.caption.23}
+\contentsline {section}{\numberline {6.3}Organizzazione del programma}{34}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Android Manifest}{34}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Codice sorgente}{36}{subsection.6.3.2}
+\contentsline {subsection}{\numberline {6.3.3}Risorse}{36}{subsection.6.3.3}
+\contentsline {subsubsection}{Layout}{36}{subsection.6.3.3}
+\contentsline {subsubsection}{File grafici}{37}{figure.caption.24}
+\contentsline {subsubsection}{Valori}{37}{figure.caption.24}
+\contentsline {subsubsection}{Altri File}{37}{figure.caption.24}
 \contentsline {subsection}{\numberline {6.3.4}Librerie}{38}{subsection.6.3.4}
 \contentsline {section}{\numberline {6.4}Funzionamento}{38}{section.6.4}
 \contentsline {subsection}{\numberline {6.4.1}Interfaccia}{38}{subsection.6.4.1}
-\contentsline {subsection}{\numberline {6.4.2}Comunicazione Bluetooth}{38}{subsection.6.4.2}
-\contentsline {subsection}{\numberline {6.4.3}Gestione della connessione}{38}{subsection.6.4.3}
-\contentsline {subsection}{\numberline {6.4.4}Gestione Thread}{40}{subsection.6.4.4}
-\contentsline {subsubsection}{MailBox}{40}{subsection.6.4.4}
-\contentsline {subsubsection}{Test per il protocollo di comunicazione MailBox}{42}{Item.22}
+\contentsline {subsection}{\numberline {6.4.2}Comunicazione Bluetooth}{39}{subsection.6.4.2}
+\contentsline {subsection}{\numberline {6.4.3}Gestione della connessione}{39}{subsection.6.4.3}
+\contentsline {subsection}{\numberline {6.4.4}Gestione Thread}{39}{subsection.6.4.4}
+\contentsline {subsubsection}{MailBox}{39}{subsection.6.4.4}
+\contentsline {subsubsection}{Test per il protocollo di comunicazione MailBox}{41}{Item.22}
 \contentsline {subsubsection}{HMM ad emissioni discrete}{44}{lstnumber.6.15.11}
 \contentsline {subsubsection}{HMM ad emissioni continue}{45}{lstnumber.6.17.25}
 \contentsline {subsubsection}{Operazioni sulle HMM}{45}{lstnumber.6.18.1}
@@ -80,11 +80,11 @@
 \contentsline {subsubsection}{Spostamento}{69}{subsection.C.1.1}
 \contentsline {subsubsection}{Distanza}{69}{subsection.C.1.1}
 \contentsline {subsubsection}{Velocit\`a}{69}{subsection.C.1.1}
-\contentsline {subsubsection}{Accelerazione}{69}{figure.caption.26}
+\contentsline {subsubsection}{Accelerazione}{69}{figure.caption.27}
 \contentsline {section}{\numberline {C.2}Moto Angolare di una particella}{70}{section.C.2}
 \contentsline {subsubsection}{Posizione}{70}{section.C.2}
 \contentsline {subsubsection}{Velocit\`a}{70}{section.C.2}
-\contentsline {subsubsection}{Accelerazione}{70}{figure.caption.27}
+\contentsline {subsubsection}{Accelerazione}{70}{figure.caption.28}
 \contentsline {section}{\numberline {C.3}Dinamica (Cinetica)}{71}{section.C.3}
 \contentsline {chapter}{\numberline {D}Sensori}{73}{appendix.D}
 \contentsline {section}{\numberline {D.1}Accelerometro}{73}{section.D.1}
