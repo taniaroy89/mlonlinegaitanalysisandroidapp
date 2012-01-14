@@ -1,4 +1,4 @@
-\chapter{Applicativo Android}
+\chapter{Applicazione Android}
 %\myChapter{Applicativo Android}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduzione}%descrivere cosa fa a grandi linee %%%%%%%%%%%%%%%%%%%%%%%%%                           INTRODUZIONE
@@ -10,17 +10,33 @@ La seconda parte del lavoro è relativa allo sviluppo di un'applicazione per uno 
 	\label{fig:schema_app}
 \end{figure} 
 Una volta posizionata la IMU (vedi appendice \ref{sec:imu}) sul collo del piede, lo Smartphone vi interagisce tramite una connessione Bluetooth.\\ 
-L'utente controlla la IMU mediante l'applicativo, quindi può impostarne i parametri: ad esempio la frequenza di campionamento e gli intervalli di campionamento per ciascun sensore su ciascun asse. Impostati i parametri l'utente può acquisire dati dalla IMU mediante un servizio di data logging (nel file system dello Smartphone), oppure li può visualizzare come un grafico dinamico. Inoltre è possibile abilitare la segmentazione in linea del segnale di deambulazione. Nell'ultimo caso il grafico dinamico rappresentante il segnale del giroscopio viene tracciato in linea\footnote{La segmentazione ha una latenza massima di \TODO{10ms?}} con un colore a seconda della fase della deambulazione: HS-blu, FF-giallo, HO-rosso, TO-verde. \\
+L'utente controlla la IMU mediante l'applicazione, quindi può impostarne i parametri: ad esempio la frequenza di campionamento e gli intervalli di campionamento per ciascun sensore su ciascun asse spaziale. Impostati i parametri l'utente può acquisire dati dalla IMU mediante un servizio di data logging (nel file system dello Smartphone), oppure li può visualizzare come un grafico dinamico. Inoltre è possibile abilitare la segmentazione in linea del segnale di deambulazione, sulla base di un modello HMM addestrato in differita (vedi sezione \ref{sec:creazione_addestramento_modello}), impiegando una versione dell'algoritmo di Viterbi \cite{short_time_viterbi_online_hmm_deconding}. Nell'ultimo caso il grafico dinamico rappresentante il segnale del giroscopio viene tracciato in linea\footnote{La segmentazione ha una latenza massima di \textbf{10ms}} con un colore a seconda della fase della deambulazione: HS-blu, FF-giallo, HO-rosso, TO-verde. \\
 
 %Sulla base di un modello HMM addestrato in differita (vedi sezione \ref{sec:creazione_addestramento_modello}), impiega una versione dell'algoritmo di Viterbi \cite{short_time_viterbi_online_hmm_deconding} per elaborare a run-time i dati giroscopici acquisiti dalla IMU (e trasferiti via Bluetooth), effettuando la segmentazione e consentendo output di tipo grafico (colorando in modo differente la traccia del segnale giroscopico in funzione della fase del cammino), e di data logging. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Metodologia di programmazione usata: Agile}%agile %%%%%%%%%%%%%%%%%         METODOLOGIA DI PROGRAMMAZIONE
+\section{Metodologia di programmazione usata: Agile e Unit Test}%agile %%%%%%%%%%%%%%%%%         METODOLOGIA DI PROGRAMMAZIONE
 \label{sec:agile}
-Per l'implementazione dell'algoritmo di Viterbi e le funzioni utilizzate nella fase di analisi del segnale, è stata utilizzata una tecnica nota come Agile Programming. Una tecnica che permette lo sviluppo di programmi in cicli di lavoro iterativi ed incrementali in termini di funzionalità. 
-\begin{enumerate}
-	\item Scrittura di uno Unit Test\footnote{Per Unit si intende la più piccola parte di un programma che può essere testata, nei linguaggi orientati ad oggetti un metodo costituisce un'unità. Per Unit testing si intende la verifica del funzionamento di singole Unit. }. Lo Unit Test istanza l'oggetto dalla classe da testare, ed invoca il metodo con valori per i quali è noto il comportamento (teorico) del metodo da testare.\\
-Il test viene eseguito, per la prima volta, prima di aver implementato il metodo da testare, ed ovviamente fallisce\footnote{Eclipe IDE \tm utilizza il framework JUnit che semplifica la gestione degli Unit Test.}. Il passo successivo è di implementare il minimo indispensabile per far funzionare il test. Se il test viene superato dal codice scritto, viene scritto un altro test, ed un altro pezzo di codice, iterando la procedura finché non si ha tutto il programma desiderato.\\ 
+Per l'implementazione dell'algoritmo di Viterbi e le funzioni utilizzate nella fase di analisi del segnale, è stata utilizzata una tecnica nota come Agile Programming (AP): una tecnica che permette lo sviluppo di programmi in cicli di lavoro iterativi ed incrementali in termini di funzionalità. Tale metodologia è stata corroborata da una tecnica di verifica del codice sorgente detta Unit Test (UT). Per Unit (unità) si intende la più piccola parte funzionante di un programma che può essere testata, nei linguaggi orientati ad oggetti un metodo costituisce un'unità. Per UT in Java si intende la verifica del funzionamento di ciascun metodo di una classe. 
+
+
+Tra i benefici apportati dall'UT si possono annoverare:
+\begin{itemize}
+	\item Semplificazione della procedura di Refactoring: procedura di modifica della struttura di un programma che non ne altera il funzionamento complessivo.
+	\item Automatizzazione dell'integrazione di moduli di programma: l'interazione fra moduli deve essere testata ed in mancanza di UT viene fatta su misura per ogni caso. 
+	\item Creazione di documentazione ``concreta'': i vari casi di test costituiscono degli esempi concreti di utilizzo di ciascun modulo e dell'interazione fra di essi. Un vantaggio che la documentazione fornita mediante UT ha rispetto alla documentazione classica è che ogni modifica apportata al programma si ripercuote sul funzionamento dei casi di test, mentre la documentazione classica rischia di diventare obsoleta se tale cambiamento non viene trascritto.
+\end{itemize}
+La limitazioni maggiori sono: 
+\begin{itemize}
+	\item Lo UT è orientato alla funzionalità di singoli moduli di programmi, quindi aspetti come la performance o funzionalità che necessitano di molti moduli sono difficilmente testabili mediante UT.
+	\item La scelta dei casi di test tra l'esorbitante numero di possibile scelte è spesso un problema difficile.
+	\item Vi sono casi in cui lo UT non può essere affatto applicato, come ad esempio nei programmi non deterministici o in un ambiente multithread. 
+\end{itemize} 
+
+\begin{description}
+	\item [Scrittura di uno UT]. Lo UT istanza l'oggetto dalla classe da testare, ed invoca il metodo con valori per i quali è noto il comportamento (teorico) del metodo da testare.\\
+Il test viene eseguito, per la prima volta, prima di aver implementato il metodo da testare, ed ovviamente fallisce\footnote{Eclipe IDE \tm utilizza il framework JUnit che semplifica la gestione degli UT.}. Il passo successivo è di implementare il minimo indispensabile per far funzionare il test. Se il test viene superato dal codice scritto, viene scritto un altro test, ed un altro pezzo di codice, iterando la procedura finché non si ha tutto il programma desiderato.\\ 
+
 A titolo di esempio di seguito verrà illustrato lo sviluppo della classe che gestisce le operazioni di tipo statistico:
 \begin{lstlisting}[language=java, style=eclipse, caption=Sviluppo di una classe mediante la tecnica di programmazione Agile, label=code:agile1]
 // la classe da costruire 
@@ -105,7 +121,7 @@ public class StatisticsOperations{
 	public static double gaussian(double x, double mu, double sigma_square) {...}
 }
 \end{lstlisting}
-\end{enumerate}
+\end{description}
 La esecuzione del test sul metodo riscritto porta ad uno dei seguenti esiti:
 \begin{enumerate}
 	\item superamento di tutti i test, quindi lo sviluppo del metodo è completato,
@@ -122,7 +138,7 @@ La esecuzione del test sul metodo riscritto porta ad uno dei seguenti esiti:
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	package="imu.Interface" android:versCode="1" android:versName="1.0">
 \end{lstlisting}
-Il nome del Java package, serve come identificativo unico per l'applicativo.
+Il nome del Java package, serve come identificativo unico per l'applicazione.
 
 \begin{lstlisting}[language=XML, style=xmlandroid,caption=AndroidManifest permessi,label=code:manifest_permissions, firstnumber=3]
 	<uses-permission android:name="android.permission.BLUETOOTH" />
@@ -135,8 +151,8 @@ Il nome del Java package, serve come identificativo unico per l'applicativo.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% modifica 24 nov %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Dato che il nucleo di Android-OS è Linux (vedi Appendice \ref{app:android}) usa una politica di {Access Control}\footnote{Accesso controllato dell'utente di un filesystem o di un servizio} molto simile. Tutti i servizi che non sono forniti dal contesto di questo particolare applicativo, quindi i servizi che fornisce l'applicativo stesso, e quelli forniti dal sistema operativo per tutti gli applicativi, possono essere utilizzati solo se l'utente da il permesso di utilizzarli. Per questo motivo l'applicativo deve elencare tutte le richieste di permessi di cui necessita. L'elenco deve essere fatto nella porzione iniziale dell'\verb|AndroidManifest|
- Dichiarazione dei permessi che l'applicativo deve avere dall'utente per accedere ad alcune parti dell'API\footnote{ Application Programming Interface: interfaccia ad un codice che viene messo a disposizione come servizio in modo che terzi possano usarlo per sviluppare altro software, avvolte anche in altri linguaggi.
+Dato che il nucleo (kernel) di Android-OS è basato su Linux (vedi Appendice \ref{app:android}) usa una politica di {Access Control}\footnote{Accesso controllato dell'utente di un filesystem o di un servizio} molto simile a quello del sistema operativo Linux. Tutti i servizi che non sono forniti da un programma diverso da quello in uso possono essere utilizzati solo se l'utente da il permesso di utilizzarli, vale a dire che un programma non può interagire con altri programmi se non con l'esplicita autorizzazione dell'utente. Per questo motivo l'applicazione deve elencare tutte le richieste di permessi di cui necessita. L'elenco deve essere fatto nella porzione iniziale dell'\verb|AndroidManifest|
+ Dichiarazione dei permessi che l'applicazione deve avere dall'utente per accedere ad alcune parti dell'API\footnote{ Application Programming Interface: interfaccia ad un codice che viene messo a disposizione come servizio in modo che terzi possano usarlo per sviluppare altro software, avvolte anche in altri linguaggi.
  In dettaglio una API nei linguaggi orientati ad oggetti, sono concepiti come l'insieme di tutti i metodi pubblici che le classi pubbliche offrono.} di Android e per interagire con altri applicativi.
  La riga 4 chiede il permesso di fare la discovery (ricerca) di dispositivi e di associarsi  a dispositivi trovati, la riga precedente invece il permesso di connettersi a dispositivi associati \footnote{L'associazione è la prima connessione, nella quale vi è una forma di identificazione e associazione dei due dispositivi. Per connessione invece si intendono le connessioni successive alla prima, in cui un dispositivo conosce già l'altro e, più rapidamente, possono iniziare una conversazione.}. L'ultimo permesso serve per poter scrivere su un dispositivo d'immagazzinamento esterno, questo ci serve per poter salvare ad esempio l'output dell
 
@@ -146,7 +162,7 @@ Dato che il nucleo di Android-OS è Linux (vedi Appendice \ref{app:android}) usa 
 		android:label="@string/app_nameicon" 
 		android:name="imu.objects.MailBoxes">
 \end{lstlisting}
-Vengono dichiarati il nome dell'applicativo, l'icona, ed un'etichetta. In questo punto si dichiara anche il nome dell'oggetto che può essere visibile a livello globale di applicativo. Infatti l'oggetto \verb|MailBoxes| che è un vettore di \verb|MailBox| (vedi \ref{sec:mailbox}) che sono a loro volta utilizzati per lo scambio di dati tra thread.
+Vengono dichiarati il nome dell'applicazione, l'icona, ed un'etichetta. In questo punto si dichiara anche il nome dell'oggetto che può essere visibile a livello globale di applicazione. Infatti l'oggetto \verb|MailBoxes| che è un vettore di \verb|MailBox| (vedi \ref{sec:mailbox}) che sono a loro volta utilizzati per lo scambio di dati tra thread.
 
 \begin{lstlisting}[language=XML, style=xmlandroid,caption=AndroidManifes elenco di tutte le attività ,label=code:manifest_activities, firstnumber=11]		
 		<activity android:name=".IMUinterface" android:configChanges="orientation">
@@ -164,8 +180,8 @@ Vengono dichiarati il nome dell'applicativo, l'icona, ed un'etichetta. In questo
 		<activity android:name=".TemporalDataPlottingvActivity"
 			android:configChanges="orientation" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 \end{lstlisting}	
-Sezione di \verb|AndroidManifest| in cui si elencano i componenti fondamentali (vedi Appendice \ref{sec:android_main_components}) utilizzati nell'applicativo.
-Il nostro applicativo, che ha una struttura molto semplice, ed utilizza solo \verb|Activity| ed \verb|Intent|. 
+Sezione di \verb|AndroidManifest| in cui si elencano i componenti fondamentali (vedi Appendice \ref{sec:android_main_components}) utilizzati nell'applicazione.
+Il nostro applicazione, che ha una struttura molto semplice, ed utilizza solo \verb|Activity| ed \verb|Intent|. 
 Il l'Activity principale (Main Activity) è \verb|IMUInterface|.\\ 
 La dichiarazione di una Activity è composta da un nome e da una classe Java.
 Inoltre sono dichiarate altre impostazioni iniziali: se sono gestiti o meno i 2 orientamenti dello schermo, se lo schermo deve essere visualizzato senza la barra dei titoli in testa allo schermo.
@@ -176,13 +192,13 @@ Abbiamo strutturato il codice in 5 package (cartelle di Java):
 \begin{itemize}
 	\item \textbf{activities}: le Activity, corrispondono indicativamente ciascuna ad una schermata sullo Smartphone,
 	\item \textbf{objects} : dati, modelli o contenitori su cui fare operazioni,
-	\item \textbf{services}: operazioni fondamentali dell'applicativo, che qui coincidono agli algoritmi che si applicano alla HMM. 
+	\item \textbf{services}: operazioni fondamentali dell'applicazione, che qui coincidono agli algoritmi che si applicano alla HMM. 
 	\item \textbf{tests}: test prodotti dall'utilizzo della metodologia Agile (vedi \ref{sec:agile}),
 	\item \textbf{util}: operazioni di supporto al resto del codice. 
 \end{itemize} 
 
 \subsection{Risorse}
-Le risorse sono costituite da tutti i file che fanno parte dell'applicativo, ma non sono codice sorgente (vedi Appendice \ref{sec:android_app_structure}) vale a dire file xml, immagini, testo ecc. La sezione più importante delle risorse è la cartella \textbf{layout}. Questa contiene una serie di file xml, che in teoria, per ciascuna Activity dovrebbe essere creato un file xml da mettere nella cartella layout, con lo stesso nome della Activity.
+Le risorse sono costituite da tutti i file che fanno parte dell'applicazione, ma non sono codice sorgente (vedi Appendice \ref{sec:android_app_structure}) vale a dire file xml, immagini, testo ecc. La sezione più importante delle risorse è la cartella \textbf{layout}. Questa contiene una serie di file xml, che in teoria, per ciascuna Activity dovrebbe essere creato un file xml da mettere nella cartella layout, con lo stesso nome della Activity.
 \subsubsection{Layout}
 Un file di layout (impaginazione) è un documento xml in cui viene descritta la struttura dell'interfaccia utente di una Activity.
 Layout deve essere composto di elementi grafici predefiniti in Android oppure deve essere di tipo \verb|Veiw| o  \verb|ViewGoup|\footnote{Sia la View che la ViewGroup appartengono al package android.view e sono componenti importante dell'interfaccia utente}. Ogni file di layout deve contenere esattamente un elemento radice. Ogni elemento grafico ha un identificativo unico, con cui può essere richiamato dal codice sorgente, tramite l'indicizzazione automatica.
@@ -237,28 +253,28 @@ La schermata risultante dal layout è quella dell'immagine \ref{fig:main_activity
 \begin{figure}
 	\centering
 		\includegraphics[width=.7\textwidth]{imgs/MenuActivity.jpg}
-	\caption{Schermata della Activity iniziale dell'applicativo}
+	\caption{Schermata della Activity iniziale dell'applicazione}
 	\label{fig:main_activity}
 \end{figure}
 \subsubsection{File grafici}
 I file grafici sono distribuiti su tre cartelle \textbf{drawable-hdpi}, \textbf{drawable-ldpi},\textbf{drawable-mdpi} in cui salvare formati a definizioni diverse delle stesse immagini per diversi dispositivi. 
 \subsubsection{Valori}
-Il file più importante in questa cartella è \verb|strings.xml| in cui vengono salvate tutte le stringhe da visualizzare sulle varie schermate. L'utilità maggiore di mantenere le stringhe in un file unico, è l'internazionalizzazione dell'applicativo. Con il tipo di mercato mondiale che hanno gli applicativi Android, avere il testo tradotto in più lingue è necessario.
+Il file più importante in questa cartella è \verb|strings.xml| in cui vengono salvate tutte le stringhe da visualizzare sulle varie schermate. L'utilità maggiore di mantenere le stringhe in un file unico, è l'internazionalizzazione dell'applicazione. Con il tipo di mercato mondiale che hanno gli applicativi Android, avere il testo tradotto in più lingue è necessario.
 \subsubsection{Altri File}
 Qualunque tipi di file, che non sia compatibile con quelli menzionati precedentemente, vanno nella cartella \verb|raw|. Ad esempio, in fase di sviluppo, per testare l'algoritmo di Viterbi, abbiamo usato un file contenente dati di un giroscopio, acquisito nella fase precedente del lavoro. 
 \subsection{Librerie}
 Le librerie usate sono quelle di Android 2.2 (vedi Appendice \ref{sec:lib_Android}).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Funzionamento}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                         FUNZIONAMENTO 
-\subsection{Interfaccia}
+\section{Architettura}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                         FUNZIONAMENTO 
+\subsection{Interfaccia Utente}
 La linea guida per lo sviluppo della UI (Interfaccia Utente) è stata quella della massima ergonomicità, in linea con la filosofia di sviluppo di interfacce utente di Android. \\
-La navigazione tra le schermate dell'applicativo è guidata da widget che sono oggetti grafici della UI di un programma, che hanno lo scopo di facilitare all'utente l'interazione con il programma. \\
+La navigazione tra le schermate dell'applicazione è guidata da widget che sono oggetti grafici della UI di un programma, che hanno lo scopo di facilitare all'utente l'interazione con il programma. \\
 All'avvio del programma, viene visualizzato sullo schermo del dispositivo, un menu dal quale è possibile 
 
 \begin{figure}
 	\centering
 		\includegraphics[width=1\textwidth]{imgs/interfacciaApplicativo.jpg}
-	\caption{Collegamento fra le schermate dell'applicativo}
+	\caption{Collegamento fra le schermate dell'applicazione}
 	\label{fig:app_UI}
 \end{figure}
 
@@ -277,7 +293,7 @@ Rappresenta l'adattatore Bluetooth del dispositivo locale e permette di fare le 
 se questo non è connesso, viene creata una socket RFComm con l'UUID pronta per una comunicazione. All'avvio del thread (con il metodo \verb|run()|) avviene la connessione. Il thread lancia a sua volta un thread al quale delega la gestione delle socket create (\verb|manageConnectedSocket|). Quest'ultimo invia un segnale di inizio acquisizione dati sui canali creati e li acquisisce se disponibili.
 
 \subsection{Gestione Thread}
-Il sistema operativo Android è multithread. Un applicativo che risponda rapidamente alle richieste dell'utente deve necessariamente smistare i compiti a più thread, dando la precedenza ai thread di risposta all'utente. Il più importante di questi è lo UI Thread (User Interface Thread). Una regola di base della programmazione di applicativi Android è, nella creazione di un'activity, che si deve assolutamente evitare di sovraccaricare, o ancora peggio, eseguire istruzioni potenzialmente bloccanti all'interno dello UI Thread. La prassi per la gestione di operazioni con un comportamento imprevedibile dal punto di vista temporale, come ad esempio le operazioni di rete o di lettura e scrittura di file, è di incaricare altri thread che possano, se necessario, essere eseguiti in background, o fermati se necessario.\\
+Il sistema operativo Android è multithread. Un applicazione che risponda rapidamente alle richieste dell'utente deve necessariamente smistare i compiti a più thread, dando la precedenza ai thread di risposta all'utente. Il più importante di questi è lo UI Thread (User Interface Thread). Una regola di base della programmazione di applicativi Android è, nella creazione di un'activity, che si deve assolutamente evitare di sovraccaricare, o ancora peggio, eseguire istruzioni potenzialmente bloccanti all'interno dello UI Thread. La prassi per la gestione di operazioni con un comportamento imprevedibile dal punto di vista temporale, come ad esempio le operazioni di rete o di lettura e scrittura di file, è di incaricare altri thread che possano, se necessario, essere eseguiti in background, o fermati se necessario.\\
 Abbiamo ritenuto utile avere un protocollo di comunicazione fra thread mediante una struttura che abbiamo chiamato "mailbox", in cui $n$ thread possano inserire e consumare dati.\\
 \subsubsection{MailBox}
 \label{sec:mailbox}

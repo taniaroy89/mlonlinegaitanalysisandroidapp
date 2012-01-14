@@ -247,6 +247,12 @@ K.~Murphy. (1998) Hidden markov model (hmm) toolbox for matlab. [Online].
   Available: \url{http://www.cs.ubc.ca/~murphyk/Software/HMM/hmm.html}
 \BIBentrySTDinterwordspacing
 
+\bibitem{short_time_viterbi_online_hmm_deconding}
+X.~R. Julien~Blot, ``Short-time viterbi for online hmm decoding : Evaluation on
+  a real-time phone recognition task,'' \emph{Acoustics, Speech and Signal
+  Processing, 2008. ICASSP 2008. IEEE International Conference}, pp. 1--8,
+  4/4/2008.
+
 \bibitem{tutorial_hmm_application_speech_recognition}
 L.~R. Rabiner, ``A tutorial on hidden markov models and selected applications
   in speech recognition,'' \emph{PROCEEDINGS OF THE IEEE}, vol.~77, no.~2, pp.
@@ -264,12 +270,6 @@ M.~Ryynanen and A.~Klapuri, ``Automatic bass line transcription from streaming
 H.~Ardö, K.~Åström, and R.~Berthilsson, ``Real time viterbi optimization of
   hidden markov models for multi target tracking,'' \emph{IEEE Workshop on
   Motion and Video Computing}, pp. 1--8, Feb-2007.
-
-\bibitem{short_time_viterbi_online_hmm_deconding}
-X.~R. Julien~Blot, ``Short-time viterbi for online hmm decoding : Evaluation on
-  a real-time phone recognition task,'' \emph{Acoustics, Speech and Signal
-  Processing, 2008. ICASSP 2008. IEEE International Conference}, pp. 1--8,
-  4/4/2008.
 
 \bibitem{maximization_technique_stat_analysis_fun_markov_ch}
 L.~Baum, T.~Petrie, G.~Soules, and N.~Weiss, ``A maximization technique
