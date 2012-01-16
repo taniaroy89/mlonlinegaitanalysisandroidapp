@@ -19,7 +19,7 @@ Un segnale può essere di natura discreta o continua rispetto al tempo. Ad esempi
 
 La sorgente di un segnale (il processo), a sua volta, può essere stazionaria, se le sue proprietà statistiche non variano nel tempo, o non stazionaria altrimenti.
 
-\section{Problema: Modellare segnali}
+\section*{Problema: Modellare segnali}
 Il problema della modellazione dei segnali è di fondamentale importanza, in molti settori.
 Le motivazioni principali sono la riproduzione dei segnali e la scoperta delle loro sorgenti.
 Esistono varie tipologie di modelli dai quali scegliere per modellare al meglio un dato segnale. La suddivisione maggiore è quella fra modelli deterministici e stocastici. 
@@ -84,11 +84,11 @@ St=\{F_t: t \in T\}\quad \text{dove } t \; \text{è il tempo}
 \end{definition}
 
 
-\section{Processi di Markov}
+\section*{Processi di Markov}
 Un processo di Markov è un processo stocastico che gode della proprietà di Markov o assenza di memoria. 
 I processi di Markov si possono essere raggruppati in base al tempo che può essere discreto o continuo, ed allo spazio degli stati che può essere anche esso discreto e finito o continuo. 
 
-\subsection{Tempo e spazio discreti}
+\subsection*{Tempo e spazio discreti}
 Ad ogni unità temporale il processo transita casualmente da uno stato ad un altro. Dunque è impossibile prevedere in modo deterministico in che stato si troverà il sistema in un istante di tempo futuro. 
 
 \begin{definition}[Processi di Markov (spazio-tempo) Discreti]$<N,A,\pi>$\\
@@ -148,7 +148,7 @@ All'istante di tempo iniziale $t = 0$, lo stato della Catena marcoviana è determ
 \end{definition}
 
 
-\section{HMM}
+\section*{HMM}
 \label{sec:HMM}
 Avvolte le osservazioni sono funzioni probabilistiche di qualche stato nascosto (cioè esiste un processo stocastico  nascosto che produce una sequenza di osservazioni).  
 
@@ -172,7 +172,7 @@ Avvolte le osservazioni sono funzioni probabilistiche di qualche stato nascosto 
 B &= \{b_j(k)\} \\
 &\text{dove } b_j(k) = \wp[v_k \quad \text{all'istante } t | q_t = s_j] \quad \text{con } 1\leq j \leq N \quad , 1\leq k \leq M
 \end{split}	 
-\label{eq:emissionMtx}
+\label{eq:emissionMtxDef}
 \end{equation}
 \end{definition}
 
@@ -186,7 +186,7 @@ dove:
 	\item $N = |S|$ è l'insieme degli stati $S = \{s_1,\ldots, s_N\}$,
 	\item $M = |V|$ è un insieme finito di Simboli di Osservazione $V = \{v_1, \ldots, v_M\}$ ,
 	\item $A$ è la matrice di transizione definita in \eqref{eq:trans_prob},
-	\item $B$ è la matrice di probabilità dei Simboli di Osservazione definita in \eqref{eq:emissionMtx},
+	\item $B$ è la matrice di probabilità dei Simboli di Osservazione definita in \eqref{eq:emissionMtxDef},
 	\item $\pi$ è il vettore di probabilità a priori definto in \eqref{eq:prior}.
 \end{enumerate}
 \end{definition}
@@ -205,8 +205,8 @@ Un HMM può essere usato per generare una sequenza di osservazioni $O=\{O_1,O_2,\
 \end{algorithmic}
 \end{algorithm}
 
-\subsection{HMM ad emissioni continue}
-Nel caso in cui le osservazioni siano continue è necessario avere un modello che associ ad ogni stato una distribuzione di emissione, invece che un singolo valore. Un esempio di distribuzione è la gaussiana mono variata. In questo caso la definizione della matrice di emissione descritta in \eqref{eq:emissionMtx} diventa
+\subsection*{HMM ad emissioni continue}
+Nel caso in cui le osservazioni siano continue è necessario avere un modello che associ ad ogni stato una distribuzione di emissione, invece che un singolo valore. Un esempio di distribuzione è la gaussiana mono variata. In questo caso la definizione della matrice di emissione descritta in \eqref{eq:emissionMtxDef} diventa
 \begin{equation}
 B = b_j(x) = \mathcal{N}(x,\mu_j,\sigma_j) = \frac{1}{\sigma_j\sqrt{2\pi}}\textbf{e} ^{-\frac{(x-\mu_j)^2}{2 \sigma_j^2}}\quad
 \text{per} 1 \leq j \leq N
@@ -228,7 +228,7 @@ Dalla definizione \eqref{eq:continuousEmissionMtxGauusianMixtures} segue
 \end{equation}
 
 
-\subsection{Tipi di HMM}
+\subsection*{Tipi di HMM}
 \label{sec:tipi_hmm}
 Vi sono casi particolari di HMM che sono considerati importanti per la loro ricorrenza nella descrizione di sistemi naturali. 
 Il più generico tipo di HMM è noto come Ergodico, in cui ogni stato è connesso ad ogni altro stato, quindi la matrice di transizione è una matrice senza zeri. \\
@@ -244,11 +244,11 @@ La seconda condizione serve ad evitare che vi siano grossi balzi in avanti sugli
 Inoltre le probabilità iniziali hanno il vincolo
 \begin{equation}
 \pi_i = 1 \Leftrightarrow i = 1
-\label{eq:}
+\label{eq:initial_prob_condition}
 \end{equation} 
 supponendo di avere gli stati ordinati da $1$ ad $N$
 
-\section[Tre problemi per le HMM]{Tipi di problemi che si affrontano con le HMM}
+\section*[Tre problemi per le HMM]{Tipi di problemi che si affrontano con le HMM}
 
 Generalmente con le HMM si affrontano 3 tipologie di problemi. 
 
@@ -259,7 +259,7 @@ Generalmente con le HMM si affrontano 3 tipologie di problemi.
 \end{enumerate}
 
 
-\subsubsection{Valutazione} 
+\subsubsection*{Valutazione} 
 Il problema della valutazione (Evaluation) consiste nel calcolare la probabilità che una certa sequenza di osservazioni sia stata prodotta da un dato modello.\\
 La soluzione del problema permette, dati diversi modelli candidati $\lambda_1, \ldots, \lambda_n$ ed una sequenza di osservazioni $O$, di scegliere $\lambda_k$ con $\displaystyle \max_{1\leq i \leq n}\{\wp(O|\lambda_i)\}$.\\
 
@@ -309,7 +309,7 @@ La complessità dell'algoritmo Forward è $O(NT)$. Il netto miglioramento è dovuto
   
 
 
-\subsubsection{Decodifica} 
+\subsubsection*{Decodifica} 
 Il secondo problema è noto come problema di Decodifica in cui si cerca la sequenza di stati $Q = q_1,\ldots,q_T$ che ha generato una data sequenza di osservazioni $O = o_1,\ldots, o_T$. Dato che, al contrario del problema della Valutazione, non esiste un'unica soluzione al problema di Decodifica, quello che si fa è di stabilire un criterio di ottimalità in funzione del quale fare la ricerca. \\
 Un possibile criterio di ottimalità della sequenza è quello di scegliere gli stati $q_t$ che all'istante di tempo $t$ sono i più probabili. Tale criterio massimizza il numero atteso di stati corretti individualmente. \\
 Per risolvere il problema necessitiamo di due variabili $\beta$ e $\gamma$. La prima è definita come risultato dell' algoritmo Backward, che computa il processo inverso dell'algoritmo Forward.
@@ -402,7 +402,7 @@ La procedura completa per trovare il percorso di stati più probabile è la seguen
 \end{algorithm}
 	
 	
-\subsection{Algoritmo di Viterbi in Tempo Reale}	
+\subsection*{Algoritmo di Viterbi in Tempo Reale}	
 Il problema dell'algoritmo di Viterbi in molte applicazioni reali, è la latenza. I sistemi che utilizzano l'algoritmo hanno spesso necessità di avere risultati immediati, in tempo reale. Trovare la sequenza di stati più verosimile che ha generato una sequenza di osservazioni è (come mostrato dall'algoritmo \ref{alg:viterbi}) fattibile con l'algoritmo di Viterbi, tracciando percorsi nella sequenza temporale di stati ed una volta arrivato a termine (tempo finale $T$), ricostruendo a ritroso il cammino migliore. Un problema significativo dell'algoritmo è che assume che la sequenza temporale sia finita. Vi sono molti casi pratici in cui l'applicazione dell'algoritmo sarebbe utile, per i quali i dati sono un flusso continuo ed incessante di dati. Una possibile soluzione è l'applicazione del'algoritmo di Viterbi a finestre successive di dati, dopo la quale restituire solo una parte iniziale degli decodificati  \cite{synface_low_latency_viterbi}, \cite{automatic_bass_line_transcript}(perché hanno una probabilità maggiore di essere corretti). Questa soluzione, conduce a una decodifica sub-ottimale.\\
 Un'altra soluzione consiste nel confrontare più percorsi su una finestra temporale in espansione, finché le soluzioni non convergono. Nel lavoro \cite{real_time_viterbi_optimization_multi_target_tracking} per la localizzazione automatica di un soggetto via video, la finestra temporale viene dinamicamente ridimensionata in base a un'euristica che bilanci latenza e accuratezza. Questo tipo di approccio non garantisce la convergenza dei percorsi considerati. L'approccio che noi abbiamo usato nel lavoro è quello proposto da Bloit et al \cite{short_time_viterbi_online_hmm_deconding}. 
 
@@ -435,7 +435,7 @@ i cammini locai fino al punto di fusione (che per definizione sono tutti uguali)
 
 
 	
-\subsubsection {Apprendimento}
+\subsubsection* {Apprendimento}
 L'ultimo problema è quello dell'Apprendimento che consiste nel configurare i parametri di $\lambda$ per massimizzare la probabilità di una sequenza di dati osservati. Non è noto un metodo analitico per risolvere il problema, infatti, data una sequenza finita di osservazioni, non esiste un modo ottimo di stimare i parametri di $\lambda$. Possiamo però scegliere $\lambda$ in modo da massimizzare localmente $\wp(O|\lambda)$, con un procedimenti iterativi come 
 \begin{itemize}
 	\item Baum-Welch
@@ -520,7 +520,7 @@ Nel secondo caso è possibile sostituire $\overline{\lambda}$ a $\lambda$, ripete
 
 
 
-\section{Problemi di implementazione di HMM}
+\section*{Problemi di implementazione di HMM}
 Vi sono diversi problemi che si devono affrontare per implementare le HMM ed i vari algoritmi sinora descritti. Alcuni di questi sono 
 \begin{itemize}
 	\item Ridimensionamento (scaling): la procedura di riestimazione, comporta una lunga sequenza di prodotti di valori di probabilità. Ciò fa in modo che i valori tendano esponenzialmente a zero, quindi vi è un inevitabile problema di underflow. L'unico modo di ovviare al problema è quello di ridimensionare i valori, moltiplicandoli per un coefficiente che non dipenda dallo stato, ma solo dal tempo. Alla fine del processo, i coefficienti di ridimensionamento vengono eliminati.  \\

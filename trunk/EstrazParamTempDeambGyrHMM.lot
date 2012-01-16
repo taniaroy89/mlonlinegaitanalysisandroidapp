@@ -3,26 +3,30 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {1}{\ignorespaces Parametri temporali\relax }}{9}{table.caption.9}
-\contentsline {table}{\numberline {2}{\ignorespaces Parametri spaziali\relax }}{10}{table.caption.10}
-\contentsline {table}{\numberline {3}{\ignorespaces Parametri di velocit\`a\relax }}{10}{table.caption.11}
+\contentsline {table}{\numberline {1}{\ignorespaces Ulteriori suddivisioni del cammino in eventi e fasi.\relax }}{11}{table.caption.7}
+\contentsline {table}{\numberline {2}{\ignorespaces Parametri temporali\relax }}{12}{table.caption.9}
+\contentsline {table}{\numberline {3}{\ignorespaces Parametri spaziali\relax }}{13}{table.caption.10}
+\contentsline {table}{\numberline {4}{\ignorespaces Parametri di velocit\`a\relax }}{13}{table.caption.11}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4}{\ignorespaces Sensori di forza: FSR\relax }}{12}{table.caption.13}
-\contentsline {table}{\numberline {5}{\ignorespaces Giroscopi\relax }}{13}{table.caption.14}
+\contentsline {table}{\numberline {5}{\ignorespaces Sensori di forza: FSR\relax }}{16}{table.caption.13}
+\contentsline {table}{\numberline {6}{\ignorespaces Giroscopi\relax }}{17}{table.caption.14}
+\contentsline {table}{\numberline {7}{\ignorespaces Accelerometri: MEMS\relax }}{17}{table.caption.15}
+\contentsline {table}{\numberline {8}{\ignorespaces Magnetometri\relax }}{18}{table.caption.16}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {8}{\ignorespaces Tabella riassuntiva della raccolti dati\relax }}{22}{table.caption.17}
-\contentsline {table}{\numberline {9}{\ignorespaces Le quattro fasi della deambulazione e gli eventi (tempo iniziale e finale) che li definiscono.\relax }}{23}{table.caption.19}
-\contentsline {table}{\numberline {10}{\ignorespaces Regole mediante le quali vengono ricavati gli eventi che delimitano le 4 fasi del cammino.\relax }}{24}{table.caption.20}
-\contentsline {table}{\numberline {11}{\ignorespaces Matrice di Transizione\relax }}{25}{table.caption.21}
-\contentsline {table}{\numberline {12}{\ignorespaces Matrice di Emissione\relax }}{25}{table.caption.22}
-\contentsline {table}{\numberline {13}{\ignorespaces Distribuzione di probabilit\`a iniziale\relax }}{25}{table.caption.23}
-\contentsline {table}{\numberline {14}{\ignorespaces Osservazioni Giroscopio: velocit\`a angolari\relax }}{26}{table.caption.24}
+\contentsline {table}{\numberline {9}{\ignorespaces Tabella riassuntiva della raccolti dati\relax }}{26}{table.caption.17}
+\contentsline {table}{\numberline {10}{\ignorespaces Le quattro fasi della deambulazione e gli eventi (tempo iniziale e finale) che li definiscono.\relax }}{27}{table.caption.19}
+\contentsline {table}{\numberline {11}{\ignorespaces Regole mediante le quali vengono ricavati gli eventi che delimitano le 4 fasi del cammino.\relax }}{28}{table.caption.20}
+\contentsline {table}{\numberline {12}{\ignorespaces Matrice di Transizione\relax }}{29}{table.caption.21}
+\contentsline {table}{\numberline {13}{\ignorespaces Matrice di Emissione\relax }}{30}{table.caption.22}
+\contentsline {table}{\numberline {14}{\ignorespaces Distribuzione di probabilit\`a iniziale\relax }}{30}{table.caption.23}
+\contentsline {table}{\numberline {15}{\ignorespaces Osservazioni Giroscopio: velocit\`a angolari\relax }}{30}{table.caption.24}
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {16}{\ignorespaces Parte di una sequenza di stringhe scambiate tra due thread, un produttore ed un consumatore, che comunicano tramite una mailbox. Il produttore genera una sequenza ordinata di numeri dispari, crea un oggetto point (x, sin(x)) ed il consumatore preleva il valore dalla MailBox, permettendo al produttore di inserire il valore successivo.\relax }}{50}{table.caption.32}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {15}{\ignorespaces Scheda tecnica IMU\relax }}{66}{table.caption.32}
-\addvspace {10\p@ }
+\contentsline {table}{\numberline {17}{\ignorespaces Scheda tecnica IMU\relax }}{85}{table.caption.38}
 \addvspace {10\p@ }
