@@ -3,29 +3,35 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1}{\ignorespaces Immagine riadattata. Originale cortesia di \url {http://sciencephoto.com} \relax }}{6}{figure.caption.5}
-\contentsline {figure}{\numberline {2}{\ignorespaces Ciclo completo di andatura \relax }}{8}{figure.caption.6}
-\contentsline {figure}{\numberline {3}{\ignorespaces Ciclo completo di andatura \relax }}{8}{figure.caption.7}
-\contentsline {figure}{\numberline {4}{\ignorespaces Andatura e Passo a confronto\relax }}{9}{figure.caption.8}
+\contentsline {figure}{\numberline {1}{\ignorespaces Immagine riadattata. Originale cortesia di \url {http://sciencephoto.com} \relax }}{8}{figure.caption.4}
+\contentsline {figure}{\numberline {2}{\ignorespaces Ciclo completo di andatura \relax }}{10}{figure.caption.5}
+\contentsline {figure}{\numberline {3}{\ignorespaces Fase di appoggio\relax }}{10}{figure.caption.6}
+\contentsline {figure}{\numberline {4}{\ignorespaces Andatura e Passo a confronto\relax }}{11}{figure.caption.8}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5}{\ignorespaces Strumentazione del sistema stereofotogrammetrico Vicon\relax }}{12}{figure.caption.12}
+\contentsline {figure}{\numberline {5}{\ignorespaces Strumentazione del sistema stereofotogrammetrico Vicon\relax }}{16}{figure.caption.12}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6}{\ignorespaces Grafico del segnale di un giroscopio posizionato sul piede\relax }}{23}{figure.caption.18}
+\contentsline {figure}{\numberline {6}{\ignorespaces Grafico del segnale di un giroscopio posizionato sul piede\relax }}{27}{figure.caption.18}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7}{\ignorespaces Schermata della Activity iniziale dell'applicativo\relax }}{33}{figure.caption.25}
-\contentsline {figure}{\numberline {8}{\ignorespaces Collegamento fra le schermate dell'applicativo\relax }}{35}{figure.caption.26}
+\contentsline {figure}{\numberline {7}{\ignorespaces Architettura dell'applicazione per Smartphone\relax }}{31}{figure.caption.25}
+\contentsline {figure}{\numberline {8}{\ignorespaces Schermata della Activity iniziale dell'applicazione\relax }}{38}{figure.caption.26}
+\contentsline {figure}{\numberline {9}{\ignorespaces Interfaccia utente dell'applicazione: da sinistra, Pannello di controllo, Impostazione dei parametri dei sensori, Configurazione delle modalit\`a di salvataggio.\relax }}{39}{figure.caption.27}
+\contentsline {figure}{\numberline {10}{\ignorespaces MailBox: put() viene eseguito prima di get() su un buffer vuoto.\relax }}{48}{figure.caption.28}
+\contentsline {figure}{\numberline {11}{\ignorespaces MailBox: put() viene eseguito prima di get() su un buffer pieno.\relax }}{49}{figure.caption.29}
+\contentsline {figure}{\numberline {12}{\ignorespaces MailBox: get() viene eseguito prima di put() su un buffer vuoto.\relax }}{49}{figure.caption.30}
+\contentsline {figure}{\numberline {13}{\ignorespaces MailBox: get() viene eseguito prima di put() su un buffer pieno.\relax }}{50}{figure.caption.31}
+\contentsline {figure}{\numberline {14}{\ignorespaces Prova di funzionamento del protocollo di comunicazione fra thread implementato su Android\relax }}{51}{figure.caption.33}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {9}{\ignorespaces Rappresentazione a lattice di Processo Discreto di Markov\relax }}{50}{figure.caption.28}
+\contentsline {figure}{\numberline {15}{\ignorespaces Rappresentazione a lattice di Processo Discreto di Markov\relax }}{65}{figure.caption.34}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {10}{\ignorespaces Moto Rettilineo di una particella\relax }}{62}{figure.caption.29}
-\contentsline {figure}{\numberline {11}{\ignorespaces Moto Angolare di una particella\relax }}{62}{figure.caption.30}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {12}{\ignorespaces Accelerometro triassiale, cortesia di \url {http://www.dimensionengineering.com}\relax }}{65}{figure.caption.31}
+\contentsline {figure}{\numberline {16}{\ignorespaces Moto Rettilineo di una particella\relax }}{80}{figure.caption.35}
+\contentsline {figure}{\numberline {17}{\ignorespaces Moto Angolare di una particella\relax }}{80}{figure.caption.36}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {13}{\ignorespaces Architettura di sistema di Android, cortesia di \url {http://developer.android.com}\relax }}{68}{figure.caption.33}
-\contentsline {figure}{\numberline {14}{\ignorespaces Comparazione del processo di compilazione di un file Java in ambiente Android con quello classico. Immagine cortesia di \cite {Gargenta_android}\relax }}{70}{figure.caption.34}
-\contentsline {figure}{\numberline {15}{\ignorespaces Ciclo di vita di una Activity, cortesia di \cite {Gargenta_android}\relax }}{73}{figure.caption.35}
-\contentsline {figure}{\numberline {16}{\ignorespaces CRUD di un Content Provider, cortesia di \url {http://developer.android.com}\relax }}{74}{figure.caption.36}
+\contentsline {figure}{\numberline {18}{\ignorespaces Accelerometro triassiale, cortesia di \url {http://www.dimensionengineering.com}\relax }}{84}{figure.caption.37}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {19}{\ignorespaces Architettura di sistema di Android, cortesia di \url {http://developer.android.com}\relax }}{88}{figure.caption.39}
+\contentsline {figure}{\numberline {20}{\ignorespaces Comparazione del processo di compilazione di un file Java in ambiente Android con quello classico. Immagine cortesia di \cite {Gargenta_android}\relax }}{90}{figure.caption.40}
+\contentsline {figure}{\numberline {21}{\ignorespaces Ciclo di vita di una Activity, cortesia di \cite {Gargenta_android}\relax }}{93}{figure.caption.41}
+\contentsline {figure}{\numberline {22}{\ignorespaces CRUD di un Content Provider, cortesia di \url {http://developer.android.com}\relax }}{94}{figure.caption.42}

@@ -12,7 +12,7 @@ Android è pensato per essere pronto all'uso dal punto di vista di tutti i possib
 
 Android è ottimizzato per dispositivi mobili, che ovviamente hanno il requisito fondamentale della dimensione ridotta. Gli obbiettivi dei progettisti del sistema erano la massimizzazione della durata della batteria, ottimizzazione della memoria, ottimizzazione delle risorse computazionali. 
 
-\section{Android OS}
+\section*{Android OS}
 \begin{figure}
 	\centering
 		\includegraphics[width=1.5\textwidth, angle=90]{imgs/android_system_architecture.jpg}
@@ -20,11 +20,11 @@ Android è ottimizzato per dispositivi mobili, che ovviamente hanno il requisito 
 	\label{fig:android_system_architecture}
 \end{figure}
 
-\subsection{Linux Kernel}
+\subsection*{Linux Kernel}
 Il sistema operativo Android \cite{android_dev} si basa sulla versione 2.6 di Linux \cite{linux_kernel} per i servizi centrali di sistema come la sicurezza, la gestione della memoria e dei processi, lo stack di rete ed i modelli dei driver (vedi figura \ref{fig:android_system_architecture}). Il Kernel funziona anche da livello di astrazione tra l'hardware e lo stack di software.
 Tutte le applicazioni Android vengono eseguite in processi Linux separati, dopo aver avuto i premessi richiesti dal sistema Linux
 
-\subsection{Librerie Native Android}
+\subsection*{Librerie Native Android}
 \label{sec:lib_Android}
 Le librerie di Android sono principalmente composte da librerie C/C++ della comunità open source. 
 Queste librerie vengono esposte sotto forma di servizi di sistema per i programmatori che vogliano usarli come funzioni senza conoscerne i dettagli implementativi a livello di application framework (vedi figura \ref{fig:android_system_architecture}).
@@ -43,7 +43,7 @@ Le librerie principali sono:
 
 
 
-\subsection{Tempo di esecuzione di Android: Dalvik}
+\subsection*{Macchina Virtuale di Android: Dalvik}
 \label{sec:dalvik}
 Il linguaggio Java \cite{Java}, JDK\footnote{Java Developement Kit} Tools \cite{JDK_Tools} e le librerie Java sono gratuite, mentre la Java Virtual Machine non lo è. Dato che questo andava contro la politica del progetto,  Google\footnote{Dan Bernstein ed il team di sviluppo} ha sviluppato una versione ex-novo della Java Virtual Machine, ad-hoc per Android\footnote{Fino al 2005, non vi erano alternative alla JVM della Sun, poi sono nate OpenJDK              \cite{OpenJDK} e Apache Harmony \cite{Apache_Harmony}}. I problemi principali che il gruppo di sviluppo hanno affrontato sono quelli della durata della batteria e le risorse (memoria e ram) limitate.
 \subsubsection{Java e Android}
@@ -58,18 +58,18 @@ Normalmente il codice Java viene compilato e poi il bytecode viene eseguito sull
 
 Il processo è automatizzato dall'IDE\footnote{I Developement Environment} (Eclipse o ANT \cite{Apache_Ant}) che si usa.
 La distribuzione Java di Android non è standard: è una variante di Java Standard Edition, in cui le Java AWT e Swing sono state sostituite da Android UI\footnote{User Interface}, appositamente ottimizzate per gli schermi e le schede grafiche di dimensioni ridotte dei dispositivi.
-\subsection{Application Framework}
+\subsection*{Application Framework}
 Questa è la parte della piattaforma che permette di sviluppare applicativi Android, fornendo servizi (sensori, posizionamento, telefonia, Wifi ecc) ed abbondante documentazione in merito. 
-\subsection{Applications}
+\subsection*{Applications}
 Le applicazioni sono i programmi sviluppati dal mondo di sviluppatori Android. Questi possono essere sia già istallati all'acquisto del dispositivo, sia scaricati dai mercati Android. 
-\subsubsection{APK}
+\subsubsection*{APK}
 Un applicazione Android è un singolo file, detto APK file. Questi ha tre componenti principali:
 \begin{enumerate}
 	\item \textbf{Eseguibile Dalvik} Il codice Java compilato come descritto in figura (vedi figura \ref{fig:Java_vs_Android_compile_exec}).
 	\item \textbf{Risorse} Tutto cio che è in un applicativo Android, ma non è codice Java: file XML, immagini, audio, video ecc.
 	\item \textbf{Librerie} In un applicativo possono essere incluse librerie di codice nativo, ad esempio in C/C++
 \end{enumerate} 
-\subsection{Struttura di un Android App}
+\subsection*{Struttura di un Android App}
 \label{sec:android_app_structure}
 Ogni applicativo per Android deve una determinata struttura di cartelle e file per funzionare. Il file più importante è l'AndroidManifest. Questo file funziona da collante e da indice per comprendere le componenti dell'applicativo. Contiene i permessi che ha come applicativo, di interagire con il resto del sistema operativo. \\
 Lavorando in ambiente di sviluppo Eclipse SDK \tm, con il plugin per Android SDK Manager, la creazione di un nuovo progetto (Android Project), genera la struttura del programma:
@@ -82,7 +82,7 @@ Lavorando in ambiente di sviluppo Eclipse SDK \tm, con il plugin per Android SDK
 	\item \textbf{AndroidManifest.xml}
 \end{itemize}
 
-\section{Le componenti principali di un Applicativo Andorid}
+\section*{Le componenti principali di un Applicativo Andorid}
 \label{sec:android_main_components}
 Lo sviluppo di programmi (Java) per applicativi Android è necessariamente vincolato dal fatto che l'interazione dell'utente avviene mediante lo schermo del dispositivo, la durata della batteria è limitata, la capacità computazionale è ridotta ecc.
 Gli sviluppatori di Android hanno creato un framework per sviluppare applicativi, che risolve la maggior parte dei problemi del programmatore. L'impostazione di base del framework è quella della programmazione ad eventi, con un meccanismo di callback (riferimento a un codice) asincrono. 
@@ -96,7 +96,7 @@ Le componenti principali sono:
 	\item \textbf{Application Context}: contesto in cui tutta l'applicazione esiste.
 \end{enumerate}
 
-\subsection{Activity}
+\subsection*{Activity}
 Ogni applicativo Android ha una \textit{main activity}, che definisce la logica della schermata iniziale.
 Nell'ottica di ottimizzare le risorse del dispositivo, le activity sono state progettate in modo da consumare il minimo.
 Quando viene lanciata una activity, viene creato un processo Linux, viene allocato dello spazio per gli oggetti UI, costruire oggetti Java a partire dalle definizioni XML (inflation), posizionare oggetti sullo schermo. Per evitare di incorrere in questo costo ogni volta che si ricapita su una schermata, le activity sono state progettate per avere un ciclo di vita, gestito da un activity Manager. Quest'ultimo si occupa di creare, gestire e distruggere le activity, all'occorrenza.
@@ -116,15 +116,15 @@ Ogni activity attraversa i seguenti stati (vedi figura \ref{fig:Activity_lifecyc
 	\label{fig:Activity_lifecycle}
 \end{figure}
 
-\subsection{Intent}
+\subsection*{Intent}
 Le Intent possono essere viste, come dice il nome, delle intenzioni di creare Activity che un mittente comunica.
 Queste potrebbero essere usate da un'Activity per creare un'altra activity, oppure per far partire un servizio o per inviare un messaggio in broadcast. Questi possono essere espliciti se il mittente dichiara il ricevente, o impliciti se il mittente dichiara solo il tipo di ricevente. Nel secondo caso ci potrebbero essere dei riceventi in competizione per l'esecuzione del messaggio, ed il sistema lascia all'utente la scelta del esecutore.
 
-\subsection{Servizi}
+\subsection*{Servizi}
 Questi non hanno un interfaccia utente ed il loro ciclo di vita o esecuzione è trasparente a chi utilizza il sistema. Il ciclo di vita di un servizio è molto semplice: 
 inizialmente il servizio viene creato, ed il suo primo stato è detto Starting. Da qui le callback da usare per intercettare la transizione in Running sono \texttt{onCreate()} ed \texttt{onStart()}. Dallo stato Running con la callback \texttt{onDestroy()} il servizio va nell'ultimo stato in cui si può trovare: Destroyed.\\
 I service che sono particolarmente impegnativi dal punto di vista computazionale dovrebbero essere eseguiti su un proprio thread, eseguibile in background, e non quello della UI, in modo da non rallentare l'interfaccia grafica.
-\subsection{Content Provider}
+\subsection*{Content Provider}
 Android, per ragioni di sicurezza, esegue ogni applicativo nella propria "`sandbox"' compartimento stagno, in modo da confinare i dati usati da un programma a quest'ultimo. Mediante gli Intent è possibile scambiare piccole quantità di dati tra applicativi diversi, la condivisione di quantità ingenti di dati persistenti viene fatta tramite i 
 Content Provider. Per facilitare il compito questo componente aderisce all'interfaccia CRUD: il Content Provider è interfacciato ad una base di dati ed implementa i metodi \texttt{insert()}, \texttt{delete()}, \texttt{update()}, \texttt{query()}.
 
@@ -135,20 +135,21 @@ Content Provider. Per facilitare il compito questo componente aderisce all'inter
 	\label{fig:coInterfacciantent_provider}
 \end{figure}
 
-\section{Broadcast Receiver}
+\section*{Broadcast Receiver}
 Implementazione del pattern Observer (tipo particolare del protocollo Publish/Subscribe) in cui c'è un servizio di prenotazione su un certo evento. Un programma si registra al servizio e nel momento in cui viene lanciato l'evento per il quale si è registrato, il codice viene lanciato. Il sistema operativo lancia eventi in broadcast in continuazione: il sistema è stato avviato, la batteria è scarica, un sms è in arrivo ecc. Ciascuno di questi eventi scatena il lancio dei programmi registrati, o per usare il nome del pattern, i programmi che osservavano l'evento.  
-\section{Application Context}
+\section*{Application Context}
 \label{sec:application_context}
 Il contesto di un'applicativo Android è l'ambiente in cui i processi con tutti le componenti vengono eseguiti. Il ciclo di vita di un contesto parte con la sua creazione al lancio dell'applicativo, e termina nel momento in cui questi viene terminato. Per avere un riferimento al contesto è sufficiente chiamare \texttt{Context.getApplicationContext()} oppure \texttt{Activity.getApplication()}
 
 
-\section{Intefaccia Utenti (UI)}\TODO{Completare}
+\section*{Intefaccia Utenti (UI)}\TODO{Completare}
 \url{http://developer.android.com/guide/topics/ui/index.html}
-\subsection{Layout XML}
-\subsection{Eventi di Input}
+\subsection*{Layout XML}
+\label{sec:layout}
+\subsection*{Eventi di Input}
 
-\subsection{Menu}
+\subsection*{Menu}
 \label{sec:menu}
 Per default ogni Activity ha un menu di opzioni o azioni, a cui l'utente può accedere premendo un taso fisicamente disegnato sullo schermo. 
-\subsection{Barra delle Azioni}
-\subsection{Dialoghi}
+\subsection*{Barra delle Azioni}
+\subsection*{Dialoghi}
