@@ -19,8 +19,9 @@
 \contentsline {subsection}{\numberline {4.1.1}Osservazione diretta del paziente}{15}{subsection.4.1.1}
 \contentsline {subsection}{\numberline {4.1.2}Stereofotogrammetria}{15}{subsection.4.1.2}
 \contentsline {subsection}{\numberline {4.1.3}Sensori Inerziali}{15}{subsection.4.1.3}
-\contentsline {section}{\numberline {4.2}Metodi}{21}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Analisi}{21}{subsection.4.2.1}
+\contentsline {section}{\numberline {4.2}Metodi}{22}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Analisi}{22}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Apprendimento Automatico}{22}{subsection.4.2.2}
 \mbox {}\hrulefill \par 
 \mbox {}\hrulefill \par 
 \contentsline {part}{ii\hspace {1em}Lavoro svolto}{23}{part.2}
@@ -33,33 +34,34 @@
 \contentsline {section}{\numberline {6.2}Metodologia di programmazione usata: Agile e Unit Test}{32}{section.6.2}
 \contentsline {section}{\numberline {6.3}Organizzazione del codice sorgente guidata dalle direttive Android}{35}{section.6.3}
 \contentsline {subsection}{\numberline {6.3.1}Android Manifest}{35}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Codice sorgente}{36}{subsection.6.3.2}
-\contentsline {subsection}{\numberline {6.3.3}Risorse}{36}{subsection.6.3.3}
+\contentsline {subsection}{\numberline {6.3.2}Codice sorgente}{37}{subsection.6.3.2}
+\contentsline {subsection}{\numberline {6.3.3}Risorse}{37}{subsection.6.3.3}
 \contentsline {subsubsection}{Layout}{37}{subsection.6.3.3}
-\contentsline {subsubsection}{File grafici}{38}{figure.caption.24}
-\contentsline {subsubsection}{Valori}{38}{figure.caption.24}
-\contentsline {subsubsection}{Altri File}{39}{figure.caption.24}
-\contentsline {subsection}{\numberline {6.3.4}Librerie}{39}{subsection.6.3.4}
-\contentsline {section}{\numberline {6.4}Architettura}{39}{section.6.4}
-\contentsline {subsection}{\numberline {6.4.1}Unit\`a di Controllo}{39}{subsection.6.4.1}
-\contentsline {subsection}{\numberline {6.4.2}Interfaccia Utente}{39}{subsection.6.4.2}
-\contentsline {subsection}{\numberline {6.4.3}Comunicazione Bluetooth}{41}{subsection.6.4.3}
-\contentsline {subsection}{\numberline {6.4.4}Gestione Thread}{45}{subsection.6.4.4}
-\contentsline {subsubsection}{MailBox}{45}{subsection.6.4.4}
-\contentsline {subsubsection}{Test per il protocollo di comunicazione MailBox}{48}{figure.caption.29}
-\contentsline {subsection}{\numberline {6.4.5}HMM e Viterbi}{50}{subsection.6.4.5}
-\contentsline {subsubsection}{Scheletro di un HMM}{51}{subsection.6.4.5}
-\contentsline {subsubsection}{HMM ad emissioni discrete}{52}{lstnumber.6.17.11}
-\contentsline {subsubsection}{HMM ad emissioni continue}{53}{lstnumber.6.19.25}
-\contentsline {subsubsection}{Operazioni sulle HMM}{53}{lstnumber.6.20.1}
-\contentsline {chapter}{\numberline {7}Validazione}{55}{chapter.7}
-\contentsline {chapter}{\numberline {8}Risultati e Conclusioni}{57}{chapter.8}
+\contentsline {subsubsection}{File grafici}{40}{figure.caption.24}
+\contentsline {subsubsection}{Valori}{40}{figure.caption.24}
+\contentsline {subsubsection}{Altri File}{40}{figure.caption.24}
+\contentsline {subsection}{\numberline {6.3.4}Librerie}{40}{subsection.6.3.4}
+\contentsline {section}{\numberline {6.4}Architettura}{40}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Unit\`a di Controllo}{40}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}Interfaccia Utente}{40}{subsection.6.4.2}
+\contentsline {subsection}{\numberline {6.4.3}Comunicazione Bluetooth}{42}{subsection.6.4.3}
+\contentsline {subsection}{\numberline {6.4.4}Gestione Thread}{47}{subsection.6.4.4}
+\contentsline {subsubsection}{MailBox}{47}{subsection.6.4.4}
+\contentsline {subsubsection}{Test per il protocollo di comunicazione MailBox}{50}{figure.caption.29}
+\contentsline {subsection}{\numberline {6.4.5}HMM e Viterbi}{52}{subsection.6.4.5}
+\contentsline {subsubsection}{Scheletro di un HMM}{54}{subsection.6.4.5}
+\contentsline {subsubsection}{HMM ad emissioni discrete}{55}{lstnumber.6.17.11}
+\contentsline {subsubsection}{HMM ad emissioni continue}{56}{lstnumber.6.19.25}
+\contentsline {subsubsection}{Operazioni sulle HMM}{56}{lstnumber.6.20.1}
+\contentsline {chapter}{\numberline {7}Validazione}{59}{chapter.7}
+\contentsline {subsection}{\numberline {7.0.6}Dati}{59}{subsection.7.0.6}
+\contentsline {chapter}{\numberline {8}Risultati e Conclusioni}{61}{chapter.8}
 \mbox {}\hrulefill \par 
 \mbox {}\hrulefill \par 
-\contentsline {part}{iii\hspace {1em}Appendice}{59}{part.3}
-\contentsline {chapter}{\numberline {A}Sulle HMM}{61}{appendix.A}
-\contentsline {chapter}{\numberline {B}Tempo Reale, In Linea, Latenza}{75}{appendix.B}
-\contentsline {chapter}{\numberline {C}Cenni di Meccanica classica}{77}{appendix.C}
-\contentsline {chapter}{\numberline {D}Sensori}{81}{appendix.D}
-\contentsline {chapter}{\numberline {E}Su Android}{85}{appendix.E}
-\contentsline {subsubsection}{Java e Android}{88}{figure.caption.37}
+\contentsline {part}{iii\hspace {1em}Appendice}{63}{part.3}
+\contentsline {chapter}{\numberline {A}Sulle HMM}{65}{appendix.A}
+\contentsline {chapter}{\numberline {B}Tempo Reale, In Linea, Latenza}{81}{appendix.B}
+\contentsline {chapter}{\numberline {C}Cenni di Meccanica classica}{83}{appendix.C}
+\contentsline {chapter}{\numberline {D}Sensori}{87}{appendix.D}
+\contentsline {chapter}{\numberline {E}Su Android}{91}{appendix.E}
+\contentsline {subsubsection}{Java e Android}{94}{figure.caption.37}

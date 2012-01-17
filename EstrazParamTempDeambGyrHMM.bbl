@@ -21,6 +21,26 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{tutorial_hmm_application_speech_recognition}
+L.~R. Rabiner, ``A tutorial on hidden markov models and selected applications
+  in speech recognition,'' \emph{PROCEEDINGS OF THE IEEE}, vol.~77, no.~2, pp.
+  257--287, 1989.
+
+\bibitem{HMM_gesture_recognition}
+A.~Willson and A.F.Bobick, ``Gait event detection for fes using accelerometers
+  and supervised machine learning,'' \emph{IEEE Transactions on Pattern
+  Analysis and Machine Intelligence}, vol.~21, pp. 884 -- 900, 1999.
+
+\bibitem{human_physical_activity_classification_ml}
+A.~Mannini and A.~M. Sabatini, ``Machine learning methods for classifying human
+  physical activity from on-body accelerometers,'' \emph{Sensors}, vol.~10, pp.
+  1154--1175, 2010.
+
+\bibitem{spatio_temporal_params_gait_gyr}
+K.~Aminian, B.~Najafi, C.~Bula, P.~F. Leyvraz, and P.~Robert, ``Spatio-temporal
+  parameters of gait measured by an ambulatory system using miniature
+  gyroscopes,'' \emph{Journal of Biomechanics}, vol. 35(5), pp. 689--99, 2002.
+
 \bibitem{merriam-webste_Online}
 \BIBentryALTinterwordspacing
 \emph{kinesiology}, 2011. [Online]. Available:
@@ -92,11 +112,6 @@ K.~Tong and M.~H. Granat, ``A practical gait analysis system using
 S.~Miyazaki, ``Long-term unrestrained measurement of stride length and walking
   velocity utilizing a piezoelectric gyroscope,'' \emph{IEEE Transactions on
   Bio-Medical Engineering}, vol. 44(8), pp. 753--759, 1997.
-
-\bibitem{spatio_temporal_params_gait_gyr}
-K.~Aminian, B.~Najafi, C.~Bula, P.~F. Leyvraz, and P.~Robert, ``Spatio-temporal
-  parameters of gait measured by an ambulatory system using miniature
-  gyroscopes,'' \emph{Journal of Biomechanics}, vol. 35(5), pp. 689--99, 2002.
 
 \bibitem{gait_event_detection_FES_acc_ML}
 R.~Williamson and B.~J. Andrews, ``Gait event detection for fes using
@@ -252,11 +267,6 @@ X.~R. Julien~Blot, ``Short-time viterbi for online hmm decoding : Evaluation on
   a real-time phone recognition task,'' \emph{Acoustics, Speech and Signal
   Processing, 2008. ICASSP 2008. IEEE International Conference}, pp. 1--8,
   4/4/2008.
-
-\bibitem{tutorial_hmm_application_speech_recognition}
-L.~R. Rabiner, ``A tutorial on hidden markov models and selected applications
-  in speech recognition,'' \emph{PROCEEDINGS OF THE IEEE}, vol.~77, no.~2, pp.
-  257--287, 1989.
 
 \bibitem{synface_low_latency_viterbi}
 A.~Seward, ``Low latency incremental speech transcription in the synface

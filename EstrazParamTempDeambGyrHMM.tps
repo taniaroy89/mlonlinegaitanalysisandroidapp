@@ -4,7 +4,7 @@ Version=2
 
 [SessionInfo]
 ActiveTab=0
-FrameCount=3
+FrameCount=2
 ActiveFrame=0
 
 [Frame0]
@@ -32,9 +32,9 @@ cxCur=1026
 cxMin=10
 
 [Frame0_View0,0]
-Cursor.row=235
-Cursor.column=0
-TopSubLine=236
+Cursor.row=98
+Cursor.column=56
+TopSubLine=89
 
 [Frame1]
 Columns=1
@@ -64,33 +64,4 @@ cxMin=10
 Cursor.row=675
 Cursor.column=0
 TopSubLine=895
-
-[Frame2]
-Columns=1
-Rows=1
-Flags=0
-ShowCmd=1
-MinPos.x=-1
-MinPos.y=-1
-MaxPos.x=-4
-MaxPos.y=-30
-NormalPos.left=88
-NormalPos.top=116
-NormalPos.right=1047
-NormalPos.bottom=384
-Class=CLatexEdit
-Document=APPENDICE_hmm.tex
-
-[Frame2_Row0]
-cyCur=213
-cyMin=10
-
-[Frame2_Col0]
-cxCur=930
-cxMin=10
-
-[Frame2_View0,0]
-Cursor.row=26
-Cursor.column=131
-TopSubLine=26
 

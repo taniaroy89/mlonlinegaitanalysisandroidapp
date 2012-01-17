@@ -1,10 +1,9 @@
 \chapter{Sommario}
 %\myChapter{Sommario}
-\TODO{riscrivere alla fine}
 
-In questo lavoro si affronta il problema dell'analisi della deambulazione umana mediante l'uso di sensori indossabili e dispositivi di computazione portabili smartphone.\\
-%Tale studio ha applicazioni importanti in almeno tre settori: in campo medico, nella diagnosi e/o riabilitazione di pazienti affetti da problemi motori; nel campo della robotica e per simulazione del movimento umano ed in campo sportivo per il perfezionamento di tecniche e monitoraggio di allenamenti specifici. 
-%
-%I metodi con cui è stato affrontato tale problema possono essere suddivisi sia per gli strumenti di misurazione che usano: con sistemi di telecamere o con uso di sensori inerziali (giroscopi, sensori di forza, sensori di campi elettromagnetici ecc); per la contesto: fisico in cui vengono usati metodi di meccanica, contesto di intelligenza artificiale in cui vengono usati metodi di apprendimento automatico. 
-%Noi raccogliamo dati usando un giroscopio posizionato sul collo del piede e metodi di Machine Learning per l'analisi dei dati. Più precisamente utilizziamo un Modello di Markov Nascosto come classificatore, addestrato su un training set che consiste nei dati del giroscopio etichettati grazie a metodi di tipo classico \cite{walking_features_from_inertials}.
-%\end{abstract}
+In questo lavoro si affronta il problema dell'analisi in linea della deambulazione umana mediante metodi di apprendimento automatico e lo sviluppo di un'applicazione per \textit{smartphone Android}.\\
+Una HMM (\textit{Hidden Markov Model}) a quattro stati addestrata in differita su segnali giroscopici provenienti da sessioni di cammino e corsa su tapis-roulant a diverse velocità ed inclinazioni, viene usata per segmentare in linea le fasi del cammino grazie ad una versione modificata dell'algoritmo di decodifica di Viterbi.\\
+Il giroscopio usato è contenuto in una IMU (\textit{Inertial Measurement Unit}) collocato sul collo del piede ed orientato con l'asse sensibile sul piano mediale laterale.\\
+L'applicazione per \textit{smartphone} permette di controllare la IMU via \textit{Bluetooth}, nonché di segmentare e visualizzare in linea il segnale giroscopico relativo a deambulazione. \\
+La validazione del sistema viene fatta stimando la distanza percorsa calcolata da dati (cadenza e velocità) ottenuti in sessioni di cammino su tapis-roulant in laboratorio, e confrontandola con la distanza misurata mediante GPS in sessioni di cammino all'aperto, in condizioni non controllate.\\
+%I risultati sono ... 
