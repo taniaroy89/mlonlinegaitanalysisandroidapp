@@ -2,27 +2,29 @@
 %\myChapter{Introduzione}
 
 %-------------------	Descrizione del problema -------------------------------
-Ipotesi: \textit{è possibile costruire un sistema intelligente e portatile in grado di riconoscere e monitorare i movimenti di un individuo e di fornirne informazioni a riguardo in tempo reale(vedi \ref{sec:real_time_systems}).
-Per ridurre la complessità del problema di riconoscimento di un movimento generico, prendiamo in considerazione solo gli arti inferiori nella deambulazione entro un intervallo di velocità e pendenza del terreno}.\\
+Ipotesi: \textit{è possibile costruire un sistema intelligente e portatile in grado di riconoscere (classificare) e analizzare i movimenti di un individuo e di fornirne in linea (vedi appendice \ref{sec:real_time_systems}) informazioni a riguardo}.\\
 
-A questo punto si tratta di riconoscere le 8 fasi della deambulazione normale studiate dalla Chinesiologia (vedi capitolo \ref{cap:chinesiologia}), vale a dire il problema della \emph{segmentazione automatica in tempo reale della deambulazione umana}.
+Il problema del riconoscimento (classificazione) di un movimento umano generico è un problema irrisolto ed estremamente complesso visto il numero di esorbitante di parametri coinvolti. 
+In questo lavoro viene affronta l'analisi di una singola attività nota: la deambulazione entro un intervallo di velocità e pendenza del terreno.
+
+Nello specifico il problema è quello dell'individuazione in linea delle tempistiche di eventi che costituiscono una deambulazione normale come studiato dalla Chinesiologia (vedi capitolo \ref{cap:chinesiologia}). Tale problema è noto come \emph{problema della segmentazione automatica ed in linea della deambulazione umana}.\\
 
 %------------------  Motivazioni del problema Perché si pone?--------------------------------
-La soluzione del problema qui menzionato, avrebbe risvolti immediati in Medicina per la riabilitazione per la diagnosi e/o assistenza a persone con problemi di deambulazione, nella Robotica e Computer Grafica per la emulazione/simulazione della deambulazione umana, nel mondo dello sport agonistico per l'apprendimento di specifiche tecniche motorie ed in innumerevoli altri settori.
+La soluzione del problema della segmentazione avrebbe risvolti immediati nella Medicina riabilitativa per la diagnosi e/o assistenza a persone con problemi di deambulazione, nella Robotica e Computer Grafica per la emulazione/simulazione della deambulazione umana, nel mondo dello sport agonistico per l'apprendimento di specifiche tecniche motorie.\\
 
 %---------------------é gia stato affrontato? 
-Il problema della segmentazione della deambulazione è stato ampiamente affrontato in letteratura e con svariate combinazioni di materiali e metodi. 
+Il problema della segmentazione è stato ampiamente affrontato nella letteratura scientifica (letteratura biomedica, biomeccanica, ingegneria medica) con svariate combinazioni di materiali e metodi. 
 
-Per quanto riguarda i materiali, sono state proposte soluzioni parziali che si basano semplicemente sull'osservazione diretta di un fisiatra oppure su strumenti ottici, basati su sistemi di telecamere e marker (segnali riconoscibili dalle telecamere); strumenti inerziali, basati su sensori fisici: accelerometri, giroscopi, elettromagnetometri ecc. Questi ultimi sono stati posizionati in svariate parti del corpo ed in diverse combinazioni. 
+Per quanto riguarda i materiali, sono state proposte soluzioni basate sull'osservazione diretta di un fisiatra; basate sulla stereofotogrammetria, sistemi di telecamere ad emissione di luce infrarossa e marcatori riflettenti; basate su strumenti inerziali, sensori fisici: accelerometri, giroscopi, elettromagnetometri. Questi ultimi sono stati usati in diverse combinazioni, numero e disposizione sul corpo.\\ 
 
-Per quanti riguarda i metodi, gli ambiti scientifici nei quali viene affrontato il problema spaziano dalla Cinematica per lo studio delle forze, all'Analisi Matematica per lo studio di curve, alle Macchine a stati finiti per lo studio di sequenze temporali, e più di recente all'Apprendimento Automatico per la capacità di astrarre sulle differenze individuali nel compiere qualsiasi azione.
+Per quanti riguarda i metodi, sono state proposte soluzioni di tipo cinematico basato sullo studio delle forze che agiscono sul corpo nella deambulazione; di tipo analitico (studio di funzioni e curve) sui segnali di sensori inerziali; alle Macchine a stati finiti per lo studio di sequenze temporali, e più di recente all'Apprendimento Automatico (Reti Neurali, Logica Fuzzy) per la capacità di astrarre sulle variazioni dei singoli individui.
 
 % -------------------------------é stato gia stato risolto? 
 Nonostante il vasto numero di lavori, non è ancora stata data una soluzione soddisfacente al problema. 
-Tutti i metodi proposti peccano di dipendenza dagli strumenti che usano, vale a dire che variando questi ultimi, variano le prestazioni dei metodi e di dipendenza dai soggetti sui quali vengono fatti gli esperimenti.
-Questo significa che le soluzioni sin ora proposte sono fatte su misura per specifici casi.
+Tutti i metodi proposti peccano di dipendenza dagli strumenti che usano, vale a dire che variando questi ultimi, variano le prestazioni dei metodi e di dipendenza dai soggetti sui quali vengono fatti gli esperimenti.\\
 
 %------------------------- Come voglio affrontare il problema? 
-Il nostro obbiettivo è creare un metodo che dipenda il meno possibile dai materiali, che tenga conto della variabilità interpersonale e che abbia una complessità computazionale abbastanza bassa da poter essere usato su uno Smartphone. 
+La scelta dell'utlizzo delle HMM è giustificata dai seguenti motivi. 
+Le HMM (vedi appendice \ref{cap:hmm}) sono uno strumento stocastico di riconoscimento di schemi (\textit{Stochastic Pattern Recognition}) usato in campi come il riconoscimento vocale \cite{tutorial_hmm_application_speech_recognition} e lo studio della visione artificiale per il riconoscimento gestuale \cite{HMM_gesture_recognition}. Uno studio dimostra il potenziale delle HMM per la segmentazione della deambulazione equina \cire{stride_segmentation_technique_hmm}. \\
 
-Le nostre scelte sono quindi cadute su pochi sensori semplici per la raccolta dei dati e sulle HMM (Hidden Markov Models vedi appendice \ref{sec:HMM}) per gestirne la componente temporale, creando così un sistema a efficace basso costo, portatile, semplice da utilizzare e .
+Inoltre vi sono studi che usano le HMM come struttura gerarchica per affrontare il problema della classificazione di attività umane \cite{human_physical_activity_classification_ml, spatio_temporal_params_gait_gyr}. Per sviluppi futuri, del lavoro qui presentato, nella direzione della risoluzione del problema della classificazione, gli studi citati sono a favore dell'utilizzo delle HMM.
