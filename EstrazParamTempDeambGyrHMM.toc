@@ -11,9 +11,9 @@
 \contentsline {section}{\numberline {3.1}Analisi dei movimenti del corpo umano}{7}{section.3.1}
 \contentsline {section}{\numberline {3.2}L'andatura durante la deambulazione}{9}{section.3.2}
 \contentsline {section}{\numberline {3.3}Breve storia dello studio della deambulazione umana}{9}{section.3.3}
-\contentsline {section}{\numberline {3.4}Ciclo di deambulazione (Gait Cycle)}{10}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Confronto fra Falcata (Stride) e Passo (Step)}{11}{subsection.3.4.1}
-\contentsline {section}{\numberline {3.5}Parametri che descrivono il pattern (schema) della deambulazione}{12}{section.3.5}
+\contentsline {section}{\numberline {3.4}Ciclo di deambulazione (\textit {Gait Cycle})}{10}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Confronto fra Falcata (\textit {Stride}) e Passo (\textit {Step})}{11}{subsection.3.4.1}
+\contentsline {section}{\numberline {3.5}Parametri che descrivono lo schema \textit {pattern} della deambulazione}{12}{section.3.5}
 \contentsline {chapter}{\numberline {4}Lo stato dell'arte}{15}{chapter.4}
 \contentsline {section}{\numberline {4.1}Materiali}{15}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Osservazione diretta del paziente}{15}{subsection.4.1.1}
@@ -37,9 +37,9 @@
 \contentsline {subsection}{\numberline {6.3.2}Codice sorgente}{37}{subsection.6.3.2}
 \contentsline {subsection}{\numberline {6.3.3}Risorse}{37}{subsection.6.3.3}
 \contentsline {subsubsection}{Layout}{37}{subsection.6.3.3}
-\contentsline {subsubsection}{File grafici}{40}{figure.caption.24}
-\contentsline {subsubsection}{Valori}{40}{figure.caption.24}
-\contentsline {subsubsection}{Altri File}{40}{figure.caption.24}
+\contentsline {subsubsection}{File grafici}{40}{figure.caption.25}
+\contentsline {subsubsection}{Valori}{40}{figure.caption.25}
+\contentsline {subsubsection}{Altri File}{40}{figure.caption.25}
 \contentsline {subsection}{\numberline {6.3.4}Librerie}{40}{subsection.6.3.4}
 \contentsline {section}{\numberline {6.4}Architettura}{40}{section.6.4}
 \contentsline {subsection}{\numberline {6.4.1}Unit\`a di Controllo}{40}{subsection.6.4.1}
@@ -47,7 +47,7 @@
 \contentsline {subsection}{\numberline {6.4.3}Comunicazione Bluetooth}{42}{subsection.6.4.3}
 \contentsline {subsection}{\numberline {6.4.4}Gestione Thread}{47}{subsection.6.4.4}
 \contentsline {subsubsection}{MailBox}{47}{subsection.6.4.4}
-\contentsline {subsubsection}{Test per il protocollo di comunicazione MailBox}{50}{figure.caption.29}
+\contentsline {subsubsection}{Test per il protocollo di comunicazione MailBox}{50}{figure.caption.30}
 \contentsline {subsection}{\numberline {6.4.5}HMM e Viterbi}{52}{subsection.6.4.5}
 \contentsline {subsubsection}{Scheletro di un HMM}{54}{subsection.6.4.5}
 \contentsline {subsubsection}{HMM ad emissioni discrete}{55}{lstnumber.6.17.11}
@@ -64,4 +64,4 @@
 \contentsline {chapter}{\numberline {C}Cenni di Meccanica classica}{83}{appendix.C}
 \contentsline {chapter}{\numberline {D}Sensori}{87}{appendix.D}
 \contentsline {chapter}{\numberline {E}Su Android}{91}{appendix.E}
-\contentsline {subsubsection}{Java e Android}{94}{figure.caption.37}
+\contentsline {subsubsection}{Java e Android}{94}{figure.caption.38}

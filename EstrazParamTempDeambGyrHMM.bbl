@@ -31,6 +31,11 @@ A.~Willson and A.F.Bobick, ``Gait event detection for fes using accelerometers
   and supervised machine learning,'' \emph{IEEE Transactions on Pattern
   Analysis and Machine Intelligence}, vol.~21, pp. 884 -- 900, 1999.
 
+\bibitem{stride_segmentation_technique_hmm}
+T.~Pfau, M.~Ferrari, K.~Parsons, and A.~Wilson, ``A hidden markov model-based
+  stride segmentation technique applied to equine inertial sensor trunk
+  movement data,'' \emph{Journal of Biomechanics}, vol.~41, pp. 216--220, 2008.
+
 \bibitem{human_physical_activity_classification_ml}
 A.~Mannini and A.~M. Sabatini, ``Machine learning methods for classifying human
   physical activity from on-body accelerometers,'' \emph{Sensors}, vol.~10, pp.
@@ -240,11 +245,6 @@ P.~C. Sweeney, G.~M. Lyons, and P.~H. Veltink, ``Finite state control of
   functional electrical stimulation for the rehabilitation of gait,''
   \emph{MEDICAL AND BIOLOGICAL ENGINEERING AND COMPUTING}, vol. 38(2), pp.
   121--126.
-
-\bibitem{stride_segmentation_technique_hmm}
-T.~Pfau, M.~Ferrari, K.~Parsons, and A.~Wilson, ``A hidden markov model-based
-  stride segmentation technique applied to equine inertial sensor trunk
-  movement data,'' \emph{Journal of Biomechanics}, vol.~41, pp. 216--220, 2008.
 
 \bibitem{physical_activity_recognition}
 J.~Lester, T.~Choudhury, and G.~Borriello, ``A practical approach to
