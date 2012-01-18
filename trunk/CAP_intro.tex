@@ -2,7 +2,7 @@
 %\myChapter{Introduzione}
 
 %-------------------	Descrizione del problema -------------------------------
-Ipotesi: \textit{è possibile costruire un sistema intelligente e portatile in grado di riconoscere (classificare) e analizzare i movimenti di un individuo e di fornirne in linea (vedi appendice \ref{sec:real_time_systems}) informazioni a riguardo}.\\
+Ipotesi: \textit{è possibile costruire un sistema intelligente e portatile in grado di riconoscere (classificare) e analizzare i movimenti di un individuo e di fornirne in linea (vedi appendice \ref{sec:real_time_sys}) informazioni a riguardo}.\\
 
 Il problema del riconoscimento (classificazione) di un movimento umano generico è un problema irrisolto ed estremamente complesso visto il numero di esorbitante di parametri coinvolti. 
 In questo lavoro viene affronta l'analisi di una singola attività nota: la deambulazione entro un intervallo di velocità e pendenza del terreno.
@@ -15,16 +15,16 @@ La soluzione del problema della segmentazione avrebbe risvolti immediati nella M
 %---------------------é gia stato affrontato? 
 Il problema della segmentazione è stato ampiamente affrontato nella letteratura scientifica (letteratura biomedica, biomeccanica, ingegneria medica) con svariate combinazioni di materiali e metodi. 
 
-Per quanto riguarda i materiali, sono state proposte soluzioni basate sull'osservazione diretta di un fisiatra; basate sulla stereofotogrammetria, sistemi di telecamere ad emissione di luce infrarossa e marcatori riflettenti; basate su strumenti inerziali, sensori fisici: accelerometri, giroscopi, elettromagnetometri. Questi ultimi sono stati usati in diverse combinazioni, numero e disposizione sul corpo.\\ 
+Per quanto riguarda i materiali, sono state proposte soluzioni basate sull'osservazione diretta di un fisiatra; basate sulla stereofotogrammetria, sistemi di telecamere ad emissione di luce infrarossa e marcatori riflettenti; basate su strumenti inerziali, sensori fisici: accelerometri, giroscopi, elettromagnetometri. Questi ultimi sono stati usati in diverse combinazioni, numero e disposizione sul corpo.\TODO{citazione}\\ 
 
-Per quanti riguarda i metodi, sono state proposte soluzioni di tipo cinematico basato sullo studio delle forze che agiscono sul corpo nella deambulazione; di tipo analitico (studio di funzioni e curve) sui segnali di sensori inerziali; alle Macchine a stati finiti per lo studio di sequenze temporali, e più di recente all'Apprendimento Automatico (Reti Neurali, Logica Fuzzy) per la capacità di astrarre sulle variazioni dei singoli individui.
+Per quanto riguarda i metodi, sono state proposte soluzioni di tipo cinematico basato sullo studio delle forze che agiscono sul corpo nella deambulazione; di tipo analitico (studio di funzioni e curve) sui segnali di sensori inerziali; alle Macchine a stati finiti per lo studio di sequenze temporali, e più di recente all'Apprendimento Automatico (Reti Neurali, Logica Fuzzy) per la capacità di astrarre sulle variazioni dei singoli individui.\TODO{citazione}
 
 % -------------------------------é stato gia stato risolto? 
 Nonostante il vasto numero di lavori, non è ancora stata data una soluzione soddisfacente al problema. 
-Tutti i metodi proposti peccano di dipendenza dagli strumenti che usano, vale a dire che variando questi ultimi, variano le prestazioni dei metodi e di dipendenza dai soggetti sui quali vengono fatti gli esperimenti.\\
+Tutti i metodi proposti peccano di dipendenza dagli strumenti che usano, vale a dire che variando questi ultimi, variano le prestazioni dei metodi e di dipendenza dai soggetti sui quali vengono fatti gli esperimenti.\TODO{citazione}\\
 
 %------------------------- Come voglio affrontare il problema? 
 La scelta dell'utlizzo delle HMM è giustificata dai seguenti motivi. 
-Le HMM (vedi appendice \ref{cap:hmm}) sono uno strumento stocastico di riconoscimento di schemi (\textit{Stochastic Pattern Recognition}) usato in campi come il riconoscimento vocale \cite{tutorial_hmm_application_speech_recognition} e lo studio della visione artificiale per il riconoscimento gestuale \cite{HMM_gesture_recognition}. Uno studio dimostra il potenziale delle HMM per la segmentazione della deambulazione equina \cire{stride_segmentation_technique_hmm}. \\
+Le HMM (vedi appendice \ref{cap:hmm}) sono uno strumento stocastico di riconoscimento di schemi (\textit{Stochastic Pattern Recognition}) usato in campi come il riconoscimento vocale \cite{tutorial_hmm_application_speech_recognition} e lo studio della visione artificiale per il riconoscimento gestuale \cite{HMM_gesture_recognition}. Uno studio dimostra il potenziale delle HMM per la segmentazione della deambulazione equina \cite{stride_segmentation_technique_hmm}. \\
 
 Inoltre vi sono studi che usano le HMM come struttura gerarchica per affrontare il problema della classificazione di attività umane \cite{human_physical_activity_classification_ml, spatio_temporal_params_gait_gyr}. Per sviluppi futuri, del lavoro qui presentato, nella direzione della risoluzione del problema della classificazione, gli studi citati sono a favore dell'utilizzo delle HMM.

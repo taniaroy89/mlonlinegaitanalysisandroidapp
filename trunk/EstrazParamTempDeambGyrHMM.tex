@@ -60,6 +60,7 @@
 \usepackage[toc,page]{appendix}
 \usepackage[titles]{tocloft}
 \usepackage{multirow}
+\usepackage[normalem]{ulem}
 \definecolor{lightBlue}{rgb}{0.95,0.95,0.95}
 %\lstset{language=Java, backgroundcolor=\color{SpringGreen}, basicstyle=\small, commentstyle=\color{green}}
 \definecolor{javared}{rgb}{0.6,0,0} % for strings
@@ -96,8 +97,8 @@ della Deambulazione: Sviluppo e Validazione di un'applicazione per Smartphone\xs
 \newcommand{\myUni}{\protect{	Università degli Studi di Firenze}\xspace}
 \newcommand{\myLocation}{Firenze\xspace}
 \newcommand{\myTime}{Anno Accademico 2010-2011\xspace}
-\newcommand{\myVersion}{\small \textcolor{red}{Revisione 5.0} \xspace} %last committed svn version.build
-\newcommand{\myShortVersion}{\small \textcolor{red}{v5.0} \xspace}
+\newcommand{\myVersion}{\small \textcolor{red}{Revisione 9.0} \xspace} %last committed svn version.build
+\newcommand{\myShortVersion}{\small \textcolor{red}{v9.0} \xspace}
 %-----------------------------------------------------------\hypersetup{pdfstartview=FitW}
 \hypersetup{pdfstartview=FitW}
 %% Define a new 'leo' style for the package that will use a smaller font.
@@ -241,6 +242,7 @@ della Deambulazione: Sviluppo e Validazione di un'applicazione per Smartphone\xs
 \raggedbottom
 \pagenumbering{roman}
 \pagestyle{plain}
+\include{Todo_list}
 %--------------------------------------------------------------
 % Frontmatter
 %--------------------------------------------------------------
@@ -310,7 +312,6 @@ della Deambulazione: Sviluppo e Validazione di un'applicazione per Smartphone\xs
 %--------------------------------------------------------------
 %	Extras
 %--------------------------------------------------------------
-\include{Todo_list}
 %--------------------------------------------------------------
 \bibliographystyle{IEEEtran}
 \bibliography{biblio}
