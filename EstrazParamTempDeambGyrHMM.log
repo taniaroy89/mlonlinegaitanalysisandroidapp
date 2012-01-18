@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.9.14)  18 JAN 2012 10:52
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.9.14)  18 JAN 2012 12:47
 entering extended mode
 **D:/Ahadu/tesi/mlonlinegaitanalysisandroidapp/EstrazParamTempDeambGyrHMM.tex
 (D:/Ahadu/tesi/mlonlinegaitanalysisandroidapp/EstrazParamTempDeambGyrHMM.tex
@@ -1067,19 +1067,23 @@ File: mt-cmr.cfg 2009/11/09 v2.0 microtype config. file: Computer Modern Roman
 LaTeX Font Info:    Try loading font information for OT1+zplm on input line 5.
  ("C:\Programmi\MiKTeX 2.9\tex\latex\psnfss\ot1zplm.fd"
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
-)) [1
+)
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/pplj/m/sc/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+ [1
 
 
 
 
 {C:/Documents and Settings/G/Impostazioni locali/Dati applicazioni/MiKTeX/2.9/p
-dftex/config/pdftex.map}] [2
+dftex/config/pdftex.map}]) [2] [3] [4
 
 
 
 ]
 (D:\Ahadu\tesi\mlonlinegaitanalysisandroidapp\titlePage.tex
-<logo/unifi.pdf, id=16, 1400.23125pt x 1370.11874pt>
+<logo/unifi.pdf, id=53, 1400.23125pt x 1370.11874pt>
 File: logo/unifi.pdf Graphic file (type pdf)
  <use logo/unifi.pdf>
 Package pdftex.def Info: logo/unifi.pdf used on input line 14.
@@ -1111,14 +1115,24 @@ LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <10> not available
 (Font)              Font shape `T1/pplj/b/n' tried instead on input line 3.
 LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/pplj/b/n' tried instead on input line 8.
-
-[3
+pdfTeX warning (ext4): destination with the same identifier (name{page.iii}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.48 ...4.4}Gestione Thread}{47}{subsection.6.4.4}
+                                                   [3
 
 
 
 ])
 \tf@toc=\write3
- [4] (D:\Ahadu\tesi\mlonlinegaitanalysisandroidapp\SOMMARIO.tex
+pdfTeX warning (ext4): destination with the same identifier (name{page.iv}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.265 \mainmatter
+                  [4]
+(D:\Ahadu\tesi\mlonlinegaitanalysisandroidapp\SOMMARIO.tex
 Capitolo 1.
 
 Class scrbook Warning: \float@addtolists detected!
@@ -1189,7 +1203,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--6
 
  []
 
-<imgs/Human_body_by_Da_Vinci-SPL.jpg, id=187, 678.535pt x 772.8875pt>
+<imgs/Human_body_by_Da_Vinci-SPL.jpg, id=221, 678.535pt x 772.8875pt>
 File: imgs/Human_body_by_Da_Vinci-SPL.jpg Graphic file (type jpg)
 
 <use imgs/Human_body_by_Da_Vinci-SPL.jpg>
@@ -1209,14 +1223,14 @@ Overfull \hbox (3.3413pt too wide) in paragraph at lines 37--38
 
 
 ] [8 <D:/Ahadu/tesi/mlonlinegaitanalysisandroidapp/imgs/Human_body_by_Da_Vinci-
-SPL.jpg>] [9] <imgs/CicoloDelPasso.jpg, id=220, 543.53062pt x 202.50656pt>
+SPL.jpg>] [9] <imgs/CicoloDelPasso.jpg, id=253, 543.53062pt x 202.50656pt>
 File: imgs/CicoloDelPasso.jpg Graphic file (type jpg)
 
 <use imgs/CicoloDelPasso.jpg>
 Package pdftex.def Info: imgs/CicoloDelPasso.jpg used on input line 74.
 (pdftex.def)             Requested size: 332.49893pt x 123.88724pt.
 
-<imgs/CicoloDelPassoAppoggio.jpg, id=221, 542.77782pt x 212.29312pt>
+<imgs/CicoloDelPassoAppoggio.jpg, id=254, 542.77782pt x 212.29312pt>
 File: imgs/CicoloDelPassoAppoggio.jpg Graphic file (type jpg)
 
 <use imgs/CicoloDelPassoAppoggio.jpg>
@@ -1225,9 +1239,6 @@ Package pdftex.def Info: imgs/CicoloDelPassoAppoggio.jpg used on input line 90.
 (pdftex.def)             Requested size: 332.49893pt x 130.05254pt.
  [10 <D:/Ahadu/tesi/mlonlinegaitanalysisandroidapp/imgs/CicoloDelPasso.jpg> <D:
 /Ahadu/tesi/mlonlinegaitanalysisandroidapp/imgs/CicoloDelPassoAppoggio.jpg>]
-Package microtype Info: Character `029' is missing
-(microtype)             in font `T1/pplj/m/sc/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
 LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <10.95> not available
 (Font)              Font shape `T1/pplj/b/n' tried instead on input line 105.
 
@@ -1239,7 +1250,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 100--131
 
  []
 
-<imgs/AndaturaConfrontoPasso.jpg, id=229, 560.8453pt x 260.47313pt>
+<imgs/AndaturaConfrontoPasso.jpg, id=262, 560.8453pt x 260.47313pt>
 File: imgs/AndaturaConfrontoPasso.jpg Graphic file (type jpg)
 
 <use imgs/AndaturaConfrontoPasso.jpg>
@@ -1321,54 +1332,57 @@ Overfull \hbox (18.48923pt too wide) has occurred while \output is active
 
 ]
 Capitolo 4.
-<imgs/viconMotionCapture.jpg, id=253, 602.25pt x 417.05812pt>
+<imgs/ReflectiveMarker.jpg, id=287, 596.2275pt x 515.9275pt>
+File: imgs/ReflectiveMarker.jpg Graphic file (type jpg)
+
+<use imgs/ReflectiveMarker.jpg>
+Package pdftex.def Info: imgs/ReflectiveMarker.jpg used on input line 18.
+(pdftex.def)             Requested size: 139.99786pt x 121.14063pt.
+
+<imgs/viconMotionCapture.jpg, id=288, 602.25pt x 417.05812pt>
 File: imgs/viconMotionCapture.jpg Graphic file (type jpg)
 
 <use imgs/viconMotionCapture.jpg>
-Package pdftex.def Info: imgs/viconMotionCapture.jpg used on input line 16.
+Package pdftex.def Info: imgs/viconMotionCapture.jpg used on input line 25.
 (pdftex.def)             Requested size: 350.0pt x 242.38388pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 32--32
+Underfull \hbox (badness 10000) in paragraph at lines 42--42
 []|\T1/pplj/m/sc/10.95 (+20) Posizione del
  []
 
 
-LaTeX Warning: Reference `APPENDICE_sensori' on page 15 undefined on input line
- 34.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 28--44
+Underfull \hbox (badness 10000) in paragraph at lines 38--54
 
  []
 
-[15] [16 <D:/Ahadu/tesi/mlonlinegaitanalysisandroidapp/imgs/viconMotionCapture.
-jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 55--55
+[15] [16 <D:/Ahadu/tesi/mlonlinegaitanalysisandroidapp/imgs/ReflectiveMarker.jp
+g> <D:/Ahadu/tesi/mlonlinegaitanalysisandroidapp/imgs/viconMotionCapture.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 65--65
 []|\T1/pplj/m/sc/10.95 (+20) Posizione del
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 51--74
+Underfull \hbox (badness 10000) in paragraph at lines 61--84
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 85--85
+Underfull \hbox (badness 10000) in paragraph at lines 95--95
 []|\T1/pplj/m/sc/10.95 (+20) Posizione del
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 81--103
+Underfull \hbox (badness 10000) in paragraph at lines 91--113
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--116
+Underfull \hbox (badness 10000) in paragraph at lines 126--126
 []|\T1/pplj/m/sc/10.95 (+20) Posizione del
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 110--132
+Underfull \hbox (badness 10000) in paragraph at lines 120--142
 
  []
 
@@ -1395,7 +1409,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 45--48
 
 
 
-] <imgs/patternGyro.jpg, id=468, 658.46pt x 389.455pt>
+] <imgs/patternGyro.jpg, id=505, 658.46pt x 389.455pt>
 File: imgs/patternGyro.jpg Graphic file (type jpg)
 
 <use imgs/patternGyro.jpg>
@@ -1421,7 +1435,7 @@ LaTeX Font Warning: Font shape `TS1/pplj/m/sc' undefined
 
 ) [29] [30] (D:\Ahadu\tesi\mlonlinegaitanalysisandroidapp\CAP_AndroidApp.tex
 Capitolo 6.
-<imgs/ArchitetturaProgramma.jpg, id=524, 742.775pt x 560.0925pt>
+<imgs/ArchitetturaProgramma.jpg, id=563, 742.775pt x 560.0925pt>
 File: imgs/ArchitetturaProgramma.jpg Graphic file (type jpg)
 
 <use imgs/ArchitetturaProgramma.jpg>
@@ -1473,7 +1487,7 @@ Overfull \hbox (55.5884pt too wide) has occurred while \output is active
  []|[]|
  []
 
-[37] <imgs/imuControloPanel.jpg, id=671, 252.945pt x 502.87875pt>
+[37] <imgs/imuControloPanel.jpg, id=709, 252.945pt x 502.87875pt>
 File: imgs/imuControloPanel.jpg Graphic file (type jpg)
 
 <use imgs/imuControloPanel.jpg>
@@ -1492,7 +1506,7 @@ Overfull \hbox (55.5884pt too wide) has occurred while \output is active
  []
 
 [39 <D:/Ahadu/tesi/mlonlinegaitanalysisandroidapp/imgs/imuControloPanel.jpg>]
-<imgs/UI.jpg, id=714, 867.24pt x 503.8825pt>
+<imgs/UI.jpg, id=752, 867.24pt x 503.8825pt>
 File: imgs/UI.jpg Graphic file (type jpg)
  <use imgs/UI.jpg>
 Package pdftex.def Info: imgs/UI.jpg used on input line 278.
@@ -1521,7 +1535,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 529--530
 LaTeX Warning: Reference `alg:mailbox_get' on page 48 undefined on input line 5
 52.
 
-[48] [49] <imgs/mailboxPutOnEmpty.jpg, id=961, 618.31pt x 523.9575pt>
+[48] [49] <imgs/mailboxPutOnEmpty.jpg, id=999, 618.31pt x 523.9575pt>
 File: imgs/mailboxPutOnEmpty.jpg Graphic file (type jpg)
 
 <use imgs/mailboxPutOnEmpty.jpg>
@@ -1531,7 +1545,7 @@ Package pdftex.def Info: imgs/mailboxPutOnEmpty.jpg used on input line 611.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<imgs/mailboxPutOnFull.jpg, id=962, 632.3625pt x 531.9875pt>
+<imgs/mailboxPutOnFull.jpg, id=1000, 632.3625pt x 531.9875pt>
 File: imgs/mailboxPutOnFull.jpg Graphic file (type jpg)
 
 <use imgs/mailboxPutOnFull.jpg>
@@ -1541,7 +1555,7 @@ Package pdftex.def Info: imgs/mailboxPutOnFull.jpg used on input line 618.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<imgs/mailboxGetOnEmpty.jpg, id=963, 628.3475pt x 527.9725pt>
+<imgs/mailboxGetOnEmpty.jpg, id=1001, 628.3475pt x 527.9725pt>
 File: imgs/mailboxGetOnEmpty.jpg Graphic file (type jpg)
 
 <use imgs/mailboxGetOnEmpty.jpg>
@@ -1551,7 +1565,7 @@ Package pdftex.def Info: imgs/mailboxGetOnEmpty.jpg used on input line 625.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<imgs/mailboxGetOnFull.jpg, id=964, 634.37pt x 542.025pt>
+<imgs/mailboxGetOnFull.jpg, id=1002, 634.37pt x 542.025pt>
 File: imgs/mailboxGetOnFull.jpg Graphic file (type jpg)
 
 <use imgs/mailboxGetOnFull.jpg>
@@ -1561,7 +1575,7 @@ Package pdftex.def Info: imgs/mailboxGetOnFull.jpg used on input line 632.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[50] <imgs/mailBoxCommTestAndroid.jpg, id=973, 894.34125pt x 570.13pt>
+[50] <imgs/mailBoxCommTestAndroid.jpg, id=1011, 894.34125pt x 570.13pt>
 File: imgs/mailBoxCommTestAndroid.jpg Graphic file (type jpg)
 
 <use imgs/mailBoxCommTestAndroid.jpg>
@@ -1635,7 +1649,7 @@ Overfull \hbox (13.09596pt too wide) in paragraph at lines 79--80
 } >$
  []
 
-[66] <imgs/descreteMarkovProcesses.jpg, id=1162, 702.37407pt x 319.94531pt>
+[66] <imgs/descreteMarkovProcesses.jpg, id=1201, 702.37407pt x 319.94531pt>
 File: imgs/descreteMarkovProcesses.jpg Graphic file (type jpg)
 
 <use imgs/descreteMarkovProcesses.jpg>
@@ -1701,7 +1715,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--30
 
 ) [82] (D:\Ahadu\tesi\mlonlinegaitanalysisandroidapp\APPENDICE_meccanica.tex
 Appendice C.
-<imgs/CinematicaLineare.jpg, id=1371, 438.8897pt x 306.39468pt>
+<imgs/CinematicaLineare.jpg, id=1409, 438.8897pt x 306.39468pt>
 File: imgs/CinematicaLineare.jpg Graphic file (type jpg)
 
 <use imgs/CinematicaLineare.jpg>
@@ -1716,7 +1730,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-] <imgs/CinematicaAngolare.jpg, id=1377, 450.9347pt x 301.8778pt>
+] <imgs/CinematicaAngolare.jpg, id=1416, 450.9347pt x 301.8778pt>
 File: imgs/CinematicaAngolare.jpg Graphic file (type jpg)
 
 <use imgs/CinematicaAngolare.jpg>
@@ -1732,7 +1746,7 @@ Package pdftex.def Info: imgs/CinematicaAngolare.jpg used on input line 50.
 
 ]
 Appendice D.
-<imgs/acc_technical.jpg, id=1395, 1291.82625pt x 654.445pt>
+<imgs/acc_technical.jpg, id=1433, 1291.82625pt x 654.445pt>
 File: imgs/acc_technical.jpg Graphic file (type jpg)
 
 <use imgs/acc_technical.jpg>
@@ -1758,7 +1772,7 @@ Overfull \hbox (36.92627pt too wide) in paragraph at lines 43--68
 
 ]
 Appendice E.
-<imgs/android_system_architecture.jpg, id=1416, 725.75366pt x 521.15831pt>
+<imgs/android_system_architecture.jpg, id=1455, 725.75366pt x 521.15831pt>
 File: imgs/android_system_architecture.jpg Graphic file (type jpg)
 
 <use imgs/android_system_architecture.jpg>
@@ -1771,7 +1785,7 @@ Overfull \hbox (26.9991pt too wide) in paragraph at lines 18--19
  []
 
 [91] [92 <D:/Ahadu/tesi/mlonlinegaitanalysisandroidapp/imgs/android_system_arch
-itecture.jpg>] [93] <imgs/JVMvsDalvik.jpg, id=1454, 438.63875pt x 435.6275pt>
+itecture.jpg>] [93] <imgs/JVMvsDalvik.jpg, id=1492, 438.63875pt x 435.6275pt>
 File: imgs/JVMvsDalvik.jpg Graphic file (type jpg)
 
 <use imgs/JVMvsDalvik.jpg>
@@ -1779,7 +1793,7 @@ Package pdftex.def Info: imgs/JVMvsDalvik.jpg used on input line 54.
 (pdftex.def)             Requested size: 314.99786pt x 312.8406pt.
  [94] [95 <D:/Ahadu/tesi/mlonlinegaitanalysisandroidapp/imgs/JVMvsDalvik.jpg>] 
 [96]
-<imgs/ActivityLifeCycle.jpg, id=1488, 455.7025pt x 428.60126pt>
+<imgs/ActivityLifeCycle.jpg, id=1527, 455.7025pt x 428.60126pt>
 File: imgs/ActivityLifeCycle.jpg Graphic file (type jpg)
 
 <use imgs/ActivityLifeCycle.jpg>
@@ -1787,7 +1801,7 @@ Package pdftex.def Info: imgs/ActivityLifeCycle.jpg used on input line 114.
 (pdftex.def)             Requested size: 314.99786pt x 296.27145pt.
  [97] [98 <D:/Ahadu/tesi/mlonlinegaitanalysisandroidapp/imgs/ActivityLifeCycle.
 jpg>]
-<imgs/CRUD.jpg, id=1506, 225.84375pt x 353.32pt>
+<imgs/CRUD.jpg, id=1544, 225.84375pt x 353.32pt>
 File: imgs/CRUD.jpg Graphic file (type jpg)
  <use imgs/CRUD.jpg>
 Package pdftex.def Info: imgs/CRUD.jpg used on input line 133.
@@ -1824,12 +1838,17 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 320.
 (D:\Ahadu\tesi\mlonlinegaitanalysisandroidapp\APPENDICE_realtime.aux)
 (D:\Ahadu\tesi\mlonlinegaitanalysisandroidapp\APPENDICE_meccanica.aux)
 (D:\Ahadu\tesi\mlonlinegaitanalysisandroidapp\APPENDICE_sensori.aux)
-(D:\Ahadu\tesi\mlonlinegaitanalysisandroidapp\APPENDICE_android.aux))
+(D:\Ahadu\tesi\mlonlinegaitanalysisandroidapp\APPENDICE_android.aux)
+
+Package mparhack Warning: Marginpars may have changed.
+(mparhack)                Rerun to get them right.
+
+)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 320.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 320.
 Package rerunfilecheck Info: File `EstrazParamTempDeambGyrHMM.brf' has not chan
 ged.
-(rerunfilecheck)             Checksum: BBD5A43512D7C2E6043087FA44DC61BE;10606.
+(rerunfilecheck)             Checksum: 97A651EE021C0C11E8527B49C5659635;10606.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1843,13 +1862,13 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 20426 strings out of 495296
- 321902 string characters out of 3181191
- 716767 words of memory out of 3000000
- 21559 multiletter control sequences out of 15000+200000
- 152758 words of font info for 698 fonts, out of 3000000 for 9000
+ 20496 strings out of 495296
+ 322594 string characters out of 3181191
+ 716941 words of memory out of 3000000
+ 21566 multiletter control sequences out of 15000+200000
+ 154735 words of font info for 726 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 68i,15n,128p,2158b,2163s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 68i,14n,128p,2150b,2163s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{algorithm.3} has been referenced but does not exi
 st, replaced by a fixed one
 
@@ -1881,9 +1900,9 @@ ammi/MiKTeX 2.9/fonts/type1/public/amsfonts/latxfont/lcircle1.pfb><C:/Programmi
  2.9/fonts/type1/public/amsfonts/symbols/msam7.pfb><C:/Programmi/MiKTeX 2.9/fon
 ts/type1/urw/palatino/uplb8a.pfb><C:/Programmi/MiKTeX 2.9/fonts/type1/urw/palat
 ino/uplr8a.pfb><C:/Programmi/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on EstrazParamTempDeambGyrHMM.pdf (112 pages, 2698910 bytes).
+Output written on EstrazParamTempDeambGyrHMM.pdf (114 pages, 2882903 bytes).
 PDF statistics:
- 2045 PDF objects out of 2073 (max. 8388607)
- 852 named destinations out of 1000 (max. 500000)
- 93156 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 2088 PDF objects out of 2487 (max. 8388607)
+ 879 named destinations out of 1000 (max. 500000)
+ 93161 words of extra memory for PDF output out of 106986 (max. 10000000)
 
