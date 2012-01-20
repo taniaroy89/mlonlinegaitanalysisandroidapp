@@ -1,11 +1,11 @@
 \chapter{Materiali e Metodi}
 %\myChapter{Materiali e Metodi}
 \section{Introduzione}
-Il lavoro complessivo, può essere suddiviso in tre fasi principali: 
+Il lavoro svolto, può essere suddiviso in tre fasi principali: 
 \begin{enumerate}
 	\item \textbf{Creazione ed addestramento di un modello}: scelta di un modello consono al problema e ottimizzazione dei relativi parametri,
-	\item \textbf{Implementazione}: stesura applicativo per Android che implementi il modello,
-	\item \textbf{Validazione}: i risultati ottenuti sono stati validati correlando un parametro spaziale del cammino (la distanza percorsa) a partire da quelli temporali ottenuti con la segmentazione (cadenza e velocità) e successivamente verificandone la correttezza con misurazioni dirette dei parametri spaziali (misurazione della distanza fatta con il GPS).
+	\item \textbf{Sviluppo applicazione}: implementazione di un'applicazione per \textit{smartphone} Android\tm 	che implementi il modello,
+	\item \textbf{Validazione}: i risultati ottenuti sono stati validati correlando un parametro spaziale del cammino (la distanza percorsa) a partire da quelli temporali ottenuti con la segmentazione (cadenza e velocità) e successivamente verificandone la correttezza con misurazioni dirette dei parametri spaziali tramite GPS (\textit{Global Positioning System}) sistema di posizionamento globale.
 \end{enumerate}
   
 \section{Creazione ed addestramento del modello}
@@ -15,7 +15,7 @@ Inoltre gli interessi futuri di ricerca scientifica del gruppo saranno orientati
 
 \subsection{Dati}
 Sono stati scelti 6 soggetti sani (con deambulazione normale) e sono stati sottoposti a 5 sessioni di cammino e 5 sessioni di corsa.
-Le prove sono state compiute su un tapis roulant su un intervallo di velocità [3-7]Km/h per il cammino e [8-12]Km/h per la corsa. Ciascuna sessione è stata della durata di 2 minuti. La prima sessione alla velocità di 3Km/h e con un incremento di 1Km/h in ciascuna sessione successiva.
+Le prove sono state compiute su un tappeto rullante su un intervallo di velocità [3-7]Km/h per il cammino e [8-12]Km/h per la corsa. Ciascuna sessione è stata della durata di 2 minuti. La prima sessione alla velocità di 3Km/h e con un incremento di 1Km/h in ciascuna sessione successiva.
 
 \begin{table}[htbp]
 	\centering
@@ -29,7 +29,7 @@ Le prove sono state compiute su un tapis roulant su un intervallo di velocità [3
 			\hline
 			\textbf{Durata}& \multicolumn{2}{c|}{2 minuti per attività}\\
 			\hline
-			\textbf{Strumenti} & \multicolumn{2}{c|}{IMU, Vicon, tapis roulant}\\
+			\textbf{Strumenti} & \multicolumn{2}{c|}{IMU, Vicon, tappeto rullante}\\
 			\hline
 			\textbf{Luogo}& \multicolumn{2}{c|}{Laboratorio}\\
 			\hline
@@ -42,9 +42,9 @@ Le prove sono state compiute su un tapis roulant su un intervallo di velocità [3
 	\label{tab:TabellaRiassuntivaRaccoltaDati}
 \end{table}
 
-Le sessioni sono state tutte eseguite posizionando una IMU \ref{sec:sensori} sul collo del piede dei soggetti. Il tipo di sensore usato è un giroscopio monoassiale con asse di sensibilità orientato sul piano mediale-laterale (vedi figura \ref{fig:HumanBodySPL}).\\
-I segnali sono stati raccolti dal sensore ad una frequenza di 100 Hz e filtrati passa-basso\footnote{Un filtro passa-banda, è uno strumento elettronico che lascia passare frequenze in un intervallo e blocca il passaggio o di frequenze (o le attenua) fuori dall'intervallo. Un passa-basso lascia passare le frequenze basse, e smorza quelle a frequenze alte.} a 15Hz mediante un filtro forward-backward\footnote{Il filtro viene passato in entrambe le direzioni per avere un segnale simmetrico} di Butterworth\footnote{Detto anche filtro a magnitudine massimamente piatta nella banda che passa, in modo da avere meno disturbo possibile.}. Dai dati raccolti, quelli considerati per lo studio sono quelli compresi nell'intervallo dai 50 ai 110 secondi. \\
-I dati acquisiti con la IMU sono stati sincronizzati con i dati acquisiti mediante stereofotogrammetria. A tale scopo è stato impiegato un sistema ottico commerciale di analisi del moto, il sistema Vicon \cite{vicon.com}, composto di 4 telecamere ed il software Workstation\tm. Le telecamere sono state disposte intorno al tapis roulant, in modo da poter tracciare il movimento di 5 marker retroriflettenti\footnote{Dispositivo o superficie che riflette la luce alla sua sorgente minimizzando la dispersione di luce}. I marker sono dei bulbi sferici in plastica di circa 14mm di diametro, attaccati ad una superficie quadrata della stessa dimensione, alle quali viene applicato del nastro biadesivo, mediante il quale vengono incollate sulla parte del corpo che vuole studiare. I marker sono stati posizionati sull'arto inferiore sinistro: sul tallone, sulla lato esterno della caviglia, sulla giuntura metatarso-falange dell'alluce, sulla coscia e sulla schiena, tra la zona lombare e sacrale. Con il sistema Vicon è stata tracciata la traiettoria in 3D, con un campionamento a 50Hz ed un accuratezza di $\pm$10 mm. e ricostruito tutta la sequenza di movimenti in 3D degli esperimenti, visualizzandoli a video. Dai dati ottenuti con il sistema Vicon sono stati generati dei segnali di riferimento per le fasi del cammino mediante la procedura descritta in \cite{reliable_gait_phase_anslysis}.\\
+Le sessioni sono state tutte eseguite posizionando una IMU (vedi appendice \ref{sec:sensori}) sul collo del piede dei soggetti. Il tipo di sensore usato è un giroscopio monoassiale con asse di sensibilità orientato sul piano mediale-laterale (vedi figura \ref{fig:HumanBodySPL}).\\
+I segnali sono stati raccolti dal sensore ad una frequenza di 100 Hz e filtrati passa-basso\footnote{Un filtro passa-banda, è uno strumento elettronico che lascia passare frequenze in un intervallo e blocca il passaggio o di frequenze (o le attenua) fuori dall'intervallo. Un passa-basso lascia passare le frequenze basse, e smorza quelle a frequenze alte.} a 15Hz mediante un filtro \textit{forward-backward}\footnote{Il filtro viene passato in entrambe le direzioni per avere un segnale simmetrico} di \textit{Butterworth}\footnote{Detto anche filtro a magnitudine massimamente piatta nella banda che passa, in modo da avere meno disturbo possibile.}. Dai dati raccolti, quelli considerati per lo studio sono quelli compresi nell'intervallo dai 50 ai 110 secondi. \\
+I dati acquisiti con la IMU sono stati sincronizzati con i dati acquisiti mediante stereofotogrammetria. A tale scopo è stato impiegato un sistema ottico commerciale di analisi del moto, il sistema Vicon\tm \cite{vicon.com}, composto di 4 telecamere ed il software Workstation\tm. Le telecamere sono state disposte intorno al tappeto rullante, in modo da poter tracciare il movimento di 5 marker retroriflettenti\footnote{Dispositivo o superficie che riflette la luce alla sua sorgente minimizzando la dispersione di luce}. I marker sono dei bulbi sferici in plastica di circa 14mm di diametro, attaccati ad una superficie quadrata della stessa dimensione, alle quali viene applicato del nastro biadesivo, mediante il quale vengono incollate sulla parte del corpo che vuole studiare. I marker sono stati posizionati sull'arto inferiore sinistro: sul tallone, sulla lato esterno della caviglia, sulla giuntura metatarso-falange dell'alluce, sulla coscia e sulla schiena, tra la zona lombare e sacrale. Con il sistema Vicon è stata tracciata la traiettoria in 3D, con un campionamento a 50Hz ed un accuratezza di $\pm$10 mm. e ricostruito tutta la sequenza di movimenti in 3D degli esperimenti, visualizzandoli a video. Dai dati ottenuti con il sistema Vicon sono stati generati dei segnali di riferimento per le fasi del cammino mediante la procedura descritta in \cite{reliable_gait_phase_anslysis}.\\
 
 \begin{figure}
 	\centering
@@ -107,7 +107,7 @@ Si assume che i segnali del giroscopio siano modellati mediante una HMM:
 dove:
  \begin{enumerate}
 	\item $N = 4$ è la cardinalità dell'insieme degli stati $S = \{HS, FF, HO, FO\}$,
-	\item $M = |V|$ è la cardinalità dell'insieme finito dei valori di osservazione $\omega$ (°/sec) del giroscopio,
+	\item $M = |V|$ è la cardinalità dell'insieme finito dei valori di osservazione $\omega (^\circ/sec)$ del giroscopio,
 	\item $\mathbf{A}$ è la matrice di transizione (vedi appendice \ref{cap:hmm}),
 	\item $\mathbf{B}$ è la matrice di probabilità di emissione delle osservazioni $\omega$ per ciascuno stato. Ad ogni stato è stata associata una funzione di densità di probabilità gaussiana univariata.
 	\item $\pi$ è il vettore di probabilità a priori.
