@@ -1,11 +1,11 @@
 \chapter{Materiali e Metodi}
 %\myChapter{Materiali e Metodi}
-\section{Introduzione}
+\section{Fasi del lavoro svolto}
 Il lavoro svolto, può essere suddiviso in tre fasi principali: 
 \begin{enumerate}
 	\item \textbf{Creazione ed addestramento di un modello}: scelta di un modello consono al problema e ottimizzazione dei relativi parametri,
-	\item \textbf{Sviluppo applicazione}: implementazione di un'applicazione per \textit{smartphone} Android\tm 	che implementi il modello,
-	\item \textbf{Validazione}: i risultati ottenuti sono stati validati correlando un parametro spaziale del cammino (la distanza percorsa) a partire da quelli temporali ottenuti con la segmentazione (cadenza e velocità) e successivamente verificandone la correttezza con misurazioni dirette dei parametri spaziali tramite GPS (\textit{Global Positioning System}) sistema di posizionamento globale.
+	\item \textbf{Sviluppo applicazione}: implementazione di un'applicazione per \textit{Smartphone} Android\tm 	che implementi il modello,
+	\item \textbf{Valutazione delle prestazioni del sistema in condizioni di uso reali}: il sistema ottenuto è stato valutato correlando un parametro spaziale del cammino (la distanza percorsa) a partire da quelli temporali ottenuti con la segmentazione (cadenza e velocità) e successivamente verificandone la correttezza con misurazioni dirette dei parametri spaziali tramite GPS (\textit{Global Positioning System}) sistema di posizionamento globale.
 \end{enumerate}
   
 \section{Creazione ed addestramento del modello}
@@ -13,9 +13,9 @@ Il lavoro svolto, può essere suddiviso in tre fasi principali:
 Il sistema adattivo scelto sono le HMM. La scelta di queste ultime è giustificato sia dagli studi che il gruppo di ricerca capitanato dal prof. Sabatini, al centro di Bio-Robotica di Sant'Anna\footnote{\url{http://www-arts.sssup.it/}} sta portando avanti sulla classificazione automatica del movimento umano, sia dal fatto che lavori come "\emph{A Hidden Markov Model-based stride segmentation technique applied to equine inertial sensor trunk movement data}" di Pfau  \cite{stride_segmentation_technique_hmm} abbiano dimostrato le loro ottime potenzialità.
 Inoltre gli interessi futuri di ricerca scientifica del gruppo saranno orientati sia verso la stima dei parametri di un'attività nota sia verso la classificazione di diverse attività (se si considerano modelli di HMM gerarchici \cite{physical_activity_recognition}). Entrambi i compiti possono essere portati a termine dalle HMM.\\
 
-\subsection{Dati}
+\subsection{Acquisizione dei Dati}
 Sono stati scelti 6 soggetti sani (con deambulazione normale) e sono stati sottoposti a 5 sessioni di cammino e 5 sessioni di corsa.
-Le prove sono state compiute su un tappeto rullante su un intervallo di velocità [3-7]Km/h per il cammino e [8-12]Km/h per la corsa. Ciascuna sessione è stata della durata di 2 minuti. La prima sessione alla velocità di 3Km/h e con un incremento di 1Km/h in ciascuna sessione successiva.
+Le prove sono state compiute su un tappeto rullante con pendenza 0°, nell'intervallo di velocità [3-7]Km/h per il cammino e [8-12]Km/h per la corsa. La prima sessione alla velocità di 3Km/h e con un incremento di 1Km/h in ciascuna sessione successiva. Ciascuna sessione è stata della durata di 2 minuti.
 
 \begin{table}[htbp]
 	\centering
@@ -42,18 +42,18 @@ Le prove sono state compiute su un tappeto rullante su un intervallo di velocità
 	\label{tab:TabellaRiassuntivaRaccoltaDati}
 \end{table}
 
-Le sessioni sono state tutte eseguite posizionando una IMU (vedi appendice \ref{sec:sensori}) sul collo del piede dei soggetti. Il tipo di sensore usato è un giroscopio monoassiale con asse di sensibilità orientato sul piano mediale-laterale (vedi figura \ref{fig:HumanBodySPL}).\\
-I segnali sono stati raccolti dal sensore ad una frequenza di 100 Hz e filtrati passa-basso\footnote{Un filtro passa-banda, è uno strumento elettronico che lascia passare frequenze in un intervallo e blocca il passaggio o di frequenze (o le attenua) fuori dall'intervallo. Un passa-basso lascia passare le frequenze basse, e smorza quelle a frequenze alte.} a 15Hz mediante un filtro \textit{forward-backward}\footnote{Il filtro viene passato in entrambe le direzioni per avere un segnale simmetrico} di \textit{Butterworth}\footnote{Detto anche filtro a magnitudine massimamente piatta nella banda che passa, in modo da avere meno disturbo possibile.}. Dai dati raccolti, quelli considerati per lo studio sono quelli compresi nell'intervallo dai 50 ai 110 secondi. \\
-I dati acquisiti con la IMU sono stati sincronizzati con i dati acquisiti mediante stereofotogrammetria. A tale scopo è stato impiegato un sistema ottico commerciale di analisi del moto, il sistema Vicon\tm \cite{vicon.com}, composto di 4 telecamere ed il software Workstation\tm. Le telecamere sono state disposte intorno al tappeto rullante, in modo da poter tracciare il movimento di 5 marker retroriflettenti\footnote{Dispositivo o superficie che riflette la luce alla sua sorgente minimizzando la dispersione di luce}. I marker sono dei bulbi sferici in plastica di circa 14mm di diametro, attaccati ad una superficie quadrata della stessa dimensione, alle quali viene applicato del nastro biadesivo, mediante il quale vengono incollate sulla parte del corpo che vuole studiare. I marker sono stati posizionati sull'arto inferiore sinistro: sul tallone, sulla lato esterno della caviglia, sulla giuntura metatarso-falange dell'alluce, sulla coscia e sulla schiena, tra la zona lombare e sacrale. Con il sistema Vicon è stata tracciata la traiettoria in 3D, con un campionamento a 50Hz ed un accuratezza di $\pm$10 mm. e ricostruito tutta la sequenza di movimenti in 3D degli esperimenti, visualizzandoli a video. Dai dati ottenuti con il sistema Vicon sono stati generati dei segnali di riferimento per le fasi del cammino mediante la procedura descritta in \cite{reliable_gait_phase_anslysis}.\\
+Le sessioni sono state tutte eseguite posizionando saldamente una IMU (vedi appendice \ref{sec:sensori}) sul collo del piede dei soggetti mediante un cinturino in velcro. Il tipo di sensore usato è un giroscopio monoassiale (Murata ENC-03J) con asse di sensibilità orientato sul piano mediale-laterale (sagittale) (vedi figura \ref{fig:HumanBodySPL}).\\
+I segnali sono stati campionati dal sensore ad una frequenza di 100 Hz e filtrati mediante un filtro passa-basso\footnote{Un filtro elettronico nella Teoria dei Segnali è un circuito elettronico che riceve dei segnali in ingresso e li trasforma secondo un criterio. Un filtro passa-banda (banda alta o banda bassa) lascia passare segnali a frequenza in un intervallo scelto mentre blocca il passaggio (o le attenua) il passaggio di segnali fuori dall'intervallo. Un filtro passa-basso quindi lascia passare le frequenze basse, e smorza quelle a frequenze alte.} a 15Hz mediante un filtro ricorsivo \textit{forward-backward}(Fw-Bkw)\footnote{Un filtro ricorsivo riusa i propri valori in uscita come ingresso. In particolare un filtro Fw-Bkw è un filtro ricorsivo che viene utilizzato per avere un segnale simmetrico.} di \textit{Buttersworth}\footnote{Filtro detto "`massimamente piatto"', perché non solo rifiuta i segnali a frequenze non desiderate, ma ha la stessa sensibilità per tutte le frequenze desiderate.}. 
+Dai dati raccolti, quelli considerati per lo studio sono quelli compresi nell'intervallo dai 50 ai 110 secondi. \\
 
 \begin{figure}
 	\centering
 		\includegraphics[width=1\textwidth]{imgs/patternGyro.jpg}
-	\caption{Grafico del segnale di un giroscopio posizionato sul piede}
+	\caption{Grafico del segnale di un giroscopio posizionato sul piede.}
 	\label{fig:gyroPattern}
 \end{figure}
 
-Il grafico del segnale del giroscopio posizionato sul piede ha una struttura abbastanza definita e ripetitiva (vedi grafico \ref{fig:gyroPattern}). Nel grafico, l'ascissa rappresenta i campioni e l'ordinata la velocità angolare in gradi al secondo ($°/s$). La forma del grafico può essere descritta a grandi linee come un picco negativo seguito da un tratto quasi orizzontale ed un secondo picco negativo ed uno positivo. Tale sequenza rappresenta un passo completo e si ripete quasi identica a se stessa durante la camminata.
+Il grafico del segnale del giroscopio posizionato sul piede ha una struttura definita e ripetitiva (vedi grafico \ref{fig:gyroPattern}). Nel grafico, l'ascissa rappresenta i campioni e l'ordinata la velocità angolare in gradi al secondo ($°/s$). La forma del grafico può essere descritta a grandi linee come un picco negativo seguito da un tratto quasi orizzontale ed un secondo picco negativo ed uno positivo. Tale sequenza rappresenta un passo completo e si ripete quasi identica a se stessa durante la camminata.
 
 
 \begin{table}%
@@ -77,7 +77,7 @@ $S_4$ & $t_{FO}$ & $t_{HS}$\\
 \end{table}
 Per semplicità si può indicare uno stato $S_i$ con l'evento da cui ha inizio, ad esempio con lo stato $HS$ indico lo stato $S_1$.
 
-Gli eventi ($t_{HS}$, $t_{FF}$, $t_{HO}$, $t_{FO}$ ) sono determinati mediante soglie, sulla velocità angolare $\omega_k$, ricavate da studi pregressi \cite{walking_features_from_inertials} come mostra la Tabella \ref{tab:regole_threshold_eventi}, dove $\widetilde{\omega_k}$ è il valore non filtrato del giroscopio.
+In lavori precedenti \cite{walking_features_from_inertials}, gli eventi ($t_{HS}$, $t_{FF}$, $t_{HO}$, $t_{FO}$ ) vengono determinati mediante soglie, sulla velocità angolare $\omega_k$, come mostra la Tabella \ref{tab:regole_threshold_eventi}, dove $\widetilde{\omega_k}$ è il valore non filtrato del giroscopio.
 
 \begin{table}%
 \centering
@@ -98,6 +98,79 @@ $t_{FO}$ & $\omega_k = 0$ & se $\omega$ da negativo è diventato positivo e cresc
 \caption{Regole mediante le quali vengono ricavati gli eventi che delimitano le 4 fasi del cammino.}
 \label{tab:regole_threshold_eventi}
 \end{table}
+
+
+Nel lavoro presentato i dati acquisiti con la IMU sono stati confrontati con dati acquisiti mediante stereofotogrammetria, seguendo una procedura usata per uno studio con obbiettivo la costruzione di un sistema Stimolazione Elettrica Funzionale (FES) per pazienti con problemi motori dovuti a lesioni celebrali \cite{reliable_gait_phase_analysis}.
+
+Il sistema ottico commerciale di analisi del movimento usato è Vicon\tm 370 (Oxford Metrics Ltd., UK) \ref{sec:stereofotogrammetria}.
+Con Vicon\tm sono state tracciate e misurate le traiettorie di marcatori retro riflettenti posizionati sul corpo dei soggetti. 
+Sono state posizionate 4 telecamere con una frequenza di campionamento di 50Hz, intorno al tappeto rullante, per tracciare la posizione di 5 marcatori con un'accuratezza di $\pm 1mm$ ed il software Workstation\tm.
+Le traiettorie dei marcatori sono state usate per estrarre un segnale di riferimento per le fasi della deambulazione, che successivamente sono state usate per valutare l'accuratezza del segnale in uscita dal sistema di riconoscimento degli eventi.
+
+
+\begin{table}%
+\centering
+\begin{tabular}{|p{4cm}|p{6cm}|}
+\hline
+\textbf{Nome} & \textbf{Posizione} \\
+\hline
+HM (\textit{Heel Marker}) & lato posteriore del tallone;\\
+\hline	 
+AM (\textit{Ancle Marker}) & lato esterno della caviglia;\\
+\hline
+TM (\textit{Toe Marker}) &  giuntura metatarso-falange dell'alluce;\\
+\hline
+ThM (\textit{Thigh Marker}) & lato esterno della coscia, ad un terzo dell'altezza della coscia a partire dal ginocchio;\\
+\hline
+LSM (\textit{Lombaro Sacral Marker}) & tra la zona lombare e sacrale.\\
+\hline
+\end{tabular}
+\caption{Posizionamento dei marcatori sul corpo.}
+\label{tab:marker_positioning}
+\end{table}
+
+
+Le regole usate per generare il segnale di riferimento Vicon\tm si basano sul tracciamento di soli 2 marcatori: HM e TM.
+
+\begin{table}%
+\centering
+\begin{tabular}{|p{2cm}|p{4cm}|p{4cm}|}
+\hline
+&\textbf{min} & \textbf{max} \\
+\hline
+HM & inizio fase Sw & Evento HS\\
+\hline	 
+TM & primo picco: fine Fase HO, secondo picco fine fase Sw&  fase \textit{Stance}\\
+\hline
+\end{tabular}
+\caption{Valori minimi e massimi assunti dai marcatori HM e TM.}
+\label{tab:min_max_HM_TM}
+\end{table}
+
+
+\begin{table}%
+\centering
+\begin{tabular}{|p{3.3cm}|p{3.3cm}|p{3.3cm}|}
+\hline
+\textbf{Evento} & \textbf{Condizione} & \textbf{Posizione in Figura \ref{fig:vicon_traced_TM_HM}} \\
+\hline
+HO & $y(HM) > 80mm$ & A\\
+TO & $\max y(HM)$ & B\\
+HS & $\min y(HM)$ & C\\
+FF & $y'(TM) = 0$ & D\\
+\hline
+\end{tabular}
+\caption{Regole usate per generare il segnale di riferimento Vicon\tm.}
+\label{tab:vicon_rules}
+\end{table}
+
+\begin{figure}
+	\centering
+		\includegraphics[width=1\textwidth]{imgs/ViconMeasurementsPappas.jpg}
+	\caption{Tracciamento mediante Vicon\tm dei marcatori HM e TM. Immagine riadattata da \cite{reliable_gait_phase_detection_gyr}}
+	\label{fig:vicon_traced_TM_HM}
+\end{figure}
+
 
 Si assume che i segnali del giroscopio siano modellati mediante una HMM:
  \begin{equation}
@@ -128,7 +201,7 @@ Dato che nella deambulazione normale le uniche transizioni tra stati sono quelle
 Una volta deciso il tipo di HMM da adottare, si devono stimare i parametri del modello.
 La stima (dei parametri del modello) della massima verosimiglianza (Maximum Likelihood Estimation - MLE) $\ell(\Omega, Deamb\_HMM )$ non è un problema convesso dato. Il problema dei massimi locali viene aggirato con un'attenta inizializzazione dei parametri. 
 
-Assumendo che possa avvenire solo una transizione tra stati contigui, in ciascun ciclo di deambulazione possono essere fatte delle stime approssimative dei paramtri della HMM:
+Assumendo che possa avvenire solo una transizione tra stati contigui, in ciascun ciclo di deambulazione possono essere fatte delle stime approssimative dei parametri della HMM:
 \begin{equation}
 \begin{split}
 \pi_i & = N_i/N_{tot} \\

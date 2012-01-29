@@ -71,6 +71,12 @@ W.~E. Weber and E.~H. Weber, \emph{Mechanik der Menschlichen Gehwerkzauge, The
   Mechanics of Human Motion}.\hskip 1em plus 0.5em minus 0.4em\relax Gottinger,
   Gottingen, 1836.
 
+\bibitem{vicon.com}
+\BIBentryALTinterwordspacing
+V.~M. Systems. (1989) Vicon, oxford uk. [Online]. Available:
+  \url{http://www.vicon.com/products/system.html}
+\BIBentrySTDinterwordspacing
+
 \bibitem{FES_foot_drop_correction}
 G.~M. Lyons, R.~T. Sinkjaer, J.~H. Burridge, and D.~J. Wilcox, ``A review of
   portable fes-based neural orthosis for the correction of drop foot.''
@@ -163,11 +169,6 @@ M.~D. Duric, S.~Dosen, M.~Popovic, and D.~B. Popovic, ``Sensors for assistive
   Conference, Society for Electronics, Telecommunications, Computers, Automatic
   Control and Nuclear Engineering}, vol. 63(1), pp. 978--986, 2008.
 
-\bibitem{novel_approach_abmulatory_systems}
-K.~Liu, T.~Liu, K.~Shibata, Y.~Inoue, and R.~Zheng, ``Novel approach to
-  ambulatory assessment of human segmental orientation on a wearable sensor
-  system,'' \emph{Journal of Biomechanics}, vol. 42(16), pp. 2747--1752, 2009.
-
 \bibitem{gait_phase_automatic_recognition_acc}
 M.~D. Duric, ``Automatic recognition of gait phases from accelerations of leg
   segments,'' \emph{9th Symposium on Neural Network Applications in Electrical
@@ -249,12 +250,6 @@ P.~C. Sweeney, G.~M. Lyons, and P.~H. Veltink, ``Finite state control of
 \bibitem{physical_activity_recognition}
 J.~Lester, T.~Choudhury, and G.~Borriello, ``A practical approach to
   recognizing physical activities,'' \emph{Pervasive Computing}, 2006.
-
-\bibitem{vicon.com}
-\BIBentryALTinterwordspacing
-V.~M. Systems. (1989) Vicon, oxford uk. [Online]. Available:
-  \url{http://www.vicon.com/products/system.html}
-\BIBentrySTDinterwordspacing
 
 \bibitem{HMM_toolbox}
 \BIBentryALTinterwordspacing

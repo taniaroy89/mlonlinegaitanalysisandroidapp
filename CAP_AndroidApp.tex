@@ -9,8 +9,8 @@ La seconda parte del lavoro è relativa allo sviluppo di un'applicazione per uno 
 	\caption{Architettura dell'applicazione per Smartphone}
 	\label{fig:schema_app}
 \end{figure} 
-Una volta posizionata la IMU (vedi appendice \ref{sec:imu}) sul collo del piede, lo \textit{smartphone} vi interagisce tramite una connessione \textit{Bluetooth}.\\ 
-L'utente controlla la IMU mediante l'applicazione, quindi può impostarne i parametri: ad esempio la frequenza di campionamento e gli intervalli di campionamento per ciascun sensore su ciascun asse spaziale. Impostati i parametri l'utente può acquisire dati dalla IMU mediante un servizio di \textit{data logging} (nel \textit{file system} dello \textit{smartphone}), oppure li può visualizzare come un grafico dinamico. Inoltre è possibile abilitare la segmentazione in linea del segnale di deambulazione, sulla base di un modello HMM addestrato in differita (vedi sezione \ref{sec:creazione_addestramento_modello}), impiegando una versione dell'algoritmo di Viterbi \cite{short_time_viterbi_online_hmm_deconding}. Nell'ultimo caso il grafico dinamico rappresentante il segnale del giroscopio viene tracciato in linea\footnote{La segmentazione ha una latenza massima di \textbf{10ms}} con un colore a seconda della fase della deambulazione: \TODO {HS-blu, FF-giallo, HO-rosso, TO-verde}. \\
+Una volta posizionata la IMU (vedi appendice \ref{sec:imu}) sul collo del piede, lo \textit{Smartphone} vi interagisce tramite una connessione \textit{Bluetooth}.\\ 
+L'utente controlla la IMU mediante l'applicazione, quindi può impostarne i parametri: ad esempio la frequenza di campionamento e gli intervalli di campionamento per ciascun sensore su ciascun asse spaziale. Impostati i parametri l'utente può acquisire dati dalla IMU mediante un servizio di \textit{data logging} (nel \textit{file system} dello \textit{Smartphone}), oppure li può visualizzare come un grafico dinamico. Inoltre è possibile abilitare la segmentazione in linea del segnale di deambulazione, sulla base di un modello HMM addestrato in differita (vedi sezione \ref{sec:creazione_addestramento_modello}), impiegando una versione dell'algoritmo di Viterbi \cite{short_time_viterbi_online_hmm_deconding}. Nell'ultimo caso il grafico dinamico rappresentante il segnale del giroscopio viene tracciato in linea\footnote{La segmentazione ha una latenza massima di \textbf{10ms}} con un colore a seconda della fase della deambulazione: \TODO {HS-blu, FF-giallo, HO-rosso, TO-verde}. \\
 
 %Sulla base di un modello HMM addestrato in differita (vedi sezione \ref{sec:creazione_addestramento_modello}), impiega una versione dell'algoritmo di Viterbi \cite{short_time_viterbi_online_hmm_deconding} per elaborare a run-time i dati giroscopici acquisiti dalla IMU (e trasferiti via Bluetooth), effettuando la segmentazione e consentendo output di tipo grafico (colorando in modo differente la traccia del segnale giroscopico in funzione della fase del cammino), e di data logging. 
 
@@ -171,7 +171,7 @@ Dato che il nucleo (\textit{kernel}) di Android-OS è basato su Linux (vedi Appen
 
 Vengono dichiarati il nome dell'applicazione, l'icona, ed un'etichetta. In questo punto si dichiara anche il nome dell'oggetto che può essere visibile a livello globale di applicazione. Di fatto l'oggetto \verb|MailBoxes| che è un vettore di \verb|MailBox| (vedi sezione \ref{sec:mailbox}) che sono a loro volta utilizzati per lo scambio di dati tra \textit{thread}.
 
-\begin{lstlisting}[language=XML, style=xmlandroid,caption=AndroidManifes elenco di tutte le attività ,label=code:manifest_activities, firstnumber=11]		
+\begin{lstlisting}[language=XML, style=xmlandroid,caption=AndroidManifest elenco di tutte le attività ,label=code:manifest_activities, firstnumber=11]		
 		<activity android:name=".IMUinterface" android:configChanges="orientation">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
@@ -180,7 +180,7 @@ Vengono dichiarati il nome dell'applicazione, l'icona, ed un'etichetta. In quest
 		</activity>
 		<activity android:name=".Saveactivity" android:label="@string/save_name" />
 		<activity android:name=".SensSetupactivity" android:label="@string/sens_name" />
-		<activity android:name=".Provaactivity" android:label="@string/prova_name" />
+		<activity android:name=".ProvaActivity" android:label="@string/prova_name" />
 		<activity android:name=".EmbeddedSensDataPlottingvActivity"
 			android:label="@string/prova_name" android:configChanges="orientation"
 			android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
@@ -211,7 +211,7 @@ Le risorse sono costituite da tutti i \textit{file} che fanno parte dell'applica
 
 \subsubsection{Layout}
 Un file di \textit{layout} è un documento XML in cui viene descritta la struttura dell'interfaccia utente di una \textit{Activity}.
-Un \textit{layout} deve essere composto di elementi grafici predefiniti in Android\tm oppure deve essere di tipo \verb|Veiw| o  \verb|ViewGoup|\footnote{Sia la \textit{View} che la \textit{ViewGroup} appartengono al \textit{package} \textit{android.view} e sono componenti importante dell'interfaccia utente}. Ogni file di \textit{layout} deve contenere un elemento radice, ovvero un elemento grafico che contene tutti gli altri elementi grafici. Ogni elemento grafico ha un identificativo unico, con cui può essere richiamato dal codice sorgente, tramite l'indicizzazione automatica.
+Un \textit{layout} deve essere composto di elementi grafici predefiniti in Android\tm oppure deve essere di tipo \verb|View| o  \verb|ViewGroup|\footnote{Sia la \textit{View} che la \textit{ViewGroup} appartengono al \textit{package} \textit{android.view} e sono componenti importante dell'interfaccia utente}. Ogni file di \textit{layout} deve contenere un elemento radice, ovvero un elemento grafico che contene tutti gli altri elementi grafici. Ogni elemento grafico ha un identificativo unico, con cui può essere richiamato dal codice sorgente, tramite l'indicizzazione automatica.
 Eclipse\tm permette di definire un \textit{layout} sia in modalità XML che in modalità grafica (WYSIWYG\footnote{\textit{What You See Is What You Get}}). Ad esempio il \textit{layout} della \textit{Activity} principale (\textit{ImuInterface}) è il seguente 
 
 \begin{lstlisting}[language=XML, style=xmlandroid,caption=LinearLayout:impaginazione  della schermata principale,label=code:mainActivity_layout_linear]
@@ -339,7 +339,7 @@ Il pulsante \textit{Start} avvia l'acquisizione di dati dalla IMU. Se la conness
 	// verifica l'esistenza della connessione
 	if (mBluetoothAdapter == null) {
 	...
-	//metodo per stare in ascolto sull evnto "`click"' del pulsante
+	//metodo per stare in ascolto sull evento "`click"' del pulsante
 	startButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				//messaggio di impossibilità di lettura dei dati
@@ -353,7 +353,7 @@ Il pulsante \textit{Start} avvia l'acquisizione di dati dalla IMU. Se la conness
 
 
 \subsection{Comunicazione Bluetooth}
-La piattaforma di Android\tm fornisce il supporto per lo stack di rete \textit{Bluetooth}, che permette a due dispositivi muniti di comunicare senza filo. Il framework delle applicazioni (Application Framework, vedi \ref{fig:android_system_architecture}) permette fornisce un accesso alle funzionalità del \textit{Bluetooth} mediante le Andoid \textit{Bluetooth} API \footnote{Application Programming Interface, ovvero Interfaccia di Programmazione di un Applicazione cioè l'insieme di tutte le funzionalità o servizi di un programma resi disponibili a programmatori terzi per l'utilizzo di un codice sorgente.}. 
+La piattaforma di Android\tm fornisce il supporto per lo stack di rete \textit{Bluetooth}, che permette a due dispositivi muniti di comunicare senza filo. Il framework delle applicazioni (Application Framework, vedi \ref{fig:android_system_architecture}) permette fornisce un accesso alle funzionalità del \textit{Bluetooth} mediante le Android \textit{Bluetooth} API \footnote{Application Programming Interface, ovvero Interfaccia di Programmazione di un Applicazione cioè l'insieme di tutte le funzionalità o servizi di un programma resi disponibili a programmatori terzi per l'utilizzo di un codice sorgente.}. 
 
 Le funzionalità principali che la API del \textit{Bluetooth} sono: 
 \begin{itemize}
@@ -399,7 +399,7 @@ Per poter utilizzare il Bluetooth, vi sono richieste 4 attività fondamentali da 
 \end{enumerate}
 	\item \textbf{Ricercare dispositivi}: una volta ottenuto l'adattatore, si possono trovare dispositivi \textit{Bluetooth} remoti in due modi: mediante una procedura nota come scoperta di dispositivi (\textit{device discovery}) oppure interrogando una lista di dispositivi già trovati e abbinati (\textit{paired}):
 	\begin{description}
-	\item[Scoperta di dispositivi]: procedura di scansione dell'area locale alla ricerca di dispositivi con \textit{Bluetooth} abilitato. Nel momento in cui un dispositivo viene trovato, risponde con informazioni che lo possano identificare (nome, classe ed indirizzo MAC). Mediante quest'informazione il dispositivo che ha fatto la ricerca può decidere di iniziare la procedura di connessione ai dispositivi scoperti. Questa procedura può essere fatta manualmente precedentemente all'avvio del applicazione. 
+	\item[Scoperta di dispositivi]: procedura di scansione dell'area locale alla ricerca di dispositivi con \textit{Bluetooth} abilitato. Nel momento in cui un dispositivo viene trovato, risponde con informazioni che lo possano identificare (nome, classe ed indirizzo MAC). Mediante questa'informazione il dispositivo che ha fatto la ricerca può decidere di iniziare la procedura di connessione ai dispositivi scoperti. Questa procedura può essere fatta manualmente precedentemente all'avvio del applicazione. 
 	\item [Interrogazione della lista dei dispositivi abbinati]:
 	\begin{lstlisting}[language=java, style=eclipse,label=code:query_paired_devices]
 		Set<BluetoothDevice> pairedDevices = bluetoothAdapter.getBondedDevices();
@@ -831,7 +831,7 @@ Dopo aver creato ed inizializzato una \verb|NormalHMM|, si può richiamare ad ese
 	nHMM.setA(A);
 	nHMM.setPI(Pi);
 	nHMM.setContB(emissionMtx);
-	//collego l'oeratore con l'HMM
+	//collego l'operatore con l'HMM
 	contHMMOp = new ContinuousHMMOperations(nHMM);
 	...
 	// un modo per acquisire osservazioni di 
