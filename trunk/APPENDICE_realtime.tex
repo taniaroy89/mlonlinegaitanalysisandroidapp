@@ -5,7 +5,7 @@ La nozione di Tempo Reale (Real Time, RT) si contrappone ad una di tempo logico 
 
 In diversi ambiti, la nozione di sistema RT assume significati diversi:
 \begin{itemize}
-	\item {Informatica}, si parla di Computazione RT (Real Time Computing - RTC) o computazione Reattiva: lo studio di sistemi software e hardware soggetti a vincoli di tempo reale. Un esempio di tale sistema sono i sistemi operativi RT (un esmpio è LynxOS), che garantiscono tempi di risposta ben definiti, a differenza dei sistemi operativi non RT (anche se solitamente hanno tempi di risposta brevi).\\
+	\item {Informatica}, si parla di Computazione RT (Real Time Computing - RTC) o computazione Reattiva: lo studio di sistemi software e hardware soggetti a vincoli di tempo reale. Un esempio di tale sistema sono i sistemi operativi RT (un esempio è LynxOS), che garantiscono tempi di risposta ben definiti, a differenza dei sistemi operativi non RT (anche se solitamente hanno tempi di risposta brevi).\\
 Un altro esempio sono i linguaggi di programmazione Sincroni come ChucK, che è un linguaggio concorrente per l'elaborazione di file audio.
 \item {Simulazioni}, RT si riferisce ad una sincronizzazione con le tempistiche reali, ovvero gli eventi nel processo simulato devono avvenire allo stesso tempo degli eventi nel processo reale. Un esempio sono i video giochi.
 \item {Trasferimento di dati, elaborazione di media}, RT significa, senza un ritardo percettibile dall'utente.
@@ -26,7 +26,7 @@ di un programma. Questo problema è molto complesso e spesso si ottengono solo so
 Un algoritmo è detto in linea (online), se è in grado di dare un risultato a partire da un sottoinsieme di dati in ingresso in un determinato ordine. Un algoritmo fuori linea (offline) invece, deve avere tutti i dati inizialmente per poter fornire un risultato.\\ Esempi dei due tipi di algoritmi sono l'algoritmo di ordinamento a inserzione (Insertion Sort) che ha bisogno di 1 numero in più alla volta per poter fornire dopo n esecuzioni una lista ordinata, mentre l'algoritmo di ordinamento per selezione (Selection Sort) ha bisogno dell'intera lista di numeri per poter cominciare a ordinare. \\
 
 Dato che un algoritmo in linea prende decisioni basate solo su parte dei dati di cui necessiterebbe la risoluzione del problema in questione, le decisioni prese possono risultare non ottimali. Uno degli obbiettivi dello studio degli algoritmi in linea è di valutare la qualità delle decisioni possibili in tali circostanze. 
-Il metodo che viene utilizzato per formalizzare quest'idea è noto come Analisi Competitiva: vengono confrontate le prestazioni relative di un algoritmo in linea e fuori linea ottimale sulla stessa istanza di un problema.\\
+Il metodo che viene utilizzato per formalizzare questa idea è noto come Analisi Competitiva: vengono confrontate le prestazioni relative di un algoritmo in linea e fuori linea ottimale sulla stessa istanza di un problema.\\
 
 \section*{Latenza}
 Il concetto di latenza nell'ambito informatico/ingegneristico assume svariati significati. Generalmente fa riferimento ad un ritardo rispetto ad un tempo atteso in un sistema. In base al sistema varia la definizione di latenza.

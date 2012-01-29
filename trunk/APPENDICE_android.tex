@@ -59,14 +59,14 @@ Normalmente il codice Java\tm viene compilato e poi il bytecode viene eseguito s
 Il processo è automatizzato dall'IDE\footnote{I Developement Environment} (Eclipse\tm o ANT \cite{Apache_Ant}) che si usa.
 La distribuzione Java\tm di Android\tm non è standard: è una variante di JSE\tm (Java Standard Edition), in cui le Java AWT e Swing sono state sostituite da Android\tm UI\footnote{User Interface}, appositamente ottimizzate per gli schermi e le schede grafiche di dimensioni ridotte dei dispositivi.
 \subsection*{Application Framework}
-Questa è la parte della piattaforma che permette di sviluppare applicativi Android\tm, fornendo servizi (sensori, posizionamento, telefonia, Wifi ecc) ed abbondante documentazione in merito. 
-\subsection*{Applications}
+Questa è la parte della piattaforma che permette di sviluppare applicativi Android\tm, fornendo servizi (sensori, posizionamento, telefonia, Wi-Fi ecc) ed abbondante documentazione in merito. 
+\subsection*{Applicazioni}
 Le applicazioni sono i programmi sviluppati dal mondo di sviluppatori Android\tm. Questi possono essere sia già istallati all'acquisto del dispositivo, sia scaricati dai mercati Android\tm. 
 \subsubsection*{APK}
 Un applicazione Android\tm è un singolo file, detto APK file. Questi ha tre componenti principali:
 \begin{enumerate}
 	\item \textbf{Eseguibile Dalvik} Il codice Java\tm compilato come descritto in figura (vedi figura \ref{fig:Java_vs_Android_compile_exec}).
-	\item \textbf{Risorse} Tutto cio che è in un applicativo Android\tm, ma non è codice Java\tm: file XML, immagini, audio, video ecc.
+	\item \textbf{Risorse} Tutto ciò che è in un applicativo Android\tm, ma non è codice Java\tm: file XML, immagini, audio, video ecc.
 	\item \textbf{Librerie} In un applicativo possono essere incluse librerie di codice nativo, ad esempio in C/C++
 \end{enumerate} 
 \subsection*{Struttura di un Android\tm App}
@@ -82,13 +82,13 @@ Lavorando in ambiente di sviluppo Eclipse SDK \tm, con il plugin per Android\tm 
 	\item \textbf{AndroidManifest.xml}
 \end{itemize}
 
-\section*{Le componenti principali di un Applicativo Andorid}
+\section*{Le componenti principali di un Applicativo Android}
 \label{sec:android_main_components}
 Lo sviluppo di programmi (Java\tm) per applicativi Android\tm è necessariamente vincolato dal fatto che l'interazione dell'utente avviene mediante lo schermo del dispositivo, la durata della batteria è limitata, la capacità computazionale è ridotta ecc.
 Gli sviluppatori di Android\tm hanno creato un framework per sviluppare applicativi, che risolve la maggior parte dei problemi del programmatore. L'impostazione di base del framework è quella della programmazione ad eventi, con un meccanismo di callback (riferimento a un codice) asincrono. 
 Le componenti principali sono:
 \begin{enumerate}
-	\item \textbf{Acitivity}: un'attività è la logica che gestisce una schermata singola che l'utente vede. Gli applicativi hanno di solito molteplici activity che permettono all'utente di navigare l'applicativo secondo la sua logica,
+	\item \textbf{Activity}: un'attività è la logica che gestisce una schermata singola che l'utente vede. Gli applicativi hanno di solito molteplici activity che permettono all'utente di navigare l'applicativo secondo la sua logica,
 	\item \textbf{Intent}: messaggi asincroni inviati tra le componenti principali,
 	\item \textbf{Service}: logica dell'applicativo,
 	\item \textbf{Content Provider}: interfaccia per lo scambio di dati tra applicativi,
