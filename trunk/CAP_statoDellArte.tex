@@ -179,6 +179,39 @@ I sistemi sono in grado di determinare angoli tra diverse articolazioni in tre d
 \section{Metodi}
 La grande sfida del rilevamento della deambulazione è di individuare gli eventi della deambulazione mentre la persona sta camminando ovvero in linea. Tradizionalmente il problema è stato affrontato con un insieme di regole basate su valori di soglia sulle emissioni, principalmente di interruttori da piede, e da tutti gli altri sistemi di sensori descritti in \ref{sensori_inerziali}. Tutti gli algoritmi pubblicati, consistono di gruppi di euristiche che cercano di identificare alcune caratteristiche dei parametri della deambulazione. Le regole sono state applicate con i seguenti approcci: analisi funzionale di dati non elaborati \cite{spatio_temporal_params_gait_gyr, real_time_gait_event_det_wearable, automatic_detection_gait_events_kinematic}, di dati derivati \cite{reliable_gait_phase_detection_gyr}, tecniche di apprendimento induttivo \cite{real_time_parap_gait_event_detection, swing_phase_detection_stroke_gait, gait_event_detection_FES_acc_ML, automatic_detection_gait_events_inductive_learning} oppure macchine a stati finiti \cite{reliable_gait_phase_detection_gyr, finite_state_control_FES}.
 %\subsection{Meccanica-Cinematica} 
-\subsection{Analisi} L'analisi funzionale comprende metodi matematici per disegnare curve che permettono di estrarre caratteristiche corrispondenti a determinate fasi della deambulazione. Le derivate prime e seconde dei dati dell'accelerazione verticale e orizzontale dal piede permettono di determinare gli eventi HS e TO soltanto usando delle regole basate su valori di soglia, con un'elaborazione in linea. \cite{real_time_gait_event_det_wearable}.
-\subsection{Apprendimento Automatico} Per Apprendimento Automatico (o Apprendimento Automatico Induttivo) si intende una branca dell'Intelligenza Artificiale che comprende la progettazione di algoritmi che permettono ad un sistema di apprendere estraendo regole e schemi (\textit{pattern}) da un insieme di dati. Le regole base frutto del processo di apprendimento (addestramento) sono un insieme di associazioni tra valori in ingresso come il segnale di un giroscopio, e dei valori in uscita come le fasi della deambulazione. Le regole vengono classificate in base a delle stime di probabilità. Un esempio di applicazione dei metodi di Apprendimento Automatico al problema dell'analisi del cammino, correla i dati di un accelerometro in ingresso ed i dati relativi al contatto del piede con il suolo come dati in uscita desiderati, con l'utilizzo di Reti Neurali, per determinare gli eventi HS e HO \cite{swing_phase_detection_stroke_gait}. Un altro studio usa programmi commerciali di Apprendimento Automatico detti \textit{Rough Sets\tm} e Reti Logiche Adattive per l'analisi della deambulazione in linea usando come dati in ingresso segnali accelerometrici \cite{gait_event_detection_FES_acc_ML}.  
+\subsection{Analisi funzionale} L'analisi funzionale comprende metodi matematici per descrivere segnali di sensori inerziali, che permettono di estrarre caratteristiche corrispondenti a determinate fasi della deambulazione. Le derivate prime e seconde dei dati dell'accelerazione verticale e orizzontale dal piede permettono di determinare gli eventi HS e TO soltanto usando delle regole basate su valori di soglia, con un'elaborazione in linea. \cite{real_time_gait_event_det_wearable}.
+\subsection{Apprendimento Automatico} Per Apprendimento Automatico (\textit{Machine Learning}) si intende una branca dell'Intelligenza Artificiale che comprende la progettazione di algoritmi che permettono ad un sistema di apprendere estraendo regole e schemi (\textit{pattern}) da un insieme di dati, rimpiazzando così regole fabbricate per ciascuna  situazione ed euristiche. 
+
+Generalmente il ciclo di vita di un sistema di Apprendimento Automatico consiste nella creazione di un modello adattivo\footnote{Un modello adattivo è un modello dinamico, che in base a dei valori in ingresso modifica i propri parametri in modo da migliorare secondo un criterio i valori in uscita.}, nell'addestramento del modello ovvero nell'affinamento dei parametri secondo un criterio prefissato e l'utilizzo del modello su un nuovo dato per risolvere uno dei problemi che affronta l'Apprendimento Automatico.\\ 
+
+Dato un vettore $\mathbf{x}=(x_1, ..., x_n)$ in ingresso, viene assunta l'esistenza di una funzione $f(\mathbf{x})$ ignota, che si vuole imparare. Dopo una fase di apprendimento, il modello contiene una funzione $h(\mathbf{x})$ (\textit{hypothesis function}) che si suppone sia una buona approssimazione di $f$.\\
+
+I due tipi principali di apprendimento sono:
+\begin{enumerate}
+	\item Apprendimento supervisionato in cui alcuni valori della funzione $f$ sono noti e vengono forniti in un insieme noto come insieme di addestramento (\textit{Training Set}) 
+	\begin{equation}
+		T = <\mathbf{x},f(\mathbf{x})> 
+	\label{eq:training_set}
+	\end{equation}
+	Se $h\mathbf{x}\approx f\mathbf{x}$ con $\mathbf{x}\in T$, allora viene assunto che $h$ è una buona approssimazione per $f$, soprattutto $T$ molto grandi. In base all'insieme a cui appartengono i valori della funzione, l'apprendimento supervisionato si può suddividere in
+	\begin{enumerate}
+	\item Classificazione: $f(\mathbf{x}) \in O \subset \mathbb{N}$ solitamente con $O$ rappresentante un insieme di etichette, categorie o classi. La funzione $h$ che viene creata alla fine del processo di apprendimento di questo caso, viene chiamata classificatore. Il caso minimale è quello del classificatore binario in cui $|O| = 2$.
+	\item Regressione: $f(\mathbf{x}) \in \mathbb{R}$ , la funzione $h$ è continua.
+\end{enumerate}
+	\item Apprendimento non supervisionato: nessun valore della funzione $f$ è noto. In questo caso si ha il problema del raggruppamento (\textit{clustering}) per dati discreti, e di determinazione della loro distribuzione se continui. 
+\end{enumerate} 
+
+
+
+
+Le regole base frutto del processo di apprendimento (addestramento) sono un insieme di associazioni tra valori in ingresso come il segnale di un giroscopio, e dei valori in uscita come le fasi della deambulazione. 
+Le regole vengono classificate in base a delle stime di probabilità. 
+
+
+
+
+
+
+
+Un esempio di applicazione dei metodi di Apprendimento Automatico al problema dell'analisi del cammino, correla i dati di un accelerometro in ingresso ed i dati relativi al contatto del piede con il suolo come dati in uscita desiderati, con l'utilizzo di Reti Neurali, per determinare gli eventi HS e HO \cite{swing_phase_detection_stroke_gait}. Un altro studio usa programmi commerciali di Apprendimento Automatico detti \textit{Rough Sets\tm} e Reti Logiche Adattive per l'analisi della deambulazione in linea usando come dati in ingresso segnali accelerometrici \cite{gait_event_detection_FES_acc_ML}. \\ 
 
