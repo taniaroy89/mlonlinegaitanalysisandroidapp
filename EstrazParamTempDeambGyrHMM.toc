@@ -20,7 +20,7 @@
 \contentsline {subsection}{\numberline {4.1.2}Stereofotogrammetria}{15}{subsection.4.1.2}
 \contentsline {subsection}{\numberline {4.1.3}Sensori Inerziali}{17}{subsection.4.1.3}
 \contentsline {section}{\numberline {4.2}Metodi}{22}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Analisi}{22}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.1}Analisi funzionale}{22}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}Apprendimento Automatico}{23}{subsection.4.2.2}
 \mbox {}\hrulefill \par 
 \mbox {}\hrulefill \par 
