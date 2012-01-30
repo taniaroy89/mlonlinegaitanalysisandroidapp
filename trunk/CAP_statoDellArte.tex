@@ -180,11 +180,11 @@ I sistemi sono in grado di determinare angoli tra diverse articolazioni in tre d
 La grande sfida del rilevamento della deambulazione è di individuare gli eventi della deambulazione mentre la persona sta camminando ovvero in linea. Tradizionalmente il problema è stato affrontato con un insieme di regole basate su valori di soglia sulle emissioni, principalmente di interruttori da piede, e da tutti gli altri sistemi di sensori descritti in \ref{sensori_inerziali}. Tutti gli algoritmi pubblicati, consistono di gruppi di euristiche che cercano di identificare alcune caratteristiche dei parametri della deambulazione. Le regole sono state applicate con i seguenti approcci: analisi funzionale di dati non elaborati \cite{spatio_temporal_params_gait_gyr, real_time_gait_event_det_wearable, automatic_detection_gait_events_kinematic}, di dati derivati \cite{reliable_gait_phase_detection_gyr}, tecniche di apprendimento induttivo \cite{real_time_parap_gait_event_detection, swing_phase_detection_stroke_gait, gait_event_detection_FES_acc_ML, automatic_detection_gait_events_inductive_learning} oppure macchine a stati finiti \cite{reliable_gait_phase_detection_gyr, finite_state_control_FES}.
 %\subsection{Meccanica-Cinematica} 
 \subsection{Analisi funzionale} L'analisi funzionale comprende metodi matematici per descrivere segnali di sensori inerziali, che permettono di estrarre caratteristiche corrispondenti a determinate fasi della deambulazione. Le derivate prime e seconde dei dati dell'accelerazione verticale e orizzontale dal piede permettono di determinare gli eventi HS e TO soltanto usando delle regole basate su valori di soglia, con un'elaborazione in linea. \cite{real_time_gait_event_det_wearable}.
-\subsection{Apprendimento Automatico} Per Apprendimento Automatico (\textit{Machine Learning}) si intende una branca dell'Intelligenza Artificiale che comprende la progettazione di algoritmi che permettono ad un sistema di apprendere estraendo regole e schemi (\textit{pattern}) da un insieme di dati, rimpiazzando così regole fabbricate per ciascuna  situazione ed euristiche. 
+\subsection{Apprendimento Automatico} Per Apprendimento Automatico (\textit{Machine Learning}) si intende una branca dell'Intelligenza Artificiale che comprende la progettazione di algoritmi che permettono ad un sistema di apprendere estraendo regole e schemi (\textit{pattern}) da un insieme di dati, rimpiazzando così regole su misura per ciascuna  situazione ed euristiche \cite{Alpaydin_introduction_machine_learning}. 
 
-Generalmente il ciclo di vita di un sistema di Apprendimento Automatico consiste nella creazione di un modello adattivo\footnote{Un modello adattivo è un modello dinamico, che in base a dei valori in ingresso modifica i propri parametri in modo da migliorare secondo un criterio i valori in uscita.}, nell'addestramento del modello ovvero nell'affinamento dei parametri secondo un criterio prefissato e l'utilizzo del modello su un nuovo dato per risolvere uno dei problemi che affronta l'Apprendimento Automatico.\\ 
+Generalmente il ciclo di vita di un sistema di Apprendimento Automatico consiste nella creazione di un modello adattivo\footnote{Un modello adattivo è un modello dinamico, che in base a dei valori in ingresso modifica i propri parametri in modo da migliorare, secondo un criterio di valutazione, i valori in uscita.}, nell'addestramento del modello ovvero nell'affinamento dei parametri secondo un criterio prefissato e l'utilizzo del modello su un nuovo dato per risolvere uno dei problemi che affronta l'Apprendimento Automatico.\\ 
 
-Dato un vettore $\mathbf{x}=(x_1, ..., x_n)$ in ingresso, viene assunta l'esistenza di una funzione $f(\mathbf{x})$ ignota, che si vuole imparare. Dopo una fase di apprendimento, il modello contiene una funzione $h(\mathbf{x})$ (\textit{hypothesis function}) che si suppone sia una buona approssimazione di $f$.\\
+Dato un vettore $\mathbf{x}=(x_1, ..., x_n)$ in ingresso, noto come \textit{feature vector} (traducibile come vettore delle caratteristiche di un sistema), viene assunta l'esistenza di una funzione $f(\mathbf{x})$ ignota, che si vuole imparare. Dopo una fase di apprendimento, il modello contiene una funzione $h(\mathbf{x})$ (\textit{hypothesis function}) che si suppone sia una buona approssimazione di $f$.\\
 
 I due tipi principali di apprendimento sono:
 \begin{enumerate}
@@ -204,14 +204,21 @@ I due tipi principali di apprendimento sono:
 
 
 
-Le regole base frutto del processo di apprendimento (addestramento) sono un insieme di associazioni tra valori in ingresso come il segnale di un giroscopio, e dei valori in uscita come le fasi della deambulazione. 
-Le regole vengono classificate in base a delle stime di probabilità. 
-
-
-
-
-
-
-
-Un esempio di applicazione dei metodi di Apprendimento Automatico al problema dell'analisi del cammino, correla i dati di un accelerometro in ingresso ed i dati relativi al contatto del piede con il suolo come dati in uscita desiderati, con l'utilizzo di Reti Neurali, per determinare gli eventi HS e HO \cite{swing_phase_detection_stroke_gait}. Un altro studio usa programmi commerciali di Apprendimento Automatico detti \textit{Rough Sets\tm} e Reti Logiche Adattive per l'analisi della deambulazione in linea usando come dati in ingresso segnali accelerometrici \cite{gait_event_detection_FES_acc_ML}. \\ 
-
+Gli algoritmi di Apprendimento Automatico possono essere ulteriormente categorizzati per i seguenti criteri: \cite{human_physical_activity_classification_ml}:
+\begin{itemize}
+	\item Porzione di dati usata in relazione al tempo di acquisizione degli stessi
+	\begin{enumerate}
+		\item \textit{Single Frame}: ad ogni dato (o finestra (\textit{frame}) di dati) viene assegnata un'etichetta, indipendentemente da assegnazioni precedenti; 
+		\item Sequenziali: ogni nuovo dato viene etichettato mediante funzioni che prendono in considerazione l'etichetta di dati precedenti.
+	\end{enumerate} 
+	\item Approccio alla classificazione: 
+	\begin{enumerate}
+		\item Probabilistico: il vettore $\mathbf{x}$ viene classificato con l'etichetta della classe che massimizza il valore della probabilità condizionale
+		\begin{equation}
+					\wp(\mathbf{x}|C_i),\quad i=1, ..., k
+		\label{eq:class_conditional_pdf}
+		\end{equation}
+		ovvero la probabilità che una \textit{feature vector} appartenga ad una classe. Un esempio di algoritmo probabilistico è  il Classificatore di Bayes. Il problema di questo approccio è che le probabilità condizionali delle classi non sono note, le implementazioni delle soluzioni sono sub ottimali. 
+		\item Geometrico: lo spazio delle \textit{feature vector} viene suddiviso da confini decisionali (\textit{decision boundaries}) in sottospazi, ciascuno dei quali appartiene ad una classe. Tali confini vengono creati iterativamente o sfruttando proprietà geometriche durante la fase di addestramento. Alcuni esempi di algoritmi sono le Reti Neurali (NN), i classificatori \textit{k-Nearest Neighbour} (k-NN) e le \textit{Support Vector Machines}. 
+	\end{enumerate}
+\end{itemize}
