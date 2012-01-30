@@ -111,8 +111,8 @@
 \backcite {reliable_gait_phase_detection_gyr}{{22}{4.2}{section.4.2}}
 \backcite {finite_state_control_FES}{{22}{4.2}{section.4.2}}
 \backcite {real_time_gait_event_det_wearable}{{23}{4.2.1}{subsection.4.2.1}}
-\backcite {swing_phase_detection_stroke_gait}{{24}{4.2.2}{Item.35}}
-\backcite {gait_event_detection_FES_acc_ML}{{24}{4.2.2}{Item.35}}
+\backcite {Alpaydin_introduction_machine_learning}{{23}{4.2.2}{subsection.4.2.2}}
+\backcite {human_physical_activity_classification_ml}{{24}{4.2.2}{Item.35}}
 \backcite {stride_segmentation_technique_hmm}{{27}{5.2}{section.5.2}}
 \backcite {physical_activity_recognition}{{27}{5.2}{section.5.2}}
 \backcite {walking_features_from_inertials}{{29}{5.2.1}{table.caption.19}}
