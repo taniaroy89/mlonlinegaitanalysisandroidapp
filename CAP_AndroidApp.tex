@@ -2,11 +2,11 @@
 %\myChapter{applicazione Android\tm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduzione}%descrivere cosa fa a grandi linee %%%%%%%%%%%%%%%%%%%%%%%%%                           INTRODUZIONE
-La seconda parte del lavoro è relativa allo sviluppo di un'applicazione per uno Smartphone Android\tm che segmenta in linea il cammino, a partire da dati giroscopici (vedi fig \ref{fig:schema_app}).
+La seconda parte del lavoro è relativa allo sviluppo di un'applicazione per uno  \textit{Smartphone}  Android\tm che segmenta in linea il cammino, a partire da dati giroscopici (vedi fig \ref{fig:schema_app}).
 \begin{figure}[h]
 	\centering
 		\includegraphics[width=1\textwidth]{imgs/ArchitetturaProgramma.jpg}
-	\caption{Architettura dell'applicazione per Smartphone}
+	\caption{Architettura dell'applicazione per \textit{Smartphone}}
 	\label{fig:schema_app}
 \end{figure} 
 Una volta posizionata la IMU (vedi appendice \ref{sec:imu}) sul collo del piede, lo \textit{Smartphone} vi interagisce tramite una connessione \textit{Bluetooth}.\\ 
@@ -15,9 +15,9 @@ L'utente controlla la IMU mediante l'applicazione, quindi può impostarne i param
 %Sulla base di un modello HMM addestrato in differita (vedi sezione \ref{sec:creazione_addestramento_modello}), impiega una versione dell'algoritmo di Viterbi \cite{short_time_viterbi_online_hmm_deconding} per elaborare a run-time i dati giroscopici acquisiti dalla IMU (e trasferiti via Bluetooth), effettuando la segmentazione e consentendo output di tipo grafico (colorando in modo differente la traccia del segnale giroscopico in funzione della fase del cammino), e di data logging. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Metodologia di programmazione usata: Agile e Unit Test}%agile %%%%%%%%%%%%%%%%%         METODOLOGIA DI PROGRAMMAZIONE
+\section{Metodologia di programmazione usata: \textit{Agile e Unit Test}}%agile %%%%%%%%%%%%%%%%%         METODOLOGIA DI PROGRAMMAZIONE
 \label{sec:agile}
-Per l'implementazione dell'algoritmo di Viterbi e le funzioni utilizzate nella fase di analisi del segnale, è stata utilizzata una tecnica nota come \textit{Agile Programming} (AP): una tecnica che permette lo sviluppo di programmi in cicli di lavoro iterativi ed incrementali in termini di funzionalità. Tale metodologia è stata corroborata da una tecnica di verifica del codice sorgente detta \textit{Unit Test} (UT) verifica unitaria. Per \textit{unit} (unità) si intende la più piccola parte funzionante di un programma che può essere verificata, nei linguaggi orientati ad oggetti un metodo costituisce un'unità. Per UT in Java si intende la verifica del funzionamento di ciascun metodo di una classe. 
+Per l'implementazione dell'algoritmo di Viterbi e le funzioni utilizzate nella fase di analisi del segnale, è stata utilizzata una tecnica nota come \textit{Agile Programming} (AP): una tecnica che permette lo sviluppo di programmi in cicli di lavoro iterativi ed incrementali in termini di funzionalità. Tale metodologia è stata corroborata da una tecnica di verifica del codice sorgente detta \textit{Unit Test} (UT) verifica unitaria. Per \textit{unit} (unità) si intende la più piccola parte funzionante di un programma che può essere verificata, nei linguaggi orientati ad oggetti un metodo costituisce un'unità. Per UT in Java\tm si intende la verifica del funzionamento di ciascun metodo di una classe. 
 
 
 Tra i benefici apportati dall'UT si possono annoverare:
@@ -159,7 +159,7 @@ Il nome del Java\tm \textit{package}, serve come identificativo univoco per l'ap
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Dato che il nucleo (\textit{kernel}) di Android-OS è basato su Linux (vedi Appendice \ref{app:android}) usa una politica di controllo di accessi (\textit{Access Control})\footnote{Accesso controllato dell'utente di un \textit{filesystem} o di un servizio} molto simile a quello del sistema operativo Linux. Tutti i servizi che non sono forniti da un programma diverso da quello in uso possono essere utilizzati solo se l'utente dà il permesso di utilizzarli, vale a dire che un programma non può interagire con altri programmi se non con l'esplicita autorizzazione dell'utente. Per questo motivo l'applicazione deve elencare tutte le richieste di permessi di cui necessita. L'elenco deve essere fatto nella porzione iniziale dell'\verb|AndroidManifest|.\\
  Dichiarazione dei permessi che l'applicazione deve avere dall'utente per accedere ad alcune parti dell'API\footnote{ \textit{Application Programming Interface}: interfaccia ad un codice che viene messo a disposizione come servizio in modo che terzi possano usarlo per sviluppare altro software, avvolte anche in altri linguaggi.
- In dettaglio una API nei linguaggi orientati ad oggetti, sono concepiti come l'insieme di tutti i metodi pubblici che le classi pubbliche offrono.} di Android\tm e per interagire con altri applicazioni.
+ In dettaglio una API nei linguaggi orientati ad oggetti, sono concepiti come l'insieme di tutti i metodi pubblici che le classi pubbliche offrono.} (\textit{Application Programming Interface}) di Android\tm e per interagire con altri applicazioni.
  La riga 4 chiede il permesso di fare la ricerca (\textit{discovery}) di dispositivi e di associarsi  a dispositivi trovati, la riga precedente invece il permesso di connettersi a dispositivi associati \footnote{L'associazione è la prima connessione, nella quale vi è una forma di identificazione e associazione dei due dispositivi. Per connessione invece si intendono le connessioni successive alla prima, in cui un dispositivo conosce già l'altro e, più rapidamente, possono iniziare una conversazione.}. L'ultimo permesso serve per poter scrivere su un dispositivo di archiviazione (\textit{storage}) esterno.
 
  
@@ -209,7 +209,7 @@ Il codice sorgente è stato organizzato 5 \textit{package} (cartelle di Java\tm):
 \subsection{Risorse}
 Le risorse sono costituite da tutti i \textit{file} che fanno parte dell'applicazione, ma non sono codice sorgente Java\tm (vedi Appendice \ref{sec:android_app_structure}) vale a dire \textit{file} XML, immagini, testo ecc. Una sezione significativa delle risorse è la sezione \textbf{layout} (impaginazione) che rappresenta la struttura della UI. Questo contiene una serie di file XML, preferibilmente, uno per ciascuna \textit{Activity} ed avente lo stesso nome.
 
-\subsubsection{Layout}
+\subsubsection{Impaginazione (\textit{Layout})}
 Un file di \textit{layout} è un documento XML in cui viene descritta la struttura dell'interfaccia utente di una \textit{Activity}.
 Un \textit{layout} deve essere composto di elementi grafici predefiniti in Android\tm oppure deve essere di tipo \verb|View| o  \verb|ViewGroup|\footnote{Sia la \textit{View} che la \textit{ViewGroup} appartengono al \textit{package} \textit{android.view} e sono componenti importante dell'interfaccia utente}. Ogni file di \textit{layout} deve contenere un elemento radice, ovvero un elemento grafico che contene tutti gli altri elementi grafici. Ogni elemento grafico ha un identificativo unico, con cui può essere richiamato dal codice sorgente, tramite l'indicizzazione automatica.
 Eclipse\tm permette di definire un \textit{layout} sia in modalità XML che in modalità grafica (WYSIWYG\footnote{\textit{What You See Is What You Get}}). Ad esempio il \textit{layout} della \textit{Activity} principale (\textit{ImuInterface}) è il seguente 
@@ -323,7 +323,7 @@ L'oggetto viene creato in XML nel seguente modo:
 La prima riga specifica il tipo di oggetto (\verb|Button|) ed il suo identificativo unico \textit{button2}.
 La seconda la stringa che appare sull'oggetto. Dalla terza alla quinta, la relazione che il pulsante deve avere con il resto della schermata.
 
-Una volta creato l'oggetto XML, il codice sorgente Java che ne gestisce il comportamento è il seguente:
+Una volta creato l'oggetto XML, il codice sorgente Java\tm che ne gestisce il comportamento è il seguente:
 \begin{lstlisting}[language=java, style=eclipse,label=code:button_creation]
 	private Button startButton = (Button) findViewById(R.id.button2);
 \end{lstlisting}
