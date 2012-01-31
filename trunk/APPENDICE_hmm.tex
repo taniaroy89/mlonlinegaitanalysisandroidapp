@@ -284,7 +284,7 @@ Generalmente con le HMM si affrontano 3 tipologie di problemi.
 
 
 \subsubsection*{Valutazione} 
-Il problema della valutazione (Evaluation) consiste nel calcolare la probabilità che una certa sequenza di osservazioni sia stata prodotta da un dato modello.\\
+Il problema della valutazione (\textit{Evaluation}) consiste nel calcolare la probabilità che una certa sequenza di osservazioni sia stata prodotta da un dato modello.\\
 La soluzione del problema permette, dati diversi modelli candidati $\lambda_1, \ldots, \lambda_n$ ed una sequenza di osservazioni $O$, di scegliere $\lambda_k$ con $\displaystyle \max_{1\leq i \leq n}\{\wp(O|\lambda_i)\}$.\\
 
 Una soluzione naïve del problema della valutazione è quello di enumerare tutte le possibili sequenze di stati (detti anche percorsi)  $Q = q_1, \ldots, q_T$ dove $q_i \in S={s_1,s_2,\ldots, s_N}$ e calcolare per ciascuna la probabilità che l'osservazione sia stata prodotta da essa e moltiplicare il risultato per la probabilità che quel particolare percorso venga scelto.
@@ -300,7 +300,7 @@ Una soluzione naïve del problema della valutazione è quello di enumerare tutte l
 
 l'algoritmo ha complessità esponenziale, $O(N^T)$.\\
 
-La soluzione ottima a questo problema è data dall'algoritmo di programmazione lineare noto come algoritmo Forward. L'idea su cui si basa è di considerare dei percorsi parziali per rappresentare osservazioni parziali. Vengono definite le variabili $\alpha_{i,t}$ come la probabilità di aver osservato la sequenza parziale $O_1, \ldots, O_t$ e di essere nello stato $S_i$ all' istante temporale $t$ 
+La soluzione ottima a questo problema è data dall'algoritmo di programmazione lineare noto come algoritmo \textit{Forward}. L'idea su cui si basa è di considerare dei percorsi parziali per rappresentare osservazioni parziali. Vengono definite le variabili $\alpha_{i,t}$ come la probabilità di aver osservato la sequenza parziale $O_1, \ldots, O_t$ e di essere nello stato $S_i$ all' istante temporale $t$ 
 \begin{equation}
 \alpha_{i,t} = \wp(o_1, \ldots, o_t, q_T=S_i|\lambda)
 \label{eq:alpha}
@@ -308,7 +308,7 @@ La soluzione ottima a questo problema è data dall'algoritmo di programmazione li
 
 Dalla definizione \eqref{eq:alpha} ricaviamo la matrice $\alpha (N \times T)$ nella quale vengono inserite le probabilità parziali per ogni combinazione stato-tempo, di modo che al passo temporale successivo il calcolo possa essere basato su tali valori e non ricalcolando tutto dal primo istante di tempo. 
 \begin{algorithm}    
-\caption{Forward}
+\caption{\textit{Forward}}
 \label{alg:fwd}                                                  
 \begin{algorithmic}[1]
 \STATE {}\COMMENT{1. Inizializzazione}                    
@@ -329,14 +329,14 @@ Dalla definizione \eqref{eq:alpha} ricaviamo la matrice $\alpha (N \times T)$ ne
 \end{algorithmic}
 \end{algorithm}
 
-La complessità dell'algoritmo Forward è $O(NT)$. Il netto miglioramento è dovuto al fatto che i risultati parziali vengono riutilizzati, limitando il numero di calcoli da svolgere ad ogni istante temporale a $N$. La struttura grafica su cui si basa l'algoritmo Forward è detta struttura a traliccio. \\
+La complessità dell'algoritmo \textit{Forward} è $O(NT)$. Il netto miglioramento è dovuto al fatto che i risultati parziali vengono riutilizzati, limitando il numero di calcoli da svolgere ad ogni istante temporale a $N$. La struttura grafica su cui si basa l'algoritmo \textit{Forward} è detta struttura a traliccio. \\
   
 
 
 \subsubsection*{Decodifica} 
 Il secondo problema è noto come problema di Decodifica in cui si cerca la sequenza di stati $Q = q_1,\ldots,q_T$ che ha generato una data sequenza di osservazioni $O = o_1,\ldots, o_T$. Dato che, al contrario del problema della Valutazione, non esiste un'unica soluzione al problema di Decodifica, quello che si fa è di stabilire un criterio di ottimalità in funzione del quale fare la ricerca. \\
 Un possibile criterio di ottimalità della sequenza è quello di scegliere gli stati $q_t$ che all'istante di tempo $t$ sono i più probabili. Tale criterio massimizza il numero atteso di stati corretti individualmente. \\
-Per risolvere il problema necessitiamo di due variabili $\beta$ e $\gamma$. La prima è definita come risultato dell' algoritmo Backward, che computa il processo inverso dell'algoritmo Forward.
+Per risolvere il problema necessitiamo di due variabili $\beta$ e $\gamma$. La prima è definita come risultato dell' algoritmo \textit{Backward}, che computa il processo inverso dell'algoritmo \textit{Forward}.
 
 \begin{equation}
 \beta_{i,t}=\wp(o_{t+1}\ldots o_T|q_t = S_i,\lambda)
@@ -345,7 +345,7 @@ Per risolvere il problema necessitiamo di due variabili $\beta$ e $\gamma$. La p
 
 
 \begin{algorithm}    
-\caption{Backward}
+\caption{\textit{Backward}}
 \label{alg:bckwd}                                                  
 \begin{algorithmic}[1]                    
 \STATE {}\COMMENT{1. Inizializzazione}                    
@@ -366,7 +366,7 @@ La seconda variabile, $\gamma$ è definita come la probabilità di essere in uno s
 \gamma_{i,t} = \wp(q_t = S_i| O, \lambda)
 \label{eq:gamma}
 \end{equation}
-$\gamma$ può essere calcolata in funzione delle variabili di Forward e Backward:
+$\gamma$ può essere calcolata in funzione delle variabili di \textit{Forward} e \textit{Backward}:
 
 \begin{equation}
 \gamma_{i,t} = \dfrac{\alpha_{i,t}\beta_{i,t}}{\wp(O|\lambda)} = 
@@ -523,9 +523,9 @@ Dato il modello $\lambda = (A,B,\pi)$ indico il modello riestimato con $\overlin
 	\item $ \wp(O|\overline{\lambda}) > \wp(O|\lambda)$
 \end{enumerate}
 
-Nel secondo caso è possibile sostituire $\overline{\lambda}$ a $\lambda$, ripetendo l'iterazione, finché non si verifica una condizione d'arresto, ed il risultato della procedura è detto stima di massiva verosimiglianza (maximum likelihood estimate) dell'HMM
+Nel secondo caso è possibile sostituire $\overline{\lambda}$ a $\lambda$, ripetendo l'iterazione, finché non si verifica una condizione d'arresto, ed il risultato della procedura è detto stima di massiva verosimiglianza (\textit{maximum likelihood estimate}) dell'HMM
 \begin{algorithm}    
-\caption{Baum-Welsh o Maximum Likelihood Expectation.  }
+\caption{Baum-Welsh o \textit{Maximum Likelihood Expectation}.  }
 \label{alg:baum_welsh}                                                  
 \begin{algorithmic}[1]                   
 \REQUIRE{maxlikelihood($\lambda = A,B,\pi$)}
@@ -547,7 +547,7 @@ Nel secondo caso è possibile sostituire $\overline{\lambda}$ a $\lambda$, ripete
 \section*{Problemi di implementazione di HMM}
 Vi sono diversi problemi che si devono affrontare per implementare le HMM ed i vari algoritmi sinora descritti. Alcuni di questi sono 
 \begin{itemize}
-	\item Ridimensionamento (scaling): la procedura di riestimazione, comporta una lunga sequenza di prodotti di valori di probabilità. Ciò fa in modo che i valori tendano esponenzialmente a zero, quindi vi è un inevitabile problema di underflow. L'unico modo di ovviare al problema è quello di ridimensionare i valori, moltiplicandoli per un coefficiente che non dipenda dallo stato, ma solo dal tempo. Alla fine del processo, i coefficienti di ridimensionamento vengono eliminati.  \\
+	\item Ridimensionamento (\textit{scaling}): la procedura di riestimazione, comporta una lunga sequenza di prodotti di valori di probabilità. Ciò fa in modo che i valori tendano esponenzialmente a zero, quindi vi è un inevitabile problema di underflow. L'unico modo di ovviare al problema è quello di ridimensionare i valori, moltiplicandoli per un coefficiente che non dipenda dallo stato, ma solo dal tempo. Alla fine del processo, i coefficienti di ridimensionamento vengono eliminati.  \\
 	Ad esempio nella procedura di riestimazione si calcola la matrice di transizione con l'equazione \eqref{eq:transitionMtxXi}
 		\begin{equation}
 				\overline{a_{i,j}}= \dfrac{\displaystyle\sum_{t=1}^{T-1}\alpha_{i,t}a_{i,j}b_j(o_{t+1})\beta_{j,t+1}}													{\displaystyle\sum_{t=1}^{T-1}\displaystyle\sum_{j=1}^{N}\alpha_{i,t}a_{i,j}b_j(o_{t+1})\beta_{j,t+1}}
@@ -571,7 +571,7 @@ Vi sono diversi problemi che si devono affrontare per implementare le HMM ed i v
 	\label{eq:scaledBeta}
 	\end{equation}
 	
-	La modifica più importante deve essere applicata all'algoritmo Forward, perché si è interessati al valore di probabilità. In questo caso non è possibile semplicemente sommare $\hat{\alpha_{j,t}}$, perché sono valori scalati e privi di significato se presi singolarmente. In questo caso viene usata la seguente proprietà:
+	La modifica più importante deve essere applicata all'algoritmo \textit{Forward}, perché si è interessati al valore di probabilità. In questo caso non è possibile semplicemente sommare $\hat{\alpha_{j,t}}$, perché sono valori scalati e privi di significato se presi singolarmente. In questo caso viene usata la seguente proprietà:
 	\begin{equation}
 		\begin{split}
 			\prod_{t=1}^T c_t \displaystyle \sum_{i=1}^N \alpha_{i,T}& = 1\\
@@ -591,6 +591,6 @@ Vi sono diversi problemi che si devono affrontare per implementare le HMM ed i v
 		\tilde{\lambda} = \epsilon \lambda + (1- \epsilon)\lambda'
 	\label{eq:modelInterpolation}
 	\end{equation}
-	dove $\epsilon$ rappresenta un peso che viene associato ai parametri del modello, ed $(1- \epsilon)$ il peso associato a quelli del modello ridotto. Il valore di $\epsilon$ viene determinato in funzione dei dati di addestramento. Mercer et al \cite{interpolation_markov_params_sparse_data} hanno dimostrato che è possibile stimare l'$\epsilon$ ottimo mediante l'algoritmo Forward-Backward, espandendo la HMM a partire da \eqref{eq:modelInterpolation}.
+	dove $\epsilon$ rappresenta un peso che viene associato ai parametri del modello, ed $(1- \epsilon)$ il peso associato a quelli del modello ridotto. Il valore di $\epsilon$ viene determinato in funzione dei dati di addestramento. Mercer et al \cite{interpolation_markov_params_sparse_data} hanno dimostrato che è possibile stimare l'$\epsilon$ ottimo mediante l'algoritmo \textit{Forward}-\textit{Backward}, espandendo la HMM a partire da \eqref{eq:modelInterpolation}.
 	\item Scelta della dimensione e tipo del modello. Si tratta della scelta dei parametri che si deve fare all'inizio per rappresentare al meglio il problema con le HMM. Il tipo di HMM, Ergodico o Sinistra-Destra, la dimensione del modello  cioè numero di stati, l'alfabeto di osservazione, discreti o continui, a distribuzione singola o a misture di distribuzioni. Non vi è un metodo standard, o migliore di prendere queste decisioni, ma devono essere fatte in base al tipo di segnale che si sta modellando.
 \end{itemize}

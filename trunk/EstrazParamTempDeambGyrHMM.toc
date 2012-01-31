@@ -31,15 +31,15 @@
 \contentsline {subsection}{\numberline {5.2.1}Acquisizione dei Dati}{27}{subsection.5.2.1}
 \contentsline {chapter}{\numberline {6}Applicazione Android}{35}{chapter.6}
 \contentsline {section}{\numberline {6.1}Introduzione}{35}{section.6.1}
-\contentsline {section}{\numberline {6.2}Metodologia di programmazione usata: Agile e Unit Test}{36}{section.6.2}
+\contentsline {section}{\numberline {6.2}Metodologia di programmazione usata: \textit {Agile e Unit Test}}{36}{section.6.2}
 \contentsline {section}{\numberline {6.3}Organizzazione del codice sorgente guidata dalle direttive Android}{39}{section.6.3}
 \contentsline {subsection}{\numberline {6.3.1}Android \textit {Manifest}}{39}{subsection.6.3.1}
 \contentsline {subsection}{\numberline {6.3.2}Codice sorgente}{41}{subsection.6.3.2}
 \contentsline {subsection}{\numberline {6.3.3}Risorse}{41}{subsection.6.3.3}
-\contentsline {subsubsection}{Layout}{41}{subsection.6.3.3}
-\contentsline {subsubsection}{File grafici}{43}{figure.caption.30}
-\contentsline {subsubsection}{Valori}{43}{figure.caption.30}
-\contentsline {subsubsection}{Altri File}{44}{figure.caption.30}
+\contentsline {subsubsection}{Impaginazione (\textit {Layout})}{41}{subsection.6.3.3}
+\contentsline {subsubsection}{File grafici}{43}{figure.caption.29}
+\contentsline {subsubsection}{Valori}{43}{figure.caption.29}
+\contentsline {subsubsection}{Altri File}{44}{figure.caption.29}
 \contentsline {subsection}{\numberline {6.3.4}Librerie}{44}{subsection.6.3.4}
 \contentsline {section}{\numberline {6.4}Architettura}{44}{section.6.4}
 \contentsline {subsection}{\numberline {6.4.1}Unit\`a di Controllo}{44}{subsection.6.4.1}
@@ -47,7 +47,7 @@
 \contentsline {subsection}{\numberline {6.4.3}Comunicazione Bluetooth}{46}{subsection.6.4.3}
 \contentsline {subsection}{\numberline {6.4.4}Gestione di Processi}{51}{subsection.6.4.4}
 \contentsline {subsubsection}{MailBox}{51}{subsection.6.4.4}
-\contentsline {subsubsection}{Verifiche per il protocollo di comunicazione \textit {MailBox}}{55}{figure.caption.35}
+\contentsline {subsubsection}{Verifiche per il protocollo di comunicazione \textit {MailBox}}{55}{figure.caption.34}
 \contentsline {subsection}{\numberline {6.4.5}HMM e Viterbi}{57}{subsection.6.4.5}
 \contentsline {subsubsection}{Scheletro di un HMM}{57}{subsection.6.4.5}
 \contentsline {subsubsection}{HMM ad emissioni discrete}{59}{lstnumber.6.17.11}
@@ -64,4 +64,4 @@
 \contentsline {chapter}{\numberline {C}Cenni di Meccanica classica}{87}{appendix.C}
 \contentsline {chapter}{\numberline {D}Sensori}{91}{appendix.D}
 \contentsline {chapter}{\numberline {E}Su Android}{95}{appendix.E}
-\contentsline {subsubsection}{Java\unhbox \voidb@x \hbox {$\rm {}^{TM}$}e Android\unhbox \voidb@x \hbox {$\rm {}^{TM}$}}{98}{figure.caption.43}
+\contentsline {subsubsection}{Java\unhbox \voidb@x \hbox {$\rm {}^{TM}$}e Android\unhbox \voidb@x \hbox {$\rm {}^{TM}$}}{98}{figure.caption.42}
