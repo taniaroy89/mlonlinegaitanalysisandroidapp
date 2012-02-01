@@ -4,7 +4,7 @@
 %-------------------	Descrizione del problema -------------------------------
 Ipotesi: \textit{è possibile costruire un sistema intelligente e portatile in grado di riconoscere (classificare) e analizzare i movimenti di un individuo e di fornirne in linea (vedi appendice \ref{sec:real_time_sys}) informazioni a riguardo}.\\
 
-Il problema del riconoscimento (classificazione) di un movimento umano generico è un problema irrisolto ed estremamente complesso visto il numero di esorbitante di parametri coinvolti. 
+Il problema del riconoscimento (classificazione) di una generica attività motoria umana è irrisolto ed estremamente complesso visto il numero esorbitante di parametri coinvolti.
 In questo lavoro viene affronta l'analisi di una singola attività nota: la deambulazione entro un intervallo di velocità e pendenza del terreno.
 
 Nello specifico il problema è quello dell'individuazione in linea delle tempistiche di eventi che costituiscono una deambulazione normale come studiato dalla Chinesiologia (vedi capitolo \ref{cap:chinesiologia}). Tale problema è noto come \emph{problema della segmentazione automatica ed in linea della deambulazione umana}.\\
@@ -15,13 +15,20 @@ La soluzione del problema della segmentazione avrebbe risvolti immediati nella M
 %---------------------é gia stato affrontato? 
 Il problema della segmentazione è stato ampiamente affrontato nella letteratura scientifica (letteratura biomedica, biomeccanica, ingegneria medica) con svariate combinazioni di materiali e metodi. 
 
-Per quanto riguarda i materiali, sono state proposte soluzioni basate sull'osservazione diretta di un fisiatra; basate sulla stereofotogrammetria, sistemi di telecamere ad emissione di luce infrarossa e marcatori riflettenti; basate su strumenti inerziali, sensori fisici: accelerometri, giroscopi, elettromagnetometri. Questi ultimi sono stati usati in diverse combinazioni, numero e disposizione sul corpo.\TODO{citazione}\\ 
+Per quanto riguarda i materiali, sono state proposte soluzioni basate sull'osservazione diretta di un fisiatra; basate sulla stereofotogrammetria, sistemi di telecamere ad emissione di luce infrarossa e marcatori riflettenti; basate su strumenti inerziali, sensori fisici: accelerometri, giroscopi, elettromagnetometri. 
+\begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{imgs/sensorOnBodyLocations.jpg}
+	\caption{Schema riassuntivo dei posizionamenti di diversi sensori su diverse parti del corpo, usati in letteratura. Immagine adattata da \cite{gait_event_detection_analysis}}
+	\label{fig:sensorOnBodyLocations}
+\end{figure}
+Questi ultimi sono stati usati in diverse combinazioni, numero e disposizione sul corpo (vedi immagine \ref{fig:sensorOnBodyLocations}).\\ 
 
-Per quanto riguarda i metodi, sono state proposte soluzioni di tipo cinematico basato sullo studio delle forze che agiscono sul corpo nella deambulazione; di tipo analitico (studio di funzioni e curve) sui segnali di sensori inerziali; alle Macchine a stati finiti per lo studio di sequenze temporali, e più di recente all'Apprendimento Automatico (Reti Neurali, Logica Fuzzy) per la capacità di astrarre sulle variazioni dei singoli individui.\TODO{citazione}
+Per quanto riguarda i metodi, sono state proposte soluzioni di tipo cinematico basato sullo studio delle forze che agiscono sul corpo nella deambulazione; di tipo analitico (studio di funzioni e curve) sui segnali di sensori inerziali; alle Macchine a stati finiti per lo studio di sequenze temporali, e più di recente all'Apprendimento Automatico (Reti Neurali, Logica Fuzzy) per la capacità di astrarre sulle variazioni dei singoli individui \cite{gait_event_detection_analysis}.
 
 % -------------------------------é stato gia stato risolto? 
-Nonostante il vasto numero di lavori, non è ancora stata data una soluzione soddisfacente al problema. 
-Tutti i metodi proposti peccano di dipendenza dagli strumenti che usano, vale a dire che variando questi ultimi, variano le prestazioni dei metodi e di dipendenza dai soggetti sui quali vengono fatti gli esperimenti.\TODO{citazione}\\
+\ERR{Nonostante il vasto numero di lavori, non è ancora stata data una soluzione soddisfacente al problema. 
+Tutti i metodi proposti peccano di dipendenza dagli strumenti che usano, vale a dire che variando questi ultimi, variano le prestazioni dei metodi e di dipendenza dai soggetti sui quali vengono fatti gli esperimenti.}\TODO{citazione}\\
 
 %------------------------- Come voglio affrontare il problema? 
 La scelta dell'utilizzo delle HMM è giustificata dai seguenti motivi. 

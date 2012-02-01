@@ -21,6 +21,11 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{gait_event_detection_analysis}
+J.~Rueterbories, E.~G. Spaich, B.~Larsen, and O.~K. Andersen, ``Methods for
+  gait event detection and analysis in ambulatory systems,'' \emph{Medical
+  Engineering and Physics}, vol.~32, pp. 545--552, 2010.
+
 \bibitem{tutorial_hmm_application_speech_recognition}
 L.~R. Rabiner, ``A tutorial on hidden markov models and selected applications
   in speech recognition,'' \emph{PROCEEDINGS OF THE IEEE}, vol.~77, no.~2, pp.
@@ -70,6 +75,11 @@ M.~Hildebrand, ``The quadrupedal gaits of vertebrates,'' \emph{BioScience},
 W.~E. Weber and E.~H. Weber, \emph{Mechanik der Menschlichen Gehwerkzauge, The
   Mechanics of Human Motion}.\hskip 1em plus 0.5em minus 0.4em\relax Gottinger,
   Gottingen, 1836.
+
+\bibitem{ambulatory_devices_gait_disorders}
+F.~V. HOOK, D.~DEMONBREUN, and B.~WEISS, ``Ambulatory devices for chronic gait
+  disorders in the elderly,'' \emph{American Family Physician}, vol.~67, pp.
+  1717--1724, 2003.
 
 \bibitem{vicon.com}
 \BIBentryALTinterwordspacing
@@ -250,10 +260,6 @@ P.~C. Sweeney, G.~M. Lyons, and P.~H. Veltink, ``Finite state control of
 \bibitem{Alpaydin_introduction_machine_learning}
 E.~Alpaydin, \emph{Introduction to Machine Learning}.\hskip 1em plus 0.5em
   minus 0.4em\relax MIT Press, 2004.
-
-\bibitem{physical_activity_recognition}
-J.~Lester, T.~Choudhury, and G.~Borriello, ``A practical approach to
-  recognizing physical activities,'' \emph{Pervasive Computing}, 2006.
 
 \bibitem{HMM_toolbox}
 \BIBentryALTinterwordspacing

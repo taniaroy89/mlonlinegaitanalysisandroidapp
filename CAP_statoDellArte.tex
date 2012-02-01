@@ -7,11 +7,11 @@ Per avere una visuale completa sul panorama di ricerca in questo ambito, si può 
 \section{Materiali} 
 Per materiali si intende tutto l'arsenale fisico, usato per captare, misurare e raccogliere dati riguardanti la deambulazione. I materiali possono, a loro volta, essere suddivisi in quelli che permettono di fare misure dirette dei parametri della deambulazione, ovvero spostamento, velocità e accelerazione sia lineare che angolare di arti e articolazioni; e quelli che permettono di fare misurazioni indirette della deambulazione con sistemi di tracciamento del movimento.
 
-\subsection{Osservazione diretta del paziente} Il fisiatra è figura medica che si occupa di diagnosi, terapia e riabilitazione di persone con problemi di limitazioni di attività, in questo caso motorie. Un fisiatra è in grado, ad occhio nudo, di fare una stima accurata dei parametri della deambulazione umana. 
+\subsection{Osservazione diretta del paziente} Il fisiatra è figura medica che si occupa di diagnosi, terapia e riabilitazione di persone con problemi di limitazioni di attività, in questo caso motorie. Un fisiatra è in grado, ad occhio nudo, di fare considerazioni importanti sulla deambulazione di un individuo. Ad esempio lo studio \cite{ambulatory_devices_gait_disorders} dimostra che un fisiatra è in grado di consigliare ad anziani con problemi cronici di deambulazione (ovvero che non possono essere trattati ne medicalmente ne chirurgicamente), il tipo di supporto da utilizzare per facilitare l'attività. Lo studio dimostra anche che l'utilizzo di dispositivi per misure accurate dei parametri della deambulazione aiutano il fisiatra a scegliere il supporto di deambulazione adeguato, nonché un addestramento all'uso dello stesso consono al tipo di problema deambulatorio del paziente. 
 
 \subsection{Stereofotogrammetria} 
 \label{sec:stereofotogrammetria}
-Metodologia di ricostruzione di oggetti ed del loro moto in tre dimensioni basato sulla sovrapposizione di immagini riprese da più telecamere posizionate intorno all'oggetto (vedi figura \ref{fig:vicon}). Sull'oggetto vengono posizionati dei marcatori riflettenti (vedi figura \ref{fig:markers}) che sono i punti di riferimento per le telecamere. I marcatori sono dei bulbi sferici in plastica retroriflettenente (superficie che riflette la luce alla sua sorgente minimizzando l'angolo di riflessione quindi minimizzando anche la dispersione di luce) di circa 14mm di diametro, attaccati ad una superficie quadrata della stessa dimensione, alle quali viene applicato del nastro biadesivo, mediante il quale vengono incollate sulla parte del corpo che vuole studiare. La ricostruzione del moto dell'oggetto avviene mediante il calcolo degli spostamenti relativi dei marker. Il sistema commerciale utilizzato in questo lavoro è Vicon\tm \cite{vicon.com}.
+Metodologia di ricostruzione virtuale di oggetti ed del loro moto in tre dimensioni basato sulla sovrapposizione di immagini riprese da più telecamere posizionate intorno all'oggetto (vedi figura \ref{fig:vicon}). Sull'oggetto vengono posizionati dei marcatori riflettenti (vedi figura \ref{fig:markers}) che sono i punti di riferimento per le telecamere. I marcatori sono dei bulbi sferici in plastica retroriflettenente (superficie che riflette la luce alla sua sorgente minimizzando l'angolo di riflessione quindi minimizzando anche la dispersione di luce) di circa 14mm di diametro, attaccati ad una superficie quadrata della stessa dimensione, alle quali viene applicato del nastro biadesivo, mediante il quale vengono incollate sulla parte del corpo che vuole studiare. La ricostruzione del moto dell'oggetto avviene mediante il calcolo degli spostamenti relativi dei marker. Il sistema commerciale utilizzato in questo lavoro è Vicon\tm \cite{vicon.com}.
 \TODO{METTERE UNA NOSTRA FOTO}
 \begin{figure}
 	\centering
@@ -28,121 +28,124 @@ Metodologia di ricostruzione di oggetti ed del loro moto in tre dimensioni basat
 \end{figure}
 
 
-\subsection{Sensori Inerziali}
-\label{sensori_inerziali}
-I sensori inerziali misurano, le forze inerziali (vedi appendice \ref{meccanica_classica}) che agiscono su di essi (vedi appendice \ref{sec:sensori}). 
-\begin{itemize}
-	\item \textbf{Resistori Sensibili alla forza}: misurano la forza esercitata dalla massa della persona, sul piano di deambulazione, accelerata dalla forza di gravità. 
-	
-\begin{table}%
-\begin{tabular}{p{3cm}|p{8cm}}
-\hline
-\textsc{Sensore} & FSR (\textit{Force Sensitive Resistors})\\
-\hline
-\textsc{Posizione del sensore} & sotto le scarpe\\
-\hline
-\textsc{Hardware} & trasduttori (vedi appendice \ref{sec:sensori}) progettati come degli interruttori meccanici, sensibili al peso FSR\\
-\hline
-\textsc{limitazioni} & 
-	\begin{itemize}
-			\item non è possibile distinguere le variazioni di peso dovute alla deambulazione da quelle dovute allo spostamento di peso di altra natura. 
-			\item passi tremolanti riducono l'affidabilità della percezione di un evento che stabilisca l'inizio o la fine di una fase del passo.  
-	\end{itemize} \\
-\hline
-\end{tabular}
-\newline
-\caption{Sensori di forza: FSR}
-\label{tab:sensori_forza}
-\end{table}
-		
-	\item \textbf{Giroscopi} misurano l'accelerazione (momento) angolare. Questo può essere fatto meccanicamente con un giroscopio a rotazione o elettronicamente con un giroscopio a vibrazione (vedi appendice \ref{sec:gyroscope}). 
+\subsection{Sensori}
+In letteratura vengono usati diversi tipi di sensori, dai quali segnali vengono estratti i parametri della deambulazione. 
 
-\begin{table}
-\begin{tabular}{p{3cm}|p{8cm}}
-\hline
-\textsc{Sensore} & Giroscopio\\
-\hline
-\textsc{Posizione del sensore} & coscia, stinco, coscia e stinco\\
-\hline
-\textsc{Hardware} & Giroscopi\\
-\hline
-\textsc{vantaggi}&
+%%%%% forza + mag %%%%%%%%%%%%%%%%%%%%
 \begin{itemize}
-	\item non influenzati dalla forza di gravità;
-	\item non influenzati da vibrazioni o scosse dovute alla deambulazione;
-	\item meno influenzate (rispetto alle FRS) dal posizionamento sul corpo.
-\end{itemize}\\
-\hline
-\textsc{limitazioni} & 
-	\begin{itemize}
-			\item non è possibile distinguere le variazioni di peso dovute alla deambulazione da quelle dovute allo spostamento di peso. 
-			\item passi tremolanti riducono l'affidabilità della percezione di un evento che stabilisca l'inizio o la fine di una fase del passo.  
-	\end{itemize}\\  
-\hline
-\end{tabular}
-\newline
-\caption{Giroscopi}
-\label{tab:sensori_acc_ang}
-\end{table}
+	\item \textbf{Resistori Sensibili alla forza}: misurano la forza esercitata dalla massa della persona, sul piano      di deambulazione, accelerata dalla forza di gravità. 	
+		\begin{table}%
+		\begin{tabular}{p{3cm}|p{8cm}}
+		\hline
+		\textsc{Sensore} & FSR (\textit{Force Sensitive Resistors})\\
+		\hline
+		\textsc{Posizione del sensore} & sotto le scarpe\\
+		\hline
+		\textsc{Hardware} & trasduttori (vedi appendice \ref{sec:sensori}) progettati come degli interruttori meccanici, sensibili al peso FSR\\
+		\hline
+		\textsc{limitazioni} & 
+			\begin{itemize}
+					\item non è possibile distinguere le variazioni di peso dovute alla deambulazione da quelle dovute allo spostamento di peso di altra natura. 
+					\item passi tremolanti riducono l'affidabilità della percezione di un evento che stabilisca l'inizio o la fine di una fase del passo.  
+			\end{itemize} \\
+		\hline
+		\end{tabular}
+		\newline
+		\caption{Sensori di forza: FSR}
+		\label{tab:sensori_forza}
+		\end{table}
 
-	\item \textbf{Accelerometri} misurano il peso per unità di massa, questa quantità è nota come forza specifica o \textit{g-force}. In altre parole, misurando il peso il sensore misura l'accelerazione in un riferimento inerziale relativo all'accelerometro stesso.  
-
-\begin{table}
-\begin{tabular}{p{3cm}|p{8cm}}
-\hline
-\textsc{Sensore} & Accelerometro\\
-\hline
-\textsc{Posizione del sensore} & piede, collo del piede, stinco, polpaccio, coscia, schiena\\
-\hline
-\textsc{Hardware} & Accelerometri MEMS (\textit{Micro-Electro-Mechanical Systems})\\
-\hline
-\textsc{Vantaggi}&
-\begin{itemize}
-	\item permettono di individuare quasi tutte le fasi del cammino;
-	\item sono dimensioni ridotte e costano poco.
-\end{itemize}\\
-\hline
-\textsc{limitazioni} & 
-	\begin{itemize}
-		\item influenzati dalla forza di gravità;
-		\item il loro posizionamento sul corpo è critico.
-	\end{itemize}\\  
-\hline
-\end{tabular}
-\newline
-\caption{Accelerometri: MEMS}
-\label{tab:sensori_acc}
-\end{table}
-	\item \textbf{Magnetometri} misurano il campo magnetico. Vi sono più modi per misurare il campo magnetico, quello maggiormente usato detto \textit{Fluxgate} funziona mediante un meccanismo elettrico (vedi appendice \ref{sec:magnetomerter}).
+	\item \textbf{Magnetometri} misurano il campo magnetico. Vi sono più modi per misurare il campo magnetico, 		quello maggiormente usato detto \textit{Fluxgate} funziona mediante un meccanismo elettrico (vedi appendice 		\ref{sec:magnetomerter}).
+		\begin{table}
+		\begin{tabular}{p{3cm}|p{8cm}}
+		\hline
+		\textsc{Hardware} & Magnetometro\\
+		\hline
+		\textsc{Forza misurata} & il campo magnetico terrestre\\
+		\hline
+		\textsc{Posizione del sensore} & piede, collo del piede, stinco, polpaccio, coscia, schiena\\
+		\hline
+		\textsc{Vantaggi}&
+			\begin{itemize}
+				\item il campo magnetico, non essendo influenzato dal movimento della persona o dalla forza di gravità, offre un punto di riferimento per l'orientamento del corpo, e le misure hanno un'accuratezza maggiore. 
+				\item In combinazione con altri sensori giroscopio permette di determinare 5 fasi del cammino. 
+			\end{itemize}\\
+		\hline
+		\textsc{limitazioni} & 
+			\begin{itemize}
+				\item influenzati dall forza di gravità; 
+				\item il loro posizionamento sul corpo è critico.
+			\end{itemize}  \\
+		\hline
+		\end{tabular}
+		\newline
+		\caption{Magnetometri}
+		\label{tab:sensori_mag}
+		\end{table}
 \end{itemize}
 
-\begin{table}
-\begin{tabular}{p{3cm}|p{8cm}}
-\hline
-\textsc{Hardware} & Magnetometro\\
-\hline
-\textsc{Forza misurata} & il campo magnetico terrestre\\
-\hline
-\textsc{Posizione del sensore} & piede, collo del piede, stinco, polpaccio, coscia, schiena\\
-\hline
-\textsc{Vantaggi}&
+I sensori inerziali misurano, le forze inerziali (vedi appendice \ref{meccanica_classica}) che agiscono su di essi (vedi appendice \ref{sec:sensori}). 
 \begin{itemize}
-	\item il campo magnetico, non essendo influenzato dal movimento della persona o dalla forza di gravità, offre un punto di riferimento per l'orientamento del corpo, e le misure hanno un'accuratezza maggiore. 
-	\item In combinazione con altri sensori giroscopio permette di determinare 5 fasi del cammino. 
-\end{itemize}\\
-\hline
-\textsc{limitazioni} & 
-	\begin{itemize}
-		\item influenzati dall forza di gravità; 
-		\item il loro posizionamento sul corpo è critico.
-	\end{itemize}  \\
-\hline
-\end{tabular}
-\newline
-\caption{Magnetometri}
-\label{tab:sensori_mag}
-\end{table}
+\label{sensori_inerziali}		
+	\item \textbf{Giroscopi} misurano l'accelerazione (momento) angolare. Questo può essere fatto meccanicamente con un giroscopio a rotazione o elettronicamente con un giroscopio a vibrazione (vedi appendice \ref{sec:gyroscope}). 
 
+		\begin{table}
+		\begin{tabular}{p{3cm}|p{8cm}}
+		\hline
+		\textsc{Sensore} & Giroscopio\\
+		\hline
+		\textsc{Posizione del sensore} & coscia, stinco, coscia e stinco\\
+		\hline
+		\textsc{Hardware} & Giroscopi\\
+		\hline
+		\textsc{vantaggi}&
+		\begin{itemize}
+			\item non influenzati dalla forza di gravità;
+			\item non influenzati da vibrazioni o scosse dovute alla deambulazione;
+			\item meno influenzate (rispetto alle FRS) dal posizionamento sul corpo.
+		\end{itemize}\\
+		\hline
+		\textsc{limitazioni} & 
+			\begin{itemize}
+					\item non è possibile distinguere le variazioni di peso dovute alla deambulazione da quelle dovute allo spostamento di peso. 
+					\item passi tremolanti riducono l'affidabilità della percezione di un evento che stabilisca l'inizio o la fine di una fase del passo.  
+			\end{itemize}\\  
+		\hline
+		\end{tabular}
+		\newline
+		\caption{Giroscopi}
+		\label{tab:sensori_acc_ang}
+		\end{table}
+
+			\item \textbf{Accelerometri} misurano il peso per unità di massa, questa quantità è nota come forza specifica o \textit{g-force}. In altre parole, misurando il peso il sensore misura l'accelerazione in un riferimento inerziale relativo all'accelerometro stesso.  
+		
+		\begin{table}
+		\begin{tabular}{p{3cm}|p{8cm}}
+		\hline
+		\textsc{Sensore} & Accelerometro\\
+		\hline
+		\textsc{Posizione del sensore} & piede, collo del piede, stinco, polpaccio, coscia, schiena\\
+		\hline
+		\textsc{Hardware} & Accelerometri MEMS (\textit{Micro-Electro-Mechanical Systems})\\
+		\hline
+		\textsc{Vantaggi}&
+		\begin{itemize}
+			\item permettono di individuare quasi tutte le fasi del cammino;
+			\item sono dimensioni ridotte e costano poco.
+		\end{itemize}\\
+		\hline
+		\textsc{limitazioni} & 
+			\begin{itemize}
+				\item influenzati dalla forza di gravità;
+				\item il loro posizionamento sul corpo è critico.
+			\end{itemize}\\  
+		\hline
+		\end{tabular}
+		\newline
+		\caption{Accelerometri: MEMS}
+		\label{tab:sensori_acc}
+		\end{table}
+\end{itemize}
 
 I sensori qui presentati sono stati usati per l'analisi della deambulazione in diversi numeri e combinazioni. Una classificazione può essere fatta sulla base della grandezza fisica misurata dal singolo sensore o dall'insieme di sensori scelti. Tale grandezza fisica può essere:
 \begin{description}
