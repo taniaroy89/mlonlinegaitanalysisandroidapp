@@ -19,7 +19,8 @@ Per quanto riguarda i materiali, sono state proposte soluzioni basate sull'osser
 \begin{figure}
 	\centering
 	\includegraphics[width=1\textwidth]{imgs/sensorOnBodyLocations.jpg}
-	\caption{Schema riassuntivo dei posizionamenti di diversi sensori su diverse parti del corpo, usati in letteratura. Immagine adattata da \cite{gait_event_detection_analysis}}
+	\caption{Schema riassuntivo dei posizionamenti di diversi sensori su diverse parti del corpo, usati in letteratura. Nella figura, $a$ rappresenta un accelerometro, $\omega$ rappresenta un giroscopio, $B$ rappresenta un magnetometro. Le frecce accanto alle lettere rappresentano le dimensioni dei rispettivi sensori, quindi una frecce sotto un simbolo significa che il sensore è monoassiale, due significa biassiale e tre (la terza freccia è uscente, quindi rappresentata come un cerchio con un punto al suo centro) triassiale. Le `capsule` grigie che racchiudono uno o più sensori sono dette Unità Sensoriali. Le lettere A (\textit{abdomen}, addome), T (\textit{thigh}, coscia), S (\textit{shank}, stinco) ed F (\textit{foot}, piede) rappresentano le parti del corpo sui quali si trovano. 
+	 Immagine adattata da \cite{gait_event_detection_analysis}}
 	\label{fig:sensorOnBodyLocations}
 \end{figure}
 Questi ultimi sono stati usati in diverse combinazioni, numero e disposizione sul corpo (vedi immagine \ref{fig:sensorOnBodyLocations}).\\ 
@@ -27,8 +28,8 @@ Questi ultimi sono stati usati in diverse combinazioni, numero e disposizione su
 Per quanto riguarda i metodi, sono state proposte soluzioni di tipo cinematico basato sullo studio delle forze che agiscono sul corpo nella deambulazione; di tipo analitico (studio di funzioni e curve) sui segnali di sensori inerziali; alle Macchine a stati finiti per lo studio di sequenze temporali, e più di recente all'Apprendimento Automatico (Reti Neurali, Logica Fuzzy) per la capacità di astrarre sulle variazioni dei singoli individui \cite{gait_event_detection_analysis}.
 
 % -------------------------------é stato gia stato risolto? 
-\ERR{Nonostante il vasto numero di lavori, non è ancora stata data una soluzione soddisfacente al problema. 
-Tutti i metodi proposti peccano di dipendenza dagli strumenti che usano, vale a dire che variando questi ultimi, variano le prestazioni dei metodi e di dipendenza dai soggetti sui quali vengono fatti gli esperimenti.}\TODO{citazione}\\
+Nonostante il vasto numero di lavori, non è ancora stata data una soluzione soddisfacente al problema. 
+Tutti i metodi proposti peccano di dipendenza dagli strumenti che usano, vale a dire che variando questi ultimi, variano le prestazioni dei metodi e di dipendenza dai soggetti sui quali vengono fatti gli esperimenti.\\
 
 %------------------------- Come voglio affrontare il problema? 
 La scelta dell'utilizzo delle HMM è giustificata dai seguenti motivi. 

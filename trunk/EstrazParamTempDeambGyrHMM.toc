@@ -7,60 +7,62 @@
 \cftpagenumbersoff {part}
 \contentsline {part}{i\hspace {1em}Stato dell'arte}{3}{part.1}
 \contentsline {chapter}{\numberline {2}Introduzione}{5}{chapter.2}
-\contentsline {chapter}{\numberline {3}Cenni alla Chinesiologia}{7}{chapter.3}
-\contentsline {section}{\numberline {3.1}Analisi dei movimenti del corpo umano}{7}{section.3.1}
-\contentsline {section}{\numberline {3.2}L'andatura durante la deambulazione}{9}{section.3.2}
-\contentsline {section}{\numberline {3.3}Breve storia dello studio della deambulazione umana}{9}{section.3.3}
-\contentsline {section}{\numberline {3.4}Ciclo di deambulazione}{10}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Confronto fra Falcata (\textit {Stride}) e Passo (\textit {Step})}{11}{subsection.3.4.1}
-\contentsline {section}{\numberline {3.5}Parametri che descrivono lo schema \textit {pattern} della deambulazione}{12}{section.3.5}
-\contentsline {chapter}{\numberline {4}Lo stato dell'arte}{15}{chapter.4}
-\contentsline {section}{\numberline {4.1}Materiali}{15}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Osservazione diretta del paziente}{15}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Stereofotogrammetria}{15}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}Sensori}{16}{subsection.4.1.3}
-\contentsline {section}{\numberline {4.2}Metodi}{22}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Analisi funzionale}{22}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Apprendimento Automatico}{22}{subsection.4.2.2}
+\contentsline {chapter}{\numberline {3}Cenni alla Chinesiologia}{9}{chapter.3}
+\contentsline {section}{\numberline {3.1}Analisi dei movimenti del corpo umano}{9}{section.3.1}
+\contentsline {section}{\numberline {3.2}L'andatura durante la deambulazione}{11}{section.3.2}
+\contentsline {section}{\numberline {3.3}Breve storia dello studio della deambulazione umana}{11}{section.3.3}
+\contentsline {section}{\numberline {3.4}Ciclo di deambulazione}{12}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Confronto fra Falcata (\textit {Stride}) e Passo (\textit {Step})}{13}{subsection.3.4.1}
+\contentsline {section}{\numberline {3.5}Parametri che descrivono lo schema \textit {pattern} della deambulazione}{14}{section.3.5}
+\contentsline {chapter}{\numberline {4}Lo stato dell'arte}{17}{chapter.4}
+\contentsline {section}{\numberline {4.1}Materiali}{17}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Osservazione diretta del paziente}{17}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Stereofotogrammetria}{17}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}Sensori}{18}{subsection.4.1.3}
+\contentsline {section}{\numberline {4.2}Metodi}{24}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Analisi funzionale}{24}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Apprendimento Automatico}{24}{subsection.4.2.2}
 \mbox {}\hrulefill \par 
 \mbox {}\hrulefill \par 
-\contentsline {part}{ii\hspace {1em}Lavoro svolto}{25}{part.2}
-\contentsline {chapter}{\numberline {5}Materiali e Metodi}{27}{chapter.5}
-\contentsline {section}{\numberline {5.1}Fasi del lavoro svolto}{27}{section.5.1}
-\contentsline {section}{\numberline {5.2}Creazione ed addestramento del modello}{27}{section.5.2}
-\contentsline {chapter}{\numberline {6}Applicazione Android}{35}{chapter.6}
-\contentsline {section}{\numberline {6.1}Introduzione}{35}{section.6.1}
-\contentsline {section}{\numberline {6.2}Metodologia di programmazione usata: \textit {Agile e Unit Test}}{36}{section.6.2}
-\contentsline {section}{\numberline {6.3}Organizzazione del codice sorgente guidata dalle direttive Android}{39}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Android \textit {Manifest}}{39}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Codice sorgente}{41}{subsection.6.3.2}
-\contentsline {subsection}{\numberline {6.3.3}Risorse}{41}{subsection.6.3.3}
-\contentsline {subsubsection}{Impaginazione (\textit {Layout})}{41}{subsection.6.3.3}
-\contentsline {subsubsection}{File grafici}{43}{figure.caption.30}
-\contentsline {subsubsection}{Valori}{43}{figure.caption.30}
-\contentsline {subsubsection}{Altri File}{44}{figure.caption.30}
-\contentsline {subsection}{\numberline {6.3.4}Librerie}{44}{subsection.6.3.4}
-\contentsline {section}{\numberline {6.4}Architettura}{44}{section.6.4}
-\contentsline {subsection}{\numberline {6.4.1}Unit\`a di Controllo}{44}{subsection.6.4.1}
-\contentsline {subsection}{\numberline {6.4.2}Interfaccia Utente}{44}{subsection.6.4.2}
-\contentsline {subsection}{\numberline {6.4.3}Comunicazione Bluetooth}{46}{subsection.6.4.3}
-\contentsline {subsection}{\numberline {6.4.4}Gestione di Processi}{51}{subsection.6.4.4}
-\contentsline {subsubsection}{MailBox}{51}{subsection.6.4.4}
-\contentsline {subsubsection}{Verifiche per il protocollo di comunicazione \textit {MailBox}}{55}{figure.caption.35}
-\contentsline {subsection}{\numberline {6.4.5}HMM e Viterbi}{57}{subsection.6.4.5}
-\contentsline {subsubsection}{Scheletro di un HMM}{57}{subsection.6.4.5}
-\contentsline {subsubsection}{HMM ad emissioni discrete}{59}{lstnumber.6.17.11}
-\contentsline {subsubsection}{HMM ad emissioni continue}{60}{lstnumber.6.19.25}
-\contentsline {subsubsection}{Operazioni sulle HMM}{60}{lstnumber.6.20.1}
-\contentsline {chapter}{\numberline {7}Valutazione}{63}{chapter.7}
-\contentsline {subsection}{\numberline {7.0.6}Dati}{63}{subsection.7.0.6}
-\contentsline {chapter}{\numberline {8}Risultati e Conclusioni}{65}{chapter.8}
+\contentsline {part}{ii\hspace {1em}Lavoro svolto}{27}{part.2}
+\contentsline {chapter}{\numberline {5}Modellazione della deambulazione}{29}{chapter.5}
+\contentsline {section}{\numberline {5.1}Raccolta dati}{29}{section.5.1}
+\contentsline {section}{\numberline {5.2}Modello: HMM}{30}{section.5.2}
+\contentsline {section}{\numberline {5.3}Addestramento del Modello}{31}{section.5.3}
+\contentsline {section}{\numberline {5.4}Parametri ottenuti}{31}{section.5.4}
+\contentsline {chapter}{\numberline {6}Applicazione Android}{33}{chapter.6}
+\contentsline {section}{\numberline {6.1}Introduzione}{33}{section.6.1}
+\contentsline {section}{\numberline {6.2}Metodologia di programmazione usata: \textit {Agile e Unit Test}}{34}{section.6.2}
+\contentsline {section}{\numberline {6.3}Organizzazione del codice sorgente guidata dalle direttive Android}{37}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Android \textit {Manifest}}{37}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Codice sorgente}{39}{subsection.6.3.2}
+\contentsline {subsection}{\numberline {6.3.3}Risorse}{39}{subsection.6.3.3}
+\contentsline {subsubsection}{Impaginazione (\textit {Layout})}{39}{subsection.6.3.3}
+\contentsline {subsubsection}{File grafici}{41}{figure.caption.22}
+\contentsline {subsubsection}{Valori}{41}{figure.caption.22}
+\contentsline {subsubsection}{Altri File}{42}{figure.caption.22}
+\contentsline {subsection}{\numberline {6.3.4}Librerie}{42}{subsection.6.3.4}
+\contentsline {section}{\numberline {6.4}Architettura}{42}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Unit\`a di Controllo}{42}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}Interfaccia Utente}{42}{subsection.6.4.2}
+\contentsline {subsection}{\numberline {6.4.3}Comunicazione Bluetooth}{44}{subsection.6.4.3}
+\contentsline {subsection}{\numberline {6.4.4}Gestione di Processi}{49}{subsection.6.4.4}
+\contentsline {subsubsection}{MailBox}{49}{subsection.6.4.4}
+\contentsline {subsubsection}{Verifiche per il protocollo di comunicazione \textit {MailBox}}{53}{figure.caption.27}
+\contentsline {subsection}{\numberline {6.4.5}HMM e Viterbi}{55}{subsection.6.4.5}
+\contentsline {subsubsection}{Scheletro di un HMM}{55}{subsection.6.4.5}
+\contentsline {subsubsection}{HMM ad emissioni discrete}{57}{lstnumber.6.17.11}
+\contentsline {subsubsection}{HMM ad emissioni continue}{58}{lstnumber.6.19.25}
+\contentsline {subsubsection}{Operazioni sulle HMM}{58}{lstnumber.6.20.1}
+\contentsline {chapter}{\numberline {7}Valutazione}{61}{chapter.7}
+\contentsline {subsection}{\numberline {7.0.6}Dati}{61}{subsection.7.0.6}
+\contentsline {chapter}{\numberline {8}Risultati e Conclusioni}{63}{chapter.8}
 \mbox {}\hrulefill \par 
 \mbox {}\hrulefill \par 
-\contentsline {part}{iii\hspace {1em}Appendice}{67}{part.3}
-\contentsline {chapter}{\numberline {A}Sulle HMM}{69}{appendix.A}
-\contentsline {chapter}{\numberline {B}Tempo Reale, In Linea, Latenza}{85}{appendix.B}
-\contentsline {chapter}{\numberline {C}Cenni di Meccanica classica}{87}{appendix.C}
-\contentsline {chapter}{\numberline {D}Sensori}{91}{appendix.D}
-\contentsline {chapter}{\numberline {E}Su Android}{95}{appendix.E}
-\contentsline {subsubsection}{Java\unhbox \voidb@x \hbox {$\rm {}^{TM}$}e Android\unhbox \voidb@x \hbox {$\rm {}^{TM}$}}{98}{figure.caption.43}
+\contentsline {part}{iii\hspace {1em}Appendice}{65}{part.3}
+\contentsline {chapter}{\numberline {A}Sulle HMM}{67}{appendix.A}
+\contentsline {chapter}{\numberline {B}Tempo Reale, In Linea, Latenza}{83}{appendix.B}
+\contentsline {chapter}{\numberline {C}Cenni di Meccanica classica}{85}{appendix.C}
+\contentsline {chapter}{\numberline {D}Sensori}{89}{appendix.D}
+\contentsline {chapter}{\numberline {E}Su Android}{93}{appendix.E}
+\contentsline {subsubsection}{Java\unhbox \voidb@x \hbox {$\rm {}^{TM}$}e Android\unhbox \voidb@x \hbox {$\rm {}^{TM}$}}{96}{figure.caption.35}
