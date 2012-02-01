@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.9.14)  31 JAN 2012 09:28
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.9.14)  1 FEB 2012 02:06
 entering extended mode
 **D:/Ahadu/tesi/mlonlinegaitanalysisandroidapp/EstrazParamTempDeambGyrHMM.tex
 (D:/Ahadu/tesi/mlonlinegaitanalysisandroidapp/EstrazParamTempDeambGyrHMM.tex
@@ -909,7 +909,9 @@ Package typearea Info: These are the values describing the layout:
 \c@theorem=\count157
 \c@lemma=\count158
 \c@dimostrazione=\count159
+\@indexfile=\write3
 
+Writing index file EstrazParamTempDeambGyrHMM.idx
 (D:\Ahadu\tesi\mlonlinegaitanalysisandroidapp\EstrazParamTempDeambGyrHMM.aux
 (D:\Ahadu\tesi\mlonlinegaitanalysisandroidapp\titlePage.aux)
 (D:\Ahadu\tesi\mlonlinegaitanalysisandroidapp\CAP_intro.aux)
@@ -1092,7 +1094,7 @@ LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <14.4> not available
 
 
 ])
-\tf@toc=\write3
+\tf@toc=\write4
 
 [4] (D:\Ahadu\tesi\mlonlinegaitanalysisandroidapp\SOMMARIO.tex
 Capitolo 1.
@@ -1135,13 +1137,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--14
 
  []
 
+<imgs/sensorOnBodyLocations.jpg, id=152, 941.5175pt x 814.04124pt>
+File: imgs/sensorOnBodyLocations.jpg Graphic file (type jpg)
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--19
+<use imgs/sensorOnBodyLocations.jpg>
+Package pdftex.def Info: imgs/sensorOnBodyLocations.jpg used on input line 21.
+(pdftex.def)             Requested size: 350.0pt x 302.60657pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--26
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--25
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
 
  []
 
@@ -1150,7 +1158,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--25
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 27--29
+Underfull \hbox (badness 10000) in paragraph at lines 34--36
 
  []
 
@@ -1158,14 +1166,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 27--29
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/pplj/m/sc/10'.
 (microtype)             Ignoring protrusion settings for this character.
- [6] (D:\Ahadu\tesi\mlonlinegaitanalysisandroidapp\CAP_chinesiologia.tex
+ [6 <D:/Ahadu/tesi/mlonlinegaitanalysisandroidapp/imgs/sensorOnBodyLocations.jp
+g>] (D:\Ahadu\tesi\mlonlinegaitanalysisandroidapp\CAP_chinesiologia.tex
 Capitolo 3.
 
 Underfull \hbox (badness 10000) in paragraph at lines 4--6
 
  []
 
-<imgs/Human_body_by_Da_Vinci-SPL.jpg, id=178, 678.535pt x 772.8875pt>
+<imgs/Human_body_by_Da_Vinci-SPL.jpg, id=183, 678.535pt x 772.8875pt>
 File: imgs/Human_body_by_Da_Vinci-SPL.jpg Graphic file (type jpg)
 
 <use imgs/Human_body_by_Da_Vinci-SPL.jpg>
@@ -1185,14 +1194,14 @@ Overfull \hbox (3.3413pt too wide) in paragraph at lines 37--38
 
 
 ] [8 <D:/Ahadu/tesi/mlonlinegaitanalysisandroidapp/imgs/Human_body_by_Da_Vinci-
-SPL.jpg>] [9] <imgs/CicoloDelPasso.jpg, id=212, 543.53062pt x 202.50656pt>
+SPL.jpg>] [9] <imgs/CicoloDelPasso.jpg, id=217, 543.53062pt x 202.50656pt>
 File: imgs/CicoloDelPasso.jpg Graphic file (type jpg)
 
 <use imgs/CicoloDelPasso.jpg>
 Package pdftex.def Info: imgs/CicoloDelPasso.jpg used on input line 74.
 (pdftex.def)             Requested size: 332.49893pt x 123.88724pt.
 
-<imgs/CicoloDelPassoAppoggio.jpg, id=213, 542.77782pt x 212.29312pt>
+<imgs/CicoloDelPassoAppoggio.jpg, id=218, 542.77782pt x 212.29312pt>
 File: imgs/CicoloDelPassoAppoggio.jpg Graphic file (type jpg)
 
 <use imgs/CicoloDelPassoAppoggio.jpg>
@@ -1215,7 +1224,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 100--131
 
  []
 
-<imgs/AndaturaConfrontoPasso.jpg, id=221, 560.8453pt x 260.47313pt>
+<imgs/AndaturaConfrontoPasso.jpg, id=226, 560.8453pt x 260.47313pt>
 File: imgs/AndaturaConfrontoPasso.jpg Graphic file (type jpg)
 
 <use imgs/AndaturaConfrontoPasso.jpg>
@@ -1234,52 +1243,52 @@ m-bu-la-zio-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 153--153
+Underfull \hbox (badness 10000) in paragraph at lines 154--154
 []|\T1/pplj/m/sc/10.95 (+20) unità di
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 151--170
+Underfull \hbox (badness 10000) in paragraph at lines 152--171
 
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 179--179
+Underfull \hbox (badness 10000) in paragraph at lines 180--180
 []|\T1/pplj/m/sc/10.95 (+20) unità di
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 182--182
+Underfull \hbox (badness 10000) in paragraph at lines 183--183
 []|\T1/pplj/m/n/10.95 (+20) Lunghezza
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 184--184
+Underfull \hbox (badness 10000) in paragraph at lines 185--185
 []|\T1/pplj/m/n/10.95 (+20) Lunghezza del
  []
 
 
-Underfull \hbox (badness 1371) in paragraph at lines 184--185
+Underfull \hbox (badness 1371) in paragraph at lines 185--186
 []|\T1/pplj/m/n/10.95 (+20) distanza tra due pun-ti di
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 186--186
+Underfull \hbox (badness 10000) in paragraph at lines 187--187
 []|\T1/pplj/m/n/10.95 (+20) Larghezza del
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 177--192
+Underfull \hbox (badness 10000) in paragraph at lines 178--193
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--199
+Underfull \hbox (badness 10000) in paragraph at lines 200--200
 []|\T1/pplj/m/sc/10.95 (+20) unità di
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 202--202
+Underfull \hbox (badness 10000) in paragraph at lines 203--203
 []|\T1/pplj/m/n/10.95 (+20) (passi/
  []
 
@@ -1297,21 +1306,19 @@ Overfull \hbox (18.48923pt too wide) has occurred while \output is active
 
 ]
 Capitolo 4.
-<imgs/ReflectiveMarker.jpg, id=246, 596.2275pt x 515.9275pt>
+<imgs/ReflectiveMarker.jpg, id=254, 596.2275pt x 515.9275pt>
 File: imgs/ReflectiveMarker.jpg Graphic file (type jpg)
 
 <use imgs/ReflectiveMarker.jpg>
 Package pdftex.def Info: imgs/ReflectiveMarker.jpg used on input line 18.
 (pdftex.def)             Requested size: 139.99786pt x 121.14063pt.
-
-<imgs/viconMotionCapture.jpg, id=247, 602.25pt x 417.05812pt>
+ [15]
+<imgs/viconMotionCapture.jpg, id=263, 602.25pt x 417.05812pt>
 File: imgs/viconMotionCapture.jpg Graphic file (type jpg)
 
 <use imgs/viconMotionCapture.jpg>
 Package pdftex.def Info: imgs/viconMotionCapture.jpg used on input line 25.
 (pdftex.def)             Requested size: 350.0pt x 242.38388pt.
- [15] [16 <D:/Ahadu/tesi/mlonlinegaitanalysisandroidapp/imgs/ReflectiveMarker.j
-pg> <D:/Ahadu/tesi/mlonlinegaitanalysisandroidapp/imgs/viconMotionCapture.jpg>]
 
 Underfull \hbox (badness 10000) in paragraph at lines 42--42
 []|\T1/pplj/m/sc/10.95 (+20) Posizione del
@@ -1323,64 +1330,66 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--54
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 65--65
+Underfull \hbox (badness 10000) in paragraph at lines 66--66
 []|\T1/pplj/m/sc/10.95 (+20) Posizione del
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 61--84
+Underfull \hbox (badness 10000) in paragraph at lines 60--82
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 95--95
+[16 <D:/Ahadu/tesi/mlonlinegaitanalysisandroidapp/imgs/ReflectiveMarker.jpg> <D
+:/Ahadu/tesi/mlonlinegaitanalysisandroidapp/imgs/viconMotionCapture.jpg>]
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 97--97
 []|\T1/pplj/m/sc/10.95 (+20) Posizione del
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 91--113
+Underfull \hbox (badness 10000) in paragraph at lines 93--116
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
+Underfull \hbox (badness 10000) in paragraph at lines 127--127
 []|\T1/pplj/m/sc/10.95 (+20) Posizione del
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 120--142
+Underfull \hbox (badness 10000) in paragraph at lines 123--145
 
  []
 
-[17] [18] [19] [20]
+[18] [19]
 
-Package natbib Warning: Citation `novel_approach_ambulatory_systems' on page 21
- undefined on input line 167.
-
-
-Package natbib Warning: Citation `novel_approach_ambulatory_systems' on page 21
- undefined on input line 167.
+Package natbib Warning: Citation `novel_approach_ambulatory_systems' on page 20
+ undefined on input line 170.
 
 
-Package natbib Warning: Citation `novel_approach_ambulatory_systems' on page 21
- undefined on input line 167.
+Package natbib Warning: Citation `novel_approach_ambulatory_systems' on page 20
+ undefined on input line 170.
 
 
-Overfull \hbox (6.38138pt too wide) in paragraph at lines 173--176
+Package natbib Warning: Citation `novel_approach_ambulatory_systems' on page 20
+ undefined on input line 170.
+
+[20]
+Overfull \hbox (6.38138pt too wide) in paragraph at lines 176--179
 []\T1/pplj/m/n/10 (-20) La
  []
 
-[21] [22]
-Underfull \hbox (badness 10000) in paragraph at lines 185--186
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 188--189
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 187--188
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 190--191
 
  []
 
-LaTeX Font Info:    Try loading font information for U+fplmbb on input line 198
+LaTeX Font Info:    Try loading font information for U+fplmbb on input line 201
 .
 ("C:\Programmi\MiKTeX 2.9\tex\latex\psnfss\ufplmbb.fd"
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
@@ -1391,19 +1400,6 @@ File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 ]
 [26] (D:\Ahadu\tesi\mlonlinegaitanalysisandroidapp\CAP_materiali.tex
 Capitolo 5.
-LaTeX Font Info:    Try loading font information for T1+fvm on input line 13.
-
-("C:\Documents and Settings\G\Dati applicazioni\MiKTeX\2.9\tex\latex\bera\t1fvm
-.fd"
-File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
-)
-LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 8.50006pt on input line 13.
-
-Underfull \hbox (badness 10000) in paragraph at lines 13--15
-
- []
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 45--48
 
@@ -1413,7 +1409,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 45--48
 
 
 
-] <imgs/patternGyro.jpg, id=484, 658.46pt x 389.455pt>
+] <imgs/patternGyro.jpg, id=489, 658.46pt x 389.455pt>
 File: imgs/patternGyro.jpg Graphic file (type jpg)
 
 <use imgs/patternGyro.jpg>
@@ -1421,38 +1417,31 @@ Package pdftex.def Info: imgs/patternGyro.jpg used on input line 51.
 (pdftex.def)             Requested size: 350.0pt x 207.0163pt.
 
 
-LaTeX Warning: Command \textdegree invalid in math mode on input line 56.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 56.
+Package natbib Warning: Citation `reliable_gait_phase_analysis' on page 28 unde
+fined on input line 83.
 
 [28 <D:/Ahadu/tesi/mlonlinegaitanalysisandroidapp/imgs/patternGyro.jpg>]
-
-Package natbib Warning: Citation `reliable_gait_phase_analysis' on page 29 unde
-fined on input line 103.
-
-
-Underfull \hbox (badness 4569) in paragraph at lines 125--125
+Underfull \hbox (badness 4569) in paragraph at lines 105--105
 []|\T1/pplj/m/n/10.95 (+20) LSM (\T1/pplj/m/it/10.95 (+20) Lom-ba-ro Sa-cral
  []
 
-<imgs/ViconMeasurementsPappas.jpg, id=496, 586.19pt x 297.11pt>
+<imgs/ViconMeasurementsPappas.jpg, id=502, 586.19pt x 297.11pt>
 File: imgs/ViconMeasurementsPappas.jpg Graphic file (type jpg)
 
 <use imgs/ViconMeasurementsPappas.jpg>
-Package pdftex.def Info: imgs/ViconMeasurementsPappas.jpg used on input line 16
+Package pdftex.def Info: imgs/ViconMeasurementsPappas.jpg used on input line 14
 9.
 (pdftex.def)             Requested size: 350.0pt x 177.39693pt.
  [29] [30 <D:/Ahadu/tesi/mlonlinegaitanalysisandroidapp/imgs/ViconMeasurementsP
 appas.jpg>] [31]
-Underfull \hbox (badness 10000) in paragraph at lines 222--225
+Underfull \hbox (badness 10000) in paragraph at lines 224--227
 
  []
 
 
 LaTeX Font Warning: Font shape `TS1/pplj/m/sc' undefined
 (Font)              using `TS1/pplj/m/n' instead
-(Font)              for symbol `textdegree' on input line 256.
+(Font)              for symbol `textdegree' on input line 258.
 
 ) [32] [33] (D:\Ahadu\tesi\mlonlinegaitanalysisandroidapp\CAP_AndroidApp.tex
 [34
@@ -1462,7 +1451,7 @@ LaTeX Font Warning: Font shape `TS1/pplj/m/sc' undefined
 
 ]
 Capitolo 6.
-<imgs/ArchitetturaProgramma.jpg, id=555, 742.775pt x 560.0925pt>
+<imgs/ArchitetturaProgramma.jpg, id=563, 742.775pt x 560.0925pt>
 File: imgs/ArchitetturaProgramma.jpg Graphic file (type jpg)
 
 <use imgs/ArchitetturaProgramma.jpg>
@@ -1492,6 +1481,14 @@ File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
 ) [36]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 41.
+LaTeX Font Info:    Try loading font information for T1+fvm on input line 41.
+
+("C:\Documents and Settings\G\Dati applicazioni\MiKTeX\2.9\tex\latex\bera\t1fvm
+.fd"
+File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
+)
+LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
+(Font)              scaled to size 8.50006pt on input line 41.
 LaTeX Font Info:    Font shape `T1/fvm/bx/n' in size <10> not available
 (Font)              Font shape `T1/fvm/b/n' tried instead on input line 43.
 LaTeX Font Info:    Font shape `T1/fvm/b/n' will be
@@ -1516,7 +1513,7 @@ Overfull \hbox (55.5884pt too wide) has occurred while \output is active
  []|[]|
  []
 
-[41] [42] <imgs/imuControloPanel.jpg, id=733, 252.945pt x 502.87875pt>
+[41] [42] <imgs/imuControloPanel.jpg, id=742, 252.945pt x 502.87875pt>
 File: imgs/imuControloPanel.jpg Graphic file (type jpg)
 
 <use imgs/imuControloPanel.jpg>
@@ -1535,7 +1532,7 @@ Overfull \hbox (55.5884pt too wide) has occurred while \output is active
  []
 
 [43 <D:/Ahadu/tesi/mlonlinegaitanalysisandroidapp/imgs/imuControloPanel.jpg>]
-<imgs/UI.jpg, id=744, 867.24pt x 503.8825pt>
+<imgs/UI.jpg, id=753, 867.24pt x 503.8825pt>
 File: imgs/UI.jpg Graphic file (type jpg)
  <use imgs/UI.jpg>
 Package pdftex.def Info: imgs/UI.jpg used on input line 297.
@@ -1569,14 +1566,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 549--550
 LaTeX Warning: Reference `alg:mailbox_get' on page 52 undefined on input line 5
 72.
 
-[52] [53] <imgs/mailboxPutOnEmpty.jpg, id=992, 618.31pt x 523.9575pt>
+[52] [53] <imgs/mailboxPutOnEmpty.jpg, id=1001, 618.31pt x 523.9575pt>
 File: imgs/mailboxPutOnEmpty.jpg Graphic file (type jpg)
 
 <use imgs/mailboxPutOnEmpty.jpg>
 Package pdftex.def Info: imgs/mailboxPutOnEmpty.jpg used on input line 631.
 (pdftex.def)             Requested size: 227.49786pt x 192.78192pt.
 
-<imgs/mailboxPutOnFull.jpg, id=993, 632.3625pt x 531.9875pt>
+<imgs/mailboxPutOnFull.jpg, id=1002, 632.3625pt x 531.9875pt>
 File: imgs/mailboxPutOnFull.jpg Graphic file (type jpg)
 
 <use imgs/mailboxPutOnFull.jpg>
@@ -1586,7 +1583,7 @@ Package pdftex.def Info: imgs/mailboxPutOnFull.jpg used on input line 638.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<imgs/mailboxGetOnEmpty.jpg, id=994, 628.3475pt x 527.9725pt>
+<imgs/mailboxGetOnEmpty.jpg, id=1003, 628.3475pt x 527.9725pt>
 File: imgs/mailboxGetOnEmpty.jpg Graphic file (type jpg)
 
 <use imgs/mailboxGetOnEmpty.jpg>
@@ -1596,7 +1593,7 @@ Package pdftex.def Info: imgs/mailboxGetOnEmpty.jpg used on input line 645.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<imgs/mailboxGetOnFull.jpg, id=995, 634.37pt x 542.025pt>
+<imgs/mailboxGetOnFull.jpg, id=1004, 634.37pt x 542.025pt>
 File: imgs/mailboxGetOnFull.jpg Graphic file (type jpg)
 
 <use imgs/mailboxGetOnFull.jpg>
@@ -1607,7 +1604,7 @@ Package pdftex.def Info: imgs/mailboxGetOnFull.jpg used on input line 652.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [54 <D:/Ahadu/tesi/mlonlinegaitanalysisandroidapp/imgs/mailboxPutOnEmpty.jpg>]
-<imgs/mailBoxCommTestAndroid.jpg, id=1002, 894.34125pt x 570.13pt>
+<imgs/mailBoxCommTestAndroid.jpg, id=1011, 894.34125pt x 570.13pt>
 File: imgs/mailBoxCommTestAndroid.jpg Graphic file (type jpg)
 
 <use imgs/mailBoxCommTestAndroid.jpg>
@@ -1686,7 +1683,7 @@ Overfull \hbox (13.09596pt too wide) in paragraph at lines 79--80
 } >$
  []
 
-[70] <imgs/descreteMarkovProcesses.jpg, id=1194, 702.37407pt x 319.94531pt>
+[70] <imgs/descreteMarkovProcesses.jpg, id=1203, 702.37407pt x 319.94531pt>
 File: imgs/descreteMarkovProcesses.jpg Graphic file (type jpg)
 
 <use imgs/descreteMarkovProcesses.jpg>
@@ -1765,7 +1762,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--30
 
 ) [86] (D:\Ahadu\tesi\mlonlinegaitanalysisandroidapp\APPENDICE_meccanica.tex
 Appendice C.
-<imgs/CinematicaLineare.jpg, id=1402, 438.8897pt x 306.39468pt>
+<imgs/CinematicaLineare.jpg, id=1410, 438.8897pt x 306.39468pt>
 File: imgs/CinematicaLineare.jpg Graphic file (type jpg)
 
 <use imgs/CinematicaLineare.jpg>
@@ -1780,7 +1777,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-] <imgs/CinematicaAngolare.jpg, id=1409, 450.9347pt x 301.8778pt>
+] <imgs/CinematicaAngolare.jpg, id=1417, 450.9347pt x 301.8778pt>
 File: imgs/CinematicaAngolare.jpg Graphic file (type jpg)
 
 <use imgs/CinematicaAngolare.jpg>
@@ -1796,7 +1793,7 @@ Package pdftex.def Info: imgs/CinematicaAngolare.jpg used on input line 50.
 
 ]
 Appendice D.
-<imgs/acc_technical.jpg, id=1426, 1291.82625pt x 654.445pt>
+<imgs/acc_technical.jpg, id=1434, 1291.82625pt x 654.445pt>
 File: imgs/acc_technical.jpg Graphic file (type jpg)
 
 <use imgs/acc_technical.jpg>
@@ -1809,7 +1806,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--20
  []
 
 [91]
-Overfull \hbox (36.92627pt too wide) in paragraph at lines 43--68
+Underfull \hbox (badness 7796) in paragraph at lines 47--47
+[]|\T1/pplj/b/n/10.95 Intervallo di
+ []
+
+
+Overfull \hbox (3.12383pt too wide) in paragraph at lines 50--50
+[]|[]| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--54
+[]|\T1/pplj/m/n/10.95 (+20) [$\U/zeus/m/n/10.95 $\T1/pplj/m/n/10.95 (+20) 2000
+-
+ []
+
+
+Overfull \hbox (23.34256pt too wide) in paragraph at lines 43--70
  [][] 
  []
 
@@ -1822,7 +1835,7 @@ Overfull \hbox (36.92627pt too wide) in paragraph at lines 43--68
 
 ]
 Appendice E.
-<imgs/android_system_architecture.jpg, id=1448, 725.75366pt x 521.15831pt>
+<imgs/android_system_architecture.jpg, id=1456, 725.75366pt x 521.15831pt>
 File: imgs/android_system_architecture.jpg Graphic file (type jpg)
 
 <use imgs/android_system_architecture.jpg>
@@ -1835,7 +1848,7 @@ Overfull \hbox (26.9991pt too wide) in paragraph at lines 18--19
  []
 
 [95] [96 <D:/Ahadu/tesi/mlonlinegaitanalysisandroidapp/imgs/android_system_arch
-itecture.jpg>] [97] <imgs/JVMvsDalvik.jpg, id=1485, 438.63875pt x 435.6275pt>
+itecture.jpg>] [97] <imgs/JVMvsDalvik.jpg, id=1493, 438.63875pt x 435.6275pt>
 File: imgs/JVMvsDalvik.jpg Graphic file (type jpg)
 
 <use imgs/JVMvsDalvik.jpg>
@@ -1859,7 +1872,7 @@ Overfull \hbox (18.05594pt too wide) in paragraph at lines 74--76
 n il plu-gin per Android[]SDK
  []
 
-[100] <imgs/ActivityLifeCycle.jpg, id=1518, 455.7025pt x 428.60126pt>
+[100] <imgs/ActivityLifeCycle.jpg, id=1526, 455.7025pt x 428.60126pt>
 File: imgs/ActivityLifeCycle.jpg Graphic file (type jpg)
 
 <use imgs/ActivityLifeCycle.jpg>
@@ -1867,7 +1880,7 @@ Package pdftex.def Info: imgs/ActivityLifeCycle.jpg used on input line 114.
 (pdftex.def)             Requested size: 314.99786pt x 296.27145pt.
  [101] [102 <D:/Ahadu/tesi/mlonlinegaitanalysisandroidapp/imgs/ActivityLifeCycl
 e.jpg>]
-<imgs/CRUD.jpg, id=1537, 225.84375pt x 353.32pt>
+<imgs/CRUD.jpg, id=1545, 225.84375pt x 353.32pt>
 File: imgs/CRUD.jpg Graphic file (type jpg)
  <use imgs/CRUD.jpg>
 Package pdftex.def Info: imgs/CRUD.jpg used on input line 133.
@@ -1875,7 +1888,7 @@ Package pdftex.def Info: imgs/CRUD.jpg used on input line 133.
  [103 <D:/Ahadu/tesi/mlonlinegaitanalysisandroidapp/imgs/CRUD.jpg>]) [104]
 (D:\Ahadu\tesi\mlonlinegaitanalysisandroidapp\EstrazParamTempDeambGyrHMM.bbl
 (D:\Ahadu\tesi\mlonlinegaitanalysisandroidapp\EstrazParamTempDeambGyrHMM.brf)
-\tf@brf=\write4
+\tf@brf=\write5
 
 [105
 
@@ -1885,7 +1898,7 @@ Package pdftex.def Info: imgs/CRUD.jpg used on input line 133.
 
 Package natbib Warning: There were undefined citations.
 
-\tf@thm=\write5
+\tf@thm=\write6
 [110]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 320.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 320.
@@ -1908,7 +1921,7 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 320.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 320.
 Package rerunfilecheck Info: File `EstrazParamTempDeambGyrHMM.brf' has not chan
 ged.
-(rerunfilecheck)             Checksum: D45D203BAD9A886FD3A4F820B3075D45;10380.
+(rerunfilecheck)             Checksum: 344C28708C8EF3940E0718BB8131DCE4;10490.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1922,11 +1935,11 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 20590 strings out of 495296
- 324038 string characters out of 3181191
- 718041 words of memory out of 3000000
- 21616 multiletter control sequences out of 15000+200000
- 161034 words of font info for 777 fonts, out of 3000000 for 9000
+ 20610 strings out of 495296
+ 324637 string characters out of 3181191
+ 718280 words of memory out of 3000000
+ 21629 multiletter control sequences out of 15000+200000
+ 161015 words of font info for 780 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  68i,14n,128p,2150b,2161s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{algorithm.3} has been referenced but does not exi
@@ -1962,9 +1975,9 @@ mr8a.pfb><C:/Programmi/MiKTeX 2.9/fonts/type1/public/amsfonts/latxfont/lcircle1
 mmi/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Programmi/MiKTeX 2.9/fon
 ts/type1/urw/palatino/uplr8a.pfb><C:/Programmi/MiKTeX 2.9/fonts/type1/urw/palat
 ino/uplri8a.pfb>
-Output written on EstrazParamTempDeambGyrHMM.pdf (114 pages, 2974024 bytes).
+Output written on EstrazParamTempDeambGyrHMM.pdf (114 pages, 3149245 bytes).
 PDF statistics:
- 2082 PDF objects out of 2487 (max. 8388607)
- 870 named destinations out of 1000 (max. 500000)
- 101358 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 2095 PDF objects out of 2487 (max. 8388607)
+ 871 named destinations out of 1000 (max. 500000)
+ 101355 words of extra memory for PDF output out of 106986 (max. 10000000)
 

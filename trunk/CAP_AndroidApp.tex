@@ -10,7 +10,7 @@ La seconda parte del lavoro è relativa allo sviluppo di un'applicazione per uno 
 	\label{fig:schema_app}
 \end{figure} 
 Una volta posizionata la IMU (vedi appendice \ref{sec:imu}) sul collo del piede, lo \textit{Smartphone} vi interagisce tramite una connessione \textit{Bluetooth}.\\ 
-L'utente controlla la IMU mediante l'applicazione, quindi può impostarne i parametri: ad esempio la frequenza di campionamento e gli intervalli di campionamento per ciascun sensore su ciascun asse spaziale. Impostati i parametri l'utente può acquisire dati dalla IMU mediante un servizio di \textit{data logging} (nel \textit{file system} dello \textit{Smartphone}), oppure li può visualizzare come un grafico dinamico. Inoltre è possibile abilitare la segmentazione in linea del segnale di deambulazione, sulla base di un modello HMM addestrato in differita (vedi sezione \ref{sec:creazione_addestramento_modello}), impiegando una versione dell'algoritmo di Viterbi \cite{short_time_viterbi_online_hmm_deconding}. Nell'ultimo caso il grafico dinamico rappresentante il segnale del giroscopio viene tracciato in linea\footnote{La segmentazione ha una latenza massima di \textbf{10ms}} con un colore a seconda della fase della deambulazione: \TODO {HS-blu, FF-giallo, HO-rosso, TO-verde}. \\
+L'utente controlla la IMU mediante l'applicazione, quindi può impostarne i parametri: ad esempio la frequenza di campionamento e gli intervalli di campionamento per ciascun sensore su ciascun asse spaziale. Impostati i parametri l'utente può acquisire dati dalla IMU mediante un servizio di \textit{data logging} (nel \textit{file system} dello \textit{Smartphone}), oppure li può visualizzare come un grafico dinamico. Inoltre è possibile abilitare la segmentazione in linea del segnale di deambulazione, sulla base di un modello HMM addestrato in differita (vedi sezione \ref{sec:creazione_addestramento_modello}), impiegando una versione dell'algoritmo di Viterbi \cite{short_time_viterbi_online_hmm_deconding}. Nell'ultimo caso il grafico dinamico rappresentante il segnale del giroscopio viene tracciato in linea\footnote{La segmentazione ha una latenza massima di \textbf{10ms}} con un colore a seconda della fase della deambulazione: HS-blu, FF-giallo, HO-rosso, TO-verde. \\
 
 %Sulla base di un modello HMM addestrato in differita (vedi sezione \ref{sec:creazione_addestramento_modello}), impiega una versione dell'algoritmo di Viterbi \cite{short_time_viterbi_online_hmm_deconding} per elaborare a run-time i dati giroscopici acquisiti dalla IMU (e trasferiti via Bluetooth), effettuando la segmentazione e consentendo output di tipo grafico (colorando in modo differente la traccia del segnale giroscopico in funzione della fase del cammino), e di data logging. 
 
@@ -263,7 +263,7 @@ Vi sono il titolo della schermata, quattro campi di testo (di cui sono riportate
 	...
 \end{lstlisting}
 
-La parte seguente della schermata, a partire dall'alto, è un altro \verb|LineraLayout| contenente campi di testo e pulsanti.\\
+La parte seguente della schermata, a partire dall'alto, è un altro \verb|LinearLayout| contenente campi di testo e pulsanti.\\
 La schermata risultante dal \textit{layout} è quella dell'immagine \ref{fig:main_activity}.
 \begin{figure}
 	\centering

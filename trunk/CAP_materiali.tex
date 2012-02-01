@@ -10,10 +10,10 @@ Il lavoro svolto, può essere suddiviso in tre fasi principali:
   
 \section{Creazione ed addestramento del modello}
 \label{sec:creazione_addestramento_modello}
-Il sistema adattivo scelto sono le HMM. La scelta di queste ultime è giustificato sia dagli studi che il gruppo di ricerca capitanato dal prof. Sabatini, al centro di Bio-Robotica di Sant'Anna\footnote{\url{http://www-arts.sssup.it/}} sta portando avanti sulla classificazione automatica del movimento umano, sia dal fatto che lavori come "\emph{A Hidden Markov Model-based stride segmentation technique applied to equine inertial sensor trunk movement data}" di Pfau  \cite{stride_segmentation_technique_hmm} abbiano dimostrato le loro ottime potenzialità.
-Inoltre gli interessi futuri di ricerca scientifica del gruppo saranno orientati sia verso la stima dei parametri di un'attività nota sia verso la classificazione di diverse attività (se si considerano modelli di HMM gerarchici \cite{physical_activity_recognition}). Entrambi i compiti possono essere portati a termine dalle HMM.\\
+%Il sistema adattivo scelto sono le HMM. La scelta di queste ultime è giustificato sia dagli studi che il gruppo di ricerca capitanato dal prof. Sabatini, al centro di Bio-Robotica di Sant'Anna\footnote{\url{http://www-arts.sssup.it/}} sta portando avanti sulla classificazione automatica del movimento umano, sia dal fatto che lavori come "\emph{A Hidden Markov Model-based stride segmentation technique applied to equine inertial sensor trunk movement data}" di Pfau  \cite{stride_segmentation_technique_hmm} abbiano dimostrato le loro ottime potenzialità.
+%Inoltre gli interessi futuri di ricerca scientifica del gruppo saranno orientati sia verso la stima dei parametri di un'attività nota sia verso la classificazione di diverse attività (se si considerano modelli di HMM gerarchici \cite{physical_activity_recognition}). Entrambi i compiti possono essere portati a termine dalle HMM.\\
 
-\subsection{Acquisizione dei Dati}
+%\subsection{Acquisizione dei Dati}
 Sono stati scelti 6 soggetti sani (con deambulazione normale) e sono stati sottoposti a 5 sessioni di cammino e 5 sessioni di corsa.
 Le prove sono state compiute su un tappeto rullante con pendenza 0°, nell'intervallo di velocità [3-7]Km/h per il cammino e [8-12]Km/h per la corsa. La prima sessione alla velocità di 3Km/h e con un incremento di 1Km/h in ciascuna sessione successiva. Ciascuna sessione è stata della durata di 2 minuti.
 
@@ -53,29 +53,9 @@ Dai dati raccolti, quelli considerati per lo studio sono quelli compresi nell'in
 	\label{fig:gyroPattern}
 \end{figure}
 
-Il grafico del segnale del giroscopio posizionato sul piede ha una struttura definita e ripetitiva (vedi grafico \ref{fig:gyroPattern}). Nel grafico, l'ascissa rappresenta i campioni e l'ordinata la velocità angolare in gradi al secondo ($°/s$). La forma del grafico può essere descritta a grandi linee come un picco negativo seguito da un tratto quasi orizzontale ed un secondo picco negativo ed uno positivo. Tale sequenza rappresenta un passo completo e si ripete quasi identica a se stessa durante la camminata.
+Il grafico del segnale del giroscopio posizionato sul piede ha una struttura definita e ripetitiva (vedi grafico \ref{fig:gyroPattern}). Nel grafico, l'ascissa rappresenta i campioni e l'ordinata la velocità angolare in gradi al secondo (°/s). La forma del grafico può essere descritta a grandi linee come un picco negativo seguito da un tratto quasi orizzontale ed un secondo picco negativo ed uno positivo. Tale sequenza rappresenta un passo completo e si ripete quasi identica a se stessa durante la camminata.
 
 
-\begin{table}%
-\centering
-\begin{tabular}{|c|cc|}
-\hline
-\textbf{Stato} & \textbf{inizio} & \textbf{fine} \\
-%\hline
-\hline
-$S_1$ & $t_{HS}$ & $t_{FF}$\\
-%\hline
-$S_2$ & $t_{FF}$ & $t_{HO}$\\
-%\hline
-$S_3$ & $t_{HO}$ & $t_{FO}$\\
-%\hline
-$S_4$ & $t_{FO}$ & $t_{HS}$\\
-\hline	 
-\end{tabular}
-\caption{Le quattro fasi della deambulazione e gli eventi (tempo iniziale e finale) che li definiscono.}
-\label{tab:4_fasi_deambulazione}
-\end{table}
-Per semplicità si può indicare uno stato $S_i$ con l'evento da cui ha inizio, ad esempio con lo stato $HS$ indico lo stato $S_1$.
 
 In lavori precedenti \cite{walking_features_from_inertials}, gli eventi ($t_{HS}$, $t_{FF}$, $t_{HO}$, $t_{FO}$ ) vengono determinati mediante soglie, sulla velocità angolare $\omega_k$, come mostra la Tabella \ref{tab:regole_threshold_eventi}, dove $\widetilde{\omega_k}$ è il valore non filtrato del giroscopio.
 
@@ -88,9 +68,9 @@ In lavori precedenti \cite{walking_features_from_inertials}, gli eventi ($t_{HS}
 \hline
 $t_{HS}$ & $ \omega_k \leq 0 $ e $ min_1 \leq  \omega_k$ & $\displaystyle\max_{\forall k}|\widetilde{\omega_k} - \omega_k|$\\
 %\hline
-$t_{FF}$ & $|\omega_k|\geq  ??$°/sec&\\
+$t_{FF}$ & $|\omega_k|\geq  50$°/s&\\
 %\hline
-$t_{HO}$ & $|\omega_k|\geq  50$°/sec &\\
+$t_{HO}$ & $|\omega_k|\geq  50$°/s &\\
 %\hline
 $t_{FO}$ & $\omega_k = 0$ & se $\omega$ da negativo è diventato positivo e cresce fino al suo massimo.\\
 \hline	 
@@ -179,15 +159,37 @@ Si assume che i segnali del giroscopio siano modellati mediante una HMM:
 \end{equation}
 dove:
  \begin{enumerate}
-	\item $N = 4$ è la cardinalità dell'insieme degli stati $S = \{HS, FF, HO, FO\}$,
-	\item $M = |V|$ è la cardinalità dell'insieme finito dei valori di osservazione $\omega (^\circ/sec)$ del giroscopio,
+	\item $N = 4$ è la cardinalità dell'insieme degli stati $S = \{HS, FF, HO, FO\}$. Gli stati corrispondono agli intervalli fra un evento ed il successivo come mostra la tabella \ref{tab:4_fasi_deambulazione},
+	\item $M = |V|$ è la cardinalità dell'insieme finito dei valori di osservazione $\omega (^\circ/s)$ del giroscopio,
 	\item $\mathbf{A}$ è la matrice di transizione (vedi appendice \ref{cap:hmm}),
 	\item $\mathbf{B}$ è la matrice di probabilità di emissione delle osservazioni $\omega$ per ciascuno stato. Ad ogni stato è stata associata una funzione di densità di probabilità gaussiana univariata.
 	\item $\pi$ è il vettore di probabilità a priori.
 \end{enumerate}
 
+\begin{table}%
+\centering
+\begin{tabular}{|c|cc|}
+\hline
+\textbf{Stato} & \textbf{inizio} & \textbf{fine} \\
+%\hline
+\hline
+$S_1$ & $t_{HS}$ & $t_{FF}$\\
+%\hline
+$S_2$ & $t_{FF}$ & $t_{HO}$\\
+%\hline
+$S_3$ & $t_{HO}$ & $t_{FO}$\\
+%\hline
+$S_4$ & $t_{FO}$ & $t_{HS}$\\
+\hline	 
+\end{tabular}
+\caption{Le quattro fasi della deambulazione e gli eventi (tempo iniziale e finale) che li definiscono.}
+\label{tab:4_fasi_deambulazione}
+\end{table}
+Per semplicità si può indicare uno stato $S_i$ con l'evento da cui ha inizio, ad esempio con lo stato $HS$ indico lo stato $S_1$.
+
+
 A questo punto sono state addestrate le HMM. 
-Come prima operazione, è stato etichettato un sottoinsieme dei dati: ad una sequenza $\Omega$ di dati è stato  associato un vettore $Y$ di etichette. Questo è stato fatto con l'uso di un sistema stereofotogrammetrico (sistema di telecamere Vicon).
+Come prima operazione, è stato etichettato un sottoinsieme dei dati: ad una sequenza $\Omega$ di dati è stato  associato un vettore $Y$ di etichette. Questo è stato fatto con l'uso del sistema di telecamere Vicon\tm (vedi sezione \ref{sec:stereofotogrammetria}).
 
 %Grazie a un analisi di tipo stereofotogrammetrico (sistema di telecamere Vicon (vedi \TODO{Pappas}) sono stati etichettati i dati acquisiti. 
 
@@ -198,8 +200,8 @@ Dato che nella deambulazione normale le uniche transizioni tra stati sono quelle
 	a_{ij} > 0 \quad \text{sse} \quad j=i \quad \text{oppure}\quad j=i+1 \quad \text{oppure} \quad(i = N \quad\text{e}\quad j = 1)
 \label{eq:}
 \end{equation}
-Una volta deciso il tipo di HMM da adottare, si devono stimare i parametri del modello.
-La stima (dei parametri del modello) della massima verosimiglianza (Maximum Likelihood Estimation - MLE) $\ell(\Omega, Deamb\_HMM )$ non è un problema convesso dato. Il problema dei massimi locali viene aggirato con un'attenta inizializzazione dei parametri. 
+Una volta deciso il tipo di HMM adottare, si devono stimare i parametri del modello.
+La stima (dei parametri del modello) della massima verosimiglianza (\textit{Maximum Likelihood Estimation} - MLE) $\ell(\Omega, Deamb\_HMM )$ non è un problema convesso dato. Il problema dei massimi locali viene aggirato con un'attenta inizializzazione dei parametri. 
 
 Assumendo che possa avvenire solo una transizione tra stati contigui, in ciascun ciclo di deambulazione possono essere fatte delle stime approssimative dei parametri della HMM:
 \begin{equation}
@@ -219,9 +221,9 @@ La validazione è stata fatta con l'approccio leave-one-subject-out cross-validat
 Il metodo consiste nell'addestrare un modello su P-1 ($P=6$) soggetti e testarne la validità su 1 soggetto. Ripetendo P volte la procedura per ciascuno dei soggetti alla fine i risultati vengono combinati.\TODO{spiegare come più in dettaglio}
 
 
-Tutta la prima fase della creazione addestramento e validation incrociata del modello è stata fatta off-line, mediante un Mathworks MATLAB (R2008a) ed l'HMM toolbox \cite{HMM_toolbox}. 
-Nella fase di test, viene usato l'algoritmo di decodifica di Viterbi \ref{alg:viterbi} sui dati del giroscopio, per trovare la sequenza di stati che con maggior verosimiglianza ha prodotto le osservazioni (sequenze di valori del giroscopio).
-Il modello left-right può portare a considerare cicli di deambulazione aggiuntivi (insertions), o meno di quelli effettivi (deletions). Il problema delle inserzioni viene risolto mediante l'applicazione di un'euristica: per i presupposti del tipo di deambulazione considerata (velocità e pendenza del terreno).\\
+Tutta la prima fase della creazione addestramento e validation incrociata del modello è stata fatta in differita, mediante un Mathworks\tm MATLAB\tm ed l'\textit{HMM toolbox} \cite{HMM_toolbox}. 
+Nella fase di verifica, viene usato l'algoritmo di decodifica di Viterbi \ref{alg:viterbi} sui dati del giroscopio, per trovare la sequenza di stati che con maggior verosimiglianza ha prodotto le osservazioni (sequenze di valori del giroscopio).
+Il modello sinistra-destra dell'HMM (vedi appendice \ref{sec:HMM}) può portare a considerare cicli di deambulazione aggiuntivi detti inserzioni (\textit{insertions}), o meno di quelli effettivi delezioni (\textit{deletions}). Il problema delle inserzioni viene risolto mediante l'applicazione di un'euristica: per i presupposti del tipo di deambulazione considerata (velocità e pendenza del terreno), tutti i cicli di deambulazione di durata inferiore a \TODO{tot} secondi sono inserzioni.\\
 
 I parametri del modello stimati da una delle esecuzioni della validazione incrociata è il seguente:
 Dati:  HMM
@@ -253,7 +255,7 @@ Dati:  HMM
 \centering
 \begin{tabular}{|c|c c|}
 \hline
-\textbf{B} &\textsc{$\mu$[°/sec]} & \textsc{$\sigma ^2$[°/sec]}\\
+\textbf{B} &\textsc{$\mu$[°/s]} & \textsc{$\sigma ^2$[°/s]}\\
 %\hline
 \hline
 \textsc{HS} & $-52.2$ & $12711.8$\\
