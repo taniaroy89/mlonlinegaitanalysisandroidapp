@@ -1,4 +1,5 @@
 \chapter{Materiali e Metodi}
+\ERR{Capitolo in aggiornamento}
 %\myChapter{Materiali e Metodi}
 \section{Fasi del lavoro svolto}
 Il lavoro svolto, può essere suddiviso in tre fasi principali: 
@@ -214,12 +215,11 @@ a_{ij}& = C/N_i \quad \text{dove}\quad j = (i+1)\%Q \\
 \label{eq:emissionMtx}
 \end{equation}
 dove $N_i$ è il numero di valori etichettati con l'etichetta $i$-esima nel vettore di etichette $Y$ e $C$ è il numero di cicli di deambulazione nel training set.\\ 
-\ERR{VERRI: POCO CHIARO - 
-I parametri di emissione ( $\mu$ e $\sigma$) per ciascuno stato $i$ sono stimati calcolando delle medie e deviazioni standard empiriche dagli output osservabili dei quali si conosce lo stato che li ha emessi.\\
-}
-La validazione è stata fatta con l'approccio leave-one-subject-out cross-validation (LOOCV). 
-Il metodo consiste nell'addestrare un modello su P-1 ($P=6$) soggetti e testarne la validità su 1 soggetto. Ripetendo P volte la procedura per ciascuno dei soggetti alla fine i risultati vengono combinati.\TODO{spiegare come più in dettaglio}
 
+I parametri di emissione ( $\mu$ e $\sigma$) per ciascuno stato $i$ sono stimati calcolando delle medie e deviazioni standard empiriche dagli output osservabili dei quali si conosce lo stato che li ha emessi.\\
+
+La validazione è stata fatta con l'approccio leave-one-subject-out cross-validation (LOOCV). 
+Il metodo consiste nell'addestrare un modello su P-1 ($P=6$) soggetti e testarne la validità su 1 soggetto. Ripetendo P volte la procedura per ciascuno dei soggetti alla fine i risultati vengono combinati.
 
 Tutta la prima fase della creazione addestramento e validation incrociata del modello è stata fatta in differita, mediante un Mathworks\tm MATLAB\tm ed l'\textit{HMM toolbox} \cite{HMM_toolbox}. 
 Nella fase di verifica, viene usato l'algoritmo di decodifica di Viterbi \ref{alg:viterbi} sui dati del giroscopio, per trovare la sequenza di stati che con maggior verosimiglianza ha prodotto le osservazioni (sequenze di valori del giroscopio).

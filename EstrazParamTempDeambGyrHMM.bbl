@@ -261,12 +261,6 @@ P.~C. Sweeney, G.~M. Lyons, and P.~H. Veltink, ``Finite state control of
 E.~Alpaydin, \emph{Introduction to Machine Learning}.\hskip 1em plus 0.5em
   minus 0.4em\relax MIT Press, 2004.
 
-\bibitem{HMM_toolbox}
-\BIBentryALTinterwordspacing
-K.~Murphy. (1998) Hidden markov model (hmm) toolbox for matlab. [Online].
-  Available: \url{http://www.cs.ubc.ca/~murphyk/Software/HMM/hmm.html}
-\BIBentrySTDinterwordspacing
-
 \bibitem{short_time_viterbi_online_hmm_deconding}
 X.~R. Julien~Blot, ``Short-time viterbi for online hmm decoding : Evaluation on
   a real-time phone recognition task,'' \emph{Acoustics, Speech and Signal

@@ -1,17 +1,17 @@
-\contentsline {definition}{{Definizione}{1}{Piani che tagliano il corpo umano}}{7}{definition.1}
-\contentsline {definition}{{Definizione}{2}{Deambulazione Normale}}{9}{definition.2}
-\contentsline {definition}{{Definizione}{3}{Segnale}}{69}{definition.3}
-\contentsline {definition}{{Definizione}{4}{Spazio campionario $\Omega $}}{70}{definition.4}
-\contentsline {definition}{{Definizione}{5}{Evento $E$}}{70}{definition.5}
-\contentsline {definition}{{Definizione}{6}{Spazio di probabilità $<\Omega , F, \wp >$}}{70}{definition.6}
-\contentsline {definition}{{Definizione}{7}{Variabile Stocastica $X$}}{70}{definition.7}
-\contentsline {definition}{{Definizione}{8}{Processo Stocastico $St$}}{70}{definition.8}
-\contentsline {definition}{{Definizione}{9}{Processi di Markov (spazio-tempo) Discreti}}{71}{definition.9}
-\contentsline {definition}{{Definizione}{10}{Modelli di Markov del Primo Ordine}}{72}{definition.10}
-\contentsline {definition}{{Definizione}{11}{Matrice delle Probabilità di transizione}}{72}{definition.11}
-\contentsline {definition}{{Definizione}{12}{Distribuzione di probabilità dello stato iniziale}}{72}{definition.12}
-\contentsline {definition}{{Definizione}{13}{Matrice di probabilità delle Osservazioni}}{72}{definition.13}
-\contentsline {definition}{{Definizione}{14}{HMM a Osservazioni discrete}}{73}{definition.14}
-\contentsline {definition}{{Definizione}{15}{Cammino locale}}{78}{definition.15}
-\contentsline {definition}{{Definizione}{16}{Punto di Fusione}}{79}{definition.16}
-\contentsline {definition}{{Definizione}{17}{}}{79}{definition.17}
+\contentsline {definition}{{Definizione}{1}{Piani che tagliano il corpo umano}}{9}{definition.1}
+\contentsline {definition}{{Definizione}{2}{Deambulazione Normale}}{11}{definition.2}
+\contentsline {definition}{{Definizione}{3}{Segnale}}{67}{definition.3}
+\contentsline {definition}{{Definizione}{4}{Spazio campionario $\Omega $}}{68}{definition.4}
+\contentsline {definition}{{Definizione}{5}{Evento $E$}}{68}{definition.5}
+\contentsline {definition}{{Definizione}{6}{Spazio di probabilità $<\Omega , F, \wp >$}}{68}{definition.6}
+\contentsline {definition}{{Definizione}{7}{Variabile Stocastica $X$}}{68}{definition.7}
+\contentsline {definition}{{Definizione}{8}{Processo Stocastico $St$}}{68}{definition.8}
+\contentsline {definition}{{Definizione}{9}{Processi di Markov (spazio-tempo) Discreti}}{69}{definition.9}
+\contentsline {definition}{{Definizione}{10}{Modelli di Markov del Primo Ordine}}{69}{definition.10}
+\contentsline {definition}{{Definizione}{11}{Matrice delle Probabilità di transizione}}{69}{definition.11}
+\contentsline {definition}{{Definizione}{12}{Distribuzione di probabilità dello stato iniziale}}{70}{definition.12}
+\contentsline {definition}{{Definizione}{13}{Matrice di probabilità delle Osservazioni}}{71}{definition.13}
+\contentsline {definition}{{Definizione}{14}{HMM a Osservazioni discrete}}{71}{definition.14}
+\contentsline {definition}{{Definizione}{15}{Cammino locale}}{76}{definition.15}
+\contentsline {definition}{{Definizione}{16}{Punto di Fusione}}{77}{definition.16}
+\contentsline {definition}{{Definizione}{17}{}}{78}{definition.17}
