@@ -35,22 +35,22 @@ Le prove sono state compiute su un tappeto rullante con pendenza 0°, nell'interv
 	\label{tab:TabellaRiassuntivaRaccoltaDati}
 \end{table}
 
-Le sessioni sono state tutte eseguite posizionando saldamente una IMU (vedi appendice \ref{sec:sensori}) sul collo del piede dei soggetti mediante un cinturino in velcro. Il tipo di sensore usato è un giroscopio monoassiale (Murata ENC-03J) con asse di sensibilità orientato sul piano mediale-laterale (sagittale) (vedi figura \ref{fig:HumanBodySPL}).\\
+Le sessioni sono state tutte eseguite posizionando saldamente una IMU (vedi appendice \ref{sec:sensori}) sul collo del piede dei soggetti mediante un cinturino in velcro. Il tipo di sensore usato è un giroscopio monoassiale con asse di sensibilità orientato sul piano mediale-laterale (sagittale) (vedi figura \ref{fig:HumanBodySPL}).\\
 I segnali sono stati campionati dal sensore ad una frequenza di 100 Hz e filtrati mediante un filtro passa-basso\footnote{Un filtro elettronico nella Teoria dei Segnali è un circuito elettronico che riceve dei segnali in ingresso e li trasforma secondo un criterio. Un filtro passa-banda (banda alta o banda bassa) lascia passare segnali a frequenza in un intervallo scelto mentre blocca il passaggio (o le attenua) il passaggio di segnali fuori dall'intervallo. Un filtro passa-basso quindi lascia passare le frequenze basse, e smorza quelle a frequenze alte.} a 15Hz mediante un filtro ricorsivo \textit{forward-backward}(Fw-Bkw)\footnote{Un filtro ricorsivo riusa i propri valori in uscita come ingresso. In particolare un filtro Fw-Bkw è un filtro ricorsivo che viene utilizzato per avere un segnale simmetrico.} di \textit{Buttersworth}\footnote{Filtro detto "`massimamente piatto"', perché non solo rifiuta i segnali a frequenze non desiderate, ma ha la stessa sensibilità per tutte le frequenze desiderate.}. 
 Dai dati raccolti, quelli considerati per lo studio sono quelli compresi nell'intervallo dai 50 ai 110 secondi. \\
 
 \begin{figure}
 	\centering
 		\includegraphics[width=1\textwidth]{imgs/patternGyro.jpg}
-	\caption{Grafico del segnale di un giroscopio posizionato sul piede.}
+	\caption{Segnale di un giroscopio posizionato sul piede.}
 	\label{fig:gyroPattern}
 \end{figure}
 
-Il grafico del segnale del giroscopio posizionato sul piede ha una struttura definita e ripetitiva (vedi grafico \ref{fig:gyroPattern}). Nel grafico, l'ascissa rappresenta i campioni e l'ordinata la velocità angolare in gradi al secondo (°/s). La forma del grafico può essere descritta a grandi linee come un picco negativo seguito da un tratto quasi orizzontale ed un secondo picco negativo ed uno positivo. Tale sequenza rappresenta un passo completo e si ripete quasi identica a se stessa durante la camminata.
+Il grafico del segnale del giroscopio posizionato sul piede ha una struttura definita e ripetitiva (vedi grafico \ref{fig:gyroPattern}). Nel grafico, l'ascissa rappresenta i campioni e l'ordinata la velocità angolare in gradi al secondo (°/s). La forma del grafico può essere descritta a grandi linee come un picco negativo seguito da un tratto approssimativamente orizzontale, un secondo picco negativo ed uno positivo. Tale sequenza rappresenta un passo completo e si ripete quasi identica a se stessa durante la camminata.
 
 
 \section{Modello: HMM}
-Il modello di deambulazione scelto è di tipo stocastico una HMM sinistra-destra ad emissioni continue (vedi appendice \ref{sec:tipi_hmm}). Questa rappresenta il susseguirsi degli intervalli tra gli eventi della deambulazione. 
+Il modello di deambulazione scelto è una HMM minimale a 4 stati sinistra-destra ad emissioni continue (vedi appendice \ref{sec:tipi_hmm}). Tale scelta è stata fatta per poter modellare la deambulazione con il minimo numero di parametri possibile. \TODO{Inoltre il segnale del giroscopico è suddivisibile anche ad occhio in 4 stati?}
 In dettaglio l'HMM è stata definita nel seguente modo:
  \begin{equation}
 	Deamb\_HMM = <N, M, \mathbf{A}, \mathbf{B}, \pi>
@@ -60,7 +60,11 @@ dove:
  \begin{enumerate}
 	\item $N = 4$ è la cardinalità dell'insieme degli stati $S = \{HS, FF, HO, FO\}$. Gli stati corrispondono agli intervalli fra un evento ed il successivo come mostra la tabella \ref{tab:4_fasi_deambulazione},
 	\item $M = |V|$ è la cardinalità dell'insieme finito dei valori di osservazione $\omega (^\circ/s)$ del giroscopio,
-	\item $\mathbf{A}$ è la matrice di transizione (vedi appendice \ref{cap:hmm}),
+	\item $\mathbf{A}$ è la matrice di transizione (vedi appendice \ref{cap:hmm}). Dato che si tratta di una HMM sinistra-destra la matrice di transizione gode della seguente proprietà:
+\begin{equation}
+	a_{ij} > 0 \Leftrightarrow j = i+1 \quad \text{o} \quad j = i+2 \quad \text{o} \quad(i = N \quad\text{e}\quad j = 1)
+\label{eq:}
+\end{equation}
 	\item $\mathbf{B}$ è la matrice di probabilità di emissione delle osservazioni $\omega$ per ciascuno stato. Ad ogni stato è stata associata una funzione di densità di probabilità gaussiana univariata (vedi figura \ref{fig:deamb_hmm}). Ciò significa che ad ogni stato devono essere associate la media ($\mu$) e varianza ($\sigma$) della distribuzione gaussiana corrispondente.
 	\item $\pi$ è il vettore di probabilità a priori (probabilità che l'i-esimo stato sia quello in cui si trova il modello al tempo iniziale).
 \end{enumerate}
@@ -69,7 +73,7 @@ dove:
 \begin{figure}[h]
 	\centering
 		\includegraphics[width=1\textwidth]{imgs/HMM.jpg}
-	\caption{Grafico del segnale di un giroscopio posizionato sul piede.}
+	\caption{Rappresentazione della $Deamb\_HMM$. Il modello ha 4 stati a ciascuno dei quali è associata una densità di emissione gaussiana ($B$). Le probabilità di transizione da uno stato al successivo sono prossime a 1 (nell'immagine ciò è rappresentato dalle frecce spesse), mentre le probabilità di transizione da uno stato a quello due stati dopo è prossima a 0 (raffigurato con le frecce sottili) e non vi sono altre possibilità di transizione.}
 	\label{fig:deamb_hmm}
 \end{figure}
 
@@ -81,21 +85,244 @@ dove:
 \textbf{Stato} & \textbf{inizio} & \textbf{fine} \\
 %\hline
 \hline
-$S_1$ & $t_{HS}$ & $t_{FF}$\\
+$S_1$ - $HS$  & $t_{HS}$ & $t_{FF}$\\
 %\hline
-$S_2$ & $t_{FF}$ & $t_{HO}$\\
+$S_2$ - $FF$  & $t_{FF}$ & $t_{HO}$\\
 %\hline
-$S_3$ & $t_{HO}$ & $t_{FO}$\\
+$S_3$ - $HO$  & $t_{HO}$ & $t_{FO}$\\
 %\hline
-$S_4$ & $t_{FO}$ & $t_{HS}$\\
+$S_4$ - $TO$  & $t_{FO}$ & $t_{HS}$\\
 \hline	 
 \end{tabular}
-\caption{Le quattro fasi della deambulazione e gli eventi (tempo iniziale e finale) che li definiscono.}
+\caption{Le quattro fasi della deambulazione e gli eventi (tempo iniziale e finale) che li definiscono. Per semplicità si indica lo stato $S_i$ con il nome dell'evento da cui è stato originato, ad esempio lo stato $S_1$ viene indicato con l'evento $HS$.}
 \label{tab:4_fasi_deambulazione}
 \end{table}
-Per semplicità si può indicare uno stato $S_i$ con l'evento da cui ha inizio, ad esempio con lo stato $HS$ indico lo stato $S_1$.
 
 
-\section{Addestramento del Modello}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Addestramento del Modello} 
+Come prima operazione per l'addestramento delle HMM, è stato etichettato un sottoinsieme dei dati: ad una sequenza $\Omega$ di dati è stato  associato un vettore $Y$ di etichette. Questo è stato fatto con l'uso del sistema di telecamere Vicon\tm (vedi sezione \ref{sec:stereofotogrammetria}).
 
+In lavori precedenti \cite{walking_features_from_inertials}, gli eventi ($t_{HS}$, $t_{FF}$, $t_{HO}$, $t_{FO}$ ) vengono determinati mediante soglie, sulla velocità angolare $\omega_k$, come mostra la Tabella \ref{tab:regole_threshold_eventi}, dove $\widetilde{\omega_k}$ è il valore non filtrato del giroscopio.
+
+\begin{table}%
+\centering
+\begin{tabular}{|c|l p{5cm}|}
+\hline
+\textbf{Evento} & \multicolumn{2}{c|} {\textbf{regola}}\\
+%\hline
+\hline
+$t_{HS}$ & $ \omega_k \leq 0 $ e $ min_1 \leq  \omega_k$ & $\displaystyle\max_{\forall k}|\widetilde{\omega_k} - \omega_k|$\\
+%\hline
+$t_{FF}$ & $|\omega_k|\geq  50$°/s&\\
+%\hline
+$t_{HO}$ & $|\omega_k|\geq  50$°/s &\\
+%\hline
+$t_{FO}$ & $\omega_k = 0$ & se $\omega$ da negativo è diventato positivo e cresce fino al suo massimo.\\
+\hline	 
+\end{tabular}
+\caption{Regole basate sulle soglie (\textit{threshold based}) mediante le quali vengono ricavati gli eventi che delimitano le 4 fasi del cammino \cite{walking_features_from_inertials}.}
+\label{tab:regole_threshold_eventi}
+\end{table}
+
+
+Nel lavoro presentato i dati acquisiti con la IMU sono stati etichettati con dati acquisiti mediante stereofotogrammetria, procedura ritenuta lo standard di riferimento per lo studio della cinematica del cammino\cite{reliable_gait_phase_analysis}.
+
+Il sistema ottico commerciale di analisi del movimento usato è Vicon\tm 370 (Oxford Metrics Ltd., UK) \ref{sec:stereofotogrammetria}.
+Con Vicon\tm sono state tracciate e misurate le traiettorie di marcatori retro riflettenti posizionati sul corpo dei soggetti. 
+Sono state posizionate 4 telecamere con una frequenza di campionamento di 50Hz, intorno al tappeto rullante, per tracciare la posizione di 5 marcatori con un'accuratezza di $\pm 1mm$ ed il software Workstation\tm.
+Le traiettorie dei marcatori sono state usate per estrarre un segnale di riferimento per le fasi della deambulazione, che successivamente sono state usate per valutare l'accuratezza del segnale in uscita dal sistema di riconoscimento degli eventi.
+
+
+\begin{table}%
+\centering
+\begin{tabular}{|p{4cm}|p{6cm}|}
+\hline
+\textbf{Nome} & \textbf{Posizione} \\
+\hline
+HM (\textit{Heel Marker}) & lato posteriore del tallone;\\
+\hline	 
+AM (\textit{Ancle Marker}) & lato esterno della caviglia;\\
+\hline
+TM (\textit{Toe Marker}) &  giuntura metatarso-falange dell'alluce;\\
+\hline
+ThM (\textit{Thigh Marker}) & lato esterno della coscia, ad un terzo dell'altezza della coscia a partire dal ginocchio;\\
+\hline
+LSM (\textit{Lombaro Sacral Marker}) & tra la zona lombare e sacrale.\\
+\hline
+\end{tabular}
+\caption{Posizionamento dei marcatori sul corpo.}
+\label{tab:marker_positioning}
+\end{table}
+
+
+Le regole riportate nelle tabelle \ref{tab:vicon_rules, tab:min_max_HM_TM} e figura \ref{fig:vicon_traced_TM_HM} usate per generare il segnale di riferimento Vicon\tm si basano sul tracciamento di soli 2 marcatori: HM e TM.
+
+\begin{table}%
+\centering
+\begin{tabular}{|p{2cm}|p{4cm}|p{4cm}|}
+\hline
+&\textbf{min} & \textbf{max} \\
+\hline
+HM & inizio fase Sw & Evento HS\\
+\hline	 
+TM & primo picco: fine Fase HO, secondo picco fine fase Sw&  fase \textit{Stance}\\
+\hline
+\end{tabular}
+\caption{Valori minimi e massimi assunti dai marcatori HM e TM.}
+\label{tab:min_max_HM_TM}
+\end{table}
+
+
+\begin{table}%
+\centering
+\begin{tabular}{|p{3.3cm}|p{3.3cm}|p{3.3cm}|}
+\hline
+\textbf{Evento} & \textbf{Condizione} & \textbf{Posizione in Figura \ref{fig:vicon_traced_TM_HM}} \\
+\hline
+HO & $y(HM) > 80mm$ & A\\
+TO & $\max y(HM)$ & B\\
+HS & $\min y(HM)$ & C\\
+FF & $y'(TM) = 0$ & D\\
+\hline
+\end{tabular}
+\caption{Regole usate per generare il segnale di riferimento Vicon\tm.}
+\label{tab:vicon_rules}
+\end{table}
+
+\begin{figure}
+	\centering
+		\includegraphics[width=1\textwidth]{imgs/ViconMeasurementsPappas.jpg}
+	\caption{Tracciamento mediante Vicon\tm dei marcatori HM e TM. Immagine riadattata da \cite{reliable_gait_phase_detection_gyr}}
+	\label{fig:vicon_traced_TM_HM}
+\end{figure}
+
+La stima (dei parametri del modello) della massima verosimiglianza (\textit{Maximum Likelihood Estimation} - MLE) $\ell(\Omega, Deamb\_HMM )$ non è un problema convesso dato. Il problema dei massimi locali viene aggirato con un'attenta inizializzazione dei parametri. 
+
+In particolare poiché sul \textit{dataset} i dati sono amobili e conosciamo quindi la fase del cammino cui appartengono, è possibile procedere all'addestramento con approccio supervisionato. L'associazione di ogni stato del modello ad
+una fase cammino permette di stimare la probabilità $\pi_i$ dell'i-esimo stato di essere il primo elemento di una sequenza come 
+\begin{equation}
+\begin{split}
+\pi_i & = N_i/N_{tot} \quad i = 1,...,Q\\
+\end{split}	 
+\label{eq:hmmTrainingPI}
+\end{equation} 
+ovvero la frazione degli $N_i $ dati relativi alla fase i-esima, rispetto al totale dei dati del \textit{training set} $N_{tot}$.
+Analogamente la matrice delle probabilità di transizione viene calcolata come 
+\begin{equation}
+\begin{split}
+a_{ij}& = C/N_i    \quad &\text{se}\quad j = (i+1)\%Q \quad \text{e} \quad i,j = 1,...,Q \\
+a_{ij}& = 1- C/N_i \quad &\text{se} \quad j = i\\
+a_{ij}& = 0        \quad &\text{altrimenti} 
+\end{split}	 
+\label{eq:hmmTrainingA}
+\end{equation}
+
+dove $C$ è il numero di cicli di deambulazione nel \textit{training set}.\\ 
+
+I parametri relativi alle probabilità di emissione ( $\mu$ e $\sigma$) dei singoli stati sono stimati a partire dai dati a seconda della fase del cammino cui appartengono. Assumendo un modello probabilistico gaussiano a descrivere le emissioni degli stati dell'HMM, i parametri delle densità di emissione dell'i-esimo stato sono stimati valutando le medie e le deviazioni standard empiriche delle osservazioni etichettate come appartenenti alla fase $i$ del cammino 
+\begin{equation}
+\begin{split}
+\mu_i &= \dfrac{1}{N_i} \displaystyle \sum_{t=1}^T{\Omega(t)} \quad i = 1,...,Q\\
+\sigma_i &= \sqrt{\dfrac{1}{N_i -1}\displaystyle \sum_{t=1}^T({\Omega(t)-\mu_i})^2}
+\end{split}	 
+\label{eq:hmmTrainingB}
+\end{equation}
+
+\section{Validazione del Modello}
+
+La validazione è stata fatta con l'approccio della validazione incrociata ad esclusione di un campione (\textit{leave-one-subject-out cross-validation} o LOOCV). 
+Il metodo consiste nell'addestrare un modello su P-1 ($P=6$) soggetti e testarne la validità su 1 soggetto. La procedura viene ripetuta P volte in modo da verificare ogni soggetto su un modello addestrato usando i dati usando i dati degli altri 5. I risultati di tutte le P validazioni eseguite vengono in fine aggregati in un unico risultato.
+
+\section{Strumenti usati}
+Le fasi della creazione addestramento e validazione incrociata del modello è stata fatta in differita, mediante un Mathworks\tm  MATLAB\tm  ed l'\textit{HMM toolbox} \cite{HMM_toolbox}. 
+Nella fase di verifica, viene usato l'algoritmo di decodifica di Viterbi (vedi appendice \ref{alg:viterbi}) sui dati del giroscopio, per trovare la sequenza di stati che con maggior verosimiglianza ha prodotto le osservazioni (sequenze di valori del giroscopio).
+\section{Problematiche implementative e soluzioni}
+Il modello sinistra-destra dell'HMM (vedi appendice \ref{sec:HMM}) può portare a considerare cicli di deambulazione aggiuntivi detti inserzioni (\textit{insertions}), o meno di quelli effettivi delezioni (\textit{deletions}). Il problema delle inserzioni viene risolto mediante l'applicazione di un'euristica: per i presupposti del tipo di deambulazione considerata (velocità e pendenza del terreno), tutti i cicli di deambulazione di durata inferiore a 250 ms secondi sono inserzioni.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Parametri ottenuti}
+
+\begin{table}%
+\centering
+\begin{tabular}{|c|c c c c|}
+\hline
+\textbf{A} &\textsc{HS} & \textsc{FF} & \textsc{HO} & \textsc{TO}\\
+%\hline
+\hline
+\textsc{HS} & $0.985$ & $0.015$ & $0.0$ & $0.0$\\
+%\hline
+\textsc{FF} & $0.0$ & $0.998$ & $0.002$ & $0.0$\\
+%\hline
+\textsc{HO} & $0.0$ & $0.0$ & $0.991$ & $0.009$\\
+%\hline
+\textsc{FO} & $0.007$ & $0.0$ & $0.0$ & $0.993$\\
+\hline	 
+\end{tabular}
+\caption{Matrice di Transizione}
+\label{tab:matrice_transizione}
+\end{table}
+
+
+\begin{table}%
+\centering
+\begin{tabular}{|c|c c|}
+\hline
+\textbf{B} &\textsc{$\mu$[°/s]} & \textsc{$\sigma ^2$[°/s]}\\
+%\hline
+\hline
+\textsc{HS} & $-52.2$ & $12711.8$\\
+%\hline
+\textsc{FF} & $-11.8$ & $898.7$\\
+%\hline
+\textsc{HO} & $-180.1$ & $35806.8$\\
+%\hline
+\textsc{FO} & $233$ & $14980.3$\\
+\hline	 
+\end{tabular}
+\caption{Matrice di Emissione}
+\label{tab:matrice_emissione}
+\end{table}
+
+
+\begin{table}%
+\centering
+\begin{tabular}{|p{.7cm}|p{2.8cm}|}
+\hline
+ &\textsc{$\pi$} \\
+%\hline
+\hline
+\textsc{HS} & $0.180$ \\  
+%\hline
+\textsc{FF} & $0.278$ \\
+%\hline
+\textsc{HO} & $0.279$ \\
+%\hline
+\textsc{FO} & $0.264$\\
+\hline	 
+\end{tabular}
+\caption{Distribuzione di probabilità iniziale}
+\label{tab:prior}
+\end{table}
+Le seguenti sono un esempio di osservazioni: 12400 dati Giroscopio
+\begin{table}%
+\centering
+\begin{tabular}{|c|c|}
+\hline
+ time&\textsc{$O$} \\
+%\hline
+\hline
+\textsc{1} & $0.37694$\\  
+\textsc{2} & $0.37694$\\
+\textsc{3} & $0.37694$\\
+\textsc{4} & $0.37694$\\
+\textsc{5} & $-1.9058$\\
+\vdots & \vdots\\
+\textsc{24800} & $-16.831$\\
+\hline	 
+\end{tabular}
+\caption{Osservazioni Giroscopio: velocità angolari}
+\label{tab:osservazioni}
+\end{table}

@@ -29,40 +29,43 @@
 \contentsline {section}{\numberline {5.1}Raccolta dati}{29}{section.5.1}
 \contentsline {section}{\numberline {5.2}Modello: HMM}{30}{section.5.2}
 \contentsline {section}{\numberline {5.3}Addestramento del Modello}{31}{section.5.3}
-\contentsline {section}{\numberline {5.4}Parametri ottenuti}{31}{section.5.4}
-\contentsline {chapter}{\numberline {6}Applicazione Android}{33}{chapter.6}
-\contentsline {section}{\numberline {6.1}Introduzione}{33}{section.6.1}
-\contentsline {section}{\numberline {6.2}Metodologia di programmazione usata: \textit {Agile e Unit Test}}{34}{section.6.2}
-\contentsline {section}{\numberline {6.3}Organizzazione del codice sorgente guidata dalle direttive Android}{37}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Android \textit {Manifest}}{37}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Codice sorgente}{39}{subsection.6.3.2}
-\contentsline {subsection}{\numberline {6.3.3}Risorse}{39}{subsection.6.3.3}
-\contentsline {subsubsection}{Impaginazione (\textit {Layout})}{39}{subsection.6.3.3}
-\contentsline {subsubsection}{File grafici}{41}{figure.caption.22}
-\contentsline {subsubsection}{Valori}{41}{figure.caption.22}
-\contentsline {subsubsection}{Altri File}{42}{figure.caption.22}
-\contentsline {subsection}{\numberline {6.3.4}Librerie}{42}{subsection.6.3.4}
-\contentsline {section}{\numberline {6.4}Architettura}{42}{section.6.4}
-\contentsline {subsection}{\numberline {6.4.1}Unit\`a di Controllo}{42}{subsection.6.4.1}
-\contentsline {subsection}{\numberline {6.4.2}Interfaccia Utente}{42}{subsection.6.4.2}
-\contentsline {subsection}{\numberline {6.4.3}Comunicazione Bluetooth}{44}{subsection.6.4.3}
-\contentsline {subsection}{\numberline {6.4.4}Gestione di Processi}{49}{subsection.6.4.4}
-\contentsline {subsubsection}{MailBox}{49}{subsection.6.4.4}
-\contentsline {subsubsection}{Verifiche per il protocollo di comunicazione \textit {MailBox}}{53}{figure.caption.27}
-\contentsline {subsection}{\numberline {6.4.5}HMM e Viterbi}{55}{subsection.6.4.5}
-\contentsline {subsubsection}{Scheletro di un HMM}{55}{subsection.6.4.5}
-\contentsline {subsubsection}{HMM ad emissioni discrete}{57}{lstnumber.6.17.11}
-\contentsline {subsubsection}{HMM ad emissioni continue}{58}{lstnumber.6.19.25}
-\contentsline {subsubsection}{Operazioni sulle HMM}{58}{lstnumber.6.20.1}
-\contentsline {chapter}{\numberline {7}Valutazione}{61}{chapter.7}
-\contentsline {subsection}{\numberline {7.0.6}Dati}{61}{subsection.7.0.6}
-\contentsline {chapter}{\numberline {8}Risultati e Conclusioni}{63}{chapter.8}
+\contentsline {section}{\numberline {5.4}Validazione del Modello}{34}{section.5.4}
+\contentsline {section}{\numberline {5.5}Strumenti usati}{34}{section.5.5}
+\contentsline {section}{\numberline {5.6}Problematiche implementative e soluzioni}{35}{section.5.6}
+\contentsline {section}{\numberline {5.7}Parametri ottenuti}{35}{section.5.7}
+\contentsline {chapter}{\numberline {6}Applicazione Android}{37}{chapter.6}
+\contentsline {section}{\numberline {6.1}Introduzione}{37}{section.6.1}
+\contentsline {section}{\numberline {6.2}Metodologia di programmazione seguita : \textit {Agile e Unit Test}}{38}{section.6.2}
+\contentsline {section}{\numberline {6.3}Strumenti e ambiente di lavoro}{41}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Android \textit {Manifest}}{41}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Codice sorgente}{43}{subsection.6.3.2}
+\contentsline {subsection}{\numberline {6.3.3}Risorse}{43}{subsection.6.3.3}
+\contentsline {subsubsection}{Impaginazione (\textit {Layout})}{43}{subsection.6.3.3}
+\contentsline {subsubsection}{File grafici}{45}{figure.caption.31}
+\contentsline {subsubsection}{Valori}{45}{figure.caption.31}
+\contentsline {subsubsection}{Altri File}{46}{figure.caption.31}
+\contentsline {subsection}{\numberline {6.3.4}Librerie}{46}{subsection.6.3.4}
+\contentsline {section}{\numberline {6.4}Architettura}{46}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Unit\`a di Controllo}{46}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}Interfaccia Utente}{46}{subsection.6.4.2}
+\contentsline {subsection}{\numberline {6.4.3}Comunicazione Bluetooth}{48}{subsection.6.4.3}
+\contentsline {subsection}{\numberline {6.4.4}Gestione di Processi}{53}{subsection.6.4.4}
+\contentsline {subsubsection}{MailBox}{53}{subsection.6.4.4}
+\contentsline {subsubsection}{Verifiche per il protocollo di comunicazione \textit {MailBox}}{57}{figure.caption.36}
+\contentsline {subsection}{\numberline {6.4.5}HMM e Viterbi}{59}{subsection.6.4.5}
+\contentsline {subsubsection}{Scheletro di un HMM}{59}{subsection.6.4.5}
+\contentsline {subsubsection}{HMM ad emissioni discrete}{61}{lstnumber.6.17.11}
+\contentsline {subsubsection}{HMM ad emissioni continue}{62}{lstnumber.6.19.25}
+\contentsline {subsubsection}{Operazioni sulle HMM}{62}{lstnumber.6.20.1}
+\contentsline {chapter}{\numberline {7}Valutazione}{65}{chapter.7}
+\contentsline {subsection}{\numberline {7.0.6}Dati}{65}{subsection.7.0.6}
+\contentsline {chapter}{\numberline {8}Risultati e Conclusioni}{67}{chapter.8}
 \mbox {}\hrulefill \par 
 \mbox {}\hrulefill \par 
-\contentsline {part}{iii\hspace {1em}Appendice}{65}{part.3}
-\contentsline {chapter}{\numberline {A}Sulle HMM}{67}{appendix.A}
-\contentsline {chapter}{\numberline {B}Tempo Reale, In Linea, Latenza}{83}{appendix.B}
-\contentsline {chapter}{\numberline {C}Cenni di Meccanica classica}{85}{appendix.C}
-\contentsline {chapter}{\numberline {D}Sensori}{89}{appendix.D}
-\contentsline {chapter}{\numberline {E}Su Android}{93}{appendix.E}
-\contentsline {subsubsection}{Java\unhbox \voidb@x \hbox {$\rm {}^{TM}$}e Android\unhbox \voidb@x \hbox {$\rm {}^{TM}$}}{96}{figure.caption.35}
+\contentsline {part}{iii\hspace {1em}Appendice}{69}{part.3}
+\contentsline {chapter}{\numberline {A}Sulle HMM}{71}{appendix.A}
+\contentsline {chapter}{\numberline {B}Tempo Reale, In Linea, Latenza}{87}{appendix.B}
+\contentsline {chapter}{\numberline {C}Cenni di Meccanica classica}{89}{appendix.C}
+\contentsline {chapter}{\numberline {D}Sensori}{93}{appendix.D}
+\contentsline {chapter}{\numberline {E}Su Android}{97}{appendix.E}
+\contentsline {subsubsection}{Java\unhbox \voidb@x \hbox {$\rm {}^{TM}$}e Android\unhbox \voidb@x \hbox {$\rm {}^{TM}$}}{100}{figure.caption.46}
