@@ -4,7 +4,7 @@ Version=2
 
 [SessionInfo]
 ActiveTab=0
-FrameCount=3
+FrameCount=4
 ActiveFrame=0
 
 [Frame0]
@@ -32,9 +32,9 @@ cxCur=997
 cxMin=10
 
 [Frame0_View0,0]
-Cursor.row=106
-Cursor.column=60
-TopSubLine=97
+Cursor.row=100
+Cursor.column=57
+TopSubLine=92
 
 [Frame1]
 Columns=1
@@ -61,9 +61,9 @@ cxCur=901
 cxMin=10
 
 [Frame1_View0,0]
-Cursor.row=60
-Cursor.column=16
-TopSubLine=77
+Cursor.row=254
+Cursor.column=6
+TopSubLine=326
 
 [Frame2]
 Columns=1
@@ -93,4 +93,33 @@ cxMin=10
 Cursor.row=36
 Cursor.column=40
 TopSubLine=36
+
+[Frame3]
+Columns=1
+Rows=1
+Flags=0
+ShowCmd=1
+MinPos.x=-1
+MinPos.y=-1
+MaxPos.x=-4
+MaxPos.y=-30
+NormalPos.left=66
+NormalPos.top=87
+NormalPos.right=996
+NormalPos.bottom=331
+Class=CLatexEdit
+Document=CAP_validazione.tex
+
+[Frame3_Row0]
+cyCur=189
+cyMin=10
+
+[Frame3_Col0]
+cxCur=901
+cxMin=10
+
+[Frame3_View0,0]
+Cursor.row=4
+Cursor.column=511
+TopSubLine=0
 
