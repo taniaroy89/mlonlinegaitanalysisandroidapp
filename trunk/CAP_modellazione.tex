@@ -50,7 +50,7 @@ Il grafico del segnale del giroscopio posizionato sul piede ha una struttura def
 
 
 \section{Modello: HMM}
-Il modello di deambulazione scelto è una HMM minimale a 4 stati sinistra-destra ad emissioni continue (vedi appendice \ref{sec:tipi_hmm}). Tale scelta è stata fatta per poter modellare la deambulazione con il minimo numero di parametri possibile. \TODO{Inoltre il segnale del giroscopico è suddivisibile anche ad occhio in 4 stati?}
+Il modello di deambulazione scelto è una HMM minimale a 4 stati sinistra-destra ad emissioni continue (vedi appendice \ref{sec:tipi_hmm}). Tale scelta è stata fatta per poter modellare la deambulazione con il minimo numero di parametri possibile. Inoltre il segnale del giroscopico è approssimativamente suddivisibile anche visivamente in 4 stati.
 In dettaglio l'HMM è stata definita nel seguente modo:
  \begin{equation}
 	Deamb\_HMM = <N, M, \mathbf{A}, \mathbf{B}, \pi>
@@ -101,7 +101,7 @@ $S_4$ - $TO$  & $t_{FO}$ & $t_{HS}$\\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Addestramento del Modello} 
+\section{Addestramento e Validazione del Modello} 
 Come prima operazione per l'addestramento delle HMM, è stato etichettato un sottoinsieme dei dati: ad una sequenza $\Omega$ di dati è stato  associato un vettore $Y$ di etichette. Questo è stato fatto con l'uso del sistema di telecamere Vicon\tm (vedi sezione \ref{sec:stereofotogrammetria}).
 
 In lavori precedenti \cite{walking_features_from_inertials}, gli eventi ($t_{HS}$, $t_{FF}$, $t_{HO}$, $t_{FO}$ ) vengono determinati mediante soglie, sulla velocità angolare $\omega_k$, come mostra la Tabella \ref{tab:regole_threshold_eventi}, dove $\widetilde{\omega_k}$ è il valore non filtrato del giroscopio.
@@ -129,9 +129,9 @@ $t_{FO}$ & $\omega_k = 0$ & se $\omega$ da negativo è diventato positivo e cresc
 
 Nel lavoro presentato i dati acquisiti con la IMU sono stati etichettati con dati acquisiti mediante stereofotogrammetria, procedura ritenuta lo standard di riferimento per lo studio della cinematica del cammino\cite{reliable_gait_phase_analysis}.
 
-Il sistema ottico commerciale di analisi del movimento usato è Vicon\tm 370 (Oxford Metrics Ltd., UK) \ref{sec:stereofotogrammetria}.
+Il sistema ottico commerciale di analisi del movimento usato è Vicon\tm 460 (Oxford Metrics Ltd., UK) \ref{sec:stereofotogrammetria}.
 Con Vicon\tm sono state tracciate e misurate le traiettorie di marcatori retro riflettenti posizionati sul corpo dei soggetti. 
-Sono state posizionate 4 telecamere con una frequenza di campionamento di 50Hz, intorno al tappeto rullante, per tracciare la posizione di 5 marcatori con un'accuratezza di $\pm 1mm$ ed il software Workstation\tm.
+Sono state posizionate 6 telecamere con una frequenza di campionamento di 100Hz, intorno al tappeto rullante, per tracciare la posizione di 5 marcatori con un'accuratezza di $\pm 1mm$ ed il software Workstation\tm.
 Le traiettorie dei marcatori sono state usate per estrarre un segnale di riferimento per le fasi della deambulazione, che successivamente sono state usate per valutare l'accuratezza del segnale in uscita dal sistema di riconoscimento degli eventi.
 
 
@@ -157,7 +157,7 @@ LSM (\textit{Lombaro Sacral Marker}) & tra la zona lombare e sacrale.\\
 \end{table}
 
 
-Le regole riportate nelle tabelle \ref{tab:vicon_rules, tab:min_max_HM_TM} e figura \ref{fig:vicon_traced_TM_HM} usate per generare il segnale di riferimento Vicon\tm si basano sul tracciamento di soli 2 marcatori: HM e TM.
+Le regole riportate nelle tabelle \ref{tab:vicon_rules}, \ref{tab:min_max_HM_TM} e figura \ref{fig:vicon_traced_TM_HM} usate per generare il segnale di riferimento Vicon\tm si basano sul tracciamento di soli 2 marcatori: HM e TM.
 
 \begin{table}%
 \centering
@@ -200,7 +200,7 @@ FF & $y'(TM) = 0$ & D\\
 
 La stima (dei parametri del modello) della massima verosimiglianza (\textit{Maximum Likelihood Estimation} - MLE) $\ell(\Omega, Deamb\_HMM )$ non è un problema convesso dato. Il problema dei massimi locali viene aggirato con un'attenta inizializzazione dei parametri. 
 
-In particolare poiché sul \textit{dataset} i dati sono amobili e conosciamo quindi la fase del cammino cui appartengono, è possibile procedere all'addestramento con approccio supervisionato. L'associazione di ogni stato del modello ad
+In particolare poiché sul \textit{dataset} i dati sono annotati e conosciamo quindi la fase del cammino cui appartengono, è possibile procedere all'addestramento con approccio supervisionato. L'associazione di ogni stato del modello ad
 una fase cammino permette di stimare la probabilità $\pi_i$ dell'i-esimo stato di essere il primo elemento di una sequenza come 
 \begin{equation}
 \begin{split}
@@ -230,21 +230,25 @@ I parametri relativi alle probabilità di emissione ( $\mu$ e $\sigma$) dei singo
 \label{eq:hmmTrainingB}
 \end{equation}
 
-\section{Validazione del Modello}
 
-La validazione è stata fatta con l'approccio della validazione incrociata ad esclusione di un campione (\textit{leave-one-subject-out cross-validation} o LOOCV). 
-Il metodo consiste nell'addestrare un modello su P-1 ($P=6$) soggetti e testarne la validità su 1 soggetto. La procedura viene ripetuta P volte in modo da verificare ogni soggetto su un modello addestrato usando i dati usando i dati degli altri 5. I risultati di tutte le P validazioni eseguite vengono in fine aggregati in un unico risultato.
+La procedura di validazione serve a stabilire la capacità del modello di generalizzare su dati nuovi, ovvero l'accuratezza con cui eseguirà la segmentazione della deambulazione di individui per i quali non è stato addestrato.
 
-\section{Strumenti usati}
+La validazione è stata fatta con l'approccio della validazione incrociata ad esclusione di un campione (\textit{leave-one-subject-out cross-validation} o LOOCV) oppure validazione a rotazione. 
+
+Il metodo consiste nell'addestrare un modello su $P-1$ soggetti (in questo caso $P = 6$) e verificarne la validità su 1 soggetto (quello escluso dall'addestramento). Il risultato della procedura è il modello $Deamb\_HMM_1$.  
+La procedura viene ripetuta $P$ volte in modo da addestrare e verificare su tutti i soggetti. Questo produce $P$ modelli 
+$Deamb\_HMM_1, ..., Deamb\_HMM_P$. La validazione ha confermato il corretto funzionamento dei modelli: il modello meno performante, ha classificato l'\TODO{80\%} dei dati, mentre quello più performante il \TODO{99,9\%}.\\
+
+
 Le fasi della creazione addestramento e validazione incrociata del modello è stata fatta in differita, mediante un Mathworks\tm  MATLAB\tm  ed l'\textit{HMM toolbox} \cite{HMM_toolbox}. 
-Nella fase di verifica, viene usato l'algoritmo di decodifica di Viterbi (vedi appendice \ref{alg:viterbi}) sui dati del giroscopio, per trovare la sequenza di stati che con maggior verosimiglianza ha prodotto le osservazioni (sequenze di valori del giroscopio).
-\section{Problematiche implementative e soluzioni}
-Il modello sinistra-destra dell'HMM (vedi appendice \ref{sec:HMM}) può portare a considerare cicli di deambulazione aggiuntivi detti inserzioni (\textit{insertions}), o meno di quelli effettivi delezioni (\textit{deletions}). Il problema delle inserzioni viene risolto mediante l'applicazione di un'euristica: per i presupposti del tipo di deambulazione considerata (velocità e pendenza del terreno), tutti i cicli di deambulazione di durata inferiore a 250 ms secondi sono inserzioni.
+Nella fase di verifica, viene usato l'algoritmo di decodifica di Viterbi (vedi appendice \ref{alg:viterbi}) sui dati del giroscopio, per trovare la sequenza di stati che con maggior verosimiglianza ha prodotto le osservazioni (sequenze di valori del giroscopio).\\
+
+Il modello sinistra-destra dell'HMM (vedi appendice \ref{sec:HMM}) può portare a considerare cicli di deambulazione aggiuntivi detti inserzioni (\textit{insertions}), o meno di quelli effettivi delezioni (\textit{deletions}). Il problema delle inserzioni viene risolto mediante l'applicazione di un'euristica: per i presupposti del tipo di deambulazione considerata (velocità e pendenza del terreno), tutti i cicli di deambulazione di durata inferiore a $250 ms$ sono inserzioni.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Parametri ottenuti}
-
+Dato che la validazione ha confermato la correttezza del sistema, per la segmentazione è stato addestrato un HMM con tutti i soggetti (in modo da avere un modello ancora più performante), ed i parametri ottenuti sono presentati nelle tabelle \ref{tab:prior}, \ref{tab:matrice_transizione}, \ref{tab:matrice_emissione}. In tabella \ref{tab:osservazioni} è riportato un esempio di dati in ingresso al modello .
 \begin{table}%
 \centering
 \begin{tabular}{|c|c c c c|}
@@ -323,6 +327,6 @@ Le seguenti sono un esempio di osservazioni: 12400 dati Giroscopio
 \textsc{24800} & $-16.831$\\
 \hline	 
 \end{tabular}
-\caption{Osservazioni Giroscopio: velocità angolari}
+\caption{Osservazioni: esempio di segnale giroscopico}
 \label{tab:osservazioni}
 \end{table}
