@@ -5,7 +5,7 @@ A level-1 auxiliary file: CAP_chinesiologia.aux
 A level-1 auxiliary file: CAP_statoDellArte.aux
 A level-1 auxiliary file: CAP_modellazione.aux
 A level-1 auxiliary file: CAP_AndroidApp.aux
-A level-1 auxiliary file: CAP_validazione.aux
+A level-1 auxiliary file: CAP_valutazione.aux
 A level-1 auxiliary file: CAP_risultati.aux
 A level-1 auxiliary file: APPENDICE_hmm.aux
 A level-1 auxiliary file: APPENDICE_realtime.aux
@@ -17,10 +17,11 @@ Database file #1: biblio.bib
 Warning--I didn't find a database entry for "novel_approach_ambulatory_systems"
 Warning--I didn't find a database entry for "reliable_gait_phase_analysis"
 Warning--I didn't find a database entry for "interpolation_markov_params_sparse_data"
+Warning--I didn't find a database entry for "Wikipedia"
 -- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 Warning--empty year in finite_state_control_FES
 
 Done.
-(There were 4 warnings)
+(There were 5 warnings)

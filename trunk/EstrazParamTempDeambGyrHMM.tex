@@ -97,8 +97,8 @@ della Deambulazione: Sviluppo e Validazione di un'applicazione per Smartphone\xs
 \newcommand{\myUni}{\protect{	Università degli Studi di Firenze}\xspace}
 \newcommand{\myLocation}{Firenze\xspace}
 \newcommand{\myTime}{Anno Accademico 2010-2011\xspace}
-\newcommand{\myVersion}{\small \textcolor{red}{Revisione 19.8} \xspace} %last committed svn version.build
-\newcommand{\myShortVersion}{\small \textcolor{red}{v19.8} \xspace}
+\newcommand{\myVersion}{\small \textcolor{red}{Revisione 20.0} \xspace} %last committed svn version.build
+\newcommand{\myShortVersion}{\small \textcolor{red}{v20.0} \xspace}
 %-----------------------------------------------------------\hypersetup{pdfstartview=FitW}
 \hypersetup{pdfstartview=FitW}
 %% Define a new 'leo' style for the package that will use a smaller font.
@@ -283,12 +283,12 @@ della Deambulazione: Sviluppo e Validazione di un'applicazione per Smartphone\xs
 \addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
 \part{Lavoro svolto}
 \include{CAP_modellazione}
-%\include{CAP_materiali}
+%%\include{CAP_materiali}
 \include{CAP_AndroidApp}
-\include{CAP_validazione}
+\include{CAP_valutazione}
 \include{CAP_risultati}
 %--------------------------------------------------------------
-% Backmatter
+%% Backmatter
 %--------------------------------------------------------------
 
 \addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
@@ -302,14 +302,16 @@ della Deambulazione: Sviluppo e Validazione di un'applicazione per Smartphone\xs
 %\appendixpage
 %\addtocontents{toc}{\cftpagenumbersoff{chapter}}
 %\setcounter{tocdepth}{1}
-\include{APPENDICE_hmm}
+\begin{center}
+
+\end{center}\include{APPENDICE_hmm}
 \include{APPENDICE_realtime}
 \include{APPENDICE_meccanica}
 \include{APPENDICE_sensori}
 \include{APPENDICE_android}
-
+%
 %\include{RINGRAZIAMENTI}
-%--------------------------------------------------------------
+%%--------------------------------------------------------------
 %	Extras
 %--------------------------------------------------------------
 %--------------------------------------------------------------
@@ -318,5 +320,5 @@ della Deambulazione: Sviluppo e Validazione di un'applicazione per Smartphone\xs
 %\printglossaries
 %\addcontentsline{toc}{chapter}{Glossary}
 \end{document}
-%------------------------------------	--------------------------
+\------------------------------------	--------------------------
 	

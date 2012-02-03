@@ -48,21 +48,20 @@
 \contentsline {subsection}{\numberline {6.4.3}Comunicazione Bluetooth}{48}{subsection.6.4.3}
 \contentsline {subsection}{\numberline {6.4.4}Gestione di Processi}{53}{subsection.6.4.4}
 \contentsline {subsubsection}{MailBox}{53}{subsection.6.4.4}
-\contentsline {subsubsection}{Verifiche per il protocollo di comunicazione \textit {MailBox}}{57}{figure.caption.36}
-\contentsline {subsection}{\numberline {6.4.5}HMM e Viterbi}{59}{subsection.6.4.5}
-\contentsline {subsubsection}{Scheletro di un HMM}{59}{subsection.6.4.5}
-\contentsline {subsubsection}{HMM ad emissioni discrete}{61}{lstnumber.6.17.11}
-\contentsline {subsubsection}{HMM ad emissioni continue}{62}{lstnumber.6.19.25}
-\contentsline {subsubsection}{Operazioni sulle HMM}{62}{lstnumber.6.20.1}
-\contentsline {chapter}{\numberline {7}Valutazione}{65}{chapter.7}
-\contentsline {subsection}{\numberline {7.0.6}Dati}{65}{subsection.7.0.6}
+\contentsline {subsubsection}{Verifiche per il protocollo di comunicazione \textit {MailBox}}{57}{Item.40}
+\contentsline {subsection}{\numberline {6.4.5}HMM e Viterbi}{58}{subsection.6.4.5}
+\contentsline {subsubsection}{Scheletro di un HMM}{58}{subsection.6.4.5}
+\contentsline {subsubsection}{HMM ad emissioni discrete}{60}{lstnumber.6.17.11}
+\contentsline {subsubsection}{HMM ad emissioni continue}{61}{lstnumber.6.19.25}
+\contentsline {subsubsection}{Operazioni sulle HMM}{61}{lstnumber.6.20.1}
+\contentsline {chapter}{\numberline {7}Valutazione}{63}{chapter.7}
 \contentsline {chapter}{\numberline {8}Risultati e Conclusioni}{67}{chapter.8}
 \mbox {}\hrulefill \par 
 \mbox {}\hrulefill \par 
-\contentsline {part}{iii\hspace {1em}Appendice}{69}{part.3}
-\contentsline {chapter}{\numberline {A}Sulle HMM}{71}{appendix.A}
-\contentsline {chapter}{\numberline {B}Tempo Reale, In Linea, Latenza}{87}{appendix.B}
-\contentsline {chapter}{\numberline {C}Cenni di Meccanica classica}{89}{appendix.C}
-\contentsline {chapter}{\numberline {D}Sensori}{93}{appendix.D}
-\contentsline {chapter}{\numberline {E}Su Android}{97}{appendix.E}
-\contentsline {subsubsection}{Java\unhbox \voidb@x \hbox {$\rm {}^{TM}$}e Android\unhbox \voidb@x \hbox {$\rm {}^{TM}$}}{100}{figure.caption.46}
+\contentsline {part}{iii\hspace {1em}Appendice}{71}{part.3}
+\contentsline {chapter}{\numberline {A}Sulle HMM}{75}{appendix.A}
+\contentsline {chapter}{\numberline {B}Tempo Reale, In Linea, Latenza}{91}{appendix.B}
+\contentsline {chapter}{\numberline {C}Cenni di Meccanica classica}{93}{appendix.C}
+\contentsline {chapter}{\numberline {D}Sensori}{97}{appendix.D}
+\contentsline {chapter}{\numberline {E}Su Android}{101}{appendix.E}
+\contentsline {subsubsection}{Java\unhbox \voidb@x \hbox {$\rm {}^{TM}$}e Android\unhbox \voidb@x \hbox {$\rm {}^{TM}$}}{104}{figure.caption.51}
