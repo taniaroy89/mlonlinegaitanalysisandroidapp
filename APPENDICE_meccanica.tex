@@ -1,25 +1,70 @@
 \chapter{Cenni di Meccanica classica}
 \label{meccanica_classica}
-%\myChapter{Cenni di Meccanica classica}
+La Meccanica classica è una delle due branche maggiori della Meccanica, che si occupa di leggi che descrivono il moto di corpi sotto l'azione di un sistema di forze \cite{Wikipedia}.
+
 \section*{Cinematica}
-La Cinematica\cite{Douglas_classical_mechanics} è lo studio del moto di corpi materiali, senza considerare le cause e conseguenze di tale moto. La parte della Meccanica che si occupa delle cause e conseguenze del moto dei corpi è la Dinamica o Cinetica. La Cinematica fornisce una descrizione geometrica dei possibili moti.\\
+La Cinematica \cite{Douglas_classical_mechanics} è lo studio del moto di corpi materiali, senza considerare le cause e conseguenze di tale moto. La parte della Meccanica che si occupa delle cause e conseguenze del moto dei corpi è la Dinamica o Cinetica. La Cinematica fornisce una descrizione geometrica dei possibili moti.\\
 Il soggetto mediante il quale vengono condotti gli studi in Cinematica è la particella, vale a dire un corpo immaginario, che occupa un singolo punto dello spazio. Un insieme di particelle le cui distanze relative rimangono invariate in ogni riferimento spaziotemporale. 
 
 \subsection*{Moto rettilineo di una particella}
 
+Data una particella in moto rettilineo uniforme (vedi figura \ref{fig:CinematicaLineare}), il suo moto può essere descritto secondo le seguenti quantità:
+\begin{description}
+	\item[Posizione] Il vettore posizione della particella $P$ nel punto A
+	
+\begin{equation}
+\begin{split}
+\mathbf{r} & = (x_A,y_A,z_A) \quad \text{vettore posizione}\\
+|\mathbf{r}| & = \sqrt{x_A^2 + y_A^2 + z_A^2}(m) \quad \text{magnitudine}
+\end{split}
+\label{eq:positionVector}
+\end{equation}
 
-Le quantità principali di cui si occupa sono
-\subsubsection*{Posizione} Il vettore posizione della particella $P$ nel punto $A$: $\mathbf{r} = (x_A,y_A,z_A)$ con magnitudine $|\mathbf{r}| = \sqrt{x_A^2 + y_A^2 + z_A^2}$ $(m)$.
 
-\subsubsection*{Spostamento} Lo spostamento da $A$ a $B$ di $P$: $\mathbf{r}_{AB} = \mathbf{r}_{B} - \mathbf{r}_{A}$ $(m)$
+	 
 
-\subsubsection*{Distanza} La distanza $\displaystyle s=\int_{t_1}^{t_2}{\sqrt{\Big(\dfrac{dx}{dt}\Big)^2 + \Big(\dfrac{dy}{dt}\Big)^2+ \Big(\dfrac{dz}{dt}\Big)^2}dt}$ $(m)$ dove $t$ è il tempo. 
+\item[Spostamento] Lo spostamento da $A$ a $B$ di $P$:
+
+\begin{equation}
+\begin{split}
+\mathbf{r}_{AB} = \mathbf{r}_{B} - \mathbf{r}_{A} (m)
+\end{split}
+\label{eq:displacement}
+\end{equation}
 
 
-\subsubsection*{Velocità} La \textbf{velocità}
+\item[Distanza] La distanza 
+
+\begin{equation}
+\begin{split}
+\displaystyle s=\int_{t_1}^{t_2}{\sqrt{\Big(\dfrac{dx}{dt}\Big)^2 + \Big(\dfrac{dy}{dt}\Big)^2+ \Big(\dfrac{dz}{dt}\Big)^2}dt} (m)\\
+\end{split}
+\label{eq:distance}
+\end{equation}
+dove $t$ è il tempo.
+
+
+\item[Velocità] 
+
 	\begin{itemize}
-		\item \textbf{media} $\mathbf{\bar{v}} = \dfrac{\Delta \mathbf{r}}{\Delta t}$ $(m/s)$ con $\Delta t > 0$ 
-		\item \textbf{istantanea} $\mathbf{v} = \displaystyle \lim_{\Delta t \rightarrow 0} \dfrac{\Delta \mathbf{r}}{\Delta t}$ con magnitudine $|\mathbf{v}| = \dfrac{ds}{dt}$ $(m/s)$
+		\item media 
+\begin{equation}
+\begin{split}
+\mathbf{\bar{v}} = \dfrac{\Delta \mathbf{r}}{\Delta t}(m/s)\quad \Delta t > 0
+\end{split}
+\label{eq:averageSpeed}
+\end{equation}
+				
+		\item istantanea 
+
+			\begin{equation}
+				\begin{split}
+					\mathbf{v} &= \displaystyle \lim_{\Delta t \rightarrow 0} \dfrac{\Delta \mathbf{r}}{\Delta t}\\
+					|\mathbf{v}| &= \dfrac{ds}{dt}(m/s)\quad \text{magnitudine}
+				\end{split}
+			\label{eq:instantSpeed}
+			\end{equation}
+	
 	\end{itemize}
 	
 \begin{figure}[h]
@@ -29,20 +74,39 @@ Le quantità principali di cui si occupa sono
 	\label{fig:CinematicaLineare}
 \end{figure}
 	
-\subsubsection*{Accelerazione}
-L'accelerazione
+\item[Accelerazione]
 	\begin{itemize}
-		\item \textbf{media} $\mathbf{\bar{a}} = \dfrac{\Delta \mathbf{v}}{\Delta t}$ con $\Delta t > 0$ $(m/s^2)$
-		\item \textbf{istantanea} $\mathbf{a} = \displaystyle \lim_{\Delta t \rightarrow 0} \dfrac{\Delta \mathbf{v}}{\Delta t}$ $(m/s^2) $
+		\item media 
+			\begin{equation}
+				\begin{split}
+					\mathbf{\bar{a}} = \dfrac{\Delta \mathbf{v}}{\Delta t} \quad \Delta t > 0 (m/s^2)
+				\end{split}
+			\label{eq:instantSpeed}
+			\end{equation}		
+		\item istantanea 
+			\begin{equation}
+				\begin{split}
+					\mathbf{a} = \displaystyle \lim_{\Delta t \rightarrow 0} \dfrac{\Delta \mathbf{v}}{\Delta t}(m/s^2) 
+				\end{split}
+			\label{eq:instantSpeed}
+			\end{equation}
 	\end{itemize}
-	
-	
+\end{description}	
 
 \section*{Moto Angolare di una particella}
-\subsubsection*{Posizione} Il vettore posizione della particella $P$ nel punto $A$ rispetto ad un asse di rotazione $O-z$ è  $\mathbf{r}(t)$. La posizione angolare del punto $P$ è $\mathbf{r}_{\perp}(t) = r_{\perp x} \cos \theta i + r_{\perp x} \sin \theta j $ $(rad)$
+Data una particella in moto circolare uniforme (vedi figura \ref{fig:CinematicaAngolare}), il suo moto può essere descritto secondo le seguenti quantità:
+\begin{description}
+	\item[Posizione] Il vettore posizione della particella $P$ nel punto $A$ rispetto ad un asse di rotazione $O-z$ è $\mathbf{r}(t)$. La posizione angolare del punto $P$ è
+			\begin{equation}
+				\begin{split}
+	  \mathbf{r}_{\perp}(t) = r_{\perp x} \cos \theta i + r_{\perp x} \sin \theta j (rad)
+				\end{split}
+			\label{eq:angularPositionVector}
+			\end{equation}
+	 
 
 
-\subsubsection*{Velocità} 
+\item[Velocità] 
 La velocità angolare è data da: 
 		$\omega = \dfrac{d\theta}{dt}$ $(rad/s)$
 	\begin{figure}[h]
@@ -52,14 +116,19 @@ La velocità angolare è data da:
 	\label{fig:CinematicaAngolare}
 \end{figure}
 	
-\subsubsection*{Accelerazione}
+\item[Accelerazione]
 L'accelerazione angolare è data da:
-	$\alpha = \dfrac{d\omega}{dt}$ $(rad/s^2)$
-	
+			\begin{equation}
+				\begin{split}
+					\alpha = \dfrac{d\omega}{dt}(rad/s^2)
+				\end{split}
+			\label{eq:acceleration}
+			\end{equation}
+\end{description}	
 	
 \section*{Dinamica (Cinetica)}
 Branca della meccanica che si occupa di forze che producono, arrestano o modificano il moto di corpi. 
-Le due leggi fondamentali della Dinamica sono quelle di Newton, in particolare la seconda:
+Le due leggi fondamentali della Dinamica sono quelle di Newton, in particolare la seconda è:
 \begin{equation}
 F = ma
 \label{eq:secondoPrincipioNewton}

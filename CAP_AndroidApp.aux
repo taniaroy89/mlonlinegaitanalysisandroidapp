@@ -82,57 +82,48 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.4.4}Gestione di Processi}{53}{subsection.6.4.4}}
 \@writefile{toc}{\contentsline {subsubsection}{MailBox}{53}{subsection.6.4.4}}
 \newlabel{sec:mailbox}{{6.4.4}{53}{MailBox\relax }{subsection.6.4.4}{}}
-\newlabel{code:mailbox_put_get}{{1}{53}{\relax }{lstlisting.6.-9}{}}
 \mph@setcol{ii:53}{\mph@nr}
+\newlabel{code:mailbox_put_get}{{1}{54}{\relax }{lstlisting.6.-9}{}}
 \newlabel{code:mailbox_put}{{1}{54}{\relax }{lstlisting.6.-11}{}}
-\newlabel{code:mailbox_get}{{1}{54}{\relax }{lstlisting.6.-12}{}}
 \mph@setcol{ii:54}{\mph@nr}
+\newlabel{code:mailbox_get}{{1}{55}{\relax }{lstlisting.6.-12}{}}
 \mph@setcol{ii:55}{\mph@nr}
-\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces MailBox: put() viene eseguito prima di get() su un buffer vuoto.\relax }}{56}{figure.caption.33}}
-\newlabel{fig:putonempty}{{14}{56}{MailBox: put() viene eseguito prima di get() su un buffer vuoto.\relax \relax }{figure.caption.33}{}}
 \mph@setcol{ii:56}{\mph@nr}
-\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces MailBox: put() viene eseguito prima di get() su un buffer pieno.\relax }}{57}{figure.caption.34}}
-\newlabel{fig:putonfull}{{15}{57}{MailBox: put() viene eseguito prima di get() su un buffer pieno.\relax \relax }{figure.caption.34}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces MailBox: get() viene eseguito prima di put() su un buffer vuoto.\relax }}{57}{figure.caption.35}}
-\newlabel{fig:getonempty}{{16}{57}{MailBox: get() viene eseguito prima di put() su un buffer vuoto.\relax \relax }{figure.caption.35}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Verifiche per il protocollo di comunicazione \textit  {MailBox}}{57}{figure.caption.36}}
+\@writefile{lot}{\contentsline {table}{\numberline {19}{\ignorespaces Parte di una sequenza di stringhe scambiate tra due \textit  {thread}, un produttore ed un consumatore, che comunicano tramite una \textit  {mailbox}. Il produttore genera una sequenza ordinata di numeri dispari, crea un oggetto \textit  {point(x, sin(x))} ed il consumatore preleva il valore dalla \textit  {MailBox}, permettendo al produttore di inserire il valore successivo.\relax }}{57}{table.caption.33}}
+\@writefile{toc}{\contentsline {subsubsection}{Verifiche per il protocollo di comunicazione \textit  {MailBox}}{57}{Item.40}}
 \newlabel{code:mailbox_experiment}{{6.14}{57}{Creazione di un oggetto Point\relax }{lstlisting.6.14}{}}
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {6.14}Creazione di un oggetto Point}{57}{lstlisting.6.14}}
 \mph@setcol{ii:57}{\mph@nr}
-\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces MailBox: get() viene eseguito prima di put() su un buffer pieno.\relax }}{58}{figure.caption.36}}
-\newlabel{fig:getonfull}{{17}{58}{MailBox: get() viene eseguito prima di put() su un buffer pieno.\relax \relax }{figure.caption.36}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {19}{\ignorespaces Parte di una sequenza di stringhe scambiate tra due \textit  {thread}, un produttore ed un consumatore, che comunicano tramite una \textit  {mailbox}. Il produttore genera una sequenza ordinata di numeri dispari, crea un oggetto \textit  {point(x, sin(x))} ed il consumatore preleva il valore dalla \textit  {MailBox}, permettendo al produttore di inserire il valore successivo.\relax }}{58}{table.caption.37}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Prova di funzionamento del protocollo di comunicazione fra \textit  {thread} implementato su Android\relax }}{58}{figure.caption.34}}
+\newlabel{fig:mailbox_comm_test_android}{{14}{58}{Prova di funzionamento del protocollo di comunicazione fra \textit {thread} implementato su Android\relax \relax }{figure.caption.34}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.5}HMM e Viterbi}{58}{subsection.6.4.5}}
+\@writefile{toc}{\contentsline {subsubsection}{Scheletro di un HMM}{58}{subsection.6.4.5}}
 \mph@setcol{ii:58}{\mph@nr}
-\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Prova di funzionamento del protocollo di comunicazione fra \textit  {thread} implementato su Android\relax }}{59}{figure.caption.38}}
-\newlabel{fig:mailbox_comm_test_android}{{18}{59}{Prova di funzionamento del protocollo di comunicazione fra \textit {thread} implementato su Android\relax \relax }{figure.caption.38}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.5}HMM e Viterbi}{59}{subsection.6.4.5}}
-\@writefile{toc}{\contentsline {subsubsection}{Scheletro di un HMM}{59}{subsection.6.4.5}}
+\newlabel{code:hmm1}{{6.15}{59}{Costruttori HMM\relax }{lstlisting.6.15}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {6.15}Costruttori HMM}{59}{lstlisting.6.15}}
+\newlabel{code:hmm_setA}{{6.16}{59}{Impostazione della matrice di transizione\relax }{lstlisting.6.16}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {6.16}Impostazione della matrice di transizione}{59}{lstlisting.6.16}}
 \mph@setcol{ii:59}{\mph@nr}
-\newlabel{code:hmm1}{{6.15}{60}{Costruttori HMM\relax }{lstlisting.6.15}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {6.15}Costruttori HMM}{60}{lstlisting.6.15}}
-\newlabel{code:hmm_setA}{{6.16}{60}{Impostazione della matrice di transizione\relax }{lstlisting.6.16}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {6.16}Impostazione della matrice di transizione}{60}{lstlisting.6.16}}
+\newlabel{code:HMM_setPI}{{6.17}{60}{Impostazione del vettore delle prior\relax }{lstlisting.6.17}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {6.17}Impostazione del vettore delle prior}{60}{lstlisting.6.17}}
+\@writefile{toc}{\contentsline {subsubsection}{HMM ad emissioni discrete}{60}{lstnumber.6.17.11}}
+\newlabel{code:DiscreteHMM_B1}{{6.18}{60}{Firma della classe HMM ad emissioni discrete\relax }{lstlisting.6.18}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {6.18}Firma della classe HMM ad emissioni discrete}{60}{lstlisting.6.18}}
+\newlabel{code:DiscreteHMM_B2}{{6.19}{60}{Impostazione della matrice di emissioni\relax }{lstlisting.6.19}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {6.19}Impostazione della matrice di emissioni}{60}{lstlisting.6.19}}
 \mph@setcol{ii:60}{\mph@nr}
-\newlabel{code:HMM_setPI}{{6.17}{61}{Impostazione del vettore delle prior\relax }{lstlisting.6.17}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {6.17}Impostazione del vettore delle prior}{61}{lstlisting.6.17}}
-\@writefile{toc}{\contentsline {subsubsection}{HMM ad emissioni discrete}{61}{lstnumber.6.17.11}}
-\newlabel{code:DiscreteHMM_B1}{{6.18}{61}{Firma della classe HMM ad emissioni discrete\relax }{lstlisting.6.18}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {6.18}Firma della classe HMM ad emissioni discrete}{61}{lstlisting.6.18}}
-\newlabel{code:DiscreteHMM_B2}{{6.19}{61}{Impostazione della matrice di emissioni\relax }{lstlisting.6.19}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {6.19}Impostazione della matrice di emissioni}{61}{lstlisting.6.19}}
+\@writefile{toc}{\contentsline {subsubsection}{HMM ad emissioni continue}{61}{lstnumber.6.19.25}}
+\newlabel{code:NormalHMM}{{6.20}{61}{Firma della classe HMM ad emissioni continue\relax }{lstlisting.6.20}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {6.20}Firma della classe HMM ad emissioni continue}{61}{lstlisting.6.20}}
+\@writefile{toc}{\contentsline {subsubsection}{Operazioni sulle HMM}{61}{lstnumber.6.20.1}}
+\newlabel{code:HMM_operations}{{6.21}{61}{Firme dell'operatore delle HMM\relax }{lstlisting.6.21}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {6.21}Firme dell'operatore delle HMM}{61}{lstlisting.6.21}}
+\newlabel{code:contHMMOp}{{6.22}{61}{Applicazione dell'operatore su HMM\relax }{lstlisting.6.22}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {6.22}Applicazione dell'operatore su HMM}{61}{lstlisting.6.22}}
 \mph@setcol{ii:61}{\mph@nr}
-\@writefile{toc}{\contentsline {subsubsection}{HMM ad emissioni continue}{62}{lstnumber.6.19.25}}
-\newlabel{code:NormalHMM}{{6.20}{62}{Firma della classe HMM ad emissioni continue\relax }{lstlisting.6.20}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {6.20}Firma della classe HMM ad emissioni continue}{62}{lstlisting.6.20}}
-\@writefile{toc}{\contentsline {subsubsection}{Operazioni sulle HMM}{62}{lstnumber.6.20.1}}
-\newlabel{code:HMM_operations}{{6.21}{62}{Firme dell'operatore delle HMM\relax }{lstlisting.6.21}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {6.21}Firme dell'operatore delle HMM}{62}{lstlisting.6.21}}
-\newlabel{code:contHMMOp}{{6.22}{62}{Applicazione dell'operatore su HMM\relax }{lstlisting.6.22}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {6.22}Applicazione dell'operatore su HMM}{62}{lstlisting.6.22}}
 \mph@setcol{ii:62}{\mph@nr}
-\mph@setcol{ii:63}{\mph@nr}
 \@setckpt{CAP_AndroidApp}{
-\setcounter{page}{64}
+\setcounter{page}{63}
 \setcounter{equation}{0}
 \setcounter{enumi}{2}
 \setcounter{enumii}{2}
@@ -147,9 +138,9 @@
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
-\setcounter{figure}{18}
+\setcounter{figure}{14}
 \setcounter{table}{19}
-\setcounter{Item}{38}
+\setcounter{Item}{40}
 \setcounter{bookmark@seq@number}{0}
 \setcounter{NAT@ctr}{0}
 \setcounter{parentequation}{0}
