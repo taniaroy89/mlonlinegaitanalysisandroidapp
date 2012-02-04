@@ -38,9 +38,9 @@
 \contentsline {subsection}{\numberline {6.3.2}Codice sorgente}{43}{subsection.6.3.2}
 \contentsline {subsection}{\numberline {6.3.3}Risorse}{43}{subsection.6.3.3}
 \contentsline {subsubsection}{Impaginazione (\textit {Layout})}{43}{subsection.6.3.3}
-\contentsline {subsubsection}{File grafici}{45}{figure.caption.31}
-\contentsline {subsubsection}{Valori}{45}{figure.caption.31}
-\contentsline {subsubsection}{Altri File}{46}{figure.caption.31}
+\contentsline {subsubsection}{File grafici}{45}{figure.caption.32}
+\contentsline {subsubsection}{Valori}{45}{figure.caption.32}
+\contentsline {subsubsection}{Altri File}{46}{figure.caption.32}
 \contentsline {subsection}{\numberline {6.3.4}Librerie}{46}{subsection.6.3.4}
 \contentsline {section}{\numberline {6.4}Architettura}{46}{section.6.4}
 \contentsline {subsection}{\numberline {6.4.1}Unit\`a di Controllo}{46}{subsection.6.4.1}
@@ -48,7 +48,7 @@
 \contentsline {subsection}{\numberline {6.4.3}Comunicazione Bluetooth}{48}{subsection.6.4.3}
 \contentsline {subsection}{\numberline {6.4.4}Gestione di Processi}{53}{subsection.6.4.4}
 \contentsline {subsubsection}{MailBox}{53}{subsection.6.4.4}
-\contentsline {subsubsection}{Verifiche per il protocollo di comunicazione \textit {MailBox}}{57}{Item.40}
+\contentsline {subsubsection}{Verifiche per il protocollo di comunicazione \textit {MailBox}}{57}{Item.91}
 \contentsline {subsection}{\numberline {6.4.5}HMM e Viterbi}{58}{subsection.6.4.5}
 \contentsline {subsubsection}{Scheletro di un HMM}{58}{subsection.6.4.5}
 \contentsline {subsubsection}{HMM ad emissioni discrete}{60}{lstnumber.6.17.11}
@@ -64,4 +64,4 @@
 \contentsline {chapter}{\numberline {C}Cenni di Meccanica classica}{93}{appendix.C}
 \contentsline {chapter}{\numberline {D}Sensori}{97}{appendix.D}
 \contentsline {chapter}{\numberline {E}Su Android}{101}{appendix.E}
-\contentsline {subsubsection}{Java\unhbox \voidb@x \hbox {$\rm {}^{TM}$}e Android\unhbox \voidb@x \hbox {$\rm {}^{TM}$}}{104}{figure.caption.51}
+\contentsline {subsubsection}{Java\unhbox \voidb@x \hbox {$\rm {}^{TM}$}e Android\unhbox \voidb@x \hbox {$\rm {}^{TM}$}}{104}{figure.caption.52}
