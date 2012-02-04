@@ -1,4 +1,6 @@
 \chapter{Risultati e Conclusioni}
+L'obbiettivo della valutazione del sistema in situazioni realistiche, quello di dare una prova anche se vaga di funzionamento. 
+I risultati della valutazione sono stati confrontati.
 \begin{figure}[h]
 	\centering
 		\includegraphics[width=.8\textwidth]{imgs/speedSVR4.jpg}
@@ -33,3 +35,8 @@
 	\label{fig:IMUdistanceVSGPSdistance}
 \end{figure}
 
+Per concludere, in questo lavoro è stato affrontato il problema della segmentazione del segnale giroscopico (con un giroscopio posizionato sul collo del piede) prodotto della deambulazione umana, mediante l'algoritmo di Viterbi, su un'HMM minimale a 4 stati, addestrato con Apprendimento Supervisionato su un \textit{training set} etichettato mediante stereofotogrammetria Vicon\tm. Il sistema di segmentazione è stato quindi implementato con una versione in linea dell'algoritmo di Viterbi su uno \textit{Smartphone} Android. Infine è stato ideato un meccanismo di verifica del funzionamento del sistema, basato sul confronto della velocità calcolata mediante il sistema e quella calcolata da un dispositivo GPS.\\
+Il sistema fornisce un surrogato inerziale temporaneo al sistema GPS per quanto riguarda il calcolo della distanza. Vale a dire, che dato che il sistema GPS può incappare in problemi di assenza di segnale, il sistema può subentrare nella misurazione della distanza per brevi periodi di tempo (per adesso un paio di minuti) ed essere sostituito dal GPS, quando il segnale è nuovamente disponibile. Il vantaggio della misurazione inerziale della distanza sul modello di misurazione mediante GPS è la sua autonomia, infatti funziona anche al chiuso. Il suo svantaggio è invece il fatto che sia inaccurata. Sviluppi futuri del lavoro dovranno pensare al miglioramento del modello con HMM ad emissioni a misture di densità gaussiane multivariate. Ciò migliorerebbe sicuramente le prestazioni del sistema sulla capacità di segmentazione del sistema.\\
+Un secondo sviluppo futuro del lavoro è quello di progettare con lo stesso meccanismo modelli di semplici attività quotidiane, come la corsa, salire dei gradini, sedersi, alzarsi e così via, ed 
+
+ 
