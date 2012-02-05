@@ -12,7 +12,7 @@
 \contentsline {section}{\numberline {3.2}L'andatura durante la deambulazione}{11}{section.3.2}
 \contentsline {section}{\numberline {3.3}Breve storia dello studio della deambulazione umana}{11}{section.3.3}
 \contentsline {section}{\numberline {3.4}Ciclo di deambulazione}{12}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Confronto fra Falcata (\textit {Stride}) e Passo (\textit {Step})}{13}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.1}Confronto fra falcata (\textit {Stride}) e passo (\textit {Step})}{13}{subsection.3.4.1}
 \contentsline {section}{\numberline {3.5}Parametri che descrivono lo schema \textit {pattern} della deambulazione}{14}{section.3.5}
 \contentsline {chapter}{\numberline {4}Lo stato dell'arte}{17}{chapter.4}
 \contentsline {section}{\numberline {4.1}Materiali}{17}{section.4.1}
@@ -32,15 +32,15 @@
 \contentsline {section}{\numberline {5.4}Parametri ottenuti}{35}{section.5.4}
 \contentsline {chapter}{\numberline {6}Applicazione Android}{37}{chapter.6}
 \contentsline {section}{\numberline {6.1}Introduzione}{37}{section.6.1}
-\contentsline {section}{\numberline {6.2}Metodologia di programmazione seguita : \textit {Agile e Unit Test}}{38}{section.6.2}
+\contentsline {section}{\numberline {6.2}Metodologia di programmazione seguita : \textit {Agile} e \textit {Unit Test}}{38}{section.6.2}
 \contentsline {section}{\numberline {6.3}Strumenti e ambiente di lavoro}{41}{section.6.3}
 \contentsline {subsection}{\numberline {6.3.1}Android \textit {Manifest}}{41}{subsection.6.3.1}
 \contentsline {subsection}{\numberline {6.3.2}Codice sorgente}{43}{subsection.6.3.2}
 \contentsline {subsection}{\numberline {6.3.3}Risorse}{43}{subsection.6.3.3}
 \contentsline {subsubsection}{Impaginazione (\textit {Layout})}{43}{subsection.6.3.3}
-\contentsline {subsubsection}{File grafici}{45}{figure.caption.32}
-\contentsline {subsubsection}{Valori}{45}{figure.caption.32}
-\contentsline {subsubsection}{Altri File}{46}{figure.caption.32}
+\contentsline {subsubsection}{File grafici}{45}{figure.caption.31}
+\contentsline {subsubsection}{Valori}{45}{figure.caption.31}
+\contentsline {subsubsection}{Altri File}{46}{figure.caption.31}
 \contentsline {subsection}{\numberline {6.3.4}Librerie}{46}{subsection.6.3.4}
 \contentsline {section}{\numberline {6.4}Architettura}{46}{section.6.4}
 \contentsline {subsection}{\numberline {6.4.1}Unit\`a di Controllo}{46}{subsection.6.4.1}
@@ -48,7 +48,7 @@
 \contentsline {subsection}{\numberline {6.4.3}Comunicazione Bluetooth}{48}{subsection.6.4.3}
 \contentsline {subsection}{\numberline {6.4.4}Gestione di Processi}{53}{subsection.6.4.4}
 \contentsline {subsubsection}{MailBox}{53}{subsection.6.4.4}
-\contentsline {subsubsection}{Verifiche per il protocollo di comunicazione \textit {MailBox}}{57}{Item.91}
+\contentsline {subsubsection}{Verifiche per il protocollo di comunicazione \textit {MailBox}}{56}{Item.40}
 \contentsline {subsection}{\numberline {6.4.5}HMM e Viterbi}{58}{subsection.6.4.5}
 \contentsline {subsubsection}{Scheletro di un HMM}{58}{subsection.6.4.5}
 \contentsline {subsubsection}{HMM ad emissioni discrete}{60}{lstnumber.6.17.11}
@@ -59,9 +59,9 @@
 \mbox {}\hrulefill \par 
 \mbox {}\hrulefill \par 
 \contentsline {part}{iii\hspace {1em}Appendice}{73}{part.3}
-\contentsline {chapter}{\numberline {9}Sulle HMM}{77}{chapter.9}
-\contentsline {chapter}{\numberline {10}Tempo Reale, In Linea, Latenza}{93}{chapter.10}
-\contentsline {chapter}{\numberline {11}Cenni di Meccanica classica}{95}{chapter.11}
-\contentsline {chapter}{\numberline {12}Sensori}{99}{chapter.12}
-\contentsline {chapter}{\numberline {13}Su Android}{103}{chapter.13}
-\contentsline {subsubsection}{Java\unhbox \voidb@x \hbox {$\rm {}^{TM}$}e Android\unhbox \voidb@x \hbox {$\rm {}^{TM}$}}{106}{figure.caption.53}
+\contentsline {chapter}{\numberline {A}Sulle HMM}{75}{appendix.A}
+\cftpagenumbersoff {chapter}
+\contentsline {chapter}{\numberline {B}Tempo Reale, In Linea, Latenza}{93}{appendix.B}
+\contentsline {chapter}{\numberline {C}Sensori}{95}{appendix.C}
+\contentsline {chapter}{\numberline {D}Su Android}{99}{appendix.D}
+\contentsline {subsubsection}{Java\unhbox \voidb@x \hbox {$\rm {}^{TM}$}e Android\unhbox \voidb@x \hbox {$\rm {}^{TM}$}}{102}{figure.caption.52}

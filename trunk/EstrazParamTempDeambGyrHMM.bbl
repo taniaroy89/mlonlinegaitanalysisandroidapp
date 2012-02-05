@@ -145,14 +145,10 @@ R.~E. Mayagoitia, A.~V. Nene, and P.~H. Veltink, ``Accelerometer and rate
   optical motion analysis systems,'' \emph{Journal of Biomechanics}, vol.
   35(4), pp. 537--542, 2002.
 
-\bibitem{reliable_gait_phase_anslysis}
-I.~P. Pappas, M.~R. Popovic, T.~Keller, V.~Dietz, and M.~Morari, ``A reliable
-  gait phase detection system,'' \emph{IEEE Transactions on Neural Systems and
-  Rehabilitation Engineering}, vol. 9(2), pp. 113--125, 2001.
-
 \bibitem{reliable_gait_phase_detection_gyr}
-------, ``A reliable gyroscope-based gait-phase detection sensor embedded in a
-  shoe insole,'' \emph{Ieee Sensors Journal}, vol. 4(2), pp. 268--274, 2004.
+I.~P. Pappas, M.~R. Popovic, T.~Keller, V.~Dietz, and M.~Morari, ``A reliable
+  gyroscope-based gait-phase detection sensor embedded in a shoe insole,''
+  \emph{Ieee Sensors Journal}, vol. 4(2), pp. 268--274, 2004.
 
 \bibitem{walking_movement_pattern_quantification_acc}
 J.~J. Kavanagh and H.~B. Menz, ``Accelerometry: a technique for quantifying
@@ -178,6 +174,11 @@ M.~D. Duric, S.~Dosen, M.~Popovic, and D.~B. Popovic, ``Sensors for assistive
   system for restoring of the walking,'' \emph{Proceedings 52nd ETRAN
   Conference, Society for Electronics, Telecommunications, Computers, Automatic
   Control and Nuclear Engineering}, vol. 63(1), pp. 978--986, 2008.
+
+\bibitem{novel_approach_ambulatory_systems}
+K.~Liu, T.~Liu, K.~Shibata, Y.~Inoue, and R.~Zheng, ``Novel approach to
+  ambulatory assessment of human segmental orientation on a wearable sensor
+  system,'' \emph{Journal of Biomechanics}, vol. 42(16), pp. 2747--1752, 2009.
 
 \bibitem{gait_phase_automatic_recognition_acc}
 M.~D. Duric, ``Automatic recognition of gait phases from accelerations of leg
@@ -261,6 +262,11 @@ P.~C. Sweeney, G.~M. Lyons, and P.~H. Veltink, ``Finite state control of
 E.~Alpaydin, \emph{Introduction to Machine Learning}.\hskip 1em plus 0.5em
   minus 0.4em\relax MIT Press, 2004.
 
+\bibitem{reliable_gait_phase_analysis}
+I.~P. Pappas, M.~R. Popovic, T.~Keller, V.~Dietz, and M.~Morari, ``A reliable
+  gait phase detection system,'' \emph{IEEE Transactions on Neural Systems and
+  Rehabilitation Engineering}, vol. 9(2), pp. 113--125, 2001.
+
 \bibitem{HMM_toolbox}
 \BIBentryALTinterwordspacing
 K.~Murphy. (1998) Hidden markov model (hmm) toolbox for matlab. [Online].
@@ -292,9 +298,10 @@ L.~Baum, T.~Petrie, G.~Soules, and N.~Weiss, ``A maximization technique
   chains,'' \emph{The Annals of Mathematical Statistics}, vol.~41, pp.
   164--171, 1970.
 
-\bibitem{Douglas_classical_mechanics}
-R.~G. Douglas, \emph{Clasical Mechanics}.\hskip 1em plus 0.5em minus
-  0.4em\relax Cambridge University Press, 2006.
+\bibitem{Mercer_interpolation_markov_params_sparse_data}
+F.~Jelinek and R.~L. Mercer, ``Interpolated estimation of markov source
+  parameters from sparse data,'' \emph{Pattern Recognition in Practice
+  381-397}, vol. 1980, pp. 381--397, 1980.
 
 \bibitem{android_dev}
 \BIBentryALTinterwordspacing

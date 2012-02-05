@@ -230,7 +230,7 @@ della Deambulazione: Sviluppo e Validazione di un'applicazione per Smartphone\xs
 \raggedbottom
 \pagenumbering{roman}
 \pagestyle{plain}
-\include{Todo_list}
+%\include{Todo_list}
 %--------------------------------------------------------------
 % Frontmatter
 %--------------------------------------------------------------
@@ -274,11 +274,15 @@ della Deambulazione: Sviluppo e Validazione di un'applicazione per Smartphone\xs
 \addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
 \addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
 \part{Appendice}
-\begin{center}
+\appendix
+%\appendixpage	
+\addtocontents{toc}{\cftpagenumbersoff{chapter}}	
+\setcounter{tocdepth}{1}
 
-\end{center}\include{APPENDICE_hmm}
+
+\include{APPENDICE_hmm}
 \include{APPENDICE_realtime}
-\include{APPENDICE_meccanica}
+%\include{APPENDICE_meccanica}
 \include{APPENDICE_sensori}
 \include{APPENDICE_android}
 

@@ -1,22 +1,21 @@
 \chapter[Tempo Reale, In Linea, Latenza]{Sistemi in Tempo Reale, algoritmi in Linea ed il problema della latenza e accuratezza}
 \label{sec:real_time_sys}
+La seguente sezione fornisce un chiarimento sul concetto di tempo reale, che spesso viene usato, anche in letteratura, in modo errato per intendere in linea. L'algoritmo di segmentazione usato in questo lavoro è un algoritmo in linea, non in tempo reale.
 \section*{Tempo Reale}
-La nozione di Tempo Reale (\textit{Real Time}, RT) si contrappone ad una di tempo logico o virtuale, in quanto misura di una quantità fisica. La seconda forma di tempo, quella logica è una misura di tipo qualitativo e rappresenta l'ordine di eventi.\\
+La nozione di Tempo Reale (\textit{Real Time}, RT) si contrappone ad una di tempo logico o virtuale, in quanto misura di una quantità fisica. La seconda forma di tempo, quella logica, è una misura di tipo qualitativo e rappresenta l'ordine di eventi.\\
 
 In diversi ambiti, la nozione di sistema RT assume significati diversi:
-\begin{itemize}
-	\item {Informatica}, si parla di Computazione RT (\textit{Real Time Computing} - RTC) o computazione Reattiva: lo studio di sistemi software e hardware soggetti a vincoli di tempo reale. Un esempio di tale sistema sono i sistemi operativi RT (un esempio è LynxOS), che garantiscono tempi di risposta ben definiti, a differenza dei sistemi operativi non RT (anche se solitamente hanno tempi di risposta brevi).\\
+
+\par\textsc{Informatica}: si parla di Computazione RT (\textit{Real Time Computing} - RTC) o computazione Reattiva: lo studio di sistemi software e hardware soggetti a vincoli di tempo reale. Un esempio di tale sistema sono i sistemi operativi RT (un esempio è LynxOS), che garantiscono tempi di risposta ben definiti, a differenza dei sistemi operativi non RT (anche se solitamente hanno tempi di risposta brevi).\\
 Un altro esempio sono i linguaggi di programmazione Sincroni come ChucK, che è un linguaggio concorrente per l'elaborazione di file audio.
-\item {Simulazioni}, RT si riferisce ad una sincronizzazione con le tempistiche reali, ovvero gli eventi nel processo simulato devono avvenire allo stesso tempo degli eventi nel processo reale. Un esempio sono i video giochi.
-\item {Trasferimento di dati, elaborazione di media}, RT significa, senza un ritardo percettibile dall'utente.
-\end{itemize}
+\par\textsc{Simulazioni}: RT si riferisce ad una sincronizzazione con le tempistiche reali, ovvero gli eventi nel processo simulato devono avvenire allo stesso tempo degli eventi nel processo reale. Un esempio sono i video giochi.
+\par\textsc{Trasferimento di dati ed elaborazione di media}: RT assume un significato più soggettivo che riflette la percezione dell'utente finale, significa senza un ritardo percettibile dall'utente.
+
 
 
 Sistemi RT possono essere classificati in base alla conseguenza di un ritardo nei tempi di risposta.
-\begin{itemize}
-	\item {Sistemi Hard RT} Un ritardo può avere delle conseguenze catastrofiche, ad esempio un sistema di pilotaggio.
-	\item {Sistemi Soft RT} Un ritardo non ha conseguenze sulla vita o di tipo economico, ad esempio un sistema per la visualizzazione di file video.
-\end{itemize}
+	\par\textsc{Sistemi Hard RT}: Un ritardo può avere delle conseguenze catastrofiche, ad esempio un sistema di pilotaggio.
+	\par\textsc{Sistemi Soft RT}: Un ritardo non ha conseguenze sulla vita o di tipo economico, ad esempio un sistema per la visualizzazione di file video.
 
 Per garantire che tali scadenze vengano rispettate, deve essere noto il tempo di esecuzione massima dei singoli processi 
 di un programma. Questo problema è molto complesso e spesso si ottengono solo soluzioni parziali.\\
@@ -29,4 +28,5 @@ Dato che un algoritmo in linea prende decisioni basate solo su parte dei dati di
 Il metodo che viene utilizzato per formalizzare questa idea è noto come Analisi Competitiva: vengono confrontate le prestazioni relative di un algoritmo in linea e fuori linea ottimale sulla stessa istanza di un problema.\\
 
 \section*{Latenza}
-Il concetto di latenza nell'ambito informatico/ingegneristico assume svariati significati. Generalmente fa riferimento ad un ritardo rispetto ad un tempo atteso in un sistema. In base al sistema varia la definizione di latenza.
+Il concetto di latenza nell'ambito informatico/ingegneristico assume svariati significati. Generalmente fa riferimento ad un ritardo rispetto ad un tempo atteso in un sistema. 
+Un significato di latenza che si vuole menzionare in questo lavoro è quella dell'ambito biomedico: la latenza di un sistema di misurazione clinica dal punto di vista di un fisiatra è il ritardo sul tempo di risposta positiva. Nel caso di un segmentatore di deambulazione, la latenza è la differenza tra il tempo in cui si verifica un evento ed il tempo in cui il sistema annuncia l'avvenimento dell'evento. Ciò significa che i risultati errati aumentano la latenza. Quindi un sistema ha una latenza bassa, non solo se ha tempi di risposta brevi, ma ha anche un alta percentuale di risultati corretti. 

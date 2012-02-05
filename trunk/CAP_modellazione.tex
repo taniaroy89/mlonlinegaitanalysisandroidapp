@@ -7,8 +7,8 @@ Il lavoro svolto, può essere suddiviso in tre fasi principali:
 \end{enumerate}
 
 \section{Raccolta dati}
-Sono stati scelti 6 soggetti sani (con deambulazione normale) e sono stati sottoposti a 5 sessioni di cammino e 5 sessioni di corsa.
-Le prove sono state compiute su un tappeto rullante con pendenza 0°, nell'intervallo di velocità [3-7]Km/h per il cammino e [8-12]Km/h per la corsa. La prima sessione alla velocità di 3Km/h e con un incremento di 1Km/h in ciascuna sessione successiva. Ciascuna sessione è stata della durata di 2 minuti.
+Sono stati scelti $6$ soggetti sani (con deambulazione normale, vedi Definizione \ref{def:deambulazione_normale}) e sono stati sottoposti a $5$ sessioni di cammino e $5$ sessioni di corsa.
+Le prove sono state compiute su un tappeto rullante con pendenza $0^\circ$, nell'intervallo di velocità $[3-7]\,km/h$ per il cammino e $[8-12]\,km/h$ per la corsa. La prima sessione alla velocità di $3\,km/h$ e con un incremento di $1\,km/h$ in ciascuna sessione successiva. Ciascuna sessione è stata della durata di $2\,minuti$.
 
 \begin{table}[htbp]
 	\centering
@@ -16,11 +16,11 @@ Le prove sono state compiute su un tappeto rullante con pendenza 0°, nell'interv
 		\hline		
 			\textbf{Attività}& cammino & corsa \\
 			\hline
-			\textbf{Soggetti}& 6 & 5\\
+			\textbf{Soggetti}& $6$ & $5$\\
 			\hline
-			\textbf{Velocità}& \{3,4,5,6,7\}Km/h & \{8,9,10,11,12\}Km/h\\
+			\textbf{Velocità}& $\{3,4,5,6,7\}\,km/h$ & $\{8,9,10,11,12\}\,km/h$\\
 			\hline
-			\textbf{Durata}& \multicolumn{2}{c|}{2 minuti per attività}\\
+			\textbf{Durata}& \multicolumn{2}{c|}{$2\, minuti$ per attività}\\
 			\hline
 			\textbf{Strumenti} & \multicolumn{2}{c|}{IMU, Vicon, tappeto rullante}\\
 			\hline
@@ -28,16 +28,16 @@ Le prove sono state compiute su un tappeto rullante con pendenza 0°, nell'interv
 			\hline
 			\textbf{Dati raccolti} & \multicolumn{2}{c|}{valori giroscopio monoassiale}\\
 			\hline
-			\textbf{Frequenza campionamento} & \multicolumn{2}{c|}{100 Hz}\\
+			\textbf{Frequenza campionamento} & \multicolumn{2}{c|}{$100\, Hz$}\\
 			\hline
 		\end{tabular}
 	\caption{Tabella riassuntiva della raccolti dati}
 	\label{tab:TabellaRiassuntivaRaccoltaDati}
 \end{table}
 
-Le sessioni sono state tutte eseguite posizionando saldamente una IMU (vedi Appendice \ref{sec:sensori}) sul collo del piede dei soggetti mediante un cinturino in velcro. Il tipo di sensore usato è un giroscopio monoassiale con asse di sensibilità orientato sul piano mediale-laterale (sagittale) (vedi Figura \ref{fig:HumanBodySPL}).\\
-I segnali sono stati campionati dal sensore ad una frequenza di 100 Hz e filtrati mediante un filtro passa-basso\footnote{Un filtro elettronico nella Teoria dei Segnali è un circuito elettronico che riceve dei segnali in ingresso e li trasforma secondo un criterio. Un filtro passa-banda (banda alta o banda bassa) lascia passare segnali a frequenza in un intervallo scelto mentre blocca il passaggio (o le attenua) il passaggio di segnali fuori dall'intervallo. Un filtro passa-basso quindi lascia passare le frequenze basse, e smorza quelle a frequenze alte.} a 15Hz mediante un filtro ricorsivo \textit{forward-backward}(Fw-Bkw)\footnote{Un filtro ricorsivo riusa i propri valori in uscita come ingresso. In particolare un filtro Fw-Bkw è un filtro ricorsivo che viene utilizzato per avere un segnale simmetrico.} di \textit{Buttersworth}\footnote{Filtro detto "`massimamente piatto"', perché non solo rifiuta i segnali a frequenze non desiderate, ma ha la stessa sensibilità per tutte le frequenze desiderate.}. 
-Dai dati raccolti, quelli considerati per lo studio sono quelli compresi nell'intervallo dai 50 ai 110 secondi. \\
+Le sessioni sono state tutte eseguite posizionando saldamente una IMU (vedi Appendice \ref{sec:sensori}) sul collo del piede dei soggetti mediante un cinturino in velcro. Il tipo di sensore usato è un giroscopio monoassiale con asse di sensibilità orientato sul piano mediale-laterale o sagittale (vedi Figura \ref{fig:HumanBodySPL}).\\
+I segnali sono stati campionati dal sensore ad una frequenza di $100\, Hz$ e filtrati mediante un filtro passa-basso\footnote{Un filtro elettronico nella Teoria dei Segnali è un circuito elettronico che riceve dei segnali in ingresso e li trasforma secondo un criterio. Un filtro passa-banda (banda alta o banda bassa) lascia passare segnali a frequenza in un intervallo scelto mentre blocca il passaggio (o le attenua) il passaggio di segnali fuori dall'intervallo. Un filtro passa-basso quindi lascia passare le frequenze basse, e smorza quelle a frequenze alte.} a 15Hz mediante un filtro ricorsivo \textit{forward-backward}\footnote{Un filtro ricorsivo riusa i propri valori in uscita come ingresso. In particolare un filtro \textit{forward-backward} è un filtro ricorsivo che viene utilizzato per avere un segnale simmetrico.} di Buttersworth\footnote{Filtro detto massimamente piatto, perché non solo rifiuta i segnali a frequenze non desiderate, ma ha la stessa sensibilità per tutte le frequenze desiderate.}. 
+Dai dati raccolti, quelli considerati per lo studio sono quelli compresi nell'intervallo dai $50\, secondi$ ai $110\, secondi$. \\
 
 \begin{figure}
 	\centering
@@ -46,10 +46,11 @@ Dai dati raccolti, quelli considerati per lo studio sono quelli compresi nell'in
 	\label{fig:gyroPattern}
 \end{figure}
 
-Il grafico del segnale del giroscopio posizionato sul piede ha una struttura definita e ripetitiva (vedi Figura \ref{fig:gyroPattern}). Nel grafico, l'ascissa rappresenta i campioni e l'ordinata la velocità angolare in gradi al secondo (°/s). La forma del grafico può essere descritta a grandi linee come un picco negativo seguito da un tratto approssimativamente orizzontale, un secondo picco negativo ed uno positivo. Tale sequenza rappresenta un passo completo e si ripete quasi identica a se stessa durante la camminata.
+Il grafico del segnale del giroscopio posizionato sul piede ha una struttura definita e ripetitiva (vedi Figura \ref{fig:gyroPattern}). Nel grafico, l'ascissa rappresenta i campioni e l'ordinata la velocità angolare in gradi al secondo ($^\circ/s$). La forma del grafico può essere descritta a grandi linee come un picco negativo seguito da un tratto approssimativamente orizzontale, un secondo picco negativo ed uno positivo. Tale sequenza rappresenta un passo completo e si ripete quasi identica a se stessa durante la camminata.
 
 
 \section{Modello: HMM}
+\label{sec:modelloHmm}
 Il modello di deambulazione scelto è una HMM minimale a 4 stati sinistra-destra ad emissioni continue (vedi Appendice \ref{sec:tipi_hmm}). Tale scelta è stata fatta per poter modellare la deambulazione con il minimo numero di parametri possibile. Inoltre il segnale del giroscopico è approssimativamente suddivisibile anche visivamente in 4 stati.
 In dettaglio l'HMM è stata definita nel seguente modo:
  \begin{equation}
@@ -62,8 +63,13 @@ dove:
 	\item $M = |V|$ è la cardinalità dell'insieme finito dei valori di osservazione $\omega (^\circ/s)$ del giroscopio,
 	\item $\mathbf{A}$ è la matrice di transizione (vedi Appendice \ref{cap:hmm}). Dato che si tratta di una HMM sinistra-destra la matrice di transizione gode della seguente proprietà:
 \begin{equation}
-	a_{ij} > 0 \Leftrightarrow j = i+1 \quad \text{o} \quad j = i+2 \quad \text{o} \quad(i = N \quad\text{e}\quad j = 1)
-\label{eq:}
+\begin{split}
+	A = \,& (a_{ij})\quad 1\leq i,j \leq N \quad \text{dove}\\ 
+	& a_{ij} > 0 \Leftrightarrow  j = i+1\\ 
+	& \text{oppure} \quad j = i+2 \\ 
+	& \text{oppure} \quad (i = N \quad\text{e}\quad j = 1)
+\end{split}
+\label{eq:deambTrMtx}
 \end{equation}
 	\item $\mathbf{B}$ è la matrice di probabilità di emissione delle osservazioni $\omega$ per ciascuno stato. Ad ogni stato è stata associata una funzione di densità di probabilità gaussiana univariata (vedi Figura \ref{fig:deamb_hmm}). Ciò significa che ad ogni stato devono essere associate la media ($\mu$) e varianza ($\sigma$) della distribuzione gaussiana corrispondente.
 	\item $\pi$ è il vettore di probabilità a priori (probabilità che l'i-esimo stato sia quello in cui si trova il modello al tempo iniziale).
@@ -73,7 +79,7 @@ dove:
 \begin{figure}[h]
 	\centering
 		\includegraphics[width=1\textwidth]{imgs/HMM.jpg}
-	\caption{Rappresentazione della $Deamb\_HMM$. Il modello ha 4 stati a ciascuno dei quali è associata una densità di emissione gaussiana ($B$). Le probabilità di transizione da uno stato al successivo sono prossime a 1 (nell'immagine ciò è rappresentato dalle frecce spesse), mentre le probabilità di transizione da uno stato a quello due stati dopo è prossima a 0 (raffigurato con le frecce sottili) e non vi sono altre possibilità di transizione.}
+	\caption{Rappresentazione della $Deamb\_HMM$. Il modello ha $4$ stati a ciascuno dei quali è associata una densità di emissione gaussiana ($B$). Le probabilità di transizione da uno stato al successivo sono prossime a 1 (nell'immagine ciò è rappresentato dalle frecce spesse), mentre le probabilità di transizione da uno stato a quello due stati dopo è prossima a $0$ (raffigurato con le frecce sottili) e non vi sono altre possibilità di transizione.}
 	\label{fig:deamb_hmm}
 \end{figure}
 
@@ -102,6 +108,7 @@ $S_4$ - $TO$  & $t_{FO}$ & $t_{HS}$\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Addestramento e Validazione del Modello} 
+\label{sec:addestramentoModello}
 Come prima operazione per l'addestramento delle HMM, è stato etichettato un sottoinsieme dei dati: ad una sequenza $\Omega$ di dati è stato  associato un vettore $Y$ di etichette. Questo è stato fatto con l'uso del sistema di telecamere Vicon\tm (vedi Sezione \ref{sec:stereofotogrammetria}).
 
 In lavori precedenti \cite{walking_features_from_inertials}, gli eventi ($t_{HS}$, $t_{FF}$, $t_{HO}$, $t_{FO}$ ) vengono determinati mediante soglie, sulla velocità angolare $\omega_k$, come mostra la Tabella \ref{tab:regole_threshold_eventi}, dove $\widetilde{\omega_k}$ è il valore non filtrato del giroscopio.
@@ -127,11 +134,11 @@ $t_{FO}$ & $\omega_k = 0$ & se $\omega$ da negativo è diventato positivo e cresc
 \end{table}
 
 
-Nel lavoro presentato i dati acquisiti con la IMU sono stati etichettati con dati acquisiti mediante stereofotogrammetria, procedura ritenuta lo standard di riferimento per lo studio della cinematica del cammino\cite{reliable_gait_phase_analysis}.
+Nel lavoro presentato i dati acquisiti con la IMU sono stati etichettati con dati acquisiti mediante stereofotogrammetria, procedura ritenuta lo standard di riferimento per lo studio della cinematica del cammino \cite{reliable_gait_phase_analysis}.
 
 Il sistema ottico commerciale di analisi del movimento usato è Vicon\tm 460 (Oxford Metrics Ltd., UK) (vedi Sezione \ref{sec:stereofotogrammetria}).
 Con Vicon\tm sono state tracciate e misurate le traiettorie di marcatori retro riflettenti posizionati sul corpo dei soggetti. 
-Sono state posizionate 6 telecamere con una frequenza di campionamento di 100Hz, intorno al tappeto rullante, per tracciare la posizione di 5 marcatori con un'accuratezza di $\pm 1mm$ ed il software Workstation\tm.
+Sono state posizionate $6$ telecamere con una frequenza di campionamento di $100\,Hz$, intorno al tappeto rullante, per tracciare la posizione di $5$ marcatori con un'accuratezza di $\pm 1\,mm$ ed il software Workstation\tm.
 Le traiettorie dei marcatori sono state usate per estrarre un segnale di riferimento per le fasi della deambulazione, che successivamente sono state usate per valutare l'accuratezza del segnale in uscita dal sistema di riconoscimento degli eventi.
 
 
@@ -157,7 +164,7 @@ LSM (\textit{Lombaro Sacral Marker}) & tra la zona lombare e sacrale.\\
 \end{table}
 
 
-Le regole riportate in Tabella \ref{tab:vicon_rules}, Tabella \ref{tab:min_max_HM_TM} e Figura \ref{fig:vicon_traced_TM_HM} usate per generare il segnale di riferimento Vicon\tm si basano sul tracciamento di soli 2 marcatori: HM e TM.
+Le regole riportate in Tabella \ref{tab:vicon_rules}, Tabella \ref{tab:min_max_HM_TM} e Figura \ref{fig:vicon_traced_TM_HM} usate per generare il segnale di riferimento Vicon\tm si basano sul tracciamento di soli $2$ marcatori: HM e TM.
 
 \begin{table}%
 \centering
@@ -181,7 +188,7 @@ TM & primo picco: fine Fase HO, secondo picco fine fase Sw&  fase \textit{Stance
 \hline
 \textbf{Evento} & \textbf{Condizione} & \textbf{Posizione in Figura \ref{fig:vicon_traced_TM_HM}} \\
 \hline
-HO & $y(HM) > 80mm$ & A\\
+HO & $y(HM) > 80\,mm$ & A\\
 TO & $\max y(HM)$ & B\\
 HS & $\min y(HM)$ & C\\
 FF & $y'(TM) = 0$ & D\\
@@ -208,13 +215,13 @@ una fase cammino permette di stimare la probabilità $\pi_i$ dell'i-esimo stato d
 \end{split}	 
 \label{eq:hmmTrainingPI}
 \end{equation} 
-ovvero la frazione degli $N_i $ dati relativi alla fase i-esima, rispetto al totale dei dati del \textit{training set} $N_{tot}$.
+ovvero la frazione degli $N_i$ dati relativi alla fase i-esima, rispetto al totale dei dati del \textit{training set} $N_{tot}$.
 Analogamente la matrice delle probabilità di transizione viene calcolata come 
 \begin{equation}
 \begin{split}
-a_{ij}& = C/N_i    \quad &\text{se}\quad j = (i+1)\%Q \quad \text{e} \quad i,j = 1,...,Q \\
-a_{ij}& = 1- C/N_i \quad &\text{se} \quad j = i\\
-a_{ij}& = 0        \quad &\text{altrimenti} 
+a_{ij}& = C/N_i   \quad  \text{se}\quad j = (i+1)\%Q \quad \text{e} \quad i,j = 1,...,Q \\
+a_{ij}& = 1- C/N_i\quad \text{se} \quad j = i\\
+a_{ij}& = 0       \quad \text{altrimenti} 
 \end{split}	 
 \label{eq:hmmTrainingA}
 \end{equation}
@@ -237,13 +244,14 @@ La validazione è stata fatta con l'approccio della validazione incrociata ad esc
 
 Il metodo consiste nell'addestrare un modello su $P-1$ soggetti (in questo caso $P = 6$) e verificarne la validità su 1 soggetto (quello escluso dall'addestramento). Il risultato della procedura è il modello $Deamb\_HMM_1$.  
 La procedura viene ripetuta $P$ volte in modo da addestrare e verificare su tutti i soggetti. Questo produce $P$ modelli 
-$Deamb\_HMM_1, ..., Deamb\_HMM_P$. La validazione ha confermato il corretto funzionamento dei modelli: il modello meno performante, ha classificato l'\TODO{80\%} dei dati, mentre quello più performante il \TODO{99,9\%}.\\
+$Deamb\_HMM_1, ..., Deamb\_HMM_P$. La validazione ha confermato il corretto funzionamento dei modelli.\\
+% il modello meno performante, ha classificato l'\TODO{80\%} dei dati, mentre quello più performante il \TODO{99,9\%}.\\
 
 
 Le fasi della creazione addestramento e validazione incrociata del modello è stata fatta in differita, mediante un Mathworks\tm  MATLAB\tm  ed l'\textit{HMM toolbox} \cite{HMM_toolbox}. 
 Nella fase di verifica, viene usato l'algoritmo di decodifica di Viterbi (vedi Appendice \ref{alg:viterbi}) sui dati del giroscopio, per trovare la sequenza di stati che con maggior verosimiglianza ha prodotto le osservazioni (sequenze di valori del giroscopio).\\
 
-Il modello sinistra-destra dell'HMM (vedi Appendice \ref{sec:HMM}) può portare a considerare cicli di deambulazione aggiuntivi detti inserzioni (\textit{insertions}), o meno di quelli effettivi delezioni (\textit{deletions}). Il problema delle inserzioni viene risolto mediante l'applicazione di un'euristica: per i presupposti del tipo di deambulazione considerata (velocità e pendenza del terreno), tutti i cicli di deambulazione di durata inferiore a $250 ms$ sono inserzioni.
+Il modello sinistra-destra dell'HMM (vedi Appendice \ref{sec:HMM}) può portare a considerare cicli di deambulazione aggiuntivi detti inserzioni (\textit{insertions}), o meno di quelli effettivi delezioni (\textit{deletions}). Il problema delle inserzioni viene risolto mediante l'applicazione di un'euristica: per i presupposti del tipo di deambulazione considerata (velocità e pendenza del terreno), tutti i cicli di deambulazione di durata inferiore a $250\, ms$ sono inserzioni.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -274,7 +282,7 @@ Dato che la validazione ha confermato la correttezza del sistema, per la segment
 \centering
 \begin{tabular}{|c|c c|}
 \hline
-\textbf{B} &\textsc{$\mu$[°/s]} & \textsc{$\sigma ^2$[°/s]}\\
+\textbf{B} &\textsc{$\mu(^\circ/s)$} & \textsc{$\sigma ^2 (^\circ/s)$}\\
 %\hline
 \hline
 \textsc{HS} & $-52.2$ & $12711.8$\\
