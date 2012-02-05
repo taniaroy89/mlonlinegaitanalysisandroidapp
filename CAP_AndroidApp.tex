@@ -10,14 +10,14 @@ La seconda parte del lavoro è relativa allo sviluppo di un'applicazione per uno 
 	\label{fig:schema_app}
 \end{figure} 
 Una volta posizionata la IMU (vedi Appendice \ref{sec:imu}) sul collo del piede, lo \textit{Smartphone} vi interagisce tramite una connessione \textit{Bluetooth}.\\ 
-L'utente controlla la IMU mediante l'applicazione, quindi può impostarne i parametri: ad esempio la frequenza di campionamento e gli intervalli di campionamento per ciascun sensore su ciascun asse spaziale. Impostati i parametri l'utente può acquisire dati dalla IMU mediante un servizio di \textit{data logging} (nel \textit{file system} dello \textit{Smartphone}), oppure li può visualizzare come un grafico dinamico. Inoltre è possibile abilitare la segmentazione in linea del segnale di deambulazione, sulla base di un modello HMM addestrato in differita (vedi Sezione \ref{sec:creazione_addestramento_modello}), impiegando una versione dell'algoritmo di Viterbi \cite{short_time_viterbi_online_hmm_deconding}. Nell'ultimo caso il grafico dinamico rappresentante il segnale del giroscopio viene tracciato in linea\footnote{La segmentazione ha una latenza massima di \textbf{10ms}} con un colore a seconda della fase della deambulazione: HS-blu, FF-giallo, HO-rosso, TO-verde. \\
+L'utente controlla la IMU mediante l'applicazione, quindi può impostarne i parametri: ad esempio la frequenza di campionamento e gli intervalli di campionamento per ciascun sensore su ciascun asse spaziale. Impostati i parametri l'utente può acquisire dati dalla IMU mediante un servizio di \textit{data logging} (nel \textit{file system} dello \textit{Smartphone}), oppure li può visualizzare come un grafico dinamico. Inoltre è possibile abilitare la segmentazione in linea del segnale di deambulazione, sulla base di un modello HMM addestrato in differita (vedi Sezione \ref{sec:addestramentoModello}), impiegando una versione dell'algoritmo di Viterbi \cite{short_time_viterbi_online_hmm_deconding}. Nell'ultimo caso il grafico dinamico rappresentante il segnale del giroscopio viene tracciato in linea\footnote{La segmentazione ha una latenza massima di \textbf{10ms}} con un colore a seconda della fase della deambulazione: HS-blu, FF-giallo, HO-rosso, TO-verde. \\
 
 %Sulla base di un modello HMM addestrato in differita (vedi sezione \ref{sec:creazione_addestramento_modello}), impiega una versione dell'algoritmo di Viterbi \cite{short_time_viterbi_online_hmm_deconding} per elaborare a run-time i dati giroscopici acquisiti dalla IMU (e trasferiti via Bluetooth), effettuando la segmentazione e consentendo output di tipo grafico (colorando in modo differente la traccia del segnale giroscopico in funzione della fase del cammino), e di data logging. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Metodologia di programmazione seguita	: \textit{Agile e Unit Test}}%agile %%%%%%%%%%%%%%%%%         METODOLOGIA DI PROGRAMMAZIONE
+\section{Metodologia di programmazione seguita	: \textit{Agile} e \textit{Unit Test}}%agile %%%%%%%%%%%%%%%%%         METODOLOGIA DI PROGRAMMAZIONE
 \label{sec:agile}
-Per l'implementazione dell'algoritmo di Viterbi e le funzioni utilizzate nella fase di analisi del segnale, è stata utilizzata una tecnica nota come \textit{Agile Programming} (AP): una tecnica che permette lo sviluppo di programmi in cicli di lavoro iterativi ed incrementali in termini di funzionalità. Tale metodologia è stata corroborata da una tecnica di verifica del codice sorgente detta \textit{Unit Test} (UT) verifica unitaria. Per \textit{unit} (unità) si intende la più piccola parte funzionante di un programma che può essere verificata, nei linguaggi orientati ad oggetti un metodo costituisce un'unità. Per UT in Java\tm si intende la verifica del funzionamento di ciascun metodo di una classe. 
+Per l'implementazione dell'algoritmo di Viterbi e le funzioni utilizzate nella fase di analisi del segnale, è stata utilizzata una tecnica nota come \textit{Agile Programming} (AP): una tecnica che permette lo sviluppo di programmi in cicli di lavoro iterativi ed incrementali in termini di funzionalità. Tale metodologia è stata corroborata da una tecnica di verifica del codice sorgente detta \textit{Unit Test} (UT) verifica unitaria. Per unità (\textit{unit}) si intende la più piccola parte funzionante di un programma che può essere verificata, nei linguaggi orientati ad oggetti un metodo costituisce un'unità. Per UT in Java\tm si intende la verifica del funzionamento di ciascun metodo di una classe. 
 
 
 Tra i benefici apportati dall'UT si possono annoverare:
@@ -33,8 +33,8 @@ La limitazioni maggiori sono:
 	\item Vi sono casi in cui lo UT non può essere applicato, come ad esempio nei programmi non deterministici o in un ambiente \textit{multithread}. 
 \end{itemize} 
 
-\begin{description}
-	\item [Scrittura di uno UT]. Lo UT istanza l'oggetto dalla classe da verificare, ed invoca il metodo con valori per i quali è noto il comportamento (teorico) del metodo da verificare.\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\par\textsc{Scrittura di uno UT}: lo UT istanza l'oggetto dalla classe da verificare, ed invoca il metodo con valori per i quali è noto il comportamento (teorico) del metodo da verificare.\\
 Il test viene eseguito, per la prima volta, prima di aver implementato il metodo da verificare, ed ovviamente fallisce\footnote{Eclipse IDE \tm utilizza il \textit{framework} JUnit\tm che semplifica la gestione degli UT.}. Il passo successivo è di implementare il minimo indispensabile per far funzionare il test. Se il test viene superato dal codice scritto, viene scritto un altro test, ed un altro pezzo di codice, iterando la procedura finché non si ha tutto il programma desiderato.\\ 
 
 A titolo di esempio di seguito verrà illustrato lo sviluppo della classe che gestisce le operazioni di tipo statistico:
@@ -48,9 +48,9 @@ public class StatisticsOperationsTest extends TestCase {...}
 
 Le operazioni da implementare per le HMM sono: 
 \begin{itemize}
-	\item verificare la validità di valori di probabilità,
-	\item verificare la completezza di un insieme di alternative probabilistiche,
-	\item calcolare la Probabilità di un dato assumendo quanto estratto da una distribuzione Normale ($ \mathcal{N}(x,\mu, \sigma)$) con media $\mu$ e varianza $\sigma^2$ note.
+	\item verificare la validità di valori di probabilità;
+	\item verificare la completezza di un insieme di alternative probabilistiche;
+	\item calcolare la Probabilità di un dato assumendo che corrisponda ad una distribuzione Normale ($ \mathcal{N}(x,\mu, \sigma)$) con media $\mu$ e varianza $\sigma^2$ note.
 \end{itemize}
 
 Creazione delle le firme dei metodi
@@ -63,8 +63,8 @@ public class StatisticsOperations{
 }
 \end{lstlisting}
 
-\item Creazione di una verifica vuota (destinato a fallire). L'obbiettivo di questa e della successiva fase è quello di specificare i requisiti della classe da produrre: nel momento in cui vengono create le verifiche, si hanno chiari i funzionamenti dei metodi ed i vincoli che questi devono rispettare.  
-\item Implementazione della verifica per cinque casi rappresentativi dei degli intervalli esterni ed interni a quello di riferimento (0,1).
+\par\textsc{Creazione di una verifica vuota}: l'obbiettivo di questa e della successiva fase è quello di specificare i requisiti della classe da produrre: nel momento in cui vengono create le verifiche, si hanno chiari i funzionamenti dei metodi ed i vincoli che questi devono rispettare.  
+\par\textsc{Implementazione della verifica}: per cinque casi rappresentativi degli intervalli esterni ed interni a quello di riferimento (0,1).
 
 \begin{lstlisting}[language=java, style=eclipse, caption=Casi di test di contorno, label=code:agile3]
 public class StatisticsOperationsTest extends TestCase {
@@ -111,8 +111,7 @@ public class StatisticsOperationsTest extends TestCase {
 }
 \end{lstlisting}
 
-\item Sviluppo del corpo del metodo che si sta testando. 
-Questa fase è guidata dalle precedenti : il programmatore ha chiare la funzione da implementare e le relative problematiche, perché presenti nelle verifiche. 
+\par\textsc{Sviluppo del corpo del metodo che si sta testando}: questa fase è guidata dalle precedenti : il programmatore ha chiare la funzione da implementare e le relative problematiche, perché presenti nelle verifiche. 
 
 \begin{lstlisting}[language=java, style=eclipse,caption=Implementazione dei metodi da testare, label=code:agile4]
 public class StatisticsOperations{	
@@ -126,7 +125,6 @@ public class StatisticsOperations{
 	public static double gaussian(double x, double mu, double sigma_square) {...}
 }
 \end{lstlisting}
-\end{description}
 
 La esecuzione delle verifiche sul metodo riscritto porta ad uno dei seguenti esiti:
 \begin{enumerate}
@@ -136,7 +134,7 @@ La esecuzione delle verifiche sul metodo riscritto porta ad uno dei seguenti esi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Strumenti e ambiente di lavoro}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%              ORGANIZZAZIONE DEL CODICE
-\subsection{Android \textit{Manifest}} AndroidManifest.xml (vedi Appendice \ref{sec:android_app_structure}) è il file che viene usato come indice dal compilatore Dalvik (vedi Appendice \ref{sec:dalvik}) per conoscere l'ordine in cui deve compilare i file del programma. 
+\subsection{Android \textit{Manifest}} \verb|AndroidManifest.xml| (vedi Appendice \ref{sec:android_app_structure}) è il file che viene usato come indice dal compilatore Dalvik\tm (vedi Appendice \ref{sec:dalvik}) per conoscere l'ordine in cui deve compilare i file del programma. 
 
 
 \begin{lstlisting}[language=XML, style=xmlandroid, caption=AndroidManifest testata, label=code:manifest_permissions1]
@@ -157,10 +155,10 @@ Il nome del Java\tm \textit{package}, serve come identificativo univoco per l'ap
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% modifica 24 nov %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Dato che il nucleo (\textit{kernel}) di Android-OS è basato su Linux (vedi Appendice \ref{app:android}) usa una politica di controllo di accessi (\textit{Access Control})\footnote{Accesso controllato dell'utente di un \textit{filesystem} o di un servizio} molto simile a quello del sistema operativo Linux. Tutti i servizi che non sono forniti da un programma diverso da quello in uso possono essere utilizzati solo se l'utente dà il permesso di utilizzarli, vale a dire che un programma non può interagire con altri programmi se non con l'esplicita autorizzazione dell'utente. Per questo motivo l'applicazione deve elencare tutte le richieste di permessi di cui necessita. L'elenco deve essere fatto nella porzione iniziale dell'\verb|AndroidManifest|.\\
+Dato che il nucleo (\textit{kernel}) di Android-OS\tm è basato su Linux (vedi Appendice \ref{app:android}) esso usa una politica di controllo di accessi (\textit{Access Control})\footnote{Accesso controllato dell'utente di un \textit{filesystem} o di un servizio} molto simile a quello del sistema operativo Linux. Tutti i servizi che non sono forniti da un programma diverso da quello in uso possono essere utilizzati solo se l'utente dà il permesso di utilizzarli, vale a dire che un programma non può interagire con altri programmi se non con l'esplicita autorizzazione dell'utente. Per questo motivo l'applicazione deve elencare tutte le richieste di permessi di cui necessita. L'elenco deve essere fatto nella porzione iniziale dell'\verb|AndroidManifest|.\\
  Dichiarazione dei permessi che l'applicazione deve avere dall'utente per accedere ad alcune parti dell'API\footnote{ \textit{Application Programming Interface}: interfaccia ad un codice che viene messo a disposizione come servizio in modo che terzi possano usarlo per sviluppare altro software, avvolte anche in altri linguaggi.
- In dettaglio una API nei linguaggi orientati ad oggetti, sono concepiti come l'insieme di tutti i metodi pubblici che le classi pubbliche offrono.} (\textit{Application Programming Interface}) di Android\tm e per interagire con altri applicazioni.
- La riga 4 chiede il permesso di fare la ricerca (\textit{discovery}) di dispositivi e di associarsi  a dispositivi trovati, la riga precedente invece il permesso di connettersi a dispositivi associati \footnote{L'associazione è la prima connessione, nella quale vi è una forma di identificazione e associazione dei due dispositivi. Per connessione invece si intendono le connessioni successive alla prima, in cui un dispositivo conosce già l'altro e, più rapidamente, possono iniziare una conversazione.}. L'ultimo permesso serve per poter scrivere su un dispositivo di archiviazione (\textit{storage}) esterno.
+ In dettaglio una API nei linguaggi orientati ad oggetti, sono concepiti come l'insieme di tutti i metodi pubblici che le classi pubbliche offrono.} (\textit{Application Programming Interface}) di Android\tm e per interagire con altre applicazioni.
+ La riga 4 del Codice \ref{code:manifest_permissions2} chiede il permesso di fare la ricerca (\textit{discovery}) di dispositivi e di associarsi  a dispositivi trovati, la riga precedente invece il permesso di connettersi a dispositivi associati \footnote{L'associazione è la prima connessione, nella quale vi è una forma di identificazione e associazione dei due dispositivi. Per connessione invece si intendono le connessioni successive alla prima, in cui un dispositivo conosce già l'altro e, più rapidamente, possono iniziare una conversazione.}. L'ultimo permesso serve per poter scrivere su un dispositivo di archiviazione (\textit{storage}) esterno.
 
  
 \begin{lstlisting}[language=XML, style=xmlandroid,caption=AndroidManifest dichiarazione dell'attività principale, label=code:manifest_application, firstnumber=8]
@@ -197,21 +195,21 @@ Inoltre sono dichiarate altre impostazioni iniziali che riguardano soprattutto l
 
 \subsection{Codice sorgente}
 Tutto il codice sorgente (Java\tm) deve essere contenuto nella cartella \emph{src} del progetto. 
-Il codice sorgente è stato organizzato 5 \textit{package} (cartelle di Java\tm):
+Il codice sorgente è stato organizzato in 5 \textit{package} (cartelle di Java\tm):
 \begin{itemize}
-	\item \verb|activities|: contenente le \textit{Activity} che corrispondono indicativamente ciascuna ad una schermata sullo della UI,
-	\item \verb|objects| : dati, modelli o contenitori su cui compiere operazioni,
-	\item \verb|services|: operazioni fondamentali dell'applicazione, che in questo caso coincidono con gli algoritmi che si applicano alle HMM. 
-	\item \verb|tests|: verifiche (\textit{test}) prodotte dall'utilizzo della metodologia Agile (vedi Sezione \ref{sec:agile}),
+	\item \verb|activities|: contenente le \textit{Activity} che corrispondono ciascuna ad una schermata della UI;
+	\item \verb|objects| : dati, modelli o contenitori su cui compiere operazioni;
+	\item \verb|services|: operazioni fondamentali dell'applicazione, che in questo caso coincidono con gli algoritmi che si applicano alle HMM;
+	\item \verb|tests|: verifiche (\textit{test}) prodotte dall'utilizzo della metodologia Agile (vedi Sezione \ref{sec:agile});
 	\item \verb|util|: operazioni di supporto al resto del codice sorgente. 
 \end{itemize} 
 
 \subsection{Risorse}
-Le risorse sono costituite da tutti i \textit{file} che fanno parte dell'applicazione, ma non sono codice sorgente Java\tm (vedi Appendice \ref{sec:android_app_structure}) vale a dire \textit{file} XML, immagini, testo ecc. Una sezione significativa delle risorse è la sezione \textbf{layout} (impaginazione) che rappresenta la struttura della UI. Questo contiene una serie di file XML, preferibilmente, uno per ciascuna \textit{Activity} ed avente lo stesso nome.
+Le risorse sono costituite da tutti i \textit{file} che fanno parte dell'applicazione, ma non sono codice sorgente Java\tm (vedi Appendice \ref{sec:android_app_structure}) vale a dire \textit{file} XML, immagini, testo ecc. Una sezione significativa delle risorse è la sezione \textit{layout} (impaginazione) che rappresenta la struttura della UI. Questo contiene una serie di file XML, uno per ciascuna \textit{Activity} ed avente lo stesso nome, per una maggiore flessibilità e manutenibilità. 
 
 \subsubsection{Impaginazione (\textit{Layout})}
 Un file di \textit{layout} è un documento XML in cui viene descritta la struttura dell'interfaccia utente di una \textit{Activity}.
-Un \textit{layout} deve essere composto di elementi grafici predefiniti in Android\tm oppure deve essere di tipo \verb|View| o  \verb|ViewGroup|\footnote{Sia la \textit{View} che la \textit{ViewGroup} appartengono al \textit{package} \textit{android.view} e sono componenti importante dell'interfaccia utente}. Ogni file di \textit{layout} deve contenere un elemento radice, ovvero un elemento grafico che contene tutti gli altri elementi grafici. Ogni elemento grafico ha un identificativo unico, con cui può essere richiamato dal codice sorgente, tramite l'indicizzazione automatica.
+Un \textit{layout} deve essere composto di elementi grafici predefiniti in Android\tm oppure deve essere di tipo \verb|View| o  \verb|ViewGroup|\footnote{Sia la \textit{View} che la \textit{ViewGroup} appartengono al \textit{package} \textit{android.view} e sono componenti importante dell'interfaccia utente}. Ogni file di \textit{layout} deve contenere un elemento radice, ovvero un elemento grafico che contiene tutti gli altri elementi grafici. Ogni elemento grafico ha un identificativo unico, con cui può essere richiamato dal codice sorgente, tramite l'indicizzazione automatica.
 Eclipse\tm permette di definire un \textit{layout} sia in modalità XML che in modalità grafica (WYSIWYG\footnote{\textit{What You See Is What You Get}}). Ad esempio il \textit{layout} della \textit{Activity} principale (\textit{ImuInterface}) è il seguente 
 
 \begin{lstlisting}[language=XML, style=xmlandroid,caption=LinearLayout:impaginazione  della schermata principale,label=code:mainActivity_layout_linear]
@@ -244,7 +242,7 @@ Questo è un oggetto che contiene testo non modificabile dall'utente. Qui viene v
 	....
 \end{lstlisting}	
 
-Vi sono il titolo della schermata, quattro campi di testo (di cui sono riportate solo 2 a titolo illustrativo). 
+Vi sono il titolo della schermata e quattro campi di testo, di cui ne sono riportate solo 2 a titolo illustrativo nel Codice \ref{code:mainActivity_button}. 
 
 
 \begin{lstlisting}[language=XML, style=xmlandroid,caption=Esempio di LinearLayout contenente un Button,label=code:mainActivity_button, firstnumber=25]
@@ -264,7 +262,7 @@ Vi sono il titolo della schermata, quattro campi di testo (di cui sono riportate
 \end{lstlisting}
 
 La parte seguente della schermata, a partire dall'alto, è un altro \verb|LinearLayout| contenente campi di testo e pulsanti.\\
-La schermata risultante dal \textit{layout} è quella dell'immagine \ref{fig:main_activity}.
+La schermata risultante dal \textit{layout} è quella della Figura \ref{fig:main_activity}.
 \begin{figure}
 	\centering
 		\includegraphics[width=.5\textwidth]{imgs/imuControloPanel.jpg}
@@ -286,7 +284,7 @@ Le librerie usate sono quelle di Android\tm2.2 (vedi Appendice \ref{sec:lib_Andr
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Architettura}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                         FUNZIONAMENTO 
 \subsection{Unità di Controllo}
-
+\TODO{?????????}
 \subsection{Interfaccia Utente}
 La linea guida per lo sviluppo della UI è stata quella della massima ergonomia, in linea con la filosofia di sviluppo di interfacce utente di Android\tm. \\
 La navigazione tra le schermate dell'applicazione è guidata da \textit{widget}: oggetti grafici della UI di un programma, che hanno lo scopo di facilitare all'utente l'interazione con il programma. \\
@@ -309,7 +307,7 @@ Ad ogni oggetto grafico dell'interfaccia utente è associato un insieme di eventi
 \end{lstlisting}
 
 Gestire il comportamento dell'oggetto \verb|Button| corrisponde a scegliere gli eventi ai quali l'oggetto deve essere suscettibile e l'azione che questi deve compiere implementando i corpi dei metodi scelti. 
-Come esempio in seguito verrà riportata la creazione del \verb|Button| ``\textit{Stop}'' della del Pannello di Controllo.
+Come esempio in seguito verrà riportata la creazione del \verb|Button| ``\textit{Stop}'' del Pannello di Controllo.
 L'oggetto viene creato in XML nel seguente modo: 
 
 \begin{lstlisting}[language=XML, style=xmlandroid, caption=Android Button Form Widget, label=code:button_widget]
@@ -320,8 +318,8 @@ L'oggetto viene creato in XML nel seguente modo:
 					android:gravity="center_vertical|center_horizontal"
 \end{lstlisting}
 
-La prima riga specifica il tipo di oggetto (\verb|Button|) ed il suo identificativo unico \textit{button2}.
-La seconda la stringa che appare sull'oggetto. Dalla terza alla quinta, la relazione che il pulsante deve avere con il resto della schermata.
+La prima riga del Codice \ref{code:button_widget} specifica il tipo di oggetto (\verb|Button|) ed il suo identificativo unico \textit{button2}.
+La seconda, la stringa che appare sull'oggetto, dalla terza alla quinta, viene specificata la relazione che il pulsante deve avere con il resto della schermata.
 
 Una volta creato l'oggetto XML, il codice sorgente Java\tm che ne gestisce il comportamento è il seguente:
 \begin{lstlisting}[language=java, style=eclipse,label=code:button_creation]
@@ -333,7 +331,7 @@ Il pulsante di nome \textit{startButton} viene creato, grazie al metodo
 findViewById(int id)
 \end{verbatim}
 
-con l'identificativo dato all'oggetto alla creazione in XML. Il metodo \verb|findViewById| funziona perché ogni ogni elemento nei file di \textit{layout} in XML vengono compilati in una risorsa di tipo \verb|View| con l'identificativo scelto nella creazione. A tempo di esecuzione, tali oggetti vengono caricati e visualizzati. 
+con l'identificativo dato all'oggetto alla creazione in XML. Il metodo \verb|findViewById| funziona perché ogni elemento nei file di \textit{layout} in XML vengono compilati in una risorsa di tipo \verb|View| con l'identificativo scelto nella creazione. A tempo di esecuzione, tali oggetti vengono caricati e visualizzati. 
 Il pulsante \textit{Start} avvia l'acquisizione di dati dalla IMU. Se la connessione \textit{Bluetooth} non è funzionante, la pressione del pulsante segnala un errore.
 \begin{lstlisting}[language=java, style=eclipse,label=code:button_useage]
 	// verifica l'esistenza della connessione
@@ -353,15 +351,15 @@ Il pulsante \textit{Start} avvia l'acquisizione di dati dalla IMU. Se la conness
 
 
 \subsection{Comunicazione Bluetooth}
-La piattaforma di Android\tm fornisce il supporto per lo stack di rete \textit{Bluetooth}, che permette a due dispositivi muniti di comunicare senza filo. Il framework delle applicazioni (Application Framework, vedi Figura \ref{fig:android_system_architecture}) permette fornisce un accesso alle funzionalità del \textit{Bluetooth} mediante le Android \textit{Bluetooth} API \footnote{Application Programming Interface, ovvero Interfaccia di Programmazione di un Applicazione cioè l'insieme di tutte le funzionalità o servizi di un programma resi disponibili a programmatori terzi per l'utilizzo di un codice sorgente.}. 
+La piattaforma di Android\tm fornisce il supporto per lo stack di rete \textit{Bluetooth}, che permette a due dispositivi di comunicare senza filo. Il framework delle applicazioni (Application Framework, vedi Figura \ref{fig:android_system_architecture}) fornisce un accesso alle funzionalità del \textit{Bluetooth} mediante le Android \textit{Bluetooth} API \footnote{Application Programming Interface, ovvero Interfaccia di Programmazione di un Applicazione cioè l'insieme di tutte le funzionalità o servizi di un programma resi disponibili a programmatori terzi per l'utilizzo di un codice sorgente.}. 
 
 Le funzionalità principali che la API del \textit{Bluetooth} sono: 
 \begin{itemize}
-	\item Ricerca (discovery) di dispositivi \textit{Bluetooth}, 
-	\item Richiesta al adattatore \textit{Bluetooth} (\textit{Bluetooth Adapter}) della lista di dispositivi abbinati (paired)\footnote{Due dispositivi sono detti paired quando questi sono l'uno a conoscenza dell'esistenza dell'altro.},
-	\item istanziazione di un dispositivo \textit{Bluetooth} (\verb|BluetoothDevice|) usando un indirizzo MAC\footnote{Media Access Control, indirizzo fisico univoco di 6 byte} noto,
-	\item creazione di una \textit{server-socket} (\verb|BluetoothServerSocket|) per accettare richieste di connessione da altri dispositivi \textit{Bluetooth}.
-	\item trasferire dati da ed ad altri dispositivi,
+	\item Ricerca (discovery) di dispositivi \textit{Bluetooth};
+	\item Richiesta all'adattatore \textit{Bluetooth} (\textit{Bluetooth Adapter}) della lista di dispositivi abbinati (paired)\footnote{Due dispositivi sono detti paired quando questi sono l'uno a conoscenza dell'esistenza dell'altro.};
+	\item istanziazione di un dispositivo \textit{Bluetooth} (\verb|BluetoothDevice|) usando un indirizzo MAC\footnote{Media Access Control, indirizzo fisico univoco di 6 byte} noto;
+	\item creazione di una \textit{server-socket} (\verb|BluetoothServerSocket|) per accettare richieste di connessione da altri dispositivi \textit{Bluetooth};
+	\item trasferire dati da e verso altri dispositivi;
 	\item gestire molteplici connessioni.
 \end{itemize}
 
@@ -375,7 +373,7 @@ Alcune delle classi della \textit{Bluetooth} API che devono essere implementate 
 
 Per poter utilizzare il Bluetooth, vi sono richieste 4 attività fondamentali da portare a termine mediante le Bluetooth API:
 \begin{enumerate}
-	\item \textbf{Impostare il Bluetooth}: assumendo che il dispositivo supporti il bluetooth e che sia abilitato, l'impostazione del \textit{Bluetooth} viene fatta in due passaggi:
+	\item Impostare il Bluetooth: assumendo che il dispositivo supporti il bluetooth e che sia abilitato, l'impostazione del \textit{Bluetooth} viene fatta in due passaggi:
 	\begin{enumerate}
 	\item {Ottenere l'adattatore del proprio dispositivo}: 
 	\begin{lstlisting}[language=java, style=eclipse,label=code:bluetooth_adapter]
@@ -393,14 +391,12 @@ Per poter utilizzare il Bluetooth, vi sono richieste 4 attività fondamentali da 
 	    // crea l'intenzione di abilitare l'adattatore
 	    startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
 	    //richiede all'utente, mediante una finestra di comunicazione di sistema (dialog), il permesso di abilitare l'adattatore
-			}
 		}
 	\end{lstlisting}
 \end{enumerate}
 	\item \textbf{Ricercare dispositivi}: una volta ottenuto l'adattatore, si possono trovare dispositivi \textit{Bluetooth} remoti in due modi: mediante una procedura nota come scoperta di dispositivi (\textit{device discovery}) oppure interrogando una lista di dispositivi già trovati e abbinati (\textit{paired}):
-	\begin{description}
-	\item[Scoperta di dispositivi]: procedura di scansione dell'area locale alla ricerca di dispositivi con \textit{Bluetooth} abilitato. Nel momento in cui un dispositivo viene trovato, risponde con informazioni che lo possano identificare (nome, classe ed indirizzo MAC). Mediante questa'informazione il dispositivo che ha fatto la ricerca può decidere di iniziare la procedura di connessione ai dispositivi scoperti. Questa procedura può essere fatta manualmente precedentemente all'avvio del applicazione. 
-	\item [Interrogazione della lista dei dispositivi abbinati]:
+	\par\textsc{Scoperta di dispositivi}: procedura di scansione dell'area locale alla ricerca di dispositivi con \textit{Bluetooth} abilitato. Nel momento in cui un dispositivo viene trovato, risponde con informazioni che lo possano identificare (nome, classe ed indirizzo MAC). Mediante questa'informazione il dispositivo che ha fatto la ricerca può decidere di iniziare la procedura di connessione ai dispositivi scoperti. Questa procedura può essere fatta manualmente precedentemente all'avvio dell'applicazione. 
+	\par\textsc{Interrogazione della lista dei dispositivi abbinati}:
 	\begin{lstlisting}[language=java, style=eclipse,label=code:query_paired_devices]
 		Set<BluetoothDevice> pairedDevices = bluetoothAdapter.getBondedDevices();
 		// Se vi sono dispositivi abbinati
@@ -413,15 +409,14 @@ Per poter utilizzare il Bluetooth, vi sono richieste 4 attività fondamentali da 
 		    }
 		}
 	\end{lstlisting}	
-\end{description}
-	\item \textbf{Connettere dispositivi}: due dispositivi appaiati possono stabilire una connessione criptata. Possono così comunicare mediante un canale di comunicazione RFCOMM\footnote{Comunicazione su frequenza radio (\textit{Radio Frequency Communication}) è un protocollo di trasporto di dati che emula una porta seriale.}. Affinché la connessione avvenga deve essere implementato un meccanismo \textit{client-server}. Assumendo che vi sia un server in ascolto, la procedura di connessione da parte di un dispositivo \textit{client} consiste ha due passaggi:
+	\item Connettere dispositivi: due dispositivi appaiati possono stabilire una connessione criptata. Possono così comunicare mediante un canale di comunicazione RFCOMM\footnote{Comunicazione su frequenza radio (\textit{Radio Frequency Communication}) è un protocollo di trasporto di dati che emula una porta seriale.}. Affinché la connessione avvenga deve essere implementato un meccanismo \textit{client-server}. Assumendo che vi sia un server in ascolto, la procedura di connessione da parte di un dispositivo \textit{client} consiste di due passaggi:
 	\begin{enumerate}
 	\item Usare il dispositivo \textit{Bluetooth} remoto \verb|BluetoothDevice| per ottenere una \textit{socket} \verb|BluetoothSocket| con l'uso del metodo 
 	\begin{verbatim}
 		createRfcommSocketToServiceRecord(UUID)
 	\end{verbatim}
 	Tale metodo crea la \textit{socket} che si connetterà al dispositivo remoto. L'UUID (\textit{universally unique identifier}) o identificatore universalmente unico è una stringa a 128-bit che viene creato nella fase iniziale di scoperta. 
-	\item Inizio della connessione mediante il metodo \verb|connect()|. La chiamata del metodo scatena una SDP (\textit{Service Discovery Protocol}) protocollo di scoperta dei servizio, ovvero una richiesta al dispositivo remoto di verifica la validità dell'UUID. Se la verifica ha esito positivo, il dispositivo remoto accetta la richiesta e condivide un canale RFCOMM. Dato che il metodo \verb|connect()| è bloccante, la procedura di connessione deve sempre fatta da un \textit{thread} dedicato. 
+	\item Inizio della connessione mediante il metodo \verb|connect()|. La chiamata del metodo scatena una SDP (\textit{Service Discovery Protocol}) protocollo di scoperta dei servizio, ovvero una richiesta al dispositivo remoto di verifica della validità dell'UUID. Se la verifica ha esito positivo, il dispositivo remoto accetta la richiesta e condivide un canale RFCOMM. Dato che il metodo \verb|connect()| è bloccante, la procedura di connessione deve sempre fatta da un \textit{thread} dedicato. 
 \end{enumerate}
 	\begin{lstlisting}[language=java, style=eclipse,label=code:client_connect]
 	private class ConnectThread extends Thread {
@@ -465,7 +460,7 @@ Per poter utilizzare il Bluetooth, vi sono richieste 4 attività fondamentali da 
 \begin{verbatim}
 BluetoothDevice
 \end{verbatim}
-	\item \textbf{Trasferire dati tra dispositivi}: Una volta stabilita una connessione tra due dispositivi, ciascuno avrà un \verb|BluetoothSocket| connesso ed la procedura di comunicazione consiste di due fasi:
+	\item \textbf{Trasferire dati tra dispositivi}: Una volta stabilita una connessione tra due dispositivi, ciascuno avrà un \verb|BluetoothSocket| connesso e la procedura di comunicazione consiste di due fasi:
 	\begin{enumerate}
 	\item Ottenere i canali I/O (\textit{Input/Output}) di comunicazione via \textit{socket}:
 	\begin{verbatim}
@@ -526,7 +521,7 @@ private class ConnectedThread extends Thread {
 
 
 \subsection{Gestione di Processi}
-Il sistema operativo Android\tm è \textit{multithread}. Un applicazione che risponda rapidamente alle richieste dell'utente deve necessariamente smistare i compiti a più \textit{thread}, dando la precedenza ai \textit{thread} di risposta all'utente. Il più importante di questi è lo UI \textit{Thread} (User Interface Thread). Una regola di base della programmazione di applicazioni Android\tm è, nella creazione di un'\textit{Activity}, non si deve sovraccaricare, o ancora peggio, eseguire istruzioni potenzialmente bloccanti all'interno dello UI \textit{Thread}. La prassi per la gestione di operazioni con un comportamento imprevedibile dal punto di vista temporale, come ad esempio le operazioni di rete o di lettura e scrittura di file, è di incaricare altri \textit{thread} che possano, se necessario, essere eseguiti in background, o fermati se necessario.\\
+Il sistema operativo Android\tm è \textit{multithread}. Un applicazione che risponda rapidamente alle richieste dell'utente deve necessariamente smistare i compiti a più \textit{thread}, dando la precedenza ai \textit{thread} di risposta all'utente. Il più importante di questi è lo UI \textit{Thread} (User Interface Thread). Una regola di base della programmazione di applicazioni Android\tm è, nella creazione di un'\textit{Activity}, che non si deve sovraccaricare, eseguire istruzioni potenzialmente bloccanti all'interno dello UI \textit{Thread}. La prassi per la gestione di operazioni con un comportamento imprevedibile dal punto di vista temporale, come ad esempio le operazioni di rete o di lettura e scrittura di file, è di incaricare altri \textit{thread} che possano, se necessario, essere eseguiti in background, o fermati se necessario.\\
 Per la comunicazione fra processi è stato ritenuto utile avere un protocollo di comunicazione fra \textit{thread} mediante una struttura nominata "\textit{mailbox}", in cui $n$ \textit{thread} possano inserire e consumare singoli dati.\\
 \subsubsection{MailBox}
 \label{sec:mailbox}
@@ -550,11 +545,11 @@ Le proprietà di un metodo sincronizzato sono 2:
 \end{lstlisting}
 
 
-	Un \textit{thread} alla volta può prendere, in mutua esclusione, l'accesso in scrittura al buffer, chiamando per primo il metodo \verb|put| (vedi Algoritmo \ref{alg:mailbox_put}). Il valore contenuto nel buffer è sempre visibile a tutti i thread. Questo risultato è stato ottenuto dichiarando la variabile con la parola chiave \verb|volatile|. 
+	Un \textit{thread} alla volta può prendere, in mutua esclusione, l'accesso in scrittura al buffer, chiamando per primo il metodo \verb|put| (vedi Codice \ref{code:mailbox_put}). Il valore contenuto nel buffer è sempre visibile a tutti i thread. Questo risultato è stato ottenuto dichiarando la variabile con la parola chiave \verb|volatile|. 
 \begin{lstlisting}[language=java, style=eclipse]
 	volatile private T buffer = null;
 \end{lstlisting}
-Normalmente, ciò che avviene al momento in cui un \textit{thread} prende l'accesso in mutua esclusione ad una variabile, è che si copia nel proprio \textit{stack} di lavoro la variabile e modifica quella e solo prima di rilasciare la variabile la aggiorna all'esterno. Altri \textit{thread} che fossero abilitati a vedere la variabile nel momento in cui è in modifica, vedrebbero un valore incongruente con il valore reale della stessa. La parola chiave \textit{volatile}, impedisce ai \textit{thread} che la modificano di crearsene una copia, e li vincola a lavorare direttamente sulla variabile\footnote{la parola chiave \textit{volatile} impedisce un possibile ripristino del valore di una variabile, il che rende potenzialmente pericolosa per la perdita di dati} garantendone la visibilità in tutti i momenti. Dato che i metodi put e get sono sincronizzati (\textit{synchronized}), il problema della copia in locale del valore di una variabile da parte di un \textit{thread} non persiste, perché ogni thread ha accesso esclusivo all'oggetto. L'utilità di usare la parola chiave \textit{volatile} è semplicemente quella di impedire l'operazione di copia della variabile in locale da parte dei \textit{thread}, che è superflua.\\ 
+Normalmente, ciò che avviene al momento in cui un \textit{thread} prende l'accesso in mutua esclusione ad una variabile, è che si copia nel proprio \textit{stack} di lavoro la variabile e modifica quella e solo prima di rilasciare la variabile la aggiorna all'esterno. Altri \textit{thread} che fossero abilitati a vedere la variabile nel momento in cui è in modifica, vedrebbero un valore incongruente con il valore reale della stessa. La parola chiave \textit{volatile}, impedisce ai \textit{thread} che la modificano di crearsene una copia, e li vincola a lavorare direttamente sulla variabile\footnote{La parola chiave \textit{volatile} garantisce un ordine globale sulle letture e scritture di una variabile dichiarata \textit{volatile}.)} garantendone la visibilità in tutti i momenti. Dato che i metodi put e get sono sincronizzati (\textit{synchronized}), il problema della copia in locale del valore di una variabile da parte di un \textit{thread} non persiste, perché ogni thread ha accesso esclusivo all'oggetto. L'utilità di usare la parola chiave \textit{volatile} è semplicemente quella di impedire l'operazione di copia della variabile in locale da parte dei \textit{thread}, che è superflua.\\ 
 
 \begin{lstlisting}[language=java, style=eclipse,label=code:mailbox_put]
 synchronized public void put(T object){
@@ -576,7 +571,7 @@ synchronized public void put(T object){
 }
 \end{lstlisting}
  
-Un \textit{thread} può prelevare il dato immesso da un altro nella mailbox, usando il metodo \verb|get()|(vedi Algoritmo \ref{alg:mailbox_get}). Mentre il dato viene prelevato, questo non può essere modificato. Appena il \textit{thread} ha preso il dato, lo elimina dal buffer.
+Un \textit{thread} può prelevare il dato immesso da un altro nella mailbox, usando il metodo \verb|get()|(vedi Codice \ref{code:mailbox_get}). Mentre il dato viene prelevato, questo non può essere modificato. Appena il \textit{thread} ha preso il dato, lo elimina dal buffer.
 
 \begin{lstlisting}[language=java, style=eclipse,label=code:mailbox_get]
 synchronized public T get(){
@@ -605,12 +600,12 @@ synchronized public T get(){
 
 Queste due operazioni implicano che devono essere eseguite in ordine, ed alternati ($put(dato_i)$, $get()$, $put(dato_j)$, $get()$ ecc ).
 
-\item \textbf{Temporizzata}: l'inserimento ed la rimozione del contenuto del buffer sono bloccanti ma solo per un periodo di tempo \verb|t|. Una chiamata \verb|get(t)| in attesa viene sbloccata dopo tempo \verb|t| e se il buffer è vuoto restituisce null e termina. Una chiamata \verb|put(t,o)|, in attesa viene sbloccata dopo tempo \verb|t| e se il buffer non è vuoto, ne sovrascrive il contenuto.
+\item Temporizzata: l'inserimento e la rimozione del contenuto del buffer sono bloccanti ma solo per un periodo di tempo \verb|t|. Una chiamata \verb|get(t)| in attesa viene sbloccata dopo il tempo \verb|t| e se il buffer è vuoto restituisce null e termina. Una chiamata \verb|put(t,o)| in attesa viene sbloccata dopo il tempo \verb|t| e se il buffer non è vuoto, ne sovrascrive il contenuto.
 
 \item \textbf{Condizionata}: questa versione è la generalizzazione della versione temporizzata. L'inserimento e prelievo di dati dalla \textit{mailbox} è bloccante finché non si verifica una condizione, dopodiché una \verb|get(cond)| in attesa viene sbloccata se l'operazione restituisce \verb|null|; una \verb|put(cond,o)| in attesa viene sbloccata e sovrascrive il valore presente nel buffer.
 \end{enumerate}
 
-Soffermandosi sulla prima forma di scambio di messaggi sulla mailbox, i casi che si possono verificare sono quelli illustrati nelle figure \ref{fig:putonempty}, \ref{fig:putonfull}, \ref{fig:getonempty}, \ref{fig:getonfull}. In Tali illustrazioni sono raffigurate quattro esecuzioni parallele di due \textit{thread} di cui uno invoca il metodo \verb|get()| e l'altro il metodo \verb|put(...)|. La linea verticale centrale rappresenta il tempo. Sulla linea vi sono delle frecce con la punta rivolta verso sinistra o destra. Le frecce stanno ad indicare le istruzioni del metodo \verb|put| a sinistra, del metodo \verb|get| a destra, che vengono eseguite in quell'istante di tempo. L'esatto momento in cui viene eseguita un istruzione è irrilevante, e molto difficile da prevedere, ciò che è importante è l'ordine in cui le operazioni si alternano. I segmenti rossi stanno a simboleggiare gli intervalli di tempo in cui la \verb|get| (se a sinistra) o la \verb|put| (se a destra) si bloccano e sono in attesa.\\
+Soffermandosi sulla prima forma di scambio di messaggi sulla mailbox, i casi che si possono verificare sono quelli illustrati nelle seguenti Figura \ref{fig:putonempty}, Figura \ref{fig:putonfull}, Figura \ref{fig:getonempty}e Figura \ref{fig:getonfull}. In tali figure sono illustrate quattro esecuzioni parallele di due \textit{thread} di cui uno invoca il metodo \verb|get()| e l'altro il metodo \verb|put(...)|. La linea verticale centrale rappresenta il tempo. Sulla linea vi sono delle frecce con la punta rivolta verso sinistra o destra. Le frecce stanno ad indicare le istruzioni del metodo \verb|put| a sinistra, del metodo \verb|get| a destra, che vengono eseguite in quell'istante di tempo. L'esatto momento in cui viene eseguita un istruzione è irrilevante, e molto difficile da prevedere, ciò che è importante è l'ordine in cui le operazioni si alternano. I segmenti rossi stanno a simboleggiare gli intervalli di tempo in cui la \verb|get| (se a sinistra) o la \verb|put| (se a destra) si bloccano e sono in attesa.\\
 Nella figura \ref{fig:putonempty} si parte dal presupposto che il buffer sia vuoto e che prima operazione che viene eseguita è una \verb|put(o)|: 
 \begin{verbatim}
 	if(buffer == null)
@@ -688,8 +683,7 @@ get:& (70917.0, -0.307) & get:& (70923.0, -0.561)\\
 \caption{Parte di una sequenza di stringhe scambiate tra due \textit{thread}, un produttore ed un consumatore, che comunicano tramite una \textit{mailbox}. Il produttore genera una sequenza ordinata di numeri dispari, crea un oggetto \textit{point(x, sin(x))} ed il consumatore preleva il valore dalla \textit{MailBox}, permettendo al produttore di inserire il valore successivo.}
 \end{table}
 
-La stessa prova è stata riportata nell'ambiente Android
-Stesso esperimento su Android\tm, con una semplice \textit{Activity} per visualizzare il punto generato dal \textit{thread} produttore, come il centro di un cerchio.
+La stessa prova è stata riportata nell'ambiente Android\tm, con una semplice \textit{Activity} per visualizzare il punto generato dal \textit{thread} produttore, come il centro di un cerchio.
 \begin{figure}
 	\centering
 		\includegraphics[width=1\textwidth]{imgs/mailBoxCommTestAndroid.jpg}
@@ -701,22 +695,22 @@ Stesso esperimento su Android\tm, con una semplice \textit{Activity} per visuali
 \newpage
 \subsection[HMM e Viterbi]{Modello deambulazione ed algoritmo di decodifica: implementazione di HMM e Viterbi}
 
-L'interfaccia \verb|HiddenMarkovModel| è pensata per fornire uno scheletro per tutti i tipi di HMM. 
-Chi implementa l'interfaccia, dovrebbe partire dalla creazione di un insieme di stati $S$ ed un insieme di simboli di osservazione $V$. A questo punto le dimensioni delle strutture dati che conterranno i parametri sono note, e le implementazioni dei seguenti metodi accessori agli stessi dovrebbero assicurarsi che vengano rispettate tali dimensioni.
+L'interfaccia \verb|HiddenMarkovModel| che è stata realizzata in questo lavoro, è pensata per fornire uno scheletro per tutti i tipi di HMM. 
+L'implementazione dell'interfaccia, deve partire dalla creazione di un insieme di stati $S$ ed un insieme di simboli di osservazione $V$. A questo punto le dimensioni delle strutture dati che conterranno i parametri sono note, e le implementazioni dei seguenti metodi accessori agli stessi dovrebbero assicurarsi che vengano rispettate tali dimensioni.
 \begin{itemize}
 	\item \verb|setA(ArrayList<Object> mtx)|, \verb|getA()|: rendere accessibile la matrice di transizioni
 	\item \verb|setB(ArrayList<Object> mtx)|,  \verb|getB()|: rendere accessibile la matrice di emissioni
-	\item \verb|setPi(ArrayList<Double> vec)|, \verb|getPi()|rendere accessibile il vettore di \textit{prior}
-	\item \verb|areValidObservations(ArrayList<Object> observations)|, chi implementa l'interfaccia potrebbe anche decidere di verificare la validità di una nuova osservazione, verificandone l'appartenenza all'insieme delle osservazioni.
+	\item \verb|setPi(ArrayList<Double> vec)|, \verb|getPi()|: rendere accessibile il vettore di \textit{prior}
+	\item \verb|areValidObservations(ArrayList<Object> observations)|: chi implementa l'interfaccia potrebbe anche decidere di verificare la validità di una nuova osservazione, verificandone l'appartenenza all'insieme delle osservazioni.
 \end{itemize}
 \subsubsection{Scheletro di un HMM}
-Una prima implementazione dell'interfaccia è la classe \verb|HMM| che obbliga chi la vuole usare ad implementarla solo passando al costruttore un insieme di stati. Questo viene ottenuto rendendo privato il costruttore di default
+Una prima implementazione dell'interfaccia è la classe \verb|HMM|.  Dato che il costruttore di default è stato reso privato (\textit{private}), è obbligatorio usufruire del costruttore che necessita di un insieme di stati come parametro.
 \begin{lstlisting}[language=java, style=eclipse, caption=Costruttori HMM , label=code:hmm1]
 private HMM() {...}
 public HMM(HashMap<String, Object> states) {...}
 \end{lstlisting}
 L'assegnazione dei parametri avviene solo dopo una serie di controlli sui dati in ingresso che mirano a garantire una serie di proprietà degli stessi.\\
-Assegnazione della matrice di transizioni(vedi Codice \ref{code:HMM_setA}): \\per prima cosa la matrice deve essere quadrata con dimensione pari al numero di stati. Successivamente a tale verifica si deve verificare la validità dei valori di probabilità di transizione per ciascuna coppia di stati, nonché la loro completezza come alternative probabilistiche (vale a dire che la loro somma è uguale a 1). Questa è un operazione costosa, ma necessaria, per garantire un minimo di correttezza.
+Assegnazione della matrice di transizioni (vedi Codice \ref{code:hmm_setA}): per prima cosa la matrice deve essere quadrata con dimensione pari al numero di stati. Successivamente a tale verifica si deve verificare la validità dei valori di probabilità di transizione per ciascuna coppia di stati, nonché la loro completezza come alternative probabilistiche (vale a dire che la loro somma è uguale a 1). Questa è un operazione costosa, ma necessaria, per garantire un minimo di correttezza.
 
 \lstset{language=Java, basicstyle=\ttfamily,keywordstyle=\color{javapurple}\bfseries,
 backgroundcolor=\color{lightBlue},stringstyle=\color{javared},commentstyle=\color{javagreen},
@@ -773,7 +767,7 @@ Un'implementazione concreta di un HMM (utilizzabile come oggetto) è quella della
 \begin{lstlisting}[caption=Firma della classe HMM ad emissioni discrete, label=code:DiscreteHMM_B1]
 public class DiscreteHMM extends HMM {...}
 \end{lstlisting}
-Questa eredita dalla classe \verb|HMM| tutto ciò che contiene, e fornisce una sua implementazione della matrice di emissioni (vedi Codice \ref{code:DiscreteHMM_B1}). Anche in questo caso vengono eseguiti dei controlli sui valori che vengono assegnati: la dimensione della matrice di emissioni $B:N \times M$ dove $N=|S|$ (Cardinalità dell'insieme degli stati dell'HMM) e $M=|V|$ cardinalità dell'insieme dell'alfabeto di osservazioni; i valori assegnati forniscono un'insieme completo di alternative probabilistiche.
+Questa eredita dalla classe \verb|HMM| tutto ciò che contiene, e fornisce una sua implementazione della matrice di emissioni (vedi Codice \ref{code:DiscreteHMM_B1}). Anche in questo caso vengono eseguiti dei controlli sui valori che vengono assegnati: la dimensione della matrice di emissioni $B:N \times M$ dove $N=|S|$, cardinalità dell'insieme degli stati dell'HMM, e $M=|V|$, cardinalità dell'insieme dell'alfabeto di osservazioni; i valori assegnati forniscono un'insieme completo di alternative probabilistiche.
 
 \begin{lstlisting}[caption=Impostazione della matrice di emissioni, label=code:DiscreteHMM_B2]
 public void setB(ArrayList<Object> mtx) {
