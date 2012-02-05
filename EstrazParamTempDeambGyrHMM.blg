@@ -15,7 +15,6 @@ A level-1 auxiliary file: APPENDICE_sensori.aux
 A level-1 auxiliary file: APPENDICE_android.aux
 The style file: IEEEtran.bst
 Database file #1: biblio.bib
-Warning--I didn't find a database entry for "|"
 Warning--I didn't find a database entry for "novel_approach_ambulatory_systems"
 Warning--I didn't find a database entry for "reliable_gait_phase_analysis"
 Warning--I didn't find a database entry for "interpolation_markov_params_sparse_data"
@@ -26,4 +25,4 @@ Warning--I didn't find a database entry for "Wikipedia"
 Warning--empty year in finite_state_control_FES
 
 Done.
-(There were 6 warnings)
+(There were 5 warnings)

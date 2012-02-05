@@ -1,31 +1,28 @@
-\chapter[Valutazione]{Valutazione delle prestazioni del sistema in condizioni di uso reali.}
-
+\chapter[Valutazione e Risultati]{Valutazione delle prestazioni del sistema in condizioni di uso reali e risultati}
+La valutazione del funzionamento e delle prestazioni del sistema di segmentazione della deambulazione creato, è stata fatta grazie alla misurazione indiretta della velocità di deambulazione mediante il sistema stesso contemporaneamente alla misurazione della medesima velocità mediante un sistema GPS commerciale e quini un confronto fra i due valori misurati. La procedura seguita in questo capitolo non vuole essere una valutazione formale delle prestazioni del sistema, ma un'indicazione approssimativa del funzionamento dello stesso, questo spiega il numero ridotto di soggetti e tempo di prova. 
 \begin{figure}
 	\centering
 		\includegraphics[width=1\textwidth]{imgs/ValutazionePrestazioniSistema.jpg}
-	\caption{Segnale di un giroscopio posizionato sul piede.}
+	\caption{Schema riassuntivo della metodologia di verifica del funzionamento del sistema di segmentazione.}
 	\label{fig:gyroPattern}
 \end{figure}
-
-Per valutare le prestazioni del modello in condizioni di uso reale è stato pensato un sistema a due fasi (vedi figura \ref{fig:gyroPattern}): 
+Per valutare le prestazioni del modello in condizioni di uso reale è stato pensato un sistema a due fasi (vedi Figura \ref{fig:gyroPattern}): 
 
 \begin{enumerate}
-	\item Fase di lavoro in laboratorio 
-	
-		\begin{description}
-		\item [Acquisizione Dati in laboratorio] sono stati acquisiti dati di deambulazione (vedi tabella 	 \ref{tab:TabellaRiassuntivaRaccoltaDatiLab}).
-	Le prove sono state compiute su un tappeto rullante con pendenza 0°, nell'intervallo di velocità [2-8]Km/h. La prima sessione alla velocità di 2Km/h e con un incremento di 1Km/h in ciascuna sessione successiva. Ciascuna sessione è stata della durata di 1:30 minuti.
+	\item Fase di lavoro in laboratorio 	
+		\par\textsc{acquisizione dati in laboratorio}: sono stati acquisiti dati di deambulazione (vedi Tabella 	 \ref{tab:TabellaRiassuntivaRaccoltaDatiLab}).
+	Le prove sono state compiute su un tappeto rullante con pendenza $0^\circ$, nell'intervallo di velocità $[2-8]\, km/h$. La prima sessione alla velocità di $2\, km/h$ e con un incremento di $1\, km/h$ in ciascuna sessione successiva. Ciascuna sessione è stata della durata di $1:30\, minuti$ .
 	\begin{table}[htbp]
 		\centering
 		\begin{tabular}{|l|c|}
 			\hline		
 				\textbf{Attività}& cammino\\
 				\hline
-				\textbf{Soggetti}& 1\\
+				\textbf{Soggetti}& $1$\\
 				\hline
-				\textbf{Velocità}& \{2,3,4,5,6,7,8\}Km/h\\
+				\textbf{Velocità}& $\{2,3,4,5,6,7,8\}\, km/h$\\
 				\hline
-				\textbf{Durata}& \multicolumn{1}{c|}{1:30 minuti per attività}\\
+				\textbf{Durata}& \multicolumn{1}{c|}{$1:30\,minuti$  per attività}\\
 				\hline
 				\textbf{Strumenti} & \multicolumn{1}{c|}{IMU, Smartphone, tappeto rullante}\\
 				\hline
@@ -33,47 +30,54 @@ Per valutare le prestazioni del modello in condizioni di uso reale è stato pensa
 				\hline
 				\textbf{Dati raccolti} & \multicolumn{1}{c|}{valori giroscopio segmentati}\\
 				\hline
-				\textbf{Frequenza campionamento} & \multicolumn{1}{c|}{100 Hz}\\
+				\textbf{Frequenza campionamento} & \multicolumn{1}{c|}{$100\,Hz$}\\
 				\hline
 			\end{tabular}
-		\caption{Riassunto della raccolti dati in laboratorio}
+		\caption{Riassunto della procedura di raccolta dati in laboratorio}
 		\label{tab:TabellaRiassuntivaRaccoltaDatiLab}
 	\end{table}
 	
-	Le sessioni sono state tutte eseguite posizionando saldamente una IMU (vedi appendice \ref{sec:sensori}) sul collo del piede dei soggetti mediante un cinturino in velcro. Il tipo di sensore usato è un giroscopio monoassiale con asse di sensibilità orientato sul piano mediale-laterale (sagittale) (vedi figura \ref{fig:HumanBodySPL}).\\ 
+	Le sessioni sono state tutte eseguite posizionando saldamente una IMU (vedi Appendice \ref{sec:sensori}) sul collo del piede dei soggetti mediante un cinturino in velcro. Il tipo di sensore usato è un giroscopio monoassiale con asse di sensibilità orientato sul piano mediale-laterale (sagittale) (vedi Figura \ref{fig:HumanBodySPL}).\\ 
 	I dati sono stati raccolti mediante l'applicazione implementata su \textit{Smartphone}, con relativa segmentazione. 
 	
-	\item [Stima della cadenza] $c_{LAB}$, la cadenza come definita in tabella \ref{parametri_velocità} è il numero di cicli di deambulazione per unità di tempo (cicli/secondo). Dalla segmentazione si hanno implicitamente i passi, in quanto è sufficiente contare il numero di volte che si presenta un dato evento (ad esempio HS) in un unità di tempo. \TODO{mettere il valore della cadenza ottenuta}.
-	\item [Relazione fra cadenza e velocità stimata sul soggetto] dato che le prove sono state fatte su un tappeto rullante, la velocità è sempre nota (vedi tabella \ref{tab:TabellaRiassuntivaRaccoltaDatiLab}). L'obbiettivo è trovare una relazione tra la cadenza calcolata e la velocità nota, mediante una regressione.
+	\par\textsc{stima della cadenza}: la cadenza stimata in laboratorio come definita in tabella \ref{parametri_velocità} è il numero di cicli di deambulazione per unità di tempo (cicli/secondo) come mostra la Formula \ref{eq:cadenzaLab}
+		\begin{equation}
+			c_{LAB} = \dfrac{\text{numero cicli di deambulazione}} {1\, secondo}
+		\label{eq:cadenzaLab}
+		\end{equation}
+	
+	 Il numero dei cicli di deambulazione si ottiene contando il numero di volte che si presenta un dato evento (ad esempio HS) in un secondo.
+	\par\textsc{relazione fra cadenza e velocità stimata sul soggetto}: dato che le prove sono state fatte su un tappeto rullante, la velocità è nota (vedi Figura \ref{fig:cadVSspeedLinearfit}) ed è denominata $TMspeed$. L'obbiettivo è trovare una relazione tra la cadenza calcolata e la velocità nota, mediante la regressione lineare \ref{eq:cadenzaLab}.
+		\begin{equation}
+			\theta_1 * c_{LAB}^2 + \theta_2 * c_{LAB} + \theta_3 = TMspeed
+		\label{eq:cadenzaLab}
+		\end{equation}
+\begin{figure}
+	\centering
+		\includegraphics[width=1.2\textwidth]{imgs/cadVSspeedLinearfit.jpg}
+	\caption{Relazione fra la cadenza $c_{LAB}$ e la velocità del tappeto rullante $TMspeed$.}
+	\label{fig:cadVSspeedLinearfit}
+\end{figure}
+
+				
+I parametri ottenuti dalla regressione sono $\theta =[\theta_1, \theta_2, \theta_3] $
 	\begin{table}[htbp]
 		\centering
 		\begin{tabular}{|l|c|}
-			\hline		
-				\textbf{velocità in Km}& \textbf{cadenza - cicli/s}\\
-				\hline
-				2&?\\			
-				\hline
-				3&?\\			
-				\hline
-				4&?\\			
-				\hline
-				5&?\\			
-				\hline
-				6&?\\			
-				\hline
-				7&?\\			
-				\hline
-				8&?\\			
-				\hline
+			\hline
+			$\theta_1$ & $4.4432$\\			
+			\hline
+			$\theta_2$ & $1.8888$\\
+			\hline
+			$\theta_3$ & $1.6493$\\
+			\hline
 		\end{tabular}
-		\caption{Cadenza calcolata per ogni velocità del tappeto rullante.}
+		\caption{Soluzione della regressione lineare \ref{eq:cadenzaLab}}
 		\label{tab:relazioneCadenzaVelocità}
 	\end{table}
-	\end{description}
 	
 		\item Fase di lavoro all'aria aperta
-	\begin{description}
-		\item [Acquisizione dati giroscopio e segmentazione] all'aria aperta sono stati acquisiti dati di deambulazione (vedi tabella \ref{tab:TabellaRiassuntivaRaccoltaDatiAperto}). Le prove sono state compiute su un percorso piano (pendenza media 0°), ad andatura a velocità normale per il soggetto in questione. La sessione è stata della durata di \TODO{10 minuti}.
+		\par\textsc{acquisizione dati giroscopio e segmentazione} all'aria aperta sono stati acquisiti dati di deambulazione (vedi Tabella \ref{tab:TabellaRiassuntivaRaccoltaDatiAperto}). Le prove sono state compiute su un percorso piano (pendenza media $0^\circ$), ad andatura a velocità normale per il soggetto in questione. La sessione è stata della durata di circa $2\, minuti$.
 		\begin{table}[htbp]
 		\centering
 		\begin{tabular}{|l|c|}
@@ -82,9 +86,9 @@ Per valutare le prestazioni del modello in condizioni di uso reale è stato pensa
 				\hline
 				\textbf{Soggetti}& 1\\
 				\hline
-				\textbf{Velocità}& $\approx 5 Km/h$\\
+				\textbf{Velocità}& $\approx 5\, km/h$\\
 				\hline
-				\textbf{Durata}& \multicolumn{1}{c|}{10 minuti }\\
+				\textbf{Durata}& \multicolumn{1}{c|}{$\approx 2\, minuti$ }\\
 				\hline
 				\textbf{Strumenti} & \multicolumn{1}{c|}{IMU, Smartphone}\\
 				\hline
@@ -92,17 +96,17 @@ Per valutare le prestazioni del modello in condizioni di uso reale è stato pensa
 				\hline
 				\textbf{Dati raccolti} & \multicolumn{1}{c|}{valori giroscopio segmentati}\\
 				\hline
-				\textbf{Frequenza campionamento} & \multicolumn{1}{c|}{100 Hz}\\
+				\textbf{Frequenza campionamento} & \multicolumn{1}{c|}{$100\,Hz$}\\
 				\hline
 			\end{tabular}
 		\caption{Riassunto della procedura di raccolta dei dati all'aperto.}
 		\label{tab:TabellaRiassuntivaRaccoltaDatiAperto}
 	\end{table}
-	\item [Stima della cadenza] $c_{OUT}$, la cadenza è stata calcolata con la stessa procedura della fase precedente.
+	\par\textsc{stima della cadenza}: la cadenza della deambulazione all'aperto, $c_{OUT}$, è stata calcolata con la stessa procedura della fase precedente.
 	
-	\item [Stima della velocità di deambulazione] $IMUspeed$,  a partire dalla relazione tra cadenza e velocità ottenuta nella fase precedente (vedi tabella \ref{tab:relazioneCadenzaVelocità}) e dalla cadenza stimata nella seconda fase del lavoro, è stata fatta una stima della velocità di deambulazione all'aperto. 
+	\par\textsc{stima della velocità di deambulazione}: la velocità di deambulazione all'aperto ricavata dal sistema inerziale, indicata con $IMUspeed$ è stata ottenuta a partire dalla relazione tra cadenza e velocità calcolata nella Fase 1 della valutazione (vedi Tabella \ref{tab:relazioneCadenzaVelocità}) e dalla cadenza stimata nella seconda fase.
 	
-	\item [Stima della distanza percorsa] $IMUdistance$, dato che il tempo di percorrenza è noto, dalla stima di velocità si ottiene anche la distanza percorsa.
+	\par\textsc{stima della distanza percorsa}: $IMUdistance$, dato che il tempo di percorrenza è noto, dalla stima di velocità si ottiene anche la distanza percorsa.
 	\begin{equation}
 \begin{split}
 \displaystyle IMUdistance = \int_{t_{start}}^{t_{end}}{IMUspeed} \; dt\\
@@ -110,9 +114,9 @@ Per valutare le prestazioni del modello in condizioni di uso reale è stato pensa
 \label{eq:IMUdistance}
 \end{equation}
 
-	\item [Acquisizione dati GPS] contemporaneamente alla segmentazione, mediante il dispositivo GPS \footnote{Global Positioning System} integrato nello \textit{Smartphone}, sono state acquisite la velocità di spostamento $GPSspeed$ e la distanza percorsa. I dati acquisiti sulla distanza percorsa sono stai scartati in quanto con margine di errore elevato. 
+	\par\textsc{acquisizione dati GPS} contemporaneamente alla segmentazione, mediante il dispositivo GPS \footnote{Global Positioning System} integrato nello \textit{Smartphone}, sono state acquisite la velocità di spostamento $GPSspeed$ e la distanza percorsa. I dati acquisiti sulla distanza percorsa sono stai scartati in quanto con margine di errore elevato. 
 
-		\item [Stima della distanza percorsa mediante GPS] $GPSdistance$, dato che il tempo di percorrenza è noto, dai dati di velocità acquisiti mediante il GPS si ottiene la distanza percorsa. 
+		\par\textsc{stima della distanza percorsa mediante GPS} $GPSdistance$, dato che il tempo di percorrenza è noto, dai dati di velocità acquisiti mediante il GPS si ottiene la distanza percorsa. 
 				
 \begin{equation}
 \begin{split}
@@ -120,17 +124,55 @@ Per valutare le prestazioni del modello in condizioni di uso reale è stato pensa
 \end{split}
 \label{eq:GPSdistance}
 \end{equation}
+\end{enumerate} 
 
-	\item [Confronto velocità]: le due velocità vengono comparate (vedi figura \ref{fig:IMUspeedGPSspeedVStime}, \ref{fig:IMUspeedVSGPSspeed}, \ref{fig:IMUspeedVSGPSspeedBA}). Lo scarto quadratico medio (\textit{Root Mean Square}) al termine del tempo di acquisizione è 
+In fine, i risultati ottenuti con le due modalità vengono confrontati: 
+	\par\textsc{confronto velocità}: le due velocità $IMUspeed$ ottenuta con il sistema di misurazione inerziale e $GPSspeed$ vengono comparate (vedi Figura \ref{fig:IMUspeedGPSspeedVStime}, \ref{fig:IMUspeedVSGPSspeed}, \ref{fig:IMUspeedVSGPSspeedBA}). 
+	Le due velocità sono simili: lo scarto quadratico medio (\textit{Root Mean Square})  
 	\begin{equation}
-	1/2 * (\sqrt{IMUspeed^2 + GPSspeed^2}) = 0.38Km/h
+	1/2 * (\sqrt{IMUspeed^2 + GPSspeed^2}) = 0.38\, km/h
 	\label{eq:ermsSpeed}
 	\end{equation}
-	\item [Confronto distanza]: le due distanze vengono confrontate (vedi figura \ref{fig:IMUdistanceGPSdistanceVStime}, \ref{fig:IMUdistanceVSGPSdistance}, ). Misurando la differenza fra le distanze calcolate, si vede che a termine del periodo di acquisizione dei dati (circa 2 minuti) vi è una deriva della $IMUdistance$ di $5m$.
+	Come mostra il grafico Bland-Altman\footnote{Un grafico Bland-Altman è una tecnica grafica di rappresentazione di dati per misurare la concordanza fra due procedure di misurazione di una quantità. Il metodo è molto usato nella ricerca clinica per confrontare uno strumento di diagnosi nuovo con uno già affermato.} \ref{fig:IMUspeedVSGPSspeedBA}, la maggior parte (95\%) dei valori di differenza sono all'interno di un intervallo di confidenza.
+	
+	\par\textsc{confronto distanza}: le due distanze calcolate dalle velocità, vengono confrontate (vedi Figura \ref{fig:IMUdistanceGPSdistanceVStime}, \ref{fig:IMUdistanceVSGPSdistance}, ). 
+	Le distanze contengono sia gli errori fatti sulle misure delle velocità che su se stesse.
+	Misurando la differenza fra le distanze calcolate, si vede che al termine del periodo di acquisizione dei dati (circa $2\, minuti$) vi è una deriva (o una sovrastima) della $IMUdistance$ inferiore ai $5\,m$ su circa $120\,m$. Il $4\%$ di errore sulla stima della distanza è paragonabile all'errore commesso dai sistemi commerciali GPS, quindi è un valore accettabile.
 	\begin{equation}
-	|IMUdistance - GPSdistance| < 5m
+	|IMUdistance - GPSdistance| < 5\,m
 	\label{eq:ermsDistance}
 	\end{equation}
-	
-	\end{description}
-\end{enumerate} 
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=.8\textwidth]{imgs/speedSVR4.jpg}
+	\caption{Confronto fra le due velocità $IMUspeed$ (traccia rossa) e $GPSspeed$ (traccia blu) rispetto al tempo in $km/h$ in funzione del tempo in secondi. Mostra una forte somiglianza tra tra le due velocità.}
+	\label{fig:IMUspeedGPSspeedVStime}
+\end{figure}
+\begin{figure}
+	\centering
+		\includegraphics[width=.8\textwidth]{imgs/speedSVR5.jpg}
+	\caption{Grafico a dispersione (\textit{scatter plot}) delle due velocità $IMUspeed$ e $GPSspeed$. Mostra come ci sia una buona corrispondenza fra i due gruppi di valori.}
+	\label{fig:IMUspeedVSGPSspeed}
+\end{figure}
+
+\begin{figure}
+	\centering
+		\includegraphics[width=.8\textwidth]{imgs/speedSVRBlandAltmann.jpg}
+	\caption{Confronto fra le due velocità $IMUspeed$ e $GPSspeed$ mediante un Bland Altman \textit{plot} o grafico a differenza o grafico delle differenze medie. La linea rossa rappresenta la linea a differenza nulla, la linea nera la differenza media, mentre le linee verdi la deviazione standard (o intervallo di confidenza). Il 95\% dei valori sta all'interno dell'intervallo di confidenza. }
+	\label{fig:IMUspeedVSGPSspeedBA}
+\end{figure}
+
+\begin{figure}
+	\centering
+		\includegraphics[width=.8\textwidth]{imgs/displSVR1.jpg}
+	\caption{Confronto fra le due distanze $IMUdistance$ (traccia blu) e $GPSdistance$ (traccia rossa) rispetto al tempo. Mostra che la IMU sovrastima la distanza. Al termine dell'esperimento (a circa $120\,m$ di distanza percorsa) l'errore è commesso è di circa $5m$.}
+	\label{fig:IMUdistanceGPSdistanceVStime}
+\end{figure}
+
+\begin{figure}
+	\centering
+		\includegraphics[width=.8\textwidth]{imgs/displSVR2.jpg}
+	\caption{Grafico a dispersione delle due distanze $IMUdistance$ e $GPSdistance$ mostra una elevato grado di allineamento fra le distanze misurate con i due strumenti.}
+	\label{fig:IMUdistanceVSGPSdistance}
+\end{figure}

@@ -21,13 +21,13 @@ Android\tm è ottimizzato per dispositivi mobili, che ovviamente hanno il requisi
 \end{figure}
 
 \subsection*{Linux Kernel}
-Il sistema operativo Android (Android OS) \cite{android_dev} si basa sulla versione 2.6 di Linux \cite{linux_kernel} per i servizi centrali di sistema come la sicurezza, la gestione della memoria e dei processi, lo stack di rete ed i modelli dei driver (vedi figura \ref{fig:android_system_architecture}). Il Kernel funziona anche da livello di astrazione tra l'hardware e lo stack di software.
+Il sistema operativo Android (Android OS) \cite{android_dev} si basa sulla versione 2.6 di Linux \cite{linux_kernel} per i servizi centrali di sistema come la sicurezza, la gestione della memoria e dei processi, lo stack di rete ed i modelli dei driver (vedi Figura \ref{fig:android_system_architecture}). Il Kernel funziona anche da livello di astrazione tra l'hardware e lo stack di software.
 Tutte le applicazioni Android\tm vengono eseguite in processi Linux separati, dopo aver avuto i premessi richiesti dal sistema Linux
 
 \subsection*{Librerie Native Android\tm}
 \label{sec:lib_Android}
 Le librerie di Android\tm sono principalmente composte da librerie C/C++ della comunità open source. 
-Queste librerie vengono esposte sotto forma di servizi di sistema per i programmatori che vogliano usarli come funzioni senza conoscerne i dettagli implementativi a livello di application framework (vedi figura \ref{fig:android_system_architecture}).
+Queste librerie vengono esposte sotto forma di servizi di sistema per i programmatori che vogliano usarli come funzioni senza conoscerne i dettagli implementativi a livello di application framework (vedi Figura \ref{fig:android_system_architecture}).
 Le librerie principali sono: 
 \begin{itemize}
 	\item \textbf{Librerie Standard di (ANSI) C}: un implementazione BSD\footnote{Berkley Software Distribution e licenza Apache/MIT che a differenza della licenza GNU non obbliga sviluppatori a ridistribuire i loro codici alla comunità} della libreria Standard di C (\textit{libc}), ottimizzata per dispositivi basati sul sistema Linux. Alcuni esempi di servizi della libreria sono l'allocazione di memoria, la gestione dell'input/output ecc.
@@ -47,7 +47,7 @@ Le librerie principali sono:
 \label{sec:dalvik}
 Il linguaggio Java\tm \cite{Java}, JDK\footnote{Java Developement Kit} Tools \cite{JDK_Tools} e le librerie Java\tm sono gratuite, mentre la Java Virtual Machine non lo è. Dato che questo andava contro la politica del progetto,  Google\footnote{Dan Bernstein ed il team di sviluppo} ha sviluppato una versione ex-novo della Java Virtual Machine, ad-hoc per Android\tm\footnote{Fino al 2005, non vi erano alternative alla JVM della Sun, poi sono nate OpenJDK              \cite{OpenJDK} e Apache Harmony \cite{Apache_Harmony}}. I problemi principali che il gruppo di sviluppo hanno affrontato sono quelli della durata della batteria e le risorse (memoria e ram) limitate.
 \subsubsection{Java\tm e Android\tm}
-Normalmente il codice Java\tm viene compilato e poi il bytecode viene eseguito sulla JVM, sotto Android\tm il bytecode viene ricompilato con il compilatore Dalvik (vedi sezione \ref{sec:dalvik}) che produce un Dalvik-bytecode detto Dex, che viene eseguito dal Dalvik VM (vedi figura \ref{fig:Java_vs_Android_compile_exec}).
+Normalmente il codice Java\tm viene compilato e poi il bytecode viene eseguito sulla JVM, sotto Android\tm il bytecode viene ricompilato con il compilatore Dalvik (vedi Sezione \ref{sec:dalvik}) che produce un Dalvik-bytecode detto Dex, che viene eseguito dal Dalvik VM (vedi Figura \ref{fig:Java_vs_Android_compile_exec}).
 
 \begin{figure}
 	\centering
@@ -65,7 +65,7 @@ Le applicazioni sono i programmi sviluppati dal mondo di sviluppatori Android\tm
 \subsubsection*{APK}
 Un applicazione Android\tm è un singolo file, detto APK file. Questi ha tre componenti principali:
 \begin{enumerate}
-	\item \textbf{Eseguibile Dalvik} Il codice Java\tm compilato come descritto in figura (vedi figura \ref{fig:Java_vs_Android_compile_exec}).
+	\item \textbf{Eseguibile Dalvik} Il codice Java\tm compilato come descritto in figura (vedi Figura \ref{fig:Java_vs_Android_compile_exec}).
 	\item \textbf{Risorse} Tutto ciò che è in un applicativo Android\tm, ma non è codice Java\tm: file XML, immagini, audio, video ecc.
 	\item \textbf{Librerie} In un applicativo possono essere incluse librerie di codice nativo, ad esempio in C/C++
 \end{enumerate} 
@@ -100,7 +100,7 @@ Le componenti principali sono:
 Ogni applicativo Android\tm ha una \textit{main activity}, che definisce la logica della schermata iniziale.
 Nell'ottica di ottimizzare le risorse del dispositivo, le activity sono state progettate in modo da consumare il minimo.
 Quando viene lanciata una activity, viene creato un processo Linux, viene allocato dello spazio per gli oggetti UI, costruire oggetti Java\tm a partire dalle definizioni XML (inflation), posizionare oggetti sullo schermo. Per evitare di incorrere in questo costo ogni volta che si ricapita su una schermata, le activity sono state progettate per avere un ciclo di vita, gestito da un activity Manager. Quest'ultimo si occupa di creare, gestire e distruggere le activity, all'occorrenza.
-Ogni activity attraversa i seguenti stati (vedi figura \ref{fig:Activity_lifecycle}):
+Ogni activity attraversa i seguenti stati (vedi Figura \ref{fig:Activity_lifecycle}):
 \begin{enumerate}
 	\item \textbf{Starting}: l'activity non esiste in memoria. I metodi della classe \texttt{Activity} che permettono di gestire l'evento di creazione di una activity sono \texttt{onCreate()},  \texttt{onStart()} ed \texttt{onResume()} tutti per andare nello stato Running. 
 	\item \textbf{Running}: l'activity è sullo schermo e l'utente ci sta interagendo. In ogni dato istante di tempo, può esistere solo un'activity in questo stato. Tra tutte le activity, quella nello stato Running ha la massima priorità per l'utilizzo della risorse, per minimizzare i tempi di risposta all'utente. Il metodo per gestire l'evento è \texttt{onPause} per andare nello stato Paused.

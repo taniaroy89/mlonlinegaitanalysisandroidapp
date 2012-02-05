@@ -1,4 +1,4 @@
-1068
+1071
 socket
 booktabs
 runtime
@@ -444,6 +444,7 @@ correction
 NormalHMM
 linear
 normalem
+cadVSspeedLinearfit
 sse
 ConnectThread
 gaussianmixture
@@ -681,6 +682,7 @@ text
 eulerchapternumbers
 Destroyed
 kevent
+TMspeed
 Welsh
 welsh
 createRfcommSocketToServiceRecord
@@ -1018,6 +1020,7 @@ physical
 gyr
 dev
 Dex
+cadenzaLab
 nell
 low
 You

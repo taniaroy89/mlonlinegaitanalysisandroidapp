@@ -2,15 +2,15 @@
 %\myChapter{applicazione Android\tm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduzione}%descrivere cosa fa a grandi linee %%%%%%%%%%%%%%%%%%%%%%%%%                           INTRODUZIONE
-La seconda parte del lavoro è relativa allo sviluppo di un'applicazione per uno  \textit{Smartphone}  Android\tm che segmenta in linea il cammino, a partire da dati giroscopici (vedi fig \ref{fig:schema_app}).
+La seconda parte del lavoro è relativa allo sviluppo di un'applicazione per uno  \textit{Smartphone}  Android\tm che segmenta in linea il cammino, a partire da dati giroscopici (vedi Figura \ref{fig:schema_app}).
 \begin{figure}[h]
 	\centering
 		\includegraphics[width=1\textwidth]{imgs/ArchitetturaProgramma.jpg}
 	\caption{Architettura dell'applicazione per \textit{Smartphone}}
 	\label{fig:schema_app}
 \end{figure} 
-Una volta posizionata la IMU (vedi appendice \ref{sec:imu}) sul collo del piede, lo \textit{Smartphone} vi interagisce tramite una connessione \textit{Bluetooth}.\\ 
-L'utente controlla la IMU mediante l'applicazione, quindi può impostarne i parametri: ad esempio la frequenza di campionamento e gli intervalli di campionamento per ciascun sensore su ciascun asse spaziale. Impostati i parametri l'utente può acquisire dati dalla IMU mediante un servizio di \textit{data logging} (nel \textit{file system} dello \textit{Smartphone}), oppure li può visualizzare come un grafico dinamico. Inoltre è possibile abilitare la segmentazione in linea del segnale di deambulazione, sulla base di un modello HMM addestrato in differita (vedi sezione \ref{sec:creazione_addestramento_modello}), impiegando una versione dell'algoritmo di Viterbi \cite{short_time_viterbi_online_hmm_deconding}. Nell'ultimo caso il grafico dinamico rappresentante il segnale del giroscopio viene tracciato in linea\footnote{La segmentazione ha una latenza massima di \textbf{10ms}} con un colore a seconda della fase della deambulazione: HS-blu, FF-giallo, HO-rosso, TO-verde. \\
+Una volta posizionata la IMU (vedi Appendice \ref{sec:imu}) sul collo del piede, lo \textit{Smartphone} vi interagisce tramite una connessione \textit{Bluetooth}.\\ 
+L'utente controlla la IMU mediante l'applicazione, quindi può impostarne i parametri: ad esempio la frequenza di campionamento e gli intervalli di campionamento per ciascun sensore su ciascun asse spaziale. Impostati i parametri l'utente può acquisire dati dalla IMU mediante un servizio di \textit{data logging} (nel \textit{file system} dello \textit{Smartphone}), oppure li può visualizzare come un grafico dinamico. Inoltre è possibile abilitare la segmentazione in linea del segnale di deambulazione, sulla base di un modello HMM addestrato in differita (vedi Sezione \ref{sec:creazione_addestramento_modello}), impiegando una versione dell'algoritmo di Viterbi \cite{short_time_viterbi_online_hmm_deconding}. Nell'ultimo caso il grafico dinamico rappresentante il segnale del giroscopio viene tracciato in linea\footnote{La segmentazione ha una latenza massima di \textbf{10ms}} con un colore a seconda della fase della deambulazione: HS-blu, FF-giallo, HO-rosso, TO-verde. \\
 
 %Sulla base di un modello HMM addestrato in differita (vedi sezione \ref{sec:creazione_addestramento_modello}), impiega una versione dell'algoritmo di Viterbi \cite{short_time_viterbi_online_hmm_deconding} per elaborare a run-time i dati giroscopici acquisiti dalla IMU (e trasferiti via Bluetooth), effettuando la segmentazione e consentendo output di tipo grafico (colorando in modo differente la traccia del segnale giroscopico in funzione della fase del cammino), e di data logging. 
 
@@ -169,7 +169,7 @@ Dato che il nucleo (\textit{kernel}) di Android-OS è basato su Linux (vedi Appen
 		android:name="imu.objects.MailBoxes">
 \end{lstlisting}
 
-Vengono dichiarati il nome dell'applicazione, l'icona, ed un'etichetta. In questo punto si dichiara anche il nome dell'oggetto che può essere visibile a livello globale di applicazione. Di fatto l'oggetto \verb|MailBoxes| che è un vettore di \verb|MailBox| (vedi sezione \ref{sec:mailbox}) che sono a loro volta utilizzati per lo scambio di dati tra \textit{thread}.
+Vengono dichiarati il nome dell'applicazione, l'icona, ed un'etichetta. In questo punto si dichiara anche il nome dell'oggetto che può essere visibile a livello globale di applicazione. Di fatto l'oggetto \verb|MailBoxes| che è un vettore di \verb|MailBox| (vedi Sezione \ref{sec:mailbox}) che sono a loro volta utilizzati per lo scambio di dati tra \textit{thread}.
 
 \begin{lstlisting}[language=XML, style=xmlandroid,caption=AndroidManifest elenco di tutte le attività ,label=code:manifest_activities, firstnumber=11]		
 		<activity android:name=".IMUinterface" android:configChanges="orientation">
@@ -188,7 +188,7 @@ Vengono dichiarati il nome dell'applicazione, l'icona, ed un'etichetta. In quest
 			android:configChanges="orientation" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 \end{lstlisting}	
 
-Sezione di \verb|AndroidManifest| in cui si elencano i componenti fondamentali (vedi appendice \ref{sec:android_main_components}) utilizzati nell'applicazione.\\
+Sezione di \verb|AndroidManifest| in cui si elencano i componenti fondamentali (vedi Appendice \ref{sec:android_main_components}) utilizzati nell'applicazione.\\
 
 %L' applicazione che ha una struttura molto semplice, ed utilizza solo \verb|Activity| ed \verb|Intent|. 
 La \textit{Activity} principale (\textit{Main Activity}) è \verb|IMUInterface|.\\ 
@@ -202,7 +202,7 @@ Il codice sorgente è stato organizzato 5 \textit{package} (cartelle di Java\tm):
 	\item \verb|activities|: contenente le \textit{Activity} che corrispondono indicativamente ciascuna ad una schermata sullo della UI,
 	\item \verb|objects| : dati, modelli o contenitori su cui compiere operazioni,
 	\item \verb|services|: operazioni fondamentali dell'applicazione, che in questo caso coincidono con gli algoritmi che si applicano alle HMM. 
-	\item \verb|tests|: verifiche (\textit{test}) prodotte dall'utilizzo della metodologia Agile (vedi sezione \ref{sec:agile}),
+	\item \verb|tests|: verifiche (\textit{test}) prodotte dall'utilizzo della metodologia Agile (vedi Sezione \ref{sec:agile}),
 	\item \verb|util|: operazioni di supporto al resto del codice sorgente. 
 \end{itemize} 
 
@@ -290,7 +290,7 @@ Le librerie usate sono quelle di Android\tm2.2 (vedi Appendice \ref{sec:lib_Andr
 \subsection{Interfaccia Utente}
 La linea guida per lo sviluppo della UI è stata quella della massima ergonomia, in linea con la filosofia di sviluppo di interfacce utente di Android\tm. \\
 La navigazione tra le schermate dell'applicazione è guidata da \textit{widget}: oggetti grafici della UI di un programma, che hanno lo scopo di facilitare all'utente l'interazione con il programma. \\
-All'avvio del programma, viene visualizzato il pannello di controllo della IMU (vedi figura \ref{fig:app_UI}), da qui vengono impostati e monitorati i valori dei parametri di acquisizione dei dati. 
+All'avvio del programma, viene visualizzato il pannello di controllo della IMU (vedi Figura \ref{fig:app_UI}), da qui vengono impostati e monitorati i valori dei parametri di acquisizione dei dati. 
 
 \begin{figure}[h]
 	\centering
@@ -353,7 +353,7 @@ Il pulsante \textit{Start} avvia l'acquisizione di dati dalla IMU. Se la conness
 
 
 \subsection{Comunicazione Bluetooth}
-La piattaforma di Android\tm fornisce il supporto per lo stack di rete \textit{Bluetooth}, che permette a due dispositivi muniti di comunicare senza filo. Il framework delle applicazioni (Application Framework, vedi \ref{fig:android_system_architecture}) permette fornisce un accesso alle funzionalità del \textit{Bluetooth} mediante le Android \textit{Bluetooth} API \footnote{Application Programming Interface, ovvero Interfaccia di Programmazione di un Applicazione cioè l'insieme di tutte le funzionalità o servizi di un programma resi disponibili a programmatori terzi per l'utilizzo di un codice sorgente.}. 
+La piattaforma di Android\tm fornisce il supporto per lo stack di rete \textit{Bluetooth}, che permette a due dispositivi muniti di comunicare senza filo. Il framework delle applicazioni (Application Framework, vedi Figura \ref{fig:android_system_architecture}) permette fornisce un accesso alle funzionalità del \textit{Bluetooth} mediante le Android \textit{Bluetooth} API \footnote{Application Programming Interface, ovvero Interfaccia di Programmazione di un Applicazione cioè l'insieme di tutte le funzionalità o servizi di un programma resi disponibili a programmatori terzi per l'utilizzo di un codice sorgente.}. 
 
 Le funzionalità principali che la API del \textit{Bluetooth} sono: 
 \begin{itemize}
@@ -550,7 +550,7 @@ Le proprietà di un metodo sincronizzato sono 2:
 \end{lstlisting}
 
 
-	Un \textit{thread} alla volta può prendere, in mutua esclusione, l'accesso in scrittura al buffer, chiamando per primo il metodo \verb|put| (vedi algoritmo \ref{alg:mailbox_put}). Il valore contenuto nel buffer è sempre visibile a tutti i thread. Questo risultato è stato ottenuto dichiarando la variabile con la parola chiave \verb|volatile|. 
+	Un \textit{thread} alla volta può prendere, in mutua esclusione, l'accesso in scrittura al buffer, chiamando per primo il metodo \verb|put| (vedi Algoritmo \ref{alg:mailbox_put}). Il valore contenuto nel buffer è sempre visibile a tutti i thread. Questo risultato è stato ottenuto dichiarando la variabile con la parola chiave \verb|volatile|. 
 \begin{lstlisting}[language=java, style=eclipse]
 	volatile private T buffer = null;
 \end{lstlisting}
@@ -576,7 +576,7 @@ synchronized public void put(T object){
 }
 \end{lstlisting}
  
-Un \textit{thread} può prelevare il dato immesso da un altro nella mailbox, usando il metodo \verb|get()|(vedi algoritmo \ref{alg:mailbox_get}). Mentre il dato viene prelevato, questo non può essere modificato. Appena il \textit{thread} ha preso il dato, lo elimina dal buffer.
+Un \textit{thread} può prelevare il dato immesso da un altro nella mailbox, usando il metodo \verb|get()|(vedi Algoritmo \ref{alg:mailbox_get}). Mentre il dato viene prelevato, questo non può essere modificato. Appena il \textit{thread} ha preso il dato, lo elimina dal buffer.
 
 \begin{lstlisting}[language=java, style=eclipse,label=code:mailbox_get]
 synchronized public T get(){
@@ -716,7 +716,7 @@ private HMM() {...}
 public HMM(HashMap<String, Object> states) {...}
 \end{lstlisting}
 L'assegnazione dei parametri avviene solo dopo una serie di controlli sui dati in ingresso che mirano a garantire una serie di proprietà degli stessi.\\
-Assegnazione della matrice di transizioni(vedi codice \ref{code:HMM_setA}): \\per prima cosa la matrice deve essere quadrata con dimensione pari al numero di stati. Successivamente a tale verifica si deve verificare la validità dei valori di probabilità di transizione per ciascuna coppia di stati, nonché la loro completezza come alternative probabilistiche (vale a dire che la loro somma è uguale a 1). Questa è un operazione costosa, ma necessaria, per garantire un minimo di correttezza.
+Assegnazione della matrice di transizioni(vedi Codice \ref{code:HMM_setA}): \\per prima cosa la matrice deve essere quadrata con dimensione pari al numero di stati. Successivamente a tale verifica si deve verificare la validità dei valori di probabilità di transizione per ciascuna coppia di stati, nonché la loro completezza come alternative probabilistiche (vale a dire che la loro somma è uguale a 1). Questa è un operazione costosa, ma necessaria, per garantire un minimo di correttezza.
 
 \lstset{language=Java, basicstyle=\ttfamily,keywordstyle=\color{javapurple}\bfseries,
 backgroundcolor=\color{lightBlue},stringstyle=\color{javared},commentstyle=\color{javagreen},
@@ -752,7 +752,7 @@ public void setA(ArrayList<Object> mtx) {
 	}
 \end{lstlisting}
 
-La stessa procedura viene eseguita per l'assegnazione delle \textit{prior} (vedi codice \ref{code:HMM_setPI}):
+La stessa procedura viene eseguita per l'assegnazione delle \textit{prior} (vedi Codice \ref{code:HMM_setPI}):
 \begin{lstlisting}[caption=Impostazione del vettore delle prior, label=code:HMM_setPI]
 public void setPI(ArrayList<Object> prior) {
 	if (prior != null && 
@@ -773,7 +773,7 @@ Un'implementazione concreta di un HMM (utilizzabile come oggetto) è quella della
 \begin{lstlisting}[caption=Firma della classe HMM ad emissioni discrete, label=code:DiscreteHMM_B1]
 public class DiscreteHMM extends HMM {...}
 \end{lstlisting}
-Questa eredita dalla classe \verb|HMM| tutto ciò che contiene, e fornisce una sua implementazione della matrice di emissioni (vedi codice \ref{code:DiscreteHMM_B1}). Anche in questo caso vengono eseguiti dei controlli sui valori che vengono assegnati: la dimensione della matrice di emissioni $B:N \times M$ dove $N=|S|$ (Cardinalità dell'insieme degli stati dell'HMM) e $M=|V|$ cardinalità dell'insieme dell'alfabeto di osservazioni; i valori assegnati forniscono un'insieme completo di alternative probabilistiche.
+Questa eredita dalla classe \verb|HMM| tutto ciò che contiene, e fornisce una sua implementazione della matrice di emissioni (vedi Codice \ref{code:DiscreteHMM_B1}). Anche in questo caso vengono eseguiti dei controlli sui valori che vengono assegnati: la dimensione della matrice di emissioni $B:N \times M$ dove $N=|S|$ (Cardinalità dell'insieme degli stati dell'HMM) e $M=|V|$ cardinalità dell'insieme dell'alfabeto di osservazioni; i valori assegnati forniscono un'insieme completo di alternative probabilistiche.
 
 \begin{lstlisting}[caption=Impostazione della matrice di emissioni, label=code:DiscreteHMM_B2]
 public void setB(ArrayList<Object> mtx) {
