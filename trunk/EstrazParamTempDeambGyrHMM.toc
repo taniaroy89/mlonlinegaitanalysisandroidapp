@@ -54,14 +54,14 @@
 \contentsline {subsubsection}{HMM ad emissioni discrete}{60}{lstnumber.6.17.11}
 \contentsline {subsubsection}{HMM ad emissioni continue}{61}{lstnumber.6.19.25}
 \contentsline {subsubsection}{Operazioni sulle HMM}{61}{lstnumber.6.20.1}
-\contentsline {chapter}{\numberline {7}Valutazione}{63}{chapter.7}
-\contentsline {chapter}{\numberline {8}Risultati e Conclusioni}{67}{chapter.8}
+\contentsline {chapter}{\numberline {7}Valutazione e Risultati}{63}{chapter.7}
+\contentsline {chapter}{\numberline {8}Conclusioni}{71}{chapter.8}
 \mbox {}\hrulefill \par 
 \mbox {}\hrulefill \par 
-\contentsline {part}{iii\hspace {1em}Appendice}{71}{part.3}
-\contentsline {chapter}{\numberline {A}Sulle HMM}{75}{appendix.A}
-\contentsline {chapter}{\numberline {B}Tempo Reale, In Linea, Latenza}{91}{appendix.B}
-\contentsline {chapter}{\numberline {C}Cenni di Meccanica classica}{93}{appendix.C}
-\contentsline {chapter}{\numberline {D}Sensori}{97}{appendix.D}
-\contentsline {chapter}{\numberline {E}Su Android}{101}{appendix.E}
-\contentsline {subsubsection}{Java\unhbox \voidb@x \hbox {$\rm {}^{TM}$}e Android\unhbox \voidb@x \hbox {$\rm {}^{TM}$}}{104}{figure.caption.52}
+\contentsline {part}{iii\hspace {1em}Appendice}{73}{part.3}
+\contentsline {chapter}{\numberline {9}Sulle HMM}{77}{chapter.9}
+\contentsline {chapter}{\numberline {10}Tempo Reale, In Linea, Latenza}{93}{chapter.10}
+\contentsline {chapter}{\numberline {11}Cenni di Meccanica classica}{95}{chapter.11}
+\contentsline {chapter}{\numberline {12}Sensori}{99}{chapter.12}
+\contentsline {chapter}{\numberline {13}Su Android}{103}{chapter.13}
+\contentsline {subsubsection}{Java\unhbox \voidb@x \hbox {$\rm {}^{TM}$}e Android\unhbox \voidb@x \hbox {$\rm {}^{TM}$}}{106}{figure.caption.53}

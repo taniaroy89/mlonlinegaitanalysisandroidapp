@@ -24,7 +24,7 @@ Class=CLatexEdit
 Document=EstrazParamTempDeambGyrHMM.tex
 
 [Frame0_Row0]
-cyCur=390
+cyCur=348
 cyMin=10
 
 [Frame0_Col0]
@@ -32,9 +32,9 @@ cxCur=997
 cxMin=10
 
 [Frame0_View0,0]
-Cursor.row=100
-Cursor.column=57
-TopSubLine=96
+Cursor.row=297
+Cursor.column=1
+TopSubLine=282
 
 [Frame1]
 Columns=1
@@ -45,15 +45,15 @@ MinPos.x=-1
 MinPos.y=-1
 MaxPos.x=-4
 MaxPos.y=-30
-NormalPos.left=22
-NormalPos.top=29
-NormalPos.right=952
-NormalPos.bottom=300
+NormalPos.left=88
+NormalPos.top=116
+NormalPos.right=1018
+NormalPos.bottom=369
 Class=CLatexEdit
-Document=CAP_modellazione.tex
+Document=CAP_chinesiologia.tex
 
 [Frame1_Row0]
-cyCur=216
+cyCur=198
 cyMin=10
 
 [Frame1_Col0]
@@ -61,9 +61,9 @@ cxCur=901
 cxMin=10
 
 [Frame1_View0,0]
-Cursor.row=100
-Cursor.column=0
-TopSubLine=143
+Cursor.row=21
+Cursor.column=55
+TopSubLine=25
 
 [Frame2]
 Columns=1
@@ -74,15 +74,15 @@ MinPos.x=-1
 MinPos.y=-1
 MaxPos.x=-4
 MaxPos.y=-30
-NormalPos.left=88
-NormalPos.top=116
-NormalPos.right=1018
-NormalPos.bottom=360
+NormalPos.left=0
+NormalPos.top=0
+NormalPos.right=930
+NormalPos.bottom=253
 Class=CLatexEdit
-Document=biblio.bib
+Document=CAP_statoDellArte.tex
 
 [Frame2_Row0]
-cyCur=189
+cyCur=198
 cyMin=10
 
 [Frame2_Col0]
@@ -90,69 +90,11 @@ cxCur=901
 cxMin=10
 
 [Frame2_View0,0]
-Cursor.row=36
-Cursor.column=40
-TopSubLine=36
+Cursor.row=34
+Cursor.column=189
+TopSubLine=50
 
 [Frame3]
-Columns=1
-Rows=1
-Flags=0
-ShowCmd=1
-MinPos.x=-1
-MinPos.y=-1
-MaxPos.x=-4
-MaxPos.y=-30
-NormalPos.left=88
-NormalPos.top=116
-NormalPos.right=1018
-NormalPos.bottom=403
-Class=CLatexEdit
-Document=CAP_valutazione.tex
-
-[Frame3_Row0]
-cyCur=232
-cyMin=10
-
-[Frame3_Col0]
-cxCur=901
-cxMin=10
-
-[Frame3_View0,0]
-Cursor.row=129
-Cursor.column=0
-TopSubLine=149
-
-[Frame4]
-Columns=1
-Rows=1
-Flags=0
-ShowCmd=1
-MinPos.x=-1
-MinPos.y=-1
-MaxPos.x=-4
-MaxPos.y=-30
-NormalPos.left=22
-NormalPos.top=29
-NormalPos.right=974
-NormalPos.bottom=259
-Class=CLatexEdit
-Document=CAP_AndroidApp.tex
-
-[Frame4_Row0]
-cyCur=175
-cyMin=10
-
-[Frame4_Col0]
-cxCur=923
-cxMin=10
-
-[Frame4_View0,0]
-Cursor.row=0
-Cursor.column=0
-TopSubLine=0
-
-[Frame5]
 Columns=1
 Rows=1
 Flags=0
@@ -164,12 +106,70 @@ MaxPos.y=-30
 NormalPos.left=22
 NormalPos.top=29
 NormalPos.right=952
-NormalPos.bottom=323
+NormalPos.bottom=282
 Class=CLatexEdit
-Document=CAP_chinesiologia.tex
+Document=CAP_modellazione.tex
+
+[Frame3_Row0]
+cyCur=198
+cyMin=10
+
+[Frame3_Col0]
+cxCur=901
+cxMin=10
+
+[Frame3_View0,0]
+Cursor.row=48
+Cursor.column=116
+TopSubLine=65
+
+[Frame4]
+Columns=1
+Rows=1
+Flags=0
+ShowCmd=1
+MinPos.x=-1
+MinPos.y=-1
+MaxPos.x=-4
+MaxPos.y=-30
+NormalPos.left=44
+NormalPos.top=58
+NormalPos.right=974
+NormalPos.bottom=311
+Class=CLatexEdit
+Document=APPENDICE_hmm.tex
+
+[Frame4_Row0]
+cyCur=198
+cyMin=10
+
+[Frame4_Col0]
+cxCur=901
+cxMin=10
+
+[Frame4_View0,0]
+Cursor.row=558
+Cursor.column=89
+TopSubLine=682
+
+[Frame5]
+Columns=1
+Rows=1
+Flags=0
+ShowCmd=1
+MinPos.x=-1
+MinPos.y=-1
+MaxPos.x=-4
+MaxPos.y=-30
+NormalPos.left=66
+NormalPos.top=87
+NormalPos.right=996
+NormalPos.bottom=340
+Class=CLatexEdit
+Document=CAP_risultati.tex
 
 [Frame5_Row0]
-cyCur=239
+cyCur=198
 cyMin=10
 
 [Frame5_Col0]
@@ -177,9 +177,9 @@ cxCur=901
 cxMin=10
 
 [Frame5_View0,0]
-Cursor.row=0
-Cursor.column=0
-TopSubLine=0
+Cursor.row=3
+Cursor.column=187
+TopSubLine=7
 
 [Frame6]
 Columns=1
@@ -193,12 +193,12 @@ MaxPos.y=-30
 NormalPos.left=22
 NormalPos.top=29
 NormalPos.right=952
-NormalPos.bottom=324
+NormalPos.bottom=282
 Class=CLatexEdit
-Document=CAP_risultati.tex
+Document=CAP_valutazione.tex
 
 [Frame6_Row0]
-cyCur=240
+cyCur=198
 cyMin=10
 
 [Frame6_Col0]
@@ -206,7 +206,7 @@ cxCur=901
 cxMin=10
 
 [Frame6_View0,0]
-Cursor.row=0
-Cursor.column=0
-TopSubLine=0
+Cursor.row=69
+Cursor.column=26
+TopSubLine=68
 

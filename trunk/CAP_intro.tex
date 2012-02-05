@@ -2,12 +2,12 @@
 %\myChapter{Introduzione}
 
 %-------------------	Descrizione del problema -------------------------------
-Ipotesi: \textit{è possibile costruire un sistema intelligente e portatile in grado di riconoscere (classificare) e analizzare i movimenti di un individuo e di fornirne in linea (vedi appendice \ref{sec:real_time_sys}) informazioni a riguardo}.\\
+Ipotesi: \textit{è possibile costruire un sistema intelligente e portatile in grado di riconoscere (classificare) e analizzare i movimenti di un individuo e di fornirne in linea (vedi Appendice \ref{sec:real_time_sys}) informazioni a riguardo}.\\
 
 Il problema del riconoscimento (classificazione) di una generica attività motoria umana è irrisolto ed estremamente complesso visto il numero esorbitante di parametri coinvolti.
 In questo lavoro viene affrontata l'analisi di una singola attività nota: la deambulazione entro un intervallo di velocità e pendenza del terreno.
 
-Nello specifico il problema è quello dell'individuazione in linea delle tempistiche di eventi che costituiscono una deambulazione normale come studiato dalla Chinesiologia (vedi capitolo \ref{cap:chinesiologia}). Tale problema è noto come \emph{problema della segmentazione automatica ed in linea della deambulazione umana}.\\
+Nello specifico il problema è quello dell'individuazione in linea delle tempistiche di eventi che costituiscono una deambulazione normale come studiato dalla Chinesiologia (vedi Capitolo \ref{cap:chinesiologia}). Tale problema è noto come \emph{problema della segmentazione automatica ed in linea della deambulazione umana}.\\
 
 %------------------  Motivazioni del problema Perché si pone?--------------------------------
 La soluzione del problema della segmentazione avrebbe risvolti immediati nella Medicina riabilitativa per la diagnosi e/o assistenza a persone con problemi di deambulazione, nella Robotica e Computer Grafica per la emulazione/simulazione della deambulazione umana, nel mondo dello sport agonistico per l'apprendimento di specifiche tecniche motorie.\\
@@ -19,11 +19,11 @@ Per quanto riguarda i materiali, sono state proposte soluzioni basate sull'osser
 \begin{figure}
 	\centering
 	\includegraphics[width=1\textwidth]{imgs/sensorOnBodyLocations.jpg}
-	\caption{Schema riassuntivo dei posizionamenti di diversi sensori su diverse parti del corpo, usati in letteratura. Nella figura, $a$ rappresenta un accelerometro, $\omega$ rappresenta un giroscopio, $B$ rappresenta un magnetometro. Le frecce accanto alle lettere rappresentano le dimensioni dei rispettivi sensori, quindi una frecce sotto un simbolo significa che il sensore è monoassiale, due significa biassiale e tre (la terza freccia è uscente, quindi rappresentata come un cerchio con un punto al suo centro) triassiale. Le `capsule` grigie che racchiudono uno o più sensori sono dette Unità Sensoriali. Le lettere A (\textit{abdomen}, addome), T (\textit{thigh}, coscia), S (\textit{shank}, stinco) ed F (\textit{foot}, piede) rappresentano le parti del corpo sui quali si trovano. 
-	 Immagine adattata da \cite{gait_event_detection_analysis}}
+	\caption{Schema riassuntivo dei posizionamenti di diversi sensori su diverse parti del corpo, usati in letteratura. Nella Figura, $a$ rappresenta un accelerometro, $\omega$ rappresenta un giroscopio, $B$ rappresenta un magnetometro. Le frecce accanto alle lettere rappresentano le dimensioni dei rispettivi sensori, quindi una frecce sotto un simbolo significa che il sensore è monoassiale, due significa biassiale e tre (la terza freccia è uscente, quindi rappresentata come un cerchio con un punto al suo centro) triassiale. Le `capsule` grigie che racchiudono uno o più sensori sono dette Unità Sensoriali. Le lettere A (\textit{abdomen}, addome), T (\textit{thigh}, coscia), S (\textit{shank}, stinco) ed F (\textit{foot}, piede) rappresentano le parti del corpo sui quali si trovano. 
+	 Figura adattata da \cite{gait_event_detection_analysis}}
 	\label{fig:sensorOnBodyLocations}
 \end{figure}
-Questi ultimi sono stati usati in diverse combinazioni, numero e disposizione sul corpo (vedi immagine \ref{fig:sensorOnBodyLocations}).\\ 
+Questi ultimi sono stati usati in diverse combinazioni, numero e disposizione sul corpo (vedi Figura \ref{fig:sensorOnBodyLocations}).\\ 
 
 Per quanto riguarda i metodi, sono state proposte soluzioni di tipo cinematico basato sullo studio delle forze che agiscono sul corpo nella deambulazione; di tipo analitico (studio di funzioni e curve) sui segnali di sensori inerziali; alle Macchine a stati finiti per lo studio di sequenze temporali, e più di recente all'Apprendimento Automatico (Reti Neurali, Logica Fuzzy) per la capacità di astrarre sulle variazioni dei singoli individui \cite{gait_event_detection_analysis}.
 
@@ -33,6 +33,6 @@ Tutti i metodi proposti peccano di dipendenza dai soggetti per i quali quali ven
 
 %------------------------- Come voglio affrontare il problema? 
 La scelta dell'utilizzo delle HMM è giustificata dai seguenti motivi. 
-Le HMM (vedi appendice \ref{cap:hmm}) sono uno strumento stocastico di riconoscimento di schemi (\textit{Stochastic Pattern Recognition}) usato in campi come il riconoscimento vocale \cite{tutorial_hmm_application_speech_recognition} e lo studio della visione artificiale per il riconoscimento gestuale \cite{HMM_gesture_recognition}. Uno studio dimostra il potenziale delle HMM per la segmentazione della deambulazione equina \cite{stride_segmentation_technique_hmm}. \\
+Le HMM (vedi Appendice \ref{cap:hmm}) sono uno strumento stocastico di riconoscimento di schemi (\textit{Stochastic Pattern Recognition}) usato in campi come il riconoscimento vocale \cite{tutorial_hmm_application_speech_recognition} e lo studio della visione artificiale per il riconoscimento gestuale \cite{HMM_gesture_recognition}. Uno studio dimostra il potenziale delle HMM per la segmentazione della deambulazione equina \cite{stride_segmentation_technique_hmm}. \\
 
 Inoltre vi sono studi che usano le HMM come struttura gerarchica per affrontare il problema della classificazione di attività umane \cite{human_physical_activity_classification_ml, spatio_temporal_params_gait_gyr}. Per sviluppi futuri, del lavoro qui presentato, nella direzione della risoluzione del problema della classificazione, gli studi citati sono a favore dell'utilizzo delle HMM.

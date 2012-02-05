@@ -97,8 +97,8 @@ della Deambulazione: Sviluppo e Validazione di un'applicazione per Smartphone\xs
 \newcommand{\myUni}{\protect{	Università degli Studi di Firenze}\xspace}
 \newcommand{\myLocation}{Firenze\xspace}
 \newcommand{\myTime}{Anno Accademico 2010-2011\xspace}
-\newcommand{\myVersion}{\small \textcolor{red}{Revisione 21.0} \xspace} %last committed svn version.build
-\newcommand{\myShortVersion}{\small \textcolor{red}{v21.0} \xspace}
+\newcommand{\myVersion}{\small \textcolor{red}{Revisione 23.0} \xspace} %last committed svn version.build
+\newcommand{\myShortVersion}{\small \textcolor{red}{v23.0} \xspace}
 %-----------------------------------------------------------\hypersetup{pdfstartview=FitW}
 \hypersetup{pdfstartview=FitW}
 %% Define a new 'leo' style for the package that will use a smaller font.
@@ -219,25 +219,13 @@ della Deambulazione: Sviluppo e Validazione di un'applicazione per Smartphone\xs
 \makeatother
 %%% Aesthetic spacing redefines that look nicer to me than the defaults.
 %
-%\setlength{\cftbeforechapskip}{2ex}
-%\setlength{\cftbeforesecskip}{0.5ex}
-%
 %
 \renewcommand{\cftpartpresnum}{PARTE  }
 \renewcommand{\cftpartfont}{\hfill\Large\bfseries\hfill}
 
-%\renewcommand{\cftchapfont}{\bfseries}
-%\renewcommand{\cftchapleader}{\bfseries\cftdotfill{\cftchapdotsep}}
-%\renewcommand{\cftchappagefont}{\bfseries}
-%\renewcommand{\cftchappresnum}{CAP}
-%\renewcommand{\cftchapaftersnum}{:}
-%\renewcommand{\cftchapaftersnumb}{\\}
-
-%}
 \makeindex
 \onehalfspacing
 \begin{document}
-%\include{eng_to_ita}
 \frenchspacing
 \raggedbottom
 \pagenumbering{roman}
@@ -251,13 +239,6 @@ della Deambulazione: Sviluppo e Validazione di un'applicazione per Smartphone\xs
 \renewcommand\contentsname{Indice}
 \addtocontents{toc}{~\hfill\textbf{Pagina}\par}
 \tableofcontents
-
-%\makeatletter \renewcommand{\@dotsep}{10000} \makeatother
-%\listoftables
-%\makeatletter \renewcommand{\@dotsep}{4.5} \makeatother
-%\listoffigures
-
-
 \pagestyle{scrheadings}
 %--------------------------------------------------------------
 % Mainmatter
@@ -273,7 +254,7 @@ della Deambulazione: Sviluppo e Validazione di un'applicazione per Smartphone\xs
 \addtocontents{toc}{\cftpagenumbersoff{part}}
 \part{Stato dell'arte}
 
-\include{CAP_intro} % use \myChapter command instead of \chapter
+\include{CAP_intro}
 \include{CAP_chinesiologia}
 \include{CAP_statoDellArte}
 
@@ -283,25 +264,16 @@ della Deambulazione: Sviluppo e Validazione di un'applicazione per Smartphone\xs
 \addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
 \part{Lavoro svolto}
 \include{CAP_modellazione}
-%%\include{CAP_materiali}
 \include{CAP_AndroidApp}
 \include{CAP_valutazione}
 \include{CAP_risultati}
-%--------------------------------------------------------------
+--------------------------------------------------------------
 %% Backmatter
 %--------------------------------------------------------------
 
 \addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
 \addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
 \part{Appendice}
-%\addtocontents{toc}{\cftpartpresnumoff{part}}
-%\bookmarksetup{startatroot}
-%\addtocontents{toc}{\bigskip}
-%\let\cleardoublepage\clearpage
-\appendix
-%\appendixpage
-%\addtocontents{toc}{\cftpagenumbersoff{chapter}}
-%\setcounter{tocdepth}{1}
 \begin{center}
 
 \end{center}\include{APPENDICE_hmm}
@@ -309,16 +281,18 @@ della Deambulazione: Sviluppo e Validazione di un'applicazione per Smartphone\xs
 \include{APPENDICE_meccanica}
 \include{APPENDICE_sensori}
 \include{APPENDICE_android}
-%
+
 %\include{RINGRAZIAMENTI}
 %%--------------------------------------------------------------
 %	Extras
 %--------------------------------------------------------------
+%\makeatletter \renewcommand{\@dotsep}{10000} \makeatother
+%\listoftables
+%\makeatletter \renewcommand{\@dotsep}{4.5} \makeatother
+%\listoffigures
 %--------------------------------------------------------------
 \bibliographystyle{IEEEtran}
 \bibliography{biblio}
-%\printglossaries
-%\addcontentsline{toc}{chapter}{Glossary}
 \end{document}
 \------------------------------------	--------------------------
 	

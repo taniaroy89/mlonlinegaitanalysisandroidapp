@@ -204,17 +204,17 @@ Una HMM può essere usato per generare una sequenza di osservazioni $O=\{O_1,O_2,
 \RETURN \COMMENT{modello}
 \end{algorithmic}
 \end{algorithm}
-L'illustrazione \ref{fig:HMM_seq_gen} da un intuizione sul funzionamento dell'algoritmo:
+La Figura \ref{fig:HMM_seq_gen} da un intuizione sul funzionamento dell'algoritmo:
 \begin{figure}[h]
 	\centering
 		\includegraphics[width=1\textwidth]{imgs/descreteMarkovProcessesObservationGen.jpg}
-	\caption{Esempio di generazione di una sequenza di osservazioni mediante l'algoritmo \ref{alg:HMM_seq_gen}}
+	\caption{Esempio di generazione di una sequenza di osservazioni mediante l'Algoritmo \ref{alg:HMM_seq_gen}}
 	\label{fig:HMM_seq_gen}
 \end{figure}
 
 
 \subsection*{HMM ad emissioni continue}
-Nel caso in cui le osservazioni siano continue è necessario avere un modello che associ ad ogni stato una distribuzione di emissione, invece che un singolo valore. Un esempio di distribuzione è la gaussiana mono variata o ad una variabile (vedi immagine \ref{img:monovargaussian}). In questo caso la definizione della matrice di emissione descritta in \eqref{eq:emissionMtxDef} diventa
+Nel caso in cui le osservazioni siano continue è necessario avere un modello che associ ad ogni stato una distribuzione di emissione, invece che un singolo valore. Un esempio di distribuzione è la gaussiana mono variata o ad una variabile (vedi Figura \ref{img:monovargaussian}). In questo caso la definizione della matrice di emissione descritta in \eqref{eq:emissionMtxDef} diventa
 \begin{equation}
 B = b_j(x) = \mathcal{N}(x,\mu_j,\sigma_j) = \frac{1}{\sigma_j\sqrt{2\pi}}\textbf{e} ^{-\frac{(x-\mu_j)^2}{2 \sigma_j^2}}\quad
 \text{per} 1 \leq j \leq N
@@ -229,7 +229,7 @@ B = b_j(x) = \mathcal{N}(x,\mu_j,\sigma_j) = \frac{1}{\sigma_j\sqrt{2\pi}}\textb
 \end{figure}
 
 
-La formula può essere generalizzata su due fronti: numero di variabili in ingresso: gaussiana mutivariata (vedi figura \ref{bivargaussian}) oppure sul numero di gaussiane che vengono combinate: mistura di gaussiane (vedi figura \ref{gaussianmixture}).
+La formula può essere generalizzata su due fronti: numero di variabili in ingresso: gaussiana mutivariata (vedi Figura \ref{bivargaussian}) oppure sul numero di gaussiane che vengono combinate: mistura di gaussiane (vedi Figura \ref{gaussianmixture}).
 
 %\begin{figure}[h]
 %	\centering
@@ -435,7 +435,7 @@ La procedura completa per trovare il percorso di stati più probabile è la seguen
 	
 	
 \subsection*{Algoritmo di Viterbi in Tempo Reale}	
-Il problema dell'algoritmo di Viterbi in molte applicazioni reali, è la latenza. I sistemi che utilizzano l'algoritmo hanno spesso necessità di avere risultati immediati, in tempo reale. Trovare la sequenza di stati più verosimile che ha generato una sequenza di osservazioni è (come mostrato dall'algoritmo \ref{alg:viterbi}) fattibile con l'algoritmo di Viterbi, tracciando percorsi nella sequenza temporale di stati ed una volta arrivato a termine (tempo finale $T$), ricostruendo a ritroso il cammino migliore. Un problema significativo dell'algoritmo è che assume che la sequenza temporale sia finita. Vi sono molti casi pratici in cui l'applicazione dell'algoritmo sarebbe utile, per i quali i dati sono un flusso continuo ed incessante di dati. Una possibile soluzione è l'applicazione del'algoritmo di Viterbi a finestre successive di dati, dopo la quale restituire solo una parte iniziale degli decodificati  \cite{synface_low_latency_viterbi}, \cite{automatic_bass_line_transcript}(perché hanno una probabilità maggiore di essere corretti). Questa soluzione, conduce a una decodifica sub-ottimale.\\
+Il problema dell'algoritmo di Viterbi in molte applicazioni reali, è la latenza. I sistemi che utilizzano l'algoritmo hanno spesso necessità di avere risultati immediati, in tempo reale. Trovare la sequenza di stati più verosimile che ha generato una sequenza di osservazioni è (come mostrato dall'Algoritmo \ref{alg:viterbi}) fattibile con l'algoritmo di Viterbi, tracciando percorsi nella sequenza temporale di stati ed una volta arrivato a termine (tempo finale $T$), ricostruendo a ritroso il cammino migliore. Un problema significativo dell'algoritmo è che assume che la sequenza temporale sia finita. Vi sono molti casi pratici in cui l'applicazione dell'algoritmo sarebbe utile, per i quali i dati sono un flusso continuo ed incessante di dati. Una possibile soluzione è l'applicazione del'algoritmo di Viterbi a finestre successive di dati, dopo la quale restituire solo una parte iniziale degli decodificati  \cite{synface_low_latency_viterbi}, \cite{automatic_bass_line_transcript}(perché hanno una probabilità maggiore di essere corretti). Questa soluzione, conduce a una decodifica sub-ottimale.\\
 Un'altra soluzione consiste nel confrontare più percorsi su una finestra temporale in espansione, finché le soluzioni non convergono. Nel lavoro \cite{real_time_viterbi_optimization_multi_target_tracking} per la localizzazione automatica di un soggetto via video, la finestra temporale viene dinamicamente ridimensionata in base a un'euristica che bilanci latenza e accuratezza. Questo tipo di approccio non garantisce la convergenza dei percorsi considerati. L'approccio che noi abbiamo usato nel lavoro è quello proposto da Bloit et al \cite{short_time_viterbi_online_hmm_deconding}. 
 
 \begin{definition}[Cammino locale]
@@ -447,7 +447,7 @@ Si definisce punto di fusione,l'istante temporale $\tau < T$  t.c per $a \leq t 
 \end{definition}
 	
 Un punto di fusione gode della seguente proprietà:
-i cammini locai fino al punto di fusione (che per definizione sono tutti uguali) sono sempre uguali al cammino globale (quello ottenibile con l'algoritmo di Viterbi originale \ref{alg:viterbi})\footnote{per la dimostrazione consultare \cite{short_time_viterbi_online_hmm_deconding}}.
+i cammini locai fino al punto di fusione (che per definizione sono tutti uguali) sono sempre uguali al cammino globale (quello ottenibile con l'Algoritmo di Viterbi originale \ref{alg:viterbi})\footnote{per la dimostrazione consultare \cite{short_time_viterbi_online_hmm_deconding}}.
 
 %\begin{algorithm} 
 %\caption{ShortTimeViterbi}                                                  
@@ -556,7 +556,7 @@ Nel secondo caso è possibile sostituire $\overline{\lambda}$ a $\lambda$, ripete
 Vi sono diversi problemi che si devono affrontare per implementare le HMM ed i vari algoritmi sinora descritti. Alcuni di questi sono 
 \begin{itemize}
 	\item Ridimensionamento (\textit{scaling}): la procedura di riestimazione, comporta una lunga sequenza di prodotti di valori di probabilità. Ciò fa in modo che i valori tendano esponenzialmente a zero, quindi vi è un inevitabile problema di underflow. L'unico modo di ovviare al problema è quello di ridimensionare i valori, moltiplicandoli per un coefficiente che non dipenda dallo stato, ma solo dal tempo. Alla fine del processo, i coefficienti di ridimensionamento vengono eliminati.  \\
-	Ad esempio nella procedura di riestimazione si calcola la matrice di transizione con l'equazione \eqref{eq:transitionMtxXi}
+	Ad esempio nella procedura di riestimazione si calcola la matrice di transizione con l'Equazione \eqref{eq:transitionMtxXi}
 		\begin{equation}
 				\overline{a_{i,j}}= \dfrac{\displaystyle\sum_{t=1}^{T-1}\alpha_{i,t}a_{i,j}b_j(o_{t+1})\beta_{j,t+1}}													{\displaystyle\sum_{t=1}^{T-1}\displaystyle\sum_{j=1}^{N}\alpha_{i,t}a_{i,j}b_j(o_{t+1})\beta_{j,t+1}}
 		\label{eq:transitionMtxAlphaBeta}
