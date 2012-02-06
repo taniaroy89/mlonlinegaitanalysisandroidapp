@@ -1,4 +1,5 @@
 \chapter{Modellazione della deambulazione}
+\label{cap:modellazioneDeambulazione}
 Il lavoro svolto, può essere suddiviso in tre fasi principali: 
 \begin{enumerate}
 	\item \textbf{Creazione ed addestramento di un modello}: scelta di un modello consono al problema e ottimizzazione dei relativi parametri,
@@ -228,7 +229,7 @@ a_{ij}& = 0       \quad \text{altrimenti}
 
 dove $C$ è il numero di cicli di deambulazione nel \textit{training set}.\\ 
 
-I parametri relativi alle probabilità di emissione ( $\mu$ e $\sigma$) dei singoli stati sono stimati a partire dai dati a seconda della fase del cammino cui appartengono. Assumendo un modello probabilistico gaussiano a descrivere le emissioni degli stati dell'HMM, i parametri delle densità di emissione dell'i-esimo stato sono stimati valutando le medie e le deviazioni standard empiriche delle osservazioni etichettate come appartenenti alla fase $i$ del cammino 
+I parametri relativi alle probabilità di emissione ( $\mu$ e $\sigma$) dei singoli stati sono stimati a partire dai dati a seconda della fase del cammino cui appartengono. Assumendo un modello probabilistico gaussiano a descrivere le emissioni degli stati della HMM, i parametri delle densità di emissione dell'i-esimo stato sono stimati valutando le medie e le deviazioni standard empiriche delle osservazioni etichettate come appartenenti alla fase $i$ del cammino 
 \begin{equation}
 \begin{split}
 \mu_i &= \dfrac{1}{N_i} \displaystyle \sum_{t=1}^T{\Omega(t)} \quad i = 1,...,Q\\
@@ -251,17 +252,17 @@ $Deamb\_HMM_1, ..., Deamb\_HMM_P$. La validazione ha confermato il corretto funz
 Le fasi della creazione addestramento e validazione incrociata del modello è stata fatta in differita, mediante un Mathworks\tm  MATLAB\tm  ed l'\textit{HMM toolbox} \cite{HMM_toolbox}. 
 Nella fase di verifica, viene usato l'algoritmo di decodifica di Viterbi (vedi Appendice \ref{alg:viterbi}) sui dati del giroscopio, per trovare la sequenza di stati che con maggior verosimiglianza ha prodotto le osservazioni (sequenze di valori del giroscopio).\\
 
-Il modello sinistra-destra dell'HMM (vedi Appendice \ref{sec:HMM}) può portare a considerare cicli di deambulazione aggiuntivi detti inserzioni (\textit{insertions}), o meno di quelli effettivi delezioni (\textit{deletions}). Il problema delle inserzioni viene risolto mediante l'applicazione di un'euristica: per i presupposti del tipo di deambulazione considerata (velocità e pendenza del terreno), tutti i cicli di deambulazione di durata inferiore a $250\, ms$ sono inserzioni.
+Il modello sinistra-destra della HMM (vedi Appendice \ref{sec:HMM}) può portare a considerare cicli di deambulazione aggiuntivi detti inserzioni (\textit{insertions}), o meno di quelli effettivi delezioni (\textit{deletions}). Il problema delle inserzioni viene risolto mediante l'applicazione di un'euristica: per i presupposti del tipo di deambulazione considerata (velocità e pendenza del terreno), tutti i cicli di deambulazione di durata inferiore a $250\, ms$ sono inserzioni.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Parametri ottenuti}
-Dato che la validazione ha confermato la correttezza del sistema, per la segmentazione è stato addestrato un HMM con tutti i soggetti (in modo da avere un modello ancora più performante), ed i parametri ottenuti sono presentati in Tabella \ref{tab:prior}, Tabella \ref{tab:matrice_transizione} e Tabella \ref{tab:matrice_emissione}. In Tabella \ref{tab:osservazioni} è riportato un esempio di dati in ingresso al modello .
+Dato che la validazione ha confermato la correttezza del sistema, per la segmentazione è stato addestrato una HMM con tutti i soggetti (in modo da avere un modello ancora più performante), ed i parametri ottenuti sono presentati in Tabella \ref{tab:prior}, Tabella \ref{tab:matrice_transizione} e Tabella \ref{tab:matrice_emissione}. In Tabella \ref{tab:osservazioni} è riportato un esempio di dati in ingresso al modello .
 \begin{table}%
 \centering
 \begin{tabular}{|c|c c c c|}
 \hline
-\textbf{A} &\textsc{HS} & \textsc{FF} & \textsc{HO} & \textsc{TO}\\
+\textbf{A} & \textsc{FF} & \textsc{HO} & \textsc{TO}&\textsc{HS} \\
 %\hline
 \hline
 \textsc{HS} & $0.985$ & $0.015$ & $0.0$ & $0.0$\\
@@ -301,9 +302,9 @@ Dato che la validazione ha confermato la correttezza del sistema, per la segment
 
 \begin{table}%
 \centering
-\begin{tabular}{|p{.7cm}|p{2.8cm}|}
+\begin{tabular}{|c|c|}
 \hline
- &\textsc{$\pi$} \\
+ Stato&\textsc{$\pi$} \\
 %\hline
 \hline
 \textsc{HS} & $0.180$ \\  

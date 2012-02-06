@@ -145,6 +145,11 @@ R.~E. Mayagoitia, A.~V. Nene, and P.~H. Veltink, ``Accelerometer and rate
   optical motion analysis systems,'' \emph{Journal of Biomechanics}, vol.
   35(4), pp. 537--542, 2002.
 
+\bibitem{reliable_gait_phase_analysis}
+I.~P. Pappas and M.~R. Popovic, ``A reliable gait phase detection system,''
+  \emph{IEEE Transactions on Neural Systems and Rehabilitation Engineering},
+  vol. 9(2), pp. 113--125, 2001.
+
 \bibitem{reliable_gait_phase_detection_gyr}
 I.~P. Pappas, M.~R. Popovic, T.~Keller, V.~Dietz, and M.~Morari, ``A reliable
   gyroscope-based gait-phase detection sensor embedded in a shoe insole,''
@@ -262,11 +267,6 @@ P.~C. Sweeney, G.~M. Lyons, and P.~H. Veltink, ``Finite state control of
 E.~Alpaydin, \emph{Introduction to Machine Learning}.\hskip 1em plus 0.5em
   minus 0.4em\relax MIT Press, 2004.
 
-\bibitem{reliable_gait_phase_analysis}
-I.~P. Pappas, M.~R. Popovic, T.~Keller, V.~Dietz, and M.~Morari, ``A reliable
-  gait phase detection system,'' \emph{IEEE Transactions on Neural Systems and
-  Rehabilitation Engineering}, vol. 9(2), pp. 113--125, 2001.
-
 \bibitem{HMM_toolbox}
 \BIBentryALTinterwordspacing
 K.~Murphy. (1998) Hidden markov model (hmm) toolbox for matlab. [Online].
@@ -352,8 +352,8 @@ E.~A. Young, T.~J. Hudson., and the OpenSSL~community. (Relese 2.4.7 October
 
 \bibitem{Java}
 \BIBentryALTinterwordspacing
-------. (Relese 7 October 2011) Oracle. [Online]. Available:
-  \url{http://www.java.com/}
+L.~J. Ellison, S.~A. Catz, and M.~Hurd. (Relese 7 October 2011) Oracle.
+  [Online]. Available: \url{http://www.java.com/}
 \BIBentrySTDinterwordspacing
 
 \bibitem{JDK_Tools}
@@ -364,9 +364,9 @@ O.~Corporation. (Relese October 2011) Oracle. [Online]. Available:
 
 \bibitem{OpenJDK}
 \BIBentryALTinterwordspacing
-------. (Bylaws Relese October 2011) Open source imlementation of the java
-  platform, standard edition and related projects. [Online]. Available:
-  \url{http://openjdk.java.net/}
+O.~C. and/or~its affiliates. (Bylaws Relese October 2011) Open source
+  imlementation of the java platform, standard edition and related projects.
+  [Online]. Available: \url{http://openjdk.java.net/}
 \BIBentrySTDinterwordspacing
 
 \bibitem{Apache_Harmony}

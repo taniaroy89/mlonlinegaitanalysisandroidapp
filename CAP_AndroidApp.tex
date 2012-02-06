@@ -1,4 +1,5 @@
 \chapter{Applicazione Android}
+\label{cap:androidApp}
 %\myChapter{applicazione Android\tm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduzione}%descrivere cosa fa a grandi linee %%%%%%%%%%%%%%%%%%%%%%%%%                           INTRODUZIONE
@@ -17,24 +18,25 @@ L'utente controlla la IMU mediante l'applicazione, quindi può impostarne i param
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Metodologia di programmazione seguita	: \textit{Agile} e \textit{Unit Test}}%agile %%%%%%%%%%%%%%%%%         METODOLOGIA DI PROGRAMMAZIONE
 \label{sec:agile}
-Per l'implementazione dell'algoritmo di Viterbi e le funzioni utilizzate nella fase di analisi del segnale, è stata utilizzata una tecnica nota come \textit{Agile Programming} (AP): una tecnica che permette lo sviluppo di programmi in cicli di lavoro iterativi ed incrementali in termini di funzionalità. Tale metodologia è stata corroborata da una tecnica di verifica del codice sorgente detta \textit{Unit Test} (UT) verifica unitaria. Per unità (\textit{unit}) si intende la più piccola parte funzionante di un programma che può essere verificata, nei linguaggi orientati ad oggetti un metodo costituisce un'unità. Per UT in Java\tm si intende la verifica del funzionamento di ciascun metodo di una classe. 
+Per l'implementazione dell'algoritmo di Viterbi e le funzioni utilizzate nella fase di analisi del segnale, è stata utilizzata una tecnica nota come \textit{Agile Programming} (AP): una tecnica che permette lo sviluppo di programmi in cicli di lavoro iterativi ed incrementali in termini di funzionalità. Tale metodologia è stata corroborata da una tecnica di verifica del codice sorgente detta \textit{Unit Test} (UT) verifica unitaria. Per unità (\textit{unit}) si intende la più piccola parte funzionante di un programma che può essere verificata, nei linguaggi orientati ad oggetti un metodo costituisce un'unità. Per UT in Java\tm si intende la verifica del funzionamento di ciascun metodo pubblico (metodi accessibili da altri oggetti) di una classe. 
 
 
 Tra i benefici apportati dall'UT si possono annoverare:
 \begin{itemize}
-	\item Semplificazione della procedura di riscrittura del codice sorgente (\textit{refactoring}): procedura di modifica della struttura di un programma che non ne altera il funzionamento complessivo.
-	\item Automatizzazione dell'integrazione di moduli di programma: l'interazione fra moduli deve essere verificata ed in mancanza di UT viene fatta su misura per ogni caso. 
-	\item Creazione di documentazione ``concreta'': i vari casi di verifica (\textit{test}) costituiscono degli esempi concreti di utilizzo di ciascun modulo e dell'interazione fra di essi. Un vantaggio che la documentazione fornita mediante UT ha rispetto alla documentazione classica è che ogni modifica apportata al programma si ripercuote sul funzionamento dei casi di verifica, mentre la documentazione classica rischia di diventare obsoleta se tale cambiamento non viene trascritto.
+	\item Identificazione di possibili problemi nel programma;
+	\item facilitazione nella creazione di programmi modulari, leggibili e riutilizzabili;
+	\item copertura granulare sull stabilità del programma;
+	\item semplificazione della procedura di riscrittura del codice sorgente (\textit{refactoring}): procedura di modifica della struttura di un programma che non ne altera il funzionamento complessivo.
+	\item automatizzazione dell'integrazione di moduli di programma: l'interazione fra moduli deve essere verificata ed in mancanza di UT viene fatta su misura per ogni caso. 
 \end{itemize}
 La limitazioni maggiori sono: 
 \begin{itemize}
 	\item Lo UT è orientato alla funzionalità di singoli moduli di programmi, quindi aspetti come la performance o funzionalità che necessitano di molti moduli sono difficilmente verificabili mediante UT.
-	\item La scelta dei casi di verifica tra l'esorbitante numero di possibile scelte è spesso un problema difficile.
 	\item Vi sono casi in cui lo UT non può essere applicato, come ad esempio nei programmi non deterministici o in un ambiente \textit{multithread}. 
 \end{itemize} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\par\textsc{Scrittura di uno UT}: lo UT istanza l'oggetto dalla classe da verificare, ed invoca il metodo con valori per i quali è noto il comportamento (teorico) del metodo da verificare.\\
+	\par\textsc{Scrittura di uno UT}: Gli UT vengono scelti in base ai casi di uso del programma. In principio si pensa a come il programma dovrebbe funzionare in determinati casi. Un UT istanza l'oggetto dalla classe da verificare, ed invoca il metodo con valori per i quali è noto il comportamento (teorico) del metodo da verificare.\\
 Il test viene eseguito, per la prima volta, prima di aver implementato il metodo da verificare, ed ovviamente fallisce\footnote{Eclipse IDE \tm utilizza il \textit{framework} JUnit\tm che semplifica la gestione degli UT.}. Il passo successivo è di implementare il minimo indispensabile per far funzionare il test. Se il test viene superato dal codice scritto, viene scritto un altro test, ed un altro pezzo di codice, iterando la procedura finché non si ha tutto il programma desiderato.\\ 
 
 A titolo di esempio di seguito verrà illustrato lo sviluppo della classe che gestisce le operazioni di tipo statistico:
@@ -283,8 +285,6 @@ Qualunque tipo di file, che non sia compatibile con quelli menzionati precedente
 Le librerie usate sono quelle di Android\tm2.2 (vedi Appendice \ref{sec:lib_Android}).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Architettura}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                         FUNZIONAMENTO 
-\subsection{Unità di Controllo}
-\TODO{?????????}
 \subsection{Interfaccia Utente}
 La linea guida per lo sviluppo della UI è stata quella della massima ergonomia, in linea con la filosofia di sviluppo di interfacce utente di Android\tm. \\
 La navigazione tra le schermate dell'applicazione è guidata da \textit{widget}: oggetti grafici della UI di un programma, che hanno lo scopo di facilitare all'utente l'interazione con il programma. \\
@@ -356,7 +356,7 @@ La piattaforma di Android\tm fornisce il supporto per lo stack di rete \textit{B
 Le funzionalità principali che la API del \textit{Bluetooth} sono: 
 \begin{itemize}
 	\item Ricerca (discovery) di dispositivi \textit{Bluetooth};
-	\item Richiesta all'adattatore \textit{Bluetooth} (\textit{Bluetooth Adapter}) della lista di dispositivi abbinati (paired)\footnote{Due dispositivi sono detti paired quando questi sono l'uno a conoscenza dell'esistenza dell'altro.};
+	\item Richiesta all'adattatore \textit{Bluetooth} (\textit{Bluetooth Adapter}) della lista di dispositivi abbinati (\textit{paired})\footnote{Due dispositivi sono detti \textit{paired} quando questi sono l'uno a conoscenza dell'esistenza dell'altro.};
 	\item istanziazione di un dispositivo \textit{Bluetooth} (\verb|BluetoothDevice|) usando un indirizzo MAC\footnote{Media Access Control, indirizzo fisico univoco di 6 byte} noto;
 	\item creazione di una \textit{server-socket} (\verb|BluetoothServerSocket|) per accettare richieste di connessione da altri dispositivi \textit{Bluetooth};
 	\item trasferire dati da e verso altri dispositivi;
@@ -416,7 +416,7 @@ Per poter utilizzare il Bluetooth, vi sono richieste 4 attività fondamentali da 
 		createRfcommSocketToServiceRecord(UUID)
 	\end{verbatim}
 	Tale metodo crea la \textit{socket} che si connetterà al dispositivo remoto. L'UUID (\textit{universally unique identifier}) o identificatore universalmente unico è una stringa a 128-bit che viene creato nella fase iniziale di scoperta. 
-	\item Inizio della connessione mediante il metodo \verb|connect()|. La chiamata del metodo scatena una SDP (\textit{Service Discovery Protocol}) protocollo di scoperta dei servizio, ovvero una richiesta al dispositivo remoto di verifica della validità dell'UUID. Se la verifica ha esito positivo, il dispositivo remoto accetta la richiesta e condivide un canale RFCOMM. Dato che il metodo \verb|connect()| è bloccante, la procedura di connessione deve sempre fatta da un \textit{thread} dedicato. 
+	\item Inizio della connessione mediante il metodo \verb|connect()|. La chiamata del metodo scatena una SDP (\textit{Service Discovery Protocol}) protocollo di scoperta dei servizio, ovvero una richiesta al dispositivo remoto di verifica della validità dell'UUID. Se la verifica ha esito positivo, il dispositivo remoto accetta la richiesta e condivide un canale RFCOMM. Dato che il metodo \verb|connect()| è potenzialmente bloccante, la procedura di connessione deve sempre fatta da un \textit{thread} dedicato. 
 \end{enumerate}
 	\begin{lstlisting}[language=java, style=eclipse,label=code:client_connect]
 	private class ConnectThread extends Thread {
@@ -521,16 +521,16 @@ private class ConnectedThread extends Thread {
 
 
 \subsection{Gestione di Processi}
-Il sistema operativo Android\tm è \textit{multithread}. Un applicazione che risponda rapidamente alle richieste dell'utente deve necessariamente smistare i compiti a più \textit{thread}, dando la precedenza ai \textit{thread} di risposta all'utente. Il più importante di questi è lo UI \textit{Thread} (User Interface Thread). Una regola di base della programmazione di applicazioni Android\tm è, nella creazione di un'\textit{Activity}, che non si deve sovraccaricare, eseguire istruzioni potenzialmente bloccanti all'interno dello UI \textit{Thread}. La prassi per la gestione di operazioni con un comportamento imprevedibile dal punto di vista temporale, come ad esempio le operazioni di rete o di lettura e scrittura di file, è di incaricare altri \textit{thread} che possano, se necessario, essere eseguiti in background, o fermati se necessario.\\
-Per la comunicazione fra processi è stato ritenuto utile avere un protocollo di comunicazione fra \textit{thread} mediante una struttura nominata "\textit{mailbox}", in cui $n$ \textit{thread} possano inserire e consumare singoli dati.\\
+Il sistema operativo Android\tm è \textit{multithread}. Un applicazione che risponda rapidamente alle richieste dell'utente deve necessariamente smistare i compiti a più \textit{thread}, dando la precedenza ai \textit{thread} di risposta all'utente. Il più importante di questi è lo UI \textit{Thread} (\textit{User Interface Thread}). Una regola di base della programmazione di applicazioni Android\tm è, nella creazione di una \textit{Activity}, che non si deve sovraccaricare o eseguire istruzioni potenzialmente bloccanti all'interno dello UI \textit{Thread}. La prassi per la gestione di operazioni con un comportamento imprevedibile dal punto di vista temporale, come ad esempio le operazioni di rete o di lettura e scrittura di file, è di incaricare altri \textit{thread} che possano, se necessario, essere eseguiti in background o fermati.\\
+Per la comunicazione fra processi è stato ritenuto utile avere un protocollo di comunicazione fra \textit{thread} mediante una struttura nominata "\textit{Mailbox}", in cui $n$ \textit{thread} possano inserire e consumare singoli dati.\\
 \subsubsection{MailBox}
 \label{sec:mailbox}
 L'oggetto \verb|MailBox| è un \textit{buffer} di tipo generico a singola posizione, a cui si può accedere mediante un inserimento di tre modalità: sincronizzata, temporizzata e condizionata. 
 \begin{enumerate}
-	\item \textbf{Sincronizzata}: l'inserimento e prelievo di dati dalla \textit{mailbox} è potenzialmente bloccante, un \textit{thread} inserisce un dato se c'è spazio nel buffer, un altro \textit{thread} utilizza il dato, se esiste e lo rimuove dal buffer. Ciascuno attende il proprio turno per compiere l'azione. La sincronizzazione viene gestita con un meccanismo che Java\tm fornisce mediante la parola chiave \textit{synchronized}. Nel linguaggio Java\tm un metodo è detto sincronizzato se nella sua firma viene usata la parola chiave \textit{synchronized}.
+	\item Sincronizzata: l'inserimento e prelievo di dati dalla \textit{mailbox} è potenzialmente bloccante, un \textit{thread} inserisce un dato se c'è spazio nel buffer, un altro \textit{thread} utilizza il dato, se esiste e lo rimuove dal buffer. Ciascuno attende il proprio turno per compiere l'azione. La sincronizzazione viene gestita con un meccanismo che Java\tm fornisce mediante la parola chiave \textit{synchronized}. Nel linguaggio Java\tm un metodo è detto sincronizzato se nella sua firma viene usata la parola chiave \textit{synchronized}.
 Le proprietà di un metodo sincronizzato sono 2:
 \begin{enumerate}
-	\item Due metodi dello stesso oggetto avente il metodo non possono essere eseguiti contemporaneamente (\textit{interleave}). Nel momento in cui un metodo di un oggetto è sincronizzato, il primo \textit{thread} che invoca tale metodo possiede in mutua esclusione il \textit{monitor} dell'oggetto. Ciò significa che altri \textit{thread} che invochino qualunque altro metodo sincronizzato dell'oggetto vengono bloccati fino a che il primo \textit{thread}, non rilascia la risorsa. 
+	\item Due metodi sincronizzati dello stesso oggetto non possono essere eseguiti contemporaneamente (\textit{interleave}). Nel momento in cui un metodo di un oggetto è sincronizzato, il primo \textit{thread} che invoca tale metodo possiede in mutua esclusione il \textit{monitor} dell'oggetto. Ciò significa che altri \textit{thread} che invochino qualunque altro metodo sincronizzato dell'oggetto vengono bloccati fino a che il primo \textit{thread}, non rilascia la risorsa. 
 	\item I valori contenuti nell'oggetto in questione sono visibili a tutti i \textit{thread}. Ciò avviene perché , tali valori vengono modificati da un solo \textit{thread} alla volta,
 \end{enumerate}
 	
@@ -555,12 +555,9 @@ Normalmente, ciò che avviene al momento in cui un \textit{thread} prende l'acces
 synchronized public void put(T object){
 	//se il buffer è vuoto
 	if (buffer == null){
-		//inserisci l'oggetto
 		buffer = object;
-		//notifica tutti i \textit{thread} in attesa sul buffer
 	}else{
 		try{
-			//altrimenti attendi una notifica sul buffer
 			this.wait();
 			buffer = object;				
 		}catch (InterruptedException e) {
@@ -579,11 +576,8 @@ synchronized public T get(){
 		//il buffer è vuoto
 		if(buffer == null){
 			try {
-				//attendi una notifica sul buffer
 				this.wait();
-				//salva il contenuto del buffer
 				temp = buffer;
-				//svuoto il buffer
 				buffer = null;
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -591,7 +585,6 @@ synchronized public T get(){
 		} else {
 			temp = buffer;
 			buffer = null;			
-			//notifica tutti i thread in attesa sul buffer
 		}
 		this.notifyAll();
 		return  temp; 
@@ -602,31 +595,31 @@ Queste due operazioni implicano che devono essere eseguite in ordine, ed alterna
 
 \item Temporizzata: l'inserimento e la rimozione del contenuto del buffer sono bloccanti ma solo per un periodo di tempo \verb|t|. Una chiamata \verb|get(t)| in attesa viene sbloccata dopo il tempo \verb|t| e se il buffer è vuoto restituisce null e termina. Una chiamata \verb|put(t,o)| in attesa viene sbloccata dopo il tempo \verb|t| e se il buffer non è vuoto, ne sovrascrive il contenuto.
 
-\item \textbf{Condizionata}: questa versione è la generalizzazione della versione temporizzata. L'inserimento e prelievo di dati dalla \textit{mailbox} è bloccante finché non si verifica una condizione, dopodiché una \verb|get(cond)| in attesa viene sbloccata se l'operazione restituisce \verb|null|; una \verb|put(cond,o)| in attesa viene sbloccata e sovrascrive il valore presente nel buffer.
+\item Condizionata: questa versione è la generalizzazione della versione temporizzata. L'inserimento e prelievo di dati dalla \textit{mailbox} è bloccante finché non si verifica una condizione, dopodiché una \verb|get(cond)| in attesa viene sbloccata se l'operazione restituisce \verb|null|; una \verb|put(cond,o)| in attesa viene sbloccata e sovrascrive il valore presente nel buffer.
 \end{enumerate}
 
-Soffermandosi sulla prima forma di scambio di messaggi sulla mailbox, i casi che si possono verificare sono quelli illustrati nelle seguenti Figura \ref{fig:putonempty}, Figura \ref{fig:putonfull}, Figura \ref{fig:getonempty}e Figura \ref{fig:getonfull}. In tali figure sono illustrate quattro esecuzioni parallele di due \textit{thread} di cui uno invoca il metodo \verb|get()| e l'altro il metodo \verb|put(...)|. La linea verticale centrale rappresenta il tempo. Sulla linea vi sono delle frecce con la punta rivolta verso sinistra o destra. Le frecce stanno ad indicare le istruzioni del metodo \verb|put| a sinistra, del metodo \verb|get| a destra, che vengono eseguite in quell'istante di tempo. L'esatto momento in cui viene eseguita un istruzione è irrilevante, e molto difficile da prevedere, ciò che è importante è l'ordine in cui le operazioni si alternano. I segmenti rossi stanno a simboleggiare gli intervalli di tempo in cui la \verb|get| (se a sinistra) o la \verb|put| (se a destra) si bloccano e sono in attesa.\\
-Nella figura \ref{fig:putonempty} si parte dal presupposto che il buffer sia vuoto e che prima operazione che viene eseguita è una \verb|put(o)|: 
-\begin{verbatim}
-	if(buffer == null)
-\end{verbatim}
-l'operazione ha esito positivo per l'assunzione fatta inizialmente. 
- A questo punto si possono presentare due situazioni: 
-\begin{enumerate}
-	\item il \textit{thread} che sta richiamando il metodo \verb|put(o)| mantiene il controllo ed esegue la seconda istruzione dello stesso metodo (caso non riportato in figura, perché implica l'esecuzione solo del metodo \verb|put|).
-\begin{verbatim}
-	buffer = o;
-\end{verbatim}
-	\item il \textit{thread} che sta richiamando il metodo \verb|put(o)| perde il controllo e viene eseguita la prima istruzione del metodo \verb|get()| (caso della figura \ref{fig:putonempty}). A questo punto il la verifica di esistenza di dati nella \textit{mailbox} fallisce: nella funzione \verb|get()|
-\begin{verbatim}
-if(buffer == null)
-\end{verbatim}	
-risulta essere \verb|true| ancora per l'assunzione iniziale. 
-Il \textit{thread} chiamante la funzione \verb|get| viene messo in attesa sull'oggetto \textit{mailbox} mediante la funzione \verb|wait()|.\\
-Il controllo passa al \textit{thread} che esegue \verb|put(o)|, e l'istruzione di inserimento del dato nel \textit{buffer} viene eseguita.
-Questo \textit{thread} notifica tutti i \textit{thread} in attesa su tale semaforo e termina. \\
-Il \textit{thread} chiamante la funzione \verb|get()| viene avviato eseguendo l' istruzione per copiare il valore del \textit{buffer} ed al passo successivo eliminarlo. L'alternativa a tale scenario sarebbe, la ripresa di controllo d pare di un \textit{thread} che invochi il metodo \verb|put(o)|. Questo verrebbe bloccato e fino alla notifica da parte del \verb|get()|.
-\end{enumerate}
+%Soffermandosi sulla prima forma di scambio di messaggi sulla mailbox, i casi che si possono verificare sono quelli illustrati nelle seguenti Figura \ref{fig:putonempty}, Figura \ref{fig:putonfull}, Figura \ref{fig:getonempty}e Figura \ref{fig:getonfull}. In tali figure sono illustrate quattro esecuzioni parallele di due \textit{thread} di cui uno invoca il metodo \verb|get()| e l'altro il metodo \verb|put(...)|. La linea verticale centrale rappresenta il tempo. Sulla linea vi sono delle frecce con la punta rivolta verso sinistra o destra. Le frecce stanno ad indicare le istruzioni del metodo \verb|put| a sinistra, del metodo \verb|get| a destra, che vengono eseguite in quell'istante di tempo. L'esatto momento in cui viene eseguita un istruzione è irrilevante, e molto difficile da prevedere, ciò che è importante è l'ordine in cui le operazioni si alternano. I segmenti rossi stanno a simboleggiare gli intervalli di tempo in cui la \verb|get| (se a sinistra) o la \verb|put| (se a destra) si bloccano e sono in attesa.\\
+%Nella figura \ref{fig:putonempty} si parte dal presupposto che il buffer sia vuoto e che prima operazione che viene eseguita è una \verb|put(o)|: 
+%\begin{verbatim}
+%	if(buffer == null)
+%\end{verbatim}
+%l'operazione ha esito positivo per l'assunzione fatta inizialmente. 
+% A questo punto si possono presentare due situazioni: 
+%\begin{enumerate}
+%	\item il \textit{thread} che sta richiamando il metodo \verb|put(o)| mantiene il controllo ed esegue la seconda istruzione dello stesso metodo (caso non riportato in figura, perché implica l'esecuzione solo del metodo \verb|put|).
+%\begin{verbatim}
+%	buffer = o;
+%\end{verbatim}
+%	\item il \textit{thread} che sta richiamando il metodo \verb|put(o)| perde il controllo e viene eseguita la prima istruzione del metodo \verb|get()| (caso della figura \ref{fig:putonempty}). A questo punto il la verifica di esistenza di dati nella \textit{mailbox} fallisce: nella funzione \verb|get()|
+%\begin{verbatim}
+%if(buffer == null)
+%\end{verbatim}	
+%risulta essere \verb|true| ancora per l'assunzione iniziale. 
+%Il \textit{thread} chiamante la funzione \verb|get| viene messo in attesa sull'oggetto \textit{mailbox} mediante la funzione \verb|wait()|.\\
+%Il controllo passa al \textit{thread} che esegue \verb|put(o)|, e l'istruzione di inserimento del dato nel \textit{buffer} viene eseguita.
+%Questo \textit{thread} notifica tutti i \textit{thread} in attesa su tale semaforo e termina. \\
+%Il \textit{thread} chiamante la funzione \verb|get()| viene avviato eseguendo l' istruzione per copiare il valore del \textit{buffer} ed al passo successivo eliminarlo. L'alternativa a tale scenario sarebbe, la ripresa di controllo d pare di un \textit{thread} che invochi il metodo \verb|put(o)|. Questo verrebbe bloccato e fino alla notifica da parte del \verb|get()|.
+%\end{enumerate}
 
 %\begin{figure}[h]
 %	\centering
@@ -703,7 +696,7 @@ L'implementazione dell'interfaccia, deve partire dalla creazione di un insieme d
 	\item \verb|setPi(ArrayList<Double> vec)|, \verb|getPi()|: rendere accessibile il vettore di \textit{prior}
 	\item \verb|areValidObservations(ArrayList<Object> observations)|: chi implementa l'interfaccia potrebbe anche decidere di verificare la validità di una nuova osservazione, verificandone l'appartenenza all'insieme delle osservazioni.
 \end{itemize}
-\subsubsection{Scheletro di un HMM}
+\subsubsection{Scheletro di una HMM}
 Una prima implementazione dell'interfaccia è la classe \verb|HMM|.  Dato che il costruttore di default è stato reso privato (\textit{private}), è obbligatorio usufruire del costruttore che necessita di un insieme di stati come parametro.
 \begin{lstlisting}[language=java, style=eclipse, caption=Costruttori HMM , label=code:hmm1]
 private HMM() {...}
@@ -763,11 +756,11 @@ public void setPI(ArrayList<Object> prior) {
 
 L'implementazione delle matrici di emissione è delegato a HMM specializzate, ad emissioni discrete o continue. 
 \subsubsection{HMM ad emissioni discrete}
-Un'implementazione concreta di un HMM (utilizzabile come oggetto) è quella della HMM ad emissioni discrete
+Un'implementazione concreta di una HMM (utilizzabile come oggetto) è quella della HMM ad emissioni discrete
 \begin{lstlisting}[caption=Firma della classe HMM ad emissioni discrete, label=code:DiscreteHMM_B1]
 public class DiscreteHMM extends HMM {...}
 \end{lstlisting}
-Questa eredita dalla classe \verb|HMM| tutto ciò che contiene, e fornisce una sua implementazione della matrice di emissioni (vedi Codice \ref{code:DiscreteHMM_B1}). Anche in questo caso vengono eseguiti dei controlli sui valori che vengono assegnati: la dimensione della matrice di emissioni $B:N \times M$ dove $N=|S|$, cardinalità dell'insieme degli stati dell'HMM, e $M=|V|$, cardinalità dell'insieme dell'alfabeto di osservazioni; i valori assegnati forniscono un'insieme completo di alternative probabilistiche.
+Questa eredita dalla classe \verb|HMM| tutto ciò che contiene, e fornisce una sua implementazione della matrice di emissioni (vedi Codice \ref{code:DiscreteHMM_B1}). Anche in questo caso vengono eseguiti dei controlli sui valori che vengono assegnati: la dimensione della matrice di emissioni $B:N \times M$ dove $N=|S|$, cardinalità dell'insieme degli stati della HMM, e $M=|V|$, cardinalità dell'insieme dell'alfabeto di osservazioni; i valori assegnati forniscono un'insieme completo di alternative probabilistiche.
 
 \begin{lstlisting}[caption=Impostazione della matrice di emissioni, label=code:DiscreteHMM_B2]
 public void setB(ArrayList<Object> mtx) {
@@ -818,7 +811,7 @@ ContinuousHMMOperations
 \end{verbatim}
 
 Dopo aver creato ed inizializzato una \verb|NormalHMM|, si può richiamare ad esempio la segmentazione nel seguente modo:
-\begin{lstlisting}[caption=Applicazione dell'operatore su HMM, label=code:contHMMOp]
+\begin{lstlisting}[caption=Applicazione dell'operatore su una HMM, label=code:contHMMOp]
 	// HMM ed operatore 
 	ContinuousHMMOperations contHMMOp
 	NormalHMM nHMM
