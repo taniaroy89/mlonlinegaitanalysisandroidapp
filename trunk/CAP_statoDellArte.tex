@@ -1,4 +1,5 @@
 \chapter{Lo stato dell'arte}
+\label{cap:statoArte}
 %\myChapter{Lo stato dell'arte}
 Il mondo scientifico che si è confrontato con il problema della segmentazione della deambulazione, e più in generale sull'analisi della deambulazione ed individuazione delle sue varie fasi, è molto vasto e variegato. 
 Per avere una visuale completa sul panorama di ricerca in questo ambito, si può suddividere lo stato dell'arte per materiali e metodi usati. 
@@ -34,7 +35,7 @@ In letteratura vengono usati diversi tipi di sensori, dai quali segnali vengono 
 \begin{itemize}
 	\item \textbf{Resistori Sensibili alla forza}: FSR (\textit{Force Sensitive Resistors}) misurano la forza esercitata dalla massa della persona, sul piano      di deambulazione, accelerata dalla forza di gravità (vedi Tabella \ref{tab:sensori_forza}). 	
 		\begin{table}%
-		\begin{tabular}{p{3cm}|p{8cm}}
+		\begin{tabular}{|p{3cm}|p{8cm}|}
 		\hline
 		\textsc{Sensore} & FSR\\
 		\hline
@@ -56,7 +57,7 @@ In letteratura vengono usati diversi tipi di sensori, dai quali segnali vengono 
 
 	\item \textbf{Magnetometri} misurano il campo magnetico (vedi Tabella \ref{tab:sensori_mag}). Vi sono più modi per misurare il campo magnetico, 		quello maggiormente usato detto \textit{Fluxgate} funziona mediante un meccanismo elettrico (vedi Appendice \ref{sec:magnetomerter}).
 		\begin{table}
-		\begin{tabular}{p{3cm}|p{8cm}}
+		\begin{tabular}{|p{3cm}|p{8cm}|}
 		\hline
 		\textsc{Hardware} & Magnetometro\\
 		\hline
@@ -83,13 +84,13 @@ In letteratura vengono usati diversi tipi di sensori, dai quali segnali vengono 
 		\end{table}
 \end{itemize}
 
-I sensori inerziali misurano le forze inerziali (vedi Appendice \ref{meccanica_classica}) che agiscono su di essi (vedi Appendice \ref{sec:sensori}). 
+I sensori inerziali misurano le forze inerziali che agiscono su di essi (vedi Appendice \ref{sec:sensori}). 
 \begin{itemize}
 \label{sensori_inerziali}		
 	\item \textbf{Giroscopi} misurano l'accelerazione (momento) angolare (vedi Tabella \ref{tab:sensori_acc_ang}). Questo può essere fatto meccanicamente con un giroscopio a rotazione o elettronicamente con un giroscopio a vibrazione (vedi Appendice \ref{sec:gyroscope}). 
 
 		\begin{table}
-		\begin{tabular}{p{3cm}|p{8cm}}
+		\begin{tabular}{|p{3cm}|p{8cm}|}
 		\hline
 		\textsc{Sensore} & Giroscopio\\
 		\hline
@@ -119,7 +120,7 @@ I sensori inerziali misurano le forze inerziali (vedi Appendice \ref{meccanica_c
 			\item \textbf{Accelerometri} misurano il peso per unità di massa (vedi Tabella \ref{tab:sensori_acc}), questa quantità è nota come forza specifica o \textit{g-force}. In altre parole, misurando il peso il sensore misura l'accelerazione in un riferimento inerziale relativo all'accelerometro stesso.  
 		
 		\begin{table}
-		\begin{tabular}{p{3cm}|p{8cm}}
+		\begin{tabular}{|p{3cm}|p{8cm}|}
 		\hline
 		\textsc{Sensore} & Accelerometro\\
 		\hline
@@ -157,7 +158,7 @@ Un'altra tecnica è basata su un sensore di pressione connesso ad un piccolo tubo
 Sistemi di individuazione di eventi di deambulazione basati su sensori di forza, sono considerati abbastanza standard per essere usati come riferimento per determinare l'accuratezza di metodi novelli per la medesima funzione. 
 Ciò è dovuto al fatto che un sensore posto sotto i piedi sembri essere la scelta più naturale per sistemi di misura della deambulazione. 
 
-Questi sistemi danno risultati soddisfacenti per la deambulazione normale (vedi Definizione \ref{deambulazione_normale}). Gli svantaggi dei sensori della forza sono l'impossibilità di discernere tra variazioni di carico dovute alla deambulazione da quelle dovute a spostamenti del peso (ad esempio da una gamba all'altra). Una deambulazione strascicata riduce notevolmente l'affidabilità della individuazione degli eventi della deambulazione \cite{heel_contact_event_detection}. Altri difetti di questi sistemi sono la breve durata e la limitata applicabilità \cite{swing_phase_detection_stroke_gait}.
+Questi sistemi danno risultati soddisfacenti per la deambulazione normale (vedi Definizione \ref{def:deambulazione_normale}). Gli svantaggi dei sensori della forza sono l'impossibilità di discernere tra variazioni di carico dovute alla deambulazione da quelle dovute a spostamenti del peso (ad esempio da una gamba all'altra). Una deambulazione strascicata riduce notevolmente l'affidabilità della individuazione degli eventi della deambulazione \cite{heel_contact_event_detection}. Altri difetti di questi sistemi sono la breve durata e la limitata applicabilità \cite{swing_phase_detection_stroke_gait}.
 
 	\item [Accelerazione angolare] La maggior parte degli studi che hanno usato un giroscopio hanno optato per lo stesso tipo di sensore unidimensionale nella configurazione a singolo sensore \cite{stair_climbing_detection_gyr, practical_gait_analysis_gyr, unrestrained_measurement_stride_length_gyr} o tre sensori \cite{spatio_temporal_params_gait_gyr}. In tutti i casi i dati sono stati elaborati in differita (vedi Appendice \ref{sec:online}). Sono state testate innumerevoli combinazioni di posizionamenti dei sensori: coscia \cite{unrestrained_measurement_stride_length_gyr}, stinco \cite{stair_climbing_detection_gyr}, coscia e stinco \cite{practical_gait_analysis_gyr} e su entrambi gli stinchi ed una sola coscia \cite{spatio_temporal_params_gait_gyr}.\\
 	Dal segnale del sensore sono stati calcolati l'angolo dell'articolazione del ginocchio \cite{practical_gait_analysis_gyr}, l'angolo dell'articolazione dell'anca mediante l'integrazione della velocità angolare \cite{unrestrained_measurement_stride_length_gyr}. Uno dei problemi più comuni del giroscopio è la deviazione o deriva (\textit{drift}) causata da una imprecisa calibrazione dello strumento.
@@ -165,7 +166,7 @@ Questi sistemi danno risultati soddisfacenti per la deambulazione normale (vedi 
 	La validazione del sistema è stata fatta su ciascun sistema, confrontando i risultati ottenuti mediante il sistema stereofotogrammetrico Vicon\tm (vedi Sezione \ref{sec:stereofotogrammetria}), in condizioni di laboratorio.
 	Un grande vantaggio della analisi del moto in generale mediante il giroscopio, è che questi non subisce l'effetto dell'accelerazione di gravità \cite{gait_event_detection_FES_acc_ML}. Inoltre le vibrazioni dei sensori durante gli esperimenti non influenzano il giroscopio \cite{kimematics_measurements_acc_gyr}. I giroscopi, rispetto agli FSR, sono meno sensibili al posizionamento sul corpo, un giroscopio posto in qualunque posizione di un segmento del corpo lungo lo stesso piano fornisce con variazioni minime gli stessi valori. Infine nessun tipo di movimento che non riguardi l'asse che percepisce il sensore viene catturato dallo strumento \cite{practical_gait_analysis_gyr}. 
 	
-	\item [Forza e Accelerazione angolare] Al fine di individuare gli eventi HS e HO, è stato messo a punto un sistema composto da tre FSR per catturare il carico verticale ed un giroscopio per misurare la velocità di rotazione del piede sul piano sagittale (vedi Figura \ref{fig:HumanBodySPL}) \cite{reliable_gait_phase_anslysis}. Una volta posizionati gli FSR sotto il tallone, il primo ed il quarto metatarso ed il giroscopio monoassiale sul tallone, il sistema era in grado di individuare le fasi di appoggio e fase in aria in linea. La validazione è stata fatta in condizioni di laboratorio, anche questa volta con sistemi di cattura del movimento. Il sistema è stato incassato in una suola per poter essere usato con un meccanismo di FES di correzione della ricaduta del piede \cite{reliable_gait_phase_detection_gyr}. I vantaggi principali del sistema qui descritto sono l'affidabilità e la robustezza: riesce a distinguere semplici spostamenti di peso (ad esempio stando fermi, alzandosi o sedendosi) da variazioni di carico dovute alla deambulazione. I difetti del sistema sono collegati ai difetti degli FSR: la loro poca durata.
+	\item [Forza e Accelerazione angolare] Al fine di individuare gli eventi HS e HO, è stato messo a punto un sistema composto da tre FSR per catturare il carico verticale ed un giroscopio per misurare la velocità di rotazione del piede sul piano sagittale (vedi Figura \ref{fig:HumanBodySPL}) \cite{reliable_gait_phase_analysis}. Una volta posizionati gli FSR sotto il tallone, il primo ed il quarto metatarso ed il giroscopio monoassiale sul tallone, il sistema era in grado di individuare le fasi di appoggio e fase in aria in linea. La validazione è stata fatta in condizioni di laboratorio, anche questa volta con sistemi di cattura del movimento. Il sistema è stato incassato in una suola per poter essere usato con un meccanismo di FES di correzione della ricaduta del piede \cite{reliable_gait_phase_detection_gyr}. I vantaggi principali del sistema qui descritto sono l'affidabilità e la robustezza: riesce a distinguere semplici spostamenti di peso (ad esempio stando fermi, alzandosi o sedendosi) da variazioni di carico dovute alla deambulazione. I difetti del sistema sono collegati ai difetti degli FSR: la loro poca durata.
 	\item [Accelerometria] La tecnologia MEMS (Micro-Electro-Mechanical Systems) (vedi Appendice \ref{sec:sensori}) permette uno sviluppo di accelerometri in miniatura a basso consumo energetico, adatti al monitoraggio della deambulazione    \cite{walking_movement_pattern_quantification_acc}. I sensori usati negli esperimenti, misurano l'accelerazione in due  \cite{heel_contact_event_detection, swing_phase_detection_stroke_gait, human_body_movement_measurement_acc, real_time_gait_assessment_acc, lower_extreamity_angle_measurement_acc} o tre dimensioni  \cite{gait_event_detection_FES_acc_ML, walking_restoration_assistive_sensors, novel_approach_ambulatory_systems}, avendo più sensori monoassiali \cite{gait_event_detection_FES_acc_ML, human_body_movement_measurement_acc, real_time_gait_assessment_acc}, biassiali \cite{heel_contact_event_detection, swing_phase_detection_stroke_gait, lower_extreamity_angle_measurement_acc, gait_phase_automatic_recognition_acc} o triassiali  \cite{novel_approach_ambulatory_systems, walking_restoration_assistive_sensors}. Per misurare sia l'accelerazione lineare che rotazionale, i sensori vengono sistemati su coscia \cite{swing_phase_detection_stroke_gait}, stinchi \cite{gait_event_detection_FES_acc_ML, novel_approach_ambulatory_systems, human_body_movement_measurement_acc}, coscia e stinchi \cite{real_time_gait_assessment_acc, gait_phase_automatic_recognition_acc}, coscia, stinchi e bacino \cite{lower_extreamity_angle_measurement_acc}, piede, coscia, stinchi e bacino \cite{walking_restoration_assistive_sensors} o busto \cite{heel_contact_event_detection}.\\
 	L'elaborazione dei dati provenienti dai suddetti sensori è stata fatta sia in modalità in linea che in differita. L'elaborazione in differita comprende l'analisi temporale dell'accelerazione verticale nel piano sagittale, i cambiamenti da positivo a negativo e viceversa, che sono stati correlati rispettivamente agli eventi HS e HO \cite{heel_contact_event_detection}. Un altro approccio ha dimostrato che è possibile rilevare gli eventi TO, ISw, TSw, HS (vedi Tabella \ref{fasi_del_cammino}) sulla base dei dati della velocità angolare e lineare sul piano sagittale e frontale \cite{human_body_movement_measurement_acc}. \\
 	Per quanto riguarda i sistemi in linea è stato dimostrato che permettano di rilevare gli eventi LO, MS, TS, PSw \cite{gait_event_detection_FES_acc_ML, gait_phase_automatic_recognition_acc} oppure HS e HO \cite{swing_phase_detection_stroke_gait}. L'uso  di accelerometri necessita di elaborazioni ulteriori del segnale per compensare all'influenza della forza di gravità. Il posizionamento dei sensori è un altro aspetto delicato, dovuto al movimento di muscoli durante la deambulazione. Un vantaggio degli accelerometri, è che l'evento HO è individuabile anche in individui che non hanno un contatto con il tallone molto definito \cite{gait_event_detection_FES_acc_ML} o con deambulazione strascicata \cite{heel_contact_event_detection}. 

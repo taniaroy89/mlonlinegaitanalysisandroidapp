@@ -8,16 +8,15 @@ A level-1 auxiliary file: CAP_AndroidApp.aux
 A level-1 auxiliary file: CAP_valutazione.aux
 A level-1 auxiliary file: CAP_risultati.aux
 A level-1 auxiliary file: APPENDICE_hmm.aux
-A level-1 auxiliary file: APPENDICE_realtime.aux
 A level-1 auxiliary file: APPENDICE_sensori.aux
 A level-1 auxiliary file: APPENDICE_android.aux
+A level-1 auxiliary file: APPENDICE_realtime.aux
 The style file: IEEEtran.bst
 Database file #1: biblio.bib
-Warning--I didn't find a database entry for "reliable_gait_phase_anslysis"
 -- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 Warning--empty year in finite_state_control_FES
 
 Done.
-(There were 2 warnings)
+(There was 1 warning)
