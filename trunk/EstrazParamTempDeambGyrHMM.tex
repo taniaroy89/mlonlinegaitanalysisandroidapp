@@ -10,7 +10,8 @@
 % - based on Classic Thesis Style Copyright (C) 2008 
 %   Andr\'e Miede http://www.miede.de   
 %--------------------------------------------------------------
-\documentclass[twoside,openright,titlepage,fleqn,headinclude,11pt,a4paper,BCOR5mm,footinclude]{scrbook}
+\documentclass[twoside,openright,titlepage,fleqn,headinclude,11pt,a4paper,BCOR=15mm,footinclude]{scrbook}
+%\documentclass[11pt,twoside,a4paper]{book}
 \usepackage[pdftex,hyperfootnotes=false,pdfpagelabels,pagebackref]{hyperref}	%creates hyperlinks within the document.
 \usepackage[pdftex]{graphicx}
 \usepackage[dvipsnames]{xcolor}
@@ -126,16 +127,17 @@ della Deambulazione: Sviluppo e Validazione di un'applicazione per Smartphone\xs
 % Layout setting
 %--------------------------------------------------------------
 
-%\usepackage{geometry}
-%\geometry{
-%	a4paper,
-%	ignoremp,
-%	bindingoffset = 1cm, 
-%	textwidth     = 13.5cm,
-%	textheight    = 21.5cm,
-%	lmargin       = 3.5cm, % left margin
-%	tmargin       = 3cm    % top margin 
-%}
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	ignoremp,
+	bindingoffset = 1.8cm, 
+	textwidth     = 12cm,
+	textheight    = 20cm,
+	lmargin       = 3.5cm, % left margin
+	tmargin       = 3cm,    % top margin 
+	bmargin 			= 3.5cm
+}
 %--------------------------------------------------------------
 %- Theorem Environments
 %\theoremstyle{plain}% already by default
