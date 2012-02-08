@@ -299,6 +299,7 @@ All'avvio del programma, viene visualizzato il pannello di controllo della IMU (
  
 La creazione di un \textit{layout} può essere fatta in due modi: in XML oppure a tempo d'esecuzione (\textit{runtime}) in Java\tm utilizzando oggetti di tipo \verb|View| e \verb|ViewGroup|. Il primo metodo è il più usato, per una migliore separazione fra l'aspetto grafico dell'applicazione ed il codice sorgente che ne gestisce il comportamento, sia per la possibilità di usare strumenti grafici di creazione delle schermate, ad esempio Eclipse\tm.\\
 Ad ogni oggetto grafico dell'interfaccia utente è associato un insieme di eventi possibili. Ad esempio alcuni degli eventi associati all'oggetto \verb|Button| (pulsante) sono: 
+\newpage
 \begin{lstlisting}[language=java, style=eclipse,label=code:button_events]
 	onKeyDown(int keyCode, KeyEvent kevent)
 	onKeyUp()
@@ -372,6 +373,7 @@ Alcune delle classi della \textit{Bluetooth} API che devono essere implementate 
 \end{itemize}
 
 Per poter utilizzare il Bluetooth, vi sono richieste 4 attività fondamentali da portare a termine mediante le Bluetooth API:
+\newline
 \begin{enumerate}
 	\item Impostare il Bluetooth: assumendo che il dispositivo supporti il bluetooth e che sia abilitato, l'impostazione del \textit{Bluetooth} viene fatta in due passaggi:
 	\begin{enumerate}
