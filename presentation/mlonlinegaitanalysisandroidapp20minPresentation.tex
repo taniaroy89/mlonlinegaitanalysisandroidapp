@@ -1,0 +1,167 @@
+\documentclass[xcolor=pdftex,dvipsnames,table]{beamer}
+%\usepackage[orientation=landscape,size=custom,width=16,height=9.75,scale=0.5,debug]{beamerposter}
+\usepackage[italian]{babel}
+\usepackage[latin1]{inputenc}
+%\usepackage[tab]{beamerthemeboxes}
+%\usepackage[tab]{beamerthemeplain}
+%\usepackage{beamerthemeclassic}
+%\usepackage[tab]{beamerthemelined}
+%\usepackage{beamerthemeshadow}
+%\usepackage[tab]{beamerthemetree}
+%\usepackage[tab]{beamerthemebars}
+%\usepackage[tab]{beamerthemesplit}
+\usepackage{graphics,epsfig, subfigure}
+\usepackage{url}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{multimedia}
+\usepackage{txfonts}
+%\definecolor{kugreen}{RGB}{50,93,61}
+%\definecolor{kugreenlys}{RGB}{132,158,139}
+%\definecolor{kugreenlyslys}{RGB}{173,190,177}
+%\definecolor{kugreenlyslyslys}{RGB}{214,223,216}
+
+\setbeamercovered{transparent}
+\mode<presentation>
+{  
+
+
+%\usetheme{Paloalto}
+%albatross crane beetle dove
+%fly seagull wolverine beaver
+
+
+%TOP AND BOTTOM {          
+	%MINIMAL 
+%	\usetheme{Boadilla}
+	
+	%TOP NO INDEX {     
+		%SEC NAME {
+			%DOUBLE SPACE 
+%			\usetheme{Rochester}
+			%SINGLE SPACE 
+%			\usetheme{Madrid}
+		%}
+		%TITLE AND SEC NAME {
+			%SINGLE SPACE 
+%			\usetheme{Juanlespins}
+			%4 STRIPES 
+%			\usetheme{Montpellier}
+			%DOUBLE SPACE, 1 STRIPE 
+%			\usetheme{Antibes}
+		%}
+	%}		
+	%PERV AND NEXT SECS ON TOP {
+			%MINIMAL 
+%			\usetheme{Singapore}
+%			\usetheme{Dresden}
+			%SINGLE SPACE 
+%			\usetheme{Frankfurt}
+			%SINGLE SPACE 1 STRIPE {Berlin Darmstadt Ilmenau}       
+%			\usetheme{Berlin}
+%*			\usetheme{Darmstadt}
+%			\usetheme{Ilmenau}       
+	%ALL INDEX ON TOP {Copenhagen Malmoe Pittsburgh}
+%}
+
+%TOP AND SIDE { 
+	%ALL INDEX ON TOP 
+%	\usetheme{Bergen}
+%	\usetheme{Hannover}
+%	\usetheme{Goettingen}
+	%TOP NO INDEX {     
+		%SEC NAME {
+			%DOUBLE SPACE {Berkeley Paloalto}
+    %} 
+   %}
+%}   
+%  \usecolortheme[named=kugreen]{structure}
+%  \useinnertheme{circles}
+%  \usefonttheme[onlymath]{serif}
+%  \setbeamercovered{transparent}
+%  \setbeamertemplate{blocks}[rounded][shadow=true]
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  new commands
+\newcommand{\TODO}[1]{[ {\em\marginpar{} \textcolor{blue}{TODO: #1} } ] }
+\newcommand{\ERR}[1]{[ {\em\marginpar{} \textcolor{red}{ERR: #1} } ] }
+\def\tm{\leavevmode\hbox{$\rm {}^{TM}$}}
+
+
+\newcommand{\beginbackup}{
+   \newcounter{framenumbervorappendix}
+   \setcounter{framenumbervorappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+   \addtocounter{framenumbervorappendix}{-\value{framenumber}}
+   \addtocounter{framenumber}{\value{framenumbervorappendix}} 
+}
+
+\newcommand{\putat}[3]{\begin{picture}(0,0)(0,0)\put(#1,#2){#3}\end{picture}}
+
+%\setbeamertemplate{background}{\includegraphics[width=1\textwidth]{natfak_baggrund.pdf}
+
+\title[\tiny{Gait Analysis,\\ Machine Learning,\\ Wearable Sensors,\\ Android}]{Metodi di Apprendimento Automatico per l'analisi automatica della deambulazione umana}
+\subtitle{sviluppo e verifica di un applicazione per \textit{Smartphone}}
+\author[Ahadu Tsegaye]{Ahadu Tsegaye \\
+\vskip5pt													
+\scriptsize{\textit{Relatore} Prof. Angelo Maria Sabatini}\\
+\scriptsize{\textit{Co-relatore} Prof. Maria Cecilia Verri}}
+
+\institute[unifi-unipi]{  Università degli Studi di Firenze\\
+													Dipartimento di Informatica \\ 
+													 \\ 
+													\vskip5pt													
+													\textit{in collaborazione con}\\ 
+													\vskip5pt
+													L'Istituto di BioRobotica\\ 
+													Scuola Superiore Sant'Anna di Pisa
+											  }
+ 
+\date{22 Febbraio 2012}
+
+\logo{\includegraphics[width=1.3cm]{logo/unifi_all_transparent.png}}
+%\includegraphics[width=1.3cm]{logo/Logo_sssup_opt.png}
+
+
+\pgfdeclareimage[height=1.3cm]{msri-logo}{logo/Logo_sssup_opt.png} 
+
+% put MSRI logo in bottom left 
+\setbeamertemplate{titlebar right}{% 
+   \vfill% 
+   \rlap{\hskip0.1cm \href{sssup.it/research/biorobotics_institute.html}% 
+         {\pgfuseimage{msri-logo}}}% 
+   \vskip2pt% 
+   \llap{\usebeamertemplate***{titlebar symbols}\hskip0.1cm}% 
+   \vskip2pt% 
+} 
+
+\begin{document}
+\renewcommand{\inserttotalframenumber}{20}
+\begin{frame}
+	\maketitle
+\end{frame}
+
+\frame
+{
+\frametitle{Indice}
+\tableofcontents[pausesection]
+}
+
+%%%\include{tests}
+\include{Sec_intro}
+\include{Sec_stato_dell_arte}
+\include{Sec_lavoro}
+\include{Sec_risultati}
+\include{Sec_conclusioni}
+\include{ringraziamenti}
+\appendix
+
+\beginbackup 
+\include{extra}
+\endbackup
+%\include{Hidden}
+
+%\include{discorso}
+\bibliographystyle{IEEEtran}
+\bibliography{biblio}
+\end{document}
