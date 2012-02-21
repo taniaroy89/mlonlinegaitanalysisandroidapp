@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="11.3">
+  <help_text/>
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>370</x>
+      <y>290</y>
+      <w>240</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Package::objects
+NormalHMM
+--
+-contB: ArrayList&lt;Object&gt;
+--
+..
++setcontB(continuousEmissionMTX)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>240</x>
+      <y>30</y>
+      <w>360</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Package::objects
+HMM
+--
+-S: HashMap&lt;String, Object&gt;
+-V: HashMap&lt;String, Object&gt;
+-A: ArrayList&lt;Object&gt;
+-B: ArrayList&lt;Object&gt;
+-PI: ArrayList&lt;Object&gt;
+--
++HMM(states: HashMap&lt;String, Object&gt;)
++areValidObservations(o: ArrayList&lt;Object&gt;): boolean 
++getS():params
++set(param:type)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>270</x>
+      <y>200</y>
+      <w>160</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>140;30;30;90</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>190</x>
+      <y>290</y>
+      <w>160</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Package::objects
+DiscreteHMM
+--
+
+-B: ArrayList&lt;Object&gt;
+--
+...
++setB(emissionMtx)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>380</x>
+      <y>200</y>
+      <w>140</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;120;90</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>210</x>
+      <y>450</y>
+      <w>150</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Package::services
+HMMOperations
+--
++viterbi(HMM)
++viterbiOnline(HMM)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>480</x>
+      <y>440</y>
+      <w>250</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Package::services
+HMMParamsInitializer
+--
++HMMParamsInitializer(String, HMM)
++getHMM()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Package</type>
+    <coordinates>
+      <x>10</x>
+      <y>30</y>
+      <w>140</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Package objects
+--
+HMM
+DiscreteHMM
+NormalHMM
+...
+bg=gray
+fg=blue
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Package</type>
+    <coordinates>
+      <x>20</x>
+      <y>460</y>
+      <w>140</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Package services
+--
+HMMOperations
+HMMParamsInitializer
+bg=gray
+fg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

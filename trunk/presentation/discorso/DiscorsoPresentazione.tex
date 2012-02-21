@@ -1,0 +1,172 @@
+%% Based on a TeXnicCenter-Template by Tino Weinkauf.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,twoside,10pt]{report}
+\usepackage[italian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[ansinew]{inputenc}
+\usepackage{lmodern} 
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+
+\begin{document}
+
+\pagestyle{empty}
+\title{Discorso della presentazione}
+\author{Ahadu Tsegaye}
+\date{22/02/12} 
+\maketitle
+\tableofcontents 
+\cleardoublepage 
+\pagestyle{plain}
+
+\chapter{Introduzione}
+\section{[SLIDE 3] Problema}
+In questo lavoro è stato affrontato il problema dell'analisi automatica della deambulazione umana.\\
+Per analisi si intende l'estrazione dei parametri spazio-temporali della deambulazione, in questo caso si tratta dell'estrazione di 4 parametri temporali. Il problema è noto come Segmentazione della deambulazione.\\
+In linea significa che vi è un grado di sincronia tra l'occorrenza di un evento ed il tempo di rilevamento dello stesso da parte del sistema di analisi: vi è un limite massimo sul ritardo che il sistema può commettere.
+
+\section{[SLIDE 4] Soluzione}
+La soluzione proposta,
+
+dal punto di vista logico, consiste nella creazione di un modello stocastico della deambulazione mediante una Hidden Markov Model (HMM), i cui parametri vengono ottenuti grazie ad una fase di addestramento su 6 persone.\\
+La segmentazione viene eseguita con l'algoritmo di decodifica di Viterbi modificato per essere in linea.\\
+
+Dal punto di vista dell'Hardware, la soluzione consiste nell'utilizzo di un giroscopio monoassiale posizionato sul collo del piede, con asse sensibile orientato nella direzione mediale-laterale, racchiuso in un'unità di misura inerziale (IMU) progettata su misura per il lavoro.\\
+
+Dal punto di vista software, la soluzione consiste nella creazione di un'applicazione per Smartphone Android che funzioni da stazione di controllo della IMU e che implementi il modello addestrato e sia in grado di segmentare in linea e visualizzarne i risultati.
+
+\section{[SLIDE 5] Valutazione della soluzione}
+La valutazione del funzionamento del sistema è stata fatta confrontando la velocità di deambulazione stimata dalla segmentazione e la velocità di deambulazione misurata mediante un sistema GPS integrato nello Smartphone utilizzato. \\
+L'obbiettivo di tale valutazione è quello di avere una generica prova di funzionamento complessivo del sistema. 
+
+\chapter{Stato dell'arte}
+\section{[SLIDE 6] Parametri della deambulazione}
+L'interesse del lavoro verte su 4 parametri temporali della deambulazione. Questi corrispondono ai 4 eventi che scandiscono la fase d'appoggio a terra del piede come studiato dalla Chinesiologia (che si occupa del movimento del corpo dal punto di vista biomeccanico).
+\begin{enumerate}
+	\item Heel Strike: impatto del tallone
+	\item Foot Flat: appoggio plantare
+	\item Heel Off: distacco del tallone
+	\item Toe Off: distacco dell'alluce, che corrisponde a quello del piede
+\end{enumerate} 
+Due parametri fondamentali per la verifica di validità del lavoro sono la velocità e la cadenza di deambulazione. 
+
+\section{[SLIDE 7] Stima dei parametri della deambulazione}
+I pilastri su cui si basa il lavoro sono studi che dimostrano che i sensori inerziali possono essere utilizzati per la segmentazione della deambulazione. Il lavoro che si avvicina più a questo è l'ultimo in cui viene utilizzata un'HMM per la segmentazione del galoppo equino. 
+
+\chapter{Lavoro svolto}
+
+\section{Parte I. Modellazione della deambulazione}
+
+\subsection{[SLIDE 8] Raccolta e modellazione dei dati}
+I dati di deambulazione sono stati raccolti in laboratorio 
+facendo camminare a diverse velocità 
+6 soggetti di diverse età e costituzione fisica,
+su un tappeto rullante con la IMU posizionata sul collo del piede.\\ 
+
+Il grafico a sinistra mostra la morfologia del segnale giroscopico di un singolo ciclo di deambulazione 
+di tutte le prove fatte, normalizzate sul tempo. Questo mostra che la struttura del segnale è sempre la stessa.\\
+Il grafico sulla destra mostra la morfologia del segnale su più cicli di deambulazione di una singola prova. Questo mostra la periodicità del segnale.
+
+\subsection{[SLIDE 9] HMM per la segmentazione: definizione di un'HMM}
+Il modello usato, le Hidden Markov Model può essere illustrate come 2 processi stocastici di cui uno è nascosto e l'altro visibile. Una HMM è caratterizzata da:
+
+\begin{enumerate}
+	\item N stati nascosti 
+	\item Un alfabeto di elementi visibili  di cardinalità M
+	\item Una matrice di probabilità di transizione tra gli N stati
+	\item Una matrice di probabilità di emissione degli elementi dell'alfabeto da ciascuno stato
+  \item Un vettore di probabilità di iniziare la il processo da uno stato
+\end{enumerate}
+
+Le due figure mostrano 
+una in cui si vedono la struttura della HMM 
+una che ne mostra l'evoluzione temporale
+
+\subsection{[SLIDE 10] HMM per la segmentazione: definizione dell'HMM usata}
+La HMM utilizzata nel lavoro è stata pensata per minimizzare il numero di parametri:
+\begin{itemize}
+	\item 4 stati, uno per fase di deambulazione scelta
+	\item Modello sinistra-destra ciclico, in quanto è stato assunta una deambulazione normale in cui non ci sono salti di fasi e la maggior parte delle transizioni sono le auto transizioni
+	\item è stata assunta una distribuzione normale monovariata delle emissioni 
+\end{itemize}
+
+\subsection{[SLIDE 11] Addestramento e validazione del modello (1/2): addestramento}
+L'addestramento del modello, ovvero il processo di ottimizzazione dei parametri della HMM, è stato fatto con un applicazione dell'apprendimento supervisionato.\\
+Il \textit{traning set} (insieme di dati di addestramento ovvero i valori giroscopici raccolti), sono stati etichettati con la fase corrispondente della deambulazione. Questo è stato fatto mediante un sistema stereofotogrammetrico.\\
+I parametri sono stati valutati con le seguenti formule.
+
+\subsection{[SLIDE 12] Addestramento e validazione del modello (2/2): validazione Leave One Out Cross Validation}
+La validazione dell'addestramento, ovvero la procedura di verifica della capacità di generalizzare del modello addestrato (cioè la capacitò del modello di segmentare la deambulazione su soggetti sui quali non è stato addestrato), 
+è stata fatta con il metodo della validazione incrociata in cui sono stati 6 modelli sono stati addestrati ciascuno su 5 soggetti e verificati su 1, a turno per tutti i soggetti.
+
+
+\subsection{[SLIDE 13] Segmentazione: algoritmo di Viterbi}
+Dato un modello ed una sequenza di osservazioni, l'algoritmo di Viterbi serve a trovare la sequenza più probabile di stati che ha generato le osservazioni. Tale procedura è nota come decodifica.\\
+L'algoritmo lavora in due fasi:
+\begin{enumerate}
+	\item Fase in avanti in cui vengono calcolate le sequenze parziali (per ogni unità di tempo) di stati più probabili
+	\item Fase all'indietro (\textit{backtracking}) che individua la sequenza di stati più probabile
+\end{enumerate} 
+
+Il problema dell'algoritmo di Viterbi classico è che lavora in differita\\
+La soluzione è data da una modifica dell'algoritmo di Bloit e Rodet del 2008 (Short-time Viterbi)\\
+Questo trova le sequenze di stati più probabili applicando l'algoritmo di viterbi a piccole porzioni di dati, invece di attendere la terminazione del flusso di dati. \\
+L'algoritmo funziona nel seguente modo:
+\begin{enumerate}
+	\item Viene creata una finestra temporale di dati che comprende il primo ed il secondo dato
+	\item Viene applicato il viterbi
+	\item se le sequenze di stati trovate, con il \textit{backtracking} da ciascuno stato, coincide allora è stata trovata la sequenza di stati ottimale (ho la segmentazione per quella porzione di dati). In questo caso sposto la finestra in avanti in modo da iniziare dal primo dato non segmentato
+	\item se le sequenze sono diverse, la finestra viene allargata di un dato e l'algoritmo ricomincia da (2)
+\end{enumerate}
+
+\section{Parte II. Applicazione Android}
+
+\subsection{[SLIDE 14] Architettura dell'applicazione}
+L'applicazione Android sviluppata permette all'utente di 
+controllare la IMU, ovvero di impostare i parametri di acquisizione del giroscopio 
+di ricevere i dati dallo stesso mediante un canale Bluetooth 
+di fare la segmentazione con il modello addestrato in differita 
+ed infine permette di visualizzare la segmentazione in linea colorando le fasi della deambulazione sul segnale giroscopico.
+
+\subsection{[SLIDE 15] Interfaccia Utente}
+L'interfaccia utente (UI) è stata pensata per essere minimale. 
+A partire da sinistra, si ha la schermata iniziale che rappresenta il pannello di controllo del sistema. 
+In centro una schermata di impostazioni dei parametri dei sensori,
+a destra una schermata del tempo di acquisizione di dati da giroscopio
+in basso una schermata della segmentazione.\\
+Il paradigma di programmazione scelto da Android per la UI è quello ad eventi.
+Entrando nel merito dell'implementazione della UI, ogni schermata deve estendere la classe Activity del package android.app. che forza la gestione di eventi che rappresentano il ciclo di vita della Activity stessa.
+
+\subsection{[SLIDE 16] Gestione Processi}
+
+\subsection{[SLIDE 17] Modello e segmentazione in linea}
+
+\section{[SLIDE 18] Parte III. Valutazione delle prestazioni del sistema}
+La valutazione del funzionamento del sistema è stata fatta in due tappe:\\
+In laboratorio è stata fatta la segmentazione della deambulazione a diverse velocità. 
+Quindi è stata calcolata la cadenza alle varie velocità come il numero di cicli di deambulazione al secondo. 
+Poi è stata cercata una relazione fra la velocità e cadenza mediante una regressione lineare \\
+All'aperto è stata fatta la segmentazione e da qui calcolata la cadenza. Con l'uso della relazione tra cadenza e velocità ottenuta in laboratorio è stata calcolata la velocità di deambulazione all'esterno.
+Allo stesso tempo la velocità è stata misurata mediante il dispositivo GPS dello Smartphone. I due valori di velocità sono stati confrontati.
+Le due velocità sono state integrate sull'intervallo di tempo per ottenere la distanza percorsa ed i rispettivi risultati sono stati confrontati.
+
+\chapter{Risultati}
+\section{[SLIDE 19] Stima della velocità}
+Nei grafico a sinistra la traccia blu rappresenta la velocità stimata con il sistema inerziale, mentre quella rossa quella data dal GPS. 
+Il secondo è un grafico a dispersione (scatter plot) in cui si vede quanto i due gruppi di valori combaciano. 
+L'errore quadratico medio calcolato è di $0.38\,Km/h$. \\
+La velocità stimata con il sistema inerziale non commette errori sistematici rispetto alla stima del GPS. 
+
+\section{[SLIDE 20] Stima della distanza}
+Per quanto riguarda le distanze calcolate si vede una situazione simile ai risultati sulle velocità. 
+Su circa 100m l'errore è di 5m, il che è confrontabile con la precisione del GPS. 
+Bisogna tenere conto che gli errori fatti sulla velocità vengono immessi nel calcolo della distanza. 
+\chapter{[SLIDE 21] Conclusioni}
+Si può concludere che il lavoro ha raggiunto i suoi obbiettivi per quanto riguarda la realizzazione di un sistema di segmentazione della deambulazione con una buona capacità di generalizzazione ed un apparato Hardware minimale, quindi indossabile e portatile. \\
+Anche se inizialmente non è stata pensata un'applicazione del sistema, un suo uso immediato potrebbe essere quello di rivelare problemi di deambulazione, nel momento in cui la segmentazione non avviene correttamente.\\
+Gli sviluppi futuri del lavoro (questo a partire da domani) comprendono una sperimentazione su scala maggiore. 
+Uno sviluppo dal punto di vista logico invece è quello di estendere il sistema per poter riconoscere semplici attività come sedersi, alzarsi o salire dei gradini.
+\end{document}
+
