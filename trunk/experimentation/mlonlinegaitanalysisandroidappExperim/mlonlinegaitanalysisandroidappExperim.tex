@@ -1,0 +1,129 @@
+%% Based on a TeXnicCenter-Template by Tino Weinkauf.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% HEADER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper,twoside,10pt]{report}
+
+\usepackage[USenglish]{babel} %francais, polish, spanish, ...
+\usepackage[T1]{fontenc}
+\usepackage[ansinew]{inputenc}
+
+\usepackage{lmodern} %Type1-font for non-english texts and characters
+
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	ignoremp,
+	bindingoffset = 1.5cm, 
+	textwidth     = 12cm,
+	textheight    = 20cm,
+	lmargin       = 2cm, % left margin
+	rmargin       = 2cm, % left margin
+	tmargin       = 2cm,    % top margin 
+	bmargin 			= 3.5cm
+}
+
+
+\def\tm{\leavevmode\hbox{$\rm {}^{TM}$}}
+
+\begin{document}
+
+\pagestyle{empty} %No headings for the first pages.
+
+
+%% Title Page %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ==> Write your text here or include other files.
+
+
+\title{Machine Learning Methods for online Gait Analysis:\\
+Developement and Validation of a Smartphone Application.\\ 
+Experimental Validation Procedure}
+
+\author{Andrea Mannini, Ahadu Tsegaye}
+
+\maketitle
+
+%\tableofcontents 
+%\cleardoublepage 
+
+\pagestyle{plain}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{chapter}{}
+\section{First trial}
+We wrapped the IMU on a shoe and went out in the proximity of the laboratory to test if there were problems of any kind. 
+We saved the gyroscopic data locally (i.e. on the IMU) by setting an acquisition time of $400\,s$. We used Andrea's Smartphone with a metronome app to set a cadence. We walked for about $500\,m$ and back for about $300\,m$, for a total of about $800\,m$.  We tried to import the data on the IMU to the Smartphone, but then interrupted the procedure, because it was too slow. We imported the data from the IMU to a computer with the WIMU Interface software (written in Visual Basic). We had also acquired GPS data, which we transfered via \textit{DorpBox\tm} to Andrea's laptop.\\
+We needed a computer to download the WIMU and GPS data, so we installed the WIMU Interface software on a \textit{Dell Latitude E6500} laptop. Since the bluetooth device was not working we used a Bluetooth USB key. \\
+\textbf{Bluetooth USB configuration Procedure}\\
+\begin{enumerate}
+  \item Activate physical radio button (WiFi and Bluetooth)
+	\item Insert Bluetooth USB key
+	\item go to Control Panel > Bluetooth Device
+	\item Follow instructions
+	\item Once connection is obtained, go to Control Panel > Devices > COM 
+	\item change to COM 2
+\end{enumerate}
+
+At this point we could see the IMU from the laptop 
+ 
+
+\section{At the stadium}
+The WIMU was tied up to a running shoe using the laces of the shoe. \\
+We took two Smartphones, one with the app, the other for the metronome. \\
+
+\subsection{Settings} 
+\begin{enumerate}
+	\item Set sensors: 
+		\begin{enumerate}
+			\item Gyro frequency  $=\, 100\,Hz$
+			\item Acc Bandwidth  $=\, 20\, HZ$
+			\item Acc Background $=\, 8\,g$
+		\end{enumerate}
+	\item Start IMU data logging on Smartphone 1 for time given in tables \ref{tab:FirstDataAcquisitionParameters}, \ref{tab:SecondDataAcquisitionParameters}
+	\item Start GPS data logging on Smartphone 1
+	\item Set metronome freq on Smartphone 2 with cadence given in tables \ref{tab:FirstDataAcquisitionParameters}, \ref{tab:SecondDataAcquisitionParameters}
+\end{enumerate}
+
+\begin{table}[h]
+	\centering
+		\begin{tabular}{|l|l|}
+		  \hline
+			\textbf{Cadence} & $100\,bps$\\
+			\hline
+			\textbf{Time} & $420\,s$\\
+			\hline
+		\end{tabular}
+	\caption{First data acquisition parameters}
+	\label{tab:FirstDataAcquisitionParameters}
+\end{table}
+
+\begin{table}[h]
+	\centering
+		\begin{tabular}{|l|l|}
+		  \hline
+			\textbf{Cadence} & $120\,bps$\\
+			\hline
+			\textbf{Time} & $600\,s$\\
+			\hline
+		\end{tabular}
+	\caption{Second data acquisition parameters}
+	\label{tab:SecondDataAcquisitionParameters}
+\end{table}
+
+\subsection{Acquisition Procedure}
+Before starting the subject with the WIMU jumped to mark the gyro signal. 
+Once set we walked around the running field on the innermost track for $400\,m$. One with the WIMU laced, the other holding the Smartphones. 
+
+\end{document}
+
