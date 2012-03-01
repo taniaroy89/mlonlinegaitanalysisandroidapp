@@ -78,7 +78,9 @@ We needed a computer to download the WIMU and GPS data, so we installed the WIMU
 At this point we could see the IMU from the laptop 
  
 
-\section{At the stadium}
+
+
+\section{DAY 1}
 The WIMU was tied up to a running shoe using the laces of the shoe. \\
 We took two Smartphones, one with the app, the other for the metronome. \\
 
@@ -123,7 +125,71 @@ We took two Smartphones, one with the app, the other for the metronome. \\
 
 \subsection{Acquisition Procedure}
 Before starting the subject with the WIMU jumped to mark the gyro signal. 
-Once set we walked around the running field on the innermost track for $400\,m$. One with the WIMU laced, the other holding the Smartphones. 
+Once set we walked around the running field on the innermost track for $400\,m$. One with the WIMU laced, the other holding the Smartphones.\\ 
+Every $100\,m$ a GPS way point was indicated to sub segment single subject data in 4 parts. 
+
+\section{DAY 2}
+The software was changed to get the data logging start time (so that the subject did not have to jump to indicate the start of the experiment). The gyroscope frequency was set to $100\,Hz$ by default.\\
+The WIMU was laced to a second subject, and 4 walking sessions were performed. Each time 4 files were saved: 
+
+\begin{enumerate}
+	\item Data logging time start: [size = 1] 
+	\item GPS out: [size = 8 X 318] contains (longitude, latitude,,,,) every $100\,s$
+	\item Way point: [size = 2 X 5] contains (longitude, latitude) every $100\,m$
+	\item WIMU out: [size = 9 X 40000] (named $place\_SubjectCadence$ eg. $Stadio\_Andrea120$)
+\end{enumerate}
+
+\begin{table}[h]
+	\centering
+		\begin{tabular}{|l|l|}
+		  \hline
+			\textbf{Cadence} & $120\,bps$\\
+			\hline
+			\textbf{Time} & $400\,s$\\
+			\hline
+		\end{tabular}
+	\caption{First data acquisition parameters}
+	\label{tab:FirstDataAcquisitionParametersAndrea}
+\end{table}
+
+\begin{table}[h]
+	\centering
+		\begin{tabular}{|l|l|}
+		  \hline
+			\textbf{Cadence} & $110\,bps$\\
+			\hline
+			\textbf{Time} & $400\,s$\\
+			\hline
+		\end{tabular}
+	\caption{Second data acquisition parameters}
+	\label{tab:SecondDataAcquisitionParametersAndrea}
+\end{table}
+
+\begin{table}[h]
+	\centering
+		\begin{tabular}{|l|l|}
+		  \hline
+			\textbf{Cadence} & $100\,bps$\\
+			\hline
+			\textbf{Time} & $500\,s$\\
+			\hline
+		\end{tabular}
+	\caption{Third data acquisition parameters}
+	\label{tab:ThirdDataAcquisitionParametersAndrea}
+\end{table}
+
+\begin{table}[h]
+	\centering
+		\begin{tabular}{|l|l|}
+		  \hline
+			\textbf{Cadence} & $90\,bps$\\
+			\hline
+			\textbf{Time} & $550\,s$\\
+			\hline
+		\end{tabular}
+	\caption{Forth data acquisition parameters}
+	\label{tab:ForthDataAcquisitionParametersAndrea}
+\end{table}
 
 \end{document}
 
