@@ -124,9 +124,27 @@ We took two Smartphones, one with the app, the other for the metronome. \\
 \end{table}
 
 \subsection{Acquisition Procedure}
-Before starting the subject with the WIMU jumped to mark the gyro signal. 
+A few meters before the starting line the following was done:
+\begin{enumerate}
+	\item start WIMU App on Smartphone 1
+	\item Sensor setup ($20\,Hz$, $8\,g$, $20\,Hz$)
+	\item From Menu, associate WIMU bluetooth socket
+	\item Start
+	\item Start Oscilloscope mode and move IMU mounted foot to verify that the connection has been established, then go back
+	\item Start Save mode and set data logging time to on of the values [$400\,s$, $450\,s$, $500\,s$], then go back
+	\item From Menu, choose Altro >> GPS map
+	\item Wait for the GPS signal (beep sound)
+	\item From Menu, choose File > save
+	\item Start metronome at a frequency of the values [$120\,bps$, $110\,bps$, $100\,bps$, $90\,bps$]
+	\item Start walking with cadence indicated by the metronome as naturally as possible
+	\item Every $100\,m$ press on the WayPoint button
+\end{enumerate}
+
+Before starting, the subject with the WIMU jumped to mark the gyro signal. 
 Once set we walked around the running field on the innermost track for $400\,m$. One with the WIMU laced, the other holding the Smartphones.\\ 
 Every $100\,m$ a GPS way point was indicated to sub segment single subject data in 4 parts. 
+
+
 
 \section{DAY 2}
 The software was changed to get the data logging start time (so that the subject did not have to jump to indicate the start of the experiment). The gyroscope frequency was set to $100\,Hz$ by default.\\
@@ -191,5 +209,7 @@ The WIMU was laced to a second subject, and 4 walking sessions were performed. E
 	\label{tab:ForthDataAcquisitionParametersAndrea}
 \end{table}
 
+\section{DAY 3}
+The same procedure was followed on a third subject.
 \end{document}
 
