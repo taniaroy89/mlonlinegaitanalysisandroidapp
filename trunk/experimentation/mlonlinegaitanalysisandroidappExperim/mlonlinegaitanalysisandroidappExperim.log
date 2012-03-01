@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.9.14)  28 FEB 2012 08:49
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.9.14)  29 FEB 2012 11:04
 entering extended mode
 **D:/Ahadu/tesi/mlonlinegaitanalysisandroidapp/experimentation/mlonlinegaitanal
 ysisandroidappExperim/mlonlinegaitanalysisandroidappExperim.tex
@@ -366,19 +366,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 65--69
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 82--84
+Underfull \hbox (badness 10000) in paragraph at lines 84--86
 
  []
 
-[2] [3]
+[2]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[3] [4]
 (D:\Ahadu\tesi\mlonlinegaitanalysisandroidapp\experimentation\mlonlinegaitanaly
 sisandroidappExperim\mlonlinegaitanalysisandroidappExperim.aux) ) 
 Here is how much of TeX's memory you used:
- 3076 strings out of 495296
- 40432 string characters out of 3181191
- 103672 words of memory out of 3000000
- 6208 multiletter control sequences out of 15000+200000
- 53951 words of font info for 54 fonts, out of 3000000 for 9000
+ 3084 strings out of 495296
+ 40639 string characters out of 3181191
+ 103704 words of memory out of 3000000
+ 6214 multiletter control sequences out of 15000+200000
+ 59924 words of font info for 56 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  27i,8n,22p,738b,210s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Programmi/
@@ -390,10 +394,10 @@ mmi10.pfb><C:/Programmi/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Programm
 i/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Programmi/MiKTeX 2.9/fonts/typ
 e1/public/lm/lmr17.pfb><C:/Programmi/MiKTeX 2.9/fonts/type1/public/lm/lmr7.pfb>
 <C:/Programmi/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb>
-Output written on mlonlinegaitanalysisandroidappExperim.pdf (3 pages, 182009 by
+Output written on mlonlinegaitanalysisandroidappExperim.pdf (4 pages, 188140 by
 tes).
 PDF statistics:
- 49 PDF objects out of 1000 (max. 8388607)
+ 52 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
